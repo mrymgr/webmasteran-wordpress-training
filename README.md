@@ -17,12 +17,9 @@ Files of this section contains of:
 2. Links to see this training in [wpwebmaster site](https://wpwebmaster.ir)
 
 
-### Using FTP
-
 
 ## License
-
-I will fill out this part in the future. 
+> You can use this materials for free.
 
 ## ChangeLog
 
