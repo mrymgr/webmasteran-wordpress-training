@@ -1,0 +1,166 @@
+@charset "utf-8";
+
+
+
+html {
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+   height: 100%;
+   font-size: 18px;
+   color: rgb(101, 101, 101);
+}
+
+body {
+   padding: 20px 0px 0px 20px;
+   position: relative;
+}
+
+h1 {
+   font-weight: normal;
+   font-size: 2.4em;
+   margin-top: 5px;
+   margin-left: 20px;
+   padding-bottom: 30px;
+}
+
+
+h2 {
+	font-weight: normal;
+	text-align: left;
+	margin: 20px 0px;
+}
+
+div#matrices {
+	margin-left: 20px;
+}
+
+table {
+	border-collapse: collapse;
+	position: relative; 
+	border: none; 
+	padding: 0px;	
+	float: left;
+}
+
+
+table.matrix td {
+	padding: 0px;
+}
+
+table.matrix:before, table.matrix:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    border: 2px solid #000;
+    width: 5px;
+    height: 100%;
+}
+
+table.matrix:before {
+    left: -10px;
+    border-right: 0;
+}
+
+table.matrix:after {
+    right: -10px;
+    border-left: 0;
+}
+
+table.matrixsample {
+	font-family: serif;
+	font-size: 1em;
+	font-weight: normal;
+}
+
+table.matrixsample td {
+	height: 60px;	
+	width: 60px;
+	text-align: center;
+	vertical-align: center;
+	padding: 0px;
+}
+
+table.matrixsample td input {
+	border: none;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-size: 0.9em;
+	color: rgb(101, 101, 101);
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif"
+	
+}
+
+table.matrixsample td input:not([readonly]):hover {
+	background-color: hsla(220,68%,60%,0.20);
+	cursor: pointer;	
+}
+
+table.msymbol {
+	float: left;
+	width: 20px;
+	height: 180px;
+	margin: 0px 25px;
+}
+
+table.msymbol td {
+	text-align: center;
+	vertical-align: middle;
+	font-size: 1.8em;
+	
+}
+
+table#summary {
+	float: left;
+	margin-left: 30px;
+	visibility: hidden;
+}
+
+table#summary td {
+	text-align: right;
+	width: 40px;
+	padding: 5px;
+	height: 45px;
+	vertical-align: center;
+}
+
+table#summary td.sym {
+	text-align: center;
+}
+
+table#summary tr:nth-of-type(3) td {
+	border-bottom: 2px solid rgb(151, 151, 151);
+	padding-bottom: 3px;
+}
+
+table#summary tr:last-of-type td:first-of-type {
+	padding-top: 3px;
+	background-color: transparent;
+}
+
+table#summary tr:last-of-type td:last-of-type {
+	padding-top: 3px;
+	background-color: hsl(120, 70%, 85%);
+}
+
+table#summary tr td:first-of-type {
+	background-color:hsl(60,70%,85%);
+}
+
+table#summary tr td:nth-of-type(3) {
+	background-color: hsl(190,70%,85%);
+}
+
+div#controls {
+	clear: left;
+	padding: 20px 0px 20px 270px;
+}
+
+div#controls input {
+	display: inline-block;
+	margin-right: 25px;
+	height: 30px;
+	width: 80px;
+	cursor: pointer;
+	font-size: 1.2em;
+}
+

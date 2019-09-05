@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+   <meta charset="utf-8" />
+   <title>CSS Perspective Origin</title>
+   <link href="persporigin_base.css" rel="stylesheet" />
+   <link href="persporigin_layout.css" rel="stylesheet" />
+   <script src="persporigin_demo.js" async></script>
+</head>
+
+<body>
+    
+   <h1>CSS Perspective Origin</h1>
+   <div id="3dOptions">
+	   <div id="innerTrans">
+			<h2>Inner Objects</h2>	   
+		   <label for="xdeg">Rotate x-axis</label> -360deg <input type="range" name="rotatex2" id="rotatex" value="0" min="-360" max="360" step="2"/> 360deg<br />
+		   <label for="ydeg">Rotate y-axis</label> -360deg <input type="range" name="rotatey2" id="rotatey" value="0" min="-360" max="360" step="2"/> 360deg<br />
+		   <label for="zdeg">Rotate z-axis</label> -360deg <input type="range" name="rotatez2" id="rotatez" value="0" min="-360" max="360" step="2" /> 360deg<br /><br />
+		   <label for="tz">Translate z-axis</label> -2000px <input type="range" name="tz" id="tz" value="0" min="-2000" max="200" step="50" /> 200px		   
+	   </div>
+	   
+	   <div style="margin-top: 20px; border-top: 1px solid rgb(155, 155, 155); width: 550px"> 
+		   <label for="perspective">perspective: </label> 300px <input type="range" name="perspective" id="perspective" value="400" min="300" max="1500" step="100"/> 1500px 
+		   <br />  
+		   
+		   <label>applied to: </label><label class="tinyLabel2" for="useCont">container</label> <input type="radio" name="papplied" id="useCont" value="cont" /> <label class="tinyLabel2" for="useImgs">images</label> <input type="radio" name="papplied" id="useImgs" value="imsg" checked /><br />
+		   
+	  <div style="border-bottom: 1px solid rgb(155, 155, 155)">
+			<label>perspective-origin</label><input type="radio" name="posType" id="posKey" checked />   
+			<select id="hKeyword">
+				<option value="left">left</option>            
+				<option selected value="center">center</option>  
+				<option value="right">right</option>                         
+			</select> 
+			<select id="vKeyword">
+				<option value="top">top</option>            
+				<option selected value="center">center</option>  
+				<option value="bottom">bottom</option>                         
+			</select><br />
+			<label></label><input type="radio" name="posType" id="posP" />  
+			0% <input id="hPos" type="range" min="0" max="100" step="1" value="50" /> 100%<br /> 
+			<label></label><span style="display: inline-block; width: 25px"></span>0% <input id="vPos" type="range" min="0" max="100" step="1" value="50" /> 100%
+	   </div>		   
+	   </div>
+	   <div id="outerp">
+		   <p>div#container {</p>
+		   <p id="containerPP">perspective: <span id="pvalue">1200px</span>;</p>
+		   <p id="containerPOP">perspective-origin: <span id="contorigin">center center</span>;</p>
+		   <p>}</p>
+	   </div>
+	   <div id="innerp">
+		   <p>div#container img {</p>
+		   <p>transform: <span id="imgTranscode">perspective(1200px) translateZ (0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)</span>;</p>
+		   <p id="imagePOP">perspective-origin: <span id="imgorigin">center center</span>;</p>		   
+		   <p>}</p>			   
+	   </div>
+ 
+	   <input type="button" value="reset" id="resetButton" />
+   </div>
+   
+     
+   <div id="outcome">
+	  <div id="container">
+		<img src="crosshair.png" id="crosshair" alt="" />
+		<img class="figs3d" src="piazzetta.png" alt="" style="transform: translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);"/>
+		<img class="figs3d" src="piazzetta.png" alt="" style="transform: translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);"/>
+		<img class="figs3d" src="piazzetta.png" alt="" style="transform: translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);"/>	
+		<img class="figs3d" src="piazzetta.png" alt="" style="transform: translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);"/>
+		<img class="figs3d" src="piazzetta.png" alt="" style="transform: translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);"/>
+		<img class="figs3d" src="piazzetta.png" alt="" style="transform: translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);"/>		
+		<img class="figs3d" src="piazzetta.png" alt="" style="transform: translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);"/>
+		<img class="figs3d" src="piazzetta.png" alt="" style="transform: translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);"/>
+		<img class="figs3d" src="piazzetta.png" alt="" style="transform: translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);"/>		  
+	   </div>	   
+   </div>   
+
+</body>
+</html>

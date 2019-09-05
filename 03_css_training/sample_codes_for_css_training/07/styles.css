@@ -1,0 +1,204 @@
+@charset "utf-8";
+
+/* HTML and Body styles */
+
+html {
+   background: white;
+   font-family: Verdana, Geneva, sans-serif;
+}
+
+body {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row wrap;
+   flex-flow: row wrap;    
+   margin: 0px auto;
+   min-width: 320px;
+   max-width: 1100px;  
+   padding: 10px;
+   width: 100%;
+}
+
+/* Header styles */
+
+body > header {
+   border-bottom: 10px solid rgb(200, 118, 0);
+   color: white;
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row wrap;
+   flex-flow: row wrap; 
+   -webkit-align-items: flex-end;
+   align-items: flex-end; 
+   margin-bottom: 0px;
+   width: 100%;
+}
+
+body > header > img {
+   display: block;
+   -webkit-flex: 0 1 200px;
+   flex: 0 1 200px;
+}
+
+
+/* Navigation list styles */
+
+body > header > nav {
+   -webkit-flex: 1 1 441px;
+   flex: 1 1 441px;
+   margin-top: -50px;
+}
+
+body > header > nav > ul {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row nowrap;
+   flex-flow: row nowrap;
+   -webkit-justify-content: flex-end;
+   justify-content: flex-end;
+}
+
+body > header > nav > ul li {
+   -webkit-flex: 0 1 auto;
+   flex: 0 1 auto;
+}
+
+body > header > nav > ul > li {
+   font-size: 1.2em; 
+   line-height: 2.3em; 
+   height: 2.3em;
+   padding: 0px 10px;
+}
+
+body > header > nav > ul > li > a {
+   color: white;
+   display: block;
+   width: 100%;
+}
+
+
+/* Section Styles */
+
+body > section {
+   -webkit-flex: 1 1 400px;
+   flex: 1 1 400px;
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row wrap;
+   flex-flow: row wrap;
+   -webkit-align-content: flex-start;
+   align-content: flex-start;   
+}
+
+/* Article Styles */
+
+
+
+
+
+body > section > article > h1 {
+   color: rgba(51, 51, 51, 0.9);   
+   font-size: 2.9em;
+   font-family:Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+   line-height: 1em;
+   margin-top: 30px;
+}
+
+p {
+   color: rgb(51, 51, 51);
+   font-size: 1.4em;
+   margin: 10px 20px 20px 0px;
+   line-height: 1.4em;
+   font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif"
+}
+
+
+
+/* Right-side Navigation List Styles */
+
+body > nav {
+   border-left: 1px solid rgba(51, 51, 51, 0.4);   
+   -webkit-flex: 0 0 241px;
+   flex: 0 0 241px;
+   padding-bottom: 15px;
+   background: url(csb_back.png);
+}
+
+body > nav > img {
+   display: block;
+   width: 100%;
+   margin: 0px auto;
+}
+
+body > nav li.lTitle {
+   font-size: 1.1em;
+   color: rgba(51, 51, 51, 0.8);
+   margin: 15px 0px 10px 20px;
+}
+
+body > nav a {
+   display: block;
+   margin-left: 30px;
+   color: rgba(51, 51, 51, 0.7);
+}
+
+body > nav a:hover {
+   color: rgb(137, 81, 0);
+   text-decoration: underline;
+}
+
+/* Figure Gallery Styles */
+
+div#flexGallery {
+	position: relative;
+	width: 320px;
+	height: 320px;
+}
+
+figure:nth-of-type(1) {top: 0px; left: 0px;}
+figure:nth-of-type(2) {top: 0px; left: 105px;}
+figure:nth-of-type(3) {top: 0px; left: 210px;}
+figure:nth-of-type(4) {top: 105px; left: 0px;}
+figure:nth-of-type(5) {top: 105px; left: 105px;}
+figure:nth-of-type(6) {top: 105px; left: 210px;}
+figure:nth-of-type(7) {top: 210px; left: 0px;}
+figure:nth-of-type(8) {top: 210px; left: 105px;}
+figure:nth-of-type(9) {top: 210px; left: 210px;}
+
+figure img {
+	display: block;
+	width: 100%;
+}
+
+figure {
+	position: absolute;;
+	cursor: pointer;	
+}
+
+figure figcaption {
+	font-family: "Times New Roman", "serif";
+	text-align: center;
+}
+
+
+/* Footer Styles */
+
+footer {
+   border-top: 1px solid rgba(51, 51, 51, 0.4);
+   clear: left;
+   text-align: right;
+   width: 100%;
+}
+
+footer, footer span a {
+   padding: 10px;
+   color: rgba(51, 51, 51, 0.7);
+}
+
+footer span a:hover {
+   color: rgb(0, 167, 167);
+   text-decoration: underline;
+}
+
+
+

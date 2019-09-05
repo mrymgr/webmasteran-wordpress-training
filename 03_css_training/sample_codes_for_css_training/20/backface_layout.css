@@ -1,0 +1,223 @@
+@charset "utf-8";
+
+
+
+html {
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+   height: 100%;
+   font-size: 18px;
+   color: rgb(101, 101, 101);
+}
+
+body {
+   padding: 20px 0px 0px 20px;
+   position: relative;
+}
+
+h1 {
+   font-weight: normal;
+   font-size: 2.4em;
+   margin-top: 5px;
+   margin-left: 0px;
+   padding-bottom: 5px;
+}
+
+h2 {
+   font-weight: normal;
+   font-size: 1.3em;
+   margin: 10px 0px 2px 0px;
+}
+
+p {
+	width: 700px;
+}
+
+div#3dOptions {
+   line-height: 2em;
+   z-index: 1;
+   width: 685px;
+   background-color: rgba(255, 255, 255, 0.8);
+   border-right: 1px solid rgb(155, 155, 155);
+}
+
+label {
+	display: inline-block;
+	width: 150px;
+	margin-right: 5px;
+}
+
+
+input#insertFront, input#insertBack {
+	margin: 10px 10px 10px 0px;
+	height: 35px;
+	width: 150px;
+}
+
+div#setupCard {
+	border-bottom: 1px solid rgb(180, 180, 180);
+	width: 685px;
+}
+
+input#useBackface {
+	margin-bottom: 10px;
+}
+
+div#innerTrans {
+	width: 685px;
+	border-bottom: 1px solid rgb(180, 180, 180);
+	padding-bottom: 10px;
+}
+
+div#htmlCode, div#cssCode {
+	padding-bottom: 5px;
+	float: left;
+	margin-left: 10px;
+}
+
+div#htmlCode {
+	width: 265px;
+}
+div#cssCode {
+	width: 380px;
+	border-right: 1px solid rgb(180, 180, 180);
+	border-left: 1px solid rgb(180, 180, 180);	
+	padding-left: 17px;
+}
+
+
+div#frontCodeStart, div#backCodeStart, div#frontCSS, div#backCSS, div#showBackBackface, div#showFrontBackface {
+	display: none;
+}
+
+div#containerCSS, div#cardCSS, div#frontCSS, div#backCSS {
+	margin-bottom: 5px;
+}
+
+
+
+div#container {
+	position: absolute;
+	top: 180px;
+	left: 755px;
+	width: 225px;
+	height: 326.25px;
+	perspective: 1500px;
+}
+
+div#card {
+	position: relative;
+	width: 225px;
+	height: 326.25px;
+	transform-style: preserve-3d;
+	outline: 3px solid rgb(150, 150, 150);	
+}
+
+img#front, div#back {
+	display: block;
+	position: absolute;
+	width: 225px;
+	height: 326.25px;
+	outline: 3px solid rgb(150, 150, 150);
+	position: absolute;
+}
+
+img#front {
+	z-index: 2;
+	top: -600px;
+	left: 200px;
+}
+
+div#back {
+	transform: rotateY(0deg);
+	top: -600px;
+	left: 200px;	
+	z-index: 1;
+}
+
+div#back h1 {
+	font-weight: bold;
+	font-size: 1em;
+	width: 225px;
+	margin: 5px 2px 2px 2px;
+	text-align: center;
+	line-height: 0.9em;
+	border-bottom: 1px solid rgb(110, 110, 110);	
+}
+
+
+div#back p {
+	font-size: 0.61em;
+	width: 210px;
+	margin: 5px auto;
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";	
+}
+
+div#back foot {
+	position: absolute;
+	bottom: 5px;
+	width: 225px;
+	font-size: 0.4em;
+	line-height: 2em;
+	text-align: center;
+	font-style: italic;
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+	border-top: 1px solid rgb(110, 110, 110);
+}
+
+
+/* Animation */
+
+@keyframes highlightMe {
+	0% {
+		color: rgb(255, 0, 0);
+	}
+	99% {
+		color: rgb(255, 0, 0);
+	}	
+	100% {
+		color: rgb(101, 101, 101);
+	}	
+}
+
+@keyframes moveFront {
+	0% {
+		top: -400px;
+		left: 250px;
+		transform: scale(0, 0);
+	}
+	100% {
+		top: 0px;
+		left: 0px;
+		transform: scale(1, 1);
+	}
+}
+
+@keyframes moveBack {
+	0% {
+		top: -400px;
+		left: 250px;
+		transform: scale(0, 0) rotateY(0deg);
+	}
+	50% {
+		top: -200px;
+		left: 125px;
+		transform: scale(0.7, 0.7) rotateY(0deg);
+	}
+	
+	70% {
+		top: -200px;
+		left: 125px;		
+		transform: scale(0.7, 0.7) rotateY(180deg);
+	}
+	
+	90% {
+		top: -200px;
+		left: 125px;		
+		transform: scale(0.7, 0.7) rotateY(180deg);		
+	}
+	100% {
+		top: 0px;
+		left: 0px;
+		transform: scale(1, 1) rotateY(180deg);
+	}
+}

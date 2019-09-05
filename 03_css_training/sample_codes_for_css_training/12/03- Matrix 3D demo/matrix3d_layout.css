@@ -1,0 +1,435 @@
+@charset "utf-8";
+
+
+
+html {
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+   height: 100%;
+   font-size: 18px;
+   color: rgb(101, 101, 101);
+}
+
+body {
+   padding: 20px 0px 0px 20px;
+   position: relative;
+}
+
+h1 {
+   font-weight: normal;
+   font-size: 2.4em;
+   margin-top: 5px;
+   margin-left: 20px;
+   padding-bottom: 30px;
+}
+
+div#borderOptions {
+   line-height: 2em;
+   z-index: 1;
+   position: relative;
+   width: 740px;
+   background-color: rgba(255, 255, 255, 0.8);
+   border-right: 1px solid rgb(155, 155, 155);
+}
+
+
+
+input.eraseT {
+   display: inline-block;
+   margin-right: 10px;
+}
+
+
+
+ul#transOptions {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+}
+
+ul#transOptions li {
+	padding: 1px;
+	color: black;
+	-webkit-flex: 0 0 237px;
+	flex: 0 0 237px;
+}
+
+h2 {
+	font-weight: normal;
+	text-align: left;
+}
+ul#transOptions li h3 {
+	font-weight: normal;
+	text-align: center;
+}
+
+
+table.matrixsample {
+	font-family: serif;
+	font-size: 0.9em;
+	font-weight: normal;
+	width: 150px;
+	margin: 0px auto;
+}
+
+table.matrixsample td {
+	height: 15px;	
+	min-width: 15px;
+	line-height: 1.3em;
+	text-align: center;
+	vertical-align: center;
+	padding: 0px;
+}
+
+ul#transOptions li div {
+	width: 100%;
+	text-align: center;
+	font-size: 0.9em;
+}
+
+ul#transOptions i, ul#transOptions em {
+	font-family: serif;
+}
+
+ul#transOptions li:nth-of-type(even) {
+	background-color: hsla(123,27%,61%,0.5);
+}
+
+ul#transOptions li:nth-of-type(odd) {
+	background-color: hsla(218,25%,56%,0.5);
+}
+
+
+ul#transOptions label {
+	font-family: serif;
+	font-style: italic;
+}
+
+ul#transOptions li input[type="text"] {
+	display: inline-block;
+	width: 30px;
+}
+
+
+
+
+table {
+	border-collapse: collapse;
+	position: relative; 
+	border: none; 
+	padding: 0px;	
+}
+
+
+table.matrix td {
+	padding: 0px;
+}
+
+table.matrix:before, table.matrix:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    border: 2px solid #000;
+    width: 5px;
+    height: 100%;
+}
+
+table.matrix:before {
+    left: -10px;
+    border-right: 0;
+}
+
+table.matrix:after {
+    right: -10px;
+    border-left: 0;
+}
+
+table#matrixout {
+	margin: 10px 0px 10px 10px;
+	float: left;
+}
+
+table#matrixout td {
+	margin: 0px; padding: 0px; border: none;
+}
+
+table#matrixout input {
+	border: none;
+	width: 60px;
+	margin: 0px; 
+	height: 40px; 
+	padding: 0px; 
+	text-align: center;
+}
+
+#m11, #c0 {
+	color: black;
+	background-color: hsla(90,66%,90%,1.00);
+}
+#m21, #c1 {
+	color: black;
+	background-color: hsla(90,66%,80%,1.00);
+}
+#m31, #c2 {
+	color: black;
+	background-color: hsla(90,66%,70%,1.00);
+}
+#m41, #c3 {
+	color: black;
+	background-color: hsla(90,66%,60%,1.00);
+}
+
+#m12, #c4 {
+	color: black;
+	background-color: hsla(180,66%,90%,1.00);
+}
+#m22, #c5 {
+	color: black;
+	background-color: hsla(180,66%,80%,1.00);
+}
+#m32, #c6 {
+	color: black;
+	background-color: hsla(180,66%,70%,1.00);
+}
+#m42, #c7 {
+	color: black;
+	background-color: hsla(180,66%,60%,1.00);
+}
+
+#m13, #c8 {
+	color: black;
+	background-color: hsla(270,66%,90%,1.00);
+}
+#m23, #c9 {
+	color: black;
+	background-color: hsla(270,66%,80%,1.00);
+}
+#m33, #c10 {
+	color: black;
+	background-color: hsla(270,66%,70%,1.00);
+}
+#m43, #c11 {
+	color: black;
+	background-color: hsla(270,66%,60%,1.00);
+}
+
+#m14, #c12 {
+	color: black;
+	background-color: hsla(360,66%,90%,1.00);
+}
+#m24, #c13 {
+	color: black;
+	background-color: hsla(360,66%,80%,1.00);
+}
+#m34, #c14 {
+	color: black;
+	background-color: hsla(360,66%,70%,1.00);
+}
+#m44, #c15 {
+	color: black;
+	background-color: hsla(360,66%,60%,1.00);
+}
+
+table#outcometable {
+	float: left;
+	margin-left: 20px;
+}
+table#outcometable input {
+	width: 40px;
+	text-align: center;
+	border: none;
+}
+
+table#outcometable td {
+	vertical-align: top;
+	line-height: 1.2em;
+}
+
+div#originInputBox {
+	clear: left;
+}
+
+div#outcomecode input#applyTrans {
+	width: 230px;
+	height: 30px;
+	margin-bottom: 5px;
+}
+
+div#outcomecode input#resetTrans {
+	width: 230px;
+	height: 30px;
+}
+
+
+
+div.preview h3 {
+	position: relative;
+	top: -50px;
+	text-align: center;
+}
+
+div#outcomefront h3 {
+	top: -20px;
+}
+div#outcome3q {
+	position: absolute;
+	top: 80px;
+	left: 920px;
+	width: 200px;
+	height: 200px;
+	perspective: 800px;
+	perspective-origin: center center;	
+}
+
+
+div#outcomefront {
+	position: absolute;
+	top: 450px;
+	left: 920px;
+	width: 200px;
+	height: 200px;
+	perspective: 800px;
+	perspective-origin: center center;	
+}
+
+div#outcome3q div.cube {
+	position: relative;
+	left: 0px; top: 0px;
+	transform-style: preserve-3d;
+	width: 200px; 
+	height: 200px;
+	transform: rotateX(-24deg) rotateY(-40deg) rotateZ(0deg);
+}
+
+div#outcomefront div.cube {
+	position: relative;
+	left: 0px; top: 0px;
+	transform-style: preserve-3d;
+	width: 200px; 
+	height: 200px;
+	transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+
+div.cube figure {
+	display: block;
+	position: absolute;
+
+}
+
+div.cube figure.face {
+	width: 200px;
+	height: 200px;
+	border: 2px solid red;
+	backface-visibility: visible;
+	background-color: rgba(255, 255, 255, 0);
+}
+
+div.cube figure.axis {
+	width: 100px; 
+	height: 100px; 	
+}
+
+div.cube img {
+	display: block;
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	filter: opacity(0.85);
+}
+
+div.cube figure span {
+	display: block;
+	font-size: 2em;
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+	text-shadow: 1px 1px 1px red;
+	width: 40px;
+	text-align: center;
+	vertical-align: middle;
+	height: 20px;
+	margin: 90px 80px;
+	background: rgba(255, 255, 255, 0.35);
+}
+		
+/* Face Transforms */		
+div.cube figure.front { 
+	transform: rotateY(0deg) translateZ(100px);
+}
+div.cube figure.back {
+	transform: rotateY(180deg) translateZ(100px);	
+}
+div.cube figure.right {
+	transform: rotateY(90deg) translateZ(100px);
+}
+div.cube figure.left {
+	transform: rotateY(-90deg) translateZ(100px);	
+}
+div.cube figure.top {
+	transform: rotateX( 90deg) translateZ(100px);
+}
+div.cube figure.bottom {
+	transform: rotateX(-90deg) translateZ(100px);		
+}	
+
+
+/* Axis Transforms */
+
+div.cube figure.xaxis {
+	transform:  rotateX(-90deg) translateY(-50px) translateZ(50px); 
+	border-right: 3px solid black; 
+	border-bottom: 3px solid black;
+}
+div.cube .yaxis {
+	transform: rotateY(-90deg) translateZ(-50px) translateX(-50px); 
+	border-right: 3px solid black; 
+	border-bottom: 3px solid black;
+}		
+div.cube .zaxis  {
+	transform: rotateX(0deg) translateX(100px) translateY(100px); 
+	border-left: 3px solid black; 
+	border-top: 3px solid black;
+}
+
+/* Border Adjustments */
+
+div#outcome3q div.cube figure.back {
+	border-bottom: 2px solid rgba(255, 0, 0, 0.3);
+	border-right: 2px solid rgba(255, 0, 0, 0.3);	
+}
+
+div#outcome3q div.cube figure.left {
+	border-bottom: 2px solid rgba(255, 0, 0, 0.3);
+	border-left: 2px solid rgba(255, 0, 0, 0.3);	
+}
+
+div#outcome3q div.cube figure.bottom {
+	border-left: 2px solid rgba(255, 0, 0, 0.3);	
+	border-bottom: 2px solid rgba(255, 0, 0, 0.3);		
+}
+
+/* Border Adjustments */
+
+div#outcomefront div.cube figure.back {
+	border: 2px solid rgba(255, 0, 0, 0.3);	
+}
+
+div#outcomefront div.cube figure.left {
+	border-top: 2px solid rgba(255, 0, 0, 0.3);	
+	border-bottom: 2px solid rgba(255, 0, 0, 0.3);	
+}
+
+div#outcomefront div.cube figure.right {
+	border-top: 2px solid rgba(255, 0, 0, 0.3);	
+	border-bottom: 2px solid rgba(255, 0, 0, 0.3);	
+}
+
+div#outcomefront div.cube figure.top {
+	border-left: 2px solid rgba(255, 0, 0, 0.3);	
+	border-right: 2px solid rgba(255, 0, 0, 0.3);	
+}
+
+div#outcomefront div.cube figure.bottom {
+	border-left: 2px solid rgba(255, 0, 0, 0.3);	
+	border-right: 2px solid rgba(255, 0, 0, 0.3);	
+}
+
+   

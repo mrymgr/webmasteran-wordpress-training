@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+
+
+html {
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+   height: 100%;
+   font-size: 18px;
+   color: rgb(101, 101, 101);
+}
+
+body {
+   padding: 20px 0px 0px 20px;
+   position: relative;
+}
+
+h1 {
+   font-weight: normal;
+   font-size: 2.4em;
+   margin-top: 5px;
+   margin-left: 20px;
+   padding-bottom: 30px;
+}
+
+div#3dOptions {
+   line-height: 2em;
+   z-index: 1;
+   width: 300px;
+   background-color: rgba(255, 255, 255, 0.8);
+   border-right: 1px solid rgb(155, 155, 155);
+}
+
+label {
+	display: inline-block;
+	width: 150px;
+	margin-right: 5px;
+}
+
+
+div#outcome {
+	position: absolute;
+	top: 220px;
+	left: 600px;
+	width: 300px;
+	height: 300px;
+	perspective: 1200px;
+	perspective-origin: center;	
+}
+
+#cube {
+	position: relative;
+	left: 0px; top: 0px;
+	transform-style: preserve-3d;
+	width: 300px; 
+	height: 300px;
+	transform: rotateX(-24deg) rotateY(-40deg) rotateZ(0deg);
+}
+
+#cube figure {
+	display: block;
+	position: absolute;
+
+}
+
+#cube figure.face {
+	width: 300px;
+	height: 300px;
+	border: 2px solid red;
+	backface-visibility: visible;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+#cube figure.axis {
+	width: 150px; 
+	height: 150px; 	
+}
+
+#cube img {
+	display: none;
+	position: absolute;
+	width: 300px;
+	height: 300px;
+	filter: opacity(0.85);
+}
+
+#cube figure span {
+	display: block;
+	font-size: 2.5em;
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+	text-shadow: 1px 1px 1px red;
+	width: 50px;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+	margin: 130px 125px;
+	background: rgba(255, 255, 255, 0.35);
+}
+		
+/* Face Transforms */		
+#cube figure.front { 
+	transform: rotateY(0deg) translateZ(150px);
+}
+#cube figure.back {
+	transform: rotateY(180deg) translateZ(150px);
+}
+#cube figure.right {
+	transform: rotateY(90deg) translateZ(150px);
+}
+#cube figure.left {
+	transform: rotateY(-90deg) translateZ(150px);
+}
+#cube figure.top {
+	transform: rotateX( 90deg) translateZ(150px);
+}
+#cube .bottom {
+	transform: rotateX(-90deg) translateZ(150px);
+}	
+
+/* Axis Transforms */
+
+#cube figure.xaxis {
+	transform:  rotateX(-90deg) translateY(-75px) translateZ(75px); 
+	border-right: 3px solid black; 
+	border-bottom: 3px solid black;
+}
+#cube .yaxis {
+	transform: rotateY(-90deg) translateZ(-75px) translateX(-75px); 
+	border-right: 3px solid black; 
+	border-bottom: 3px solid black;
+}		
+#cube .zaxis  {
+	transform: rotateX(0deg) translateX(150px) translateY(150px); 
+	border-left: 3px solid black; 
+	border-top: 3px solid black;
+}

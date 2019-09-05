@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+   <meta charset="utf-8" />
+   <title>Multiple Matrix Transforms</title>
+   <link href="mmatrix_base.css" rel="stylesheet" />
+   <link href="mmatrix_layout.css" rel="stylesheet" />
+   <script src="mmatrix_demo.js" async></script>
+</head>
+
+<body>
+    
+   <h1>Multiple Matrix Transforms</h1>
+   <div id="borderOptions">
+	 <h2>Enter and Edit the Transformation Matrices</h2>
+	 <div id="mBoxes">
+		 <div class="mBox">
+			 <table class="matrix matrixsample">
+				 <tr>
+					  <td><input type="text" value="1" /></td>
+					  <td><input type="text" value="0" /></td>
+					  <td><input type="text" value="0" /></td>	
+				  </tr>
+				  <tr>
+					  <td><input type="text" value="0" /></td>
+					  <td><input type="text" value="1" /></td>
+					  <td><input type="text" value="0" /></td>		  
+				  </tr>
+				  <tr>
+					  <td><input type="text" value="0" readonly /></td>
+					  <td><input type="text" value="0" readonly /></td>
+					  <td><input type="text" value="1" readonly /></td>	
+				  </tr> 
+			</table>
+			<input type="button" value="delete" />
+			<input type="button" value="add new matrix" />
+		 </div>			 
+	   </div>
+
+      <div id="outcomecode">	 
+		 <input type="button" value="Multiply and Apply the Matrices" id="multButton" />
+		 <table class="matrix" id="matrixout">
+			  <tr>
+				  <td><input type="text" id="m11" class="matrixcell" value="1"/></td>
+				  <td><input type="text" id="m12" class="matrixcell"  value="0"/></td>
+				  <td><input type="text" id="m13" class="matrixcell"  value="0"/></td>	
+			  </tr>
+			 <tr>
+				  <td><input type="text" id="m21" class="matrixcell"  value="0"/></td>
+				  <td><input type="text" id="m22" class="matrixcell" value="1"/></td>
+				  <td><input type="text" id="m23" class="matrixcell"  value="0"/></td>			  
+		   </tr>
+			 <tr>
+				  <td><input type="text" id="m31" readonly value="0" /></td>
+				  <td><input type="text" id="m32" readonly value="0"/></td>
+				  <td><input type="text" id="m33" readonly value="1"/></td>	
+		   </tr>		  
+	    </table>	
+ 		  
+	    <div id="outcometrans">
+			  transform: matrix( <input type="text" id="c0" class="transformcell" value="1" readonly /> , 
+			  					<input type="text" id="c1" class="transformcell" value="0" readonly /> ,
+			  					<input type="text" id="c2" class="transformcell" value="0" readonly /> ,
+			  					<input type="text" id="c3" class="transformcell" value="1" readonly /> ,
+			  					<input type="text" id="c4" class="transformcell" value="0" readonly /> ,
+			  					<input type="text" id="c5" class="transformcell" value="0" readonly /> );
+	    </div>
+	  </div>		  
+
+		<div id="originInputBox">
+			<label>transform-origin: </label>  
+			<select id="hKeyword">
+				<option value="left">left</option>            
+				<option selected value="center">center</option>  
+				<option value="right">right</option>                         
+			</select> 
+			<select id="vKeyword">
+				<option value="top">top</option>            
+				<option selected value="center">center</option>  
+				<option value="bottom">bottom</option>                         
+			</select>
+		</div> 		  
+	
+	  
+</div>
+   
+     
+<div id="outcome">
+	<div id="outcomeback"></div>
+	<div id="outcomebox"><img src="vasari.png" alt="" /></div>    
+</div>  
+
+</body>
+</html>

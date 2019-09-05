@@ -1,0 +1,26 @@
+https://www.nic.ir/
+
+https://www.onlinenic.com/cgi-bin/english/correct_domain_new.cgi
+
+https://www.ietf.org/
+
+https://www.rfc-editor.org/standards
+
+https://www.w3.org
+
+https://worldwideweb.cern.ch/
+
+https://www.tutorialsteacher.com/https/how-ssl-works
+
+https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/
+
+https://www.verisign.com/en_US/website-presence/online/how-dns-works/index.xhtml
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/display
+
+about x-frame-option: 
+https://responsivedesign.is/articles/xframe-options/
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+
+https://www.udacity.com/course/website-performance-optimization--ud884

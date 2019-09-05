@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+/* Transition Styles */
+
+
+figure {
+	width: 100px;
+	height: 100px;
+	transition: left 2s ease-out, top 2s ease-out, width 3s ease, height 3s ease;	
+}
+
+figure:hover {
+	width: 400px;
+	height: 400px;
+	left: 350px;
+	top: 0px;
+	z-index: 99;	
+}
+
+figure img {
+	box-shadow: 0px 0px 0px black;
+	transition: box-shadow 1.5s ease;
+}
+
+figure:hover img {
+	box-shadow: 10px -10px 50px black;
+}
+
+figure figcaption {
+	font-size: 0em;;
+	transition: font-size 3s cubic-bezier(1, 0, 1, 0);
+}
+
+figure:hover figcaption {
+	font-size: 1em;
+}
+
+
+
+
+
+

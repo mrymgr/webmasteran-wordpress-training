@@ -1,0 +1,22 @@
+Sources:
+https://www.vandelaydesign.com/7-free-svg-pattern-generators/
+https://www.sitepoint.com/6-incredible-svg-pattern-generators/
+https://www.flaticon.com
+https://www.webdesignerdepot.com/2018/02/8-best-free-libraries-for-svg/
+https://www.hongkiat.com/blog/svg-animations/
+https://1stwebdesigner.com/10-free-resources-svg-patterns/
+
+
+
+Learning svg:
+https://www.vandelaydesign.com/best-svg-code-tutorials/
+https://css-tricks.com/lodge/svg/
+https://css-tricks.com/using-svg/
+https://svgontheweb.com/
+
+
+
+svg tools:
+https://www.sitepoint.com/6-free-web-based-svg-editors-compared/
+https://www.sitepoint.com/boxy-svg-a-fast-simple-insanely-useful-svg-editor/
+

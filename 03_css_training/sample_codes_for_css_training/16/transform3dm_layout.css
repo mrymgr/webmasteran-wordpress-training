@@ -1,0 +1,274 @@
+@charset "utf-8";
+
+
+
+html {
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+   height: 100%;
+   font-size: 18px;
+   color: rgb(101, 101, 101);
+}
+
+body {
+   padding: 20px 0px 0px 20px;
+   position: relative;
+}
+
+h1 {
+   font-weight: normal;
+   font-size: 2.4em;
+   margin-top: 5px;
+   margin-left: 20px;
+   padding-bottom: 30px;
+}
+
+div#transformOptions {
+   line-height: 1.5em;
+   z-index: 1;
+   position: relative;
+   width: 700px;
+   background-color: rgba(255, 255, 255, 0.8);
+   border-right: 1px solid rgb(155, 155, 155);
+}
+
+label {
+   display: inline-block;
+   width: 140px;
+   margin-left: 10px;
+	margin-right: 10px;
+}
+
+label.rotate3dlabel {
+	width: 20px;
+	margin: 0px;
+	text-align: right;
+}
+
+label.translate3dlabel {
+	width: 20px;
+	margin: 0px;
+	text-align: right;
+}
+
+input#tx, input#ty, input#tz {
+	width: 40px;
+	text-align: right;
+	margin: 0px;
+}
+
+
+input#vx, input#vy, input#vz, #input#vangle {
+	width: 40px;
+	text-align: right;
+	margin: 0px;
+}
+
+label#ranglelabel {
+	margin: 0px 20px 0px 170px;
+	width: 35px;
+}
+
+label.scale3dlabel {
+	width: 20px;
+	margin: 0px;
+	text-align: right;
+}
+
+input#sx, input#sy, input#sz {
+	width: 40px;
+	text-align: right;
+	margin: 0px;
+}
+
+input.eraseT {
+   display: inline-block;
+   margin-right: 10px;
+}
+
+
+div.preview h3 {
+	position: relative;
+	top: -50px;
+	text-align: center;
+}
+
+div#outcomecode {
+	color: red;
+}
+
+div#summary table {
+	color: red;
+}
+
+div#outcome3q {
+	position: absolute;
+	top: 80px;
+	left: 850px;
+	width: 200px;
+	height: 200px;
+	perspective: 800px;
+	perspective-origin: center center;	
+}
+
+div#summary table td {
+	vertical-align: top;
+	text-align: left;
+}
+
+div#summary table tr td:first-of-type {
+	width: 150px;
+}
+
+
+div#outcomefront {
+	position: absolute;
+	top: 450px;
+	left: 850px;
+	width: 200px;
+	height: 200px;
+	perspective: 800px;
+	perspective-origin: center center;	
+}
+
+div#outcome3q div.cube {
+	position: relative;
+	left: 0px; top: 0px;
+	transform-style: preserve-3d;
+	width: 200px; 
+	height: 200px;
+	transform: rotateX(-24deg) rotateY(-40deg) rotateZ(0deg);
+}
+
+div#outcomefront div.cube {
+	position: relative;
+	left: 0px; top: 0px;
+	transform-style: preserve-3d;
+	width: 200px; 
+	height: 200px;
+	transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+
+div.cube figure {
+	display: block;
+	position: absolute;
+
+}
+
+div.cube figure.face {
+	width: 200px;
+	height: 200px;
+	border: 2px solid red;
+	backface-visibility: visible;
+	background-color: rgba(255, 255, 255, 0);
+}
+
+div.cube figure.axis {
+	width: 100px; 
+	height: 100px; 	
+}
+
+div.cube img {
+	display: block;
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	filter: opacity(0.85);
+}
+
+div.cube figure span {
+	display: block;
+	font-size: 2em;
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+	text-shadow: 1px 1px 1px red;
+	width: 40px;
+	text-align: center;
+	vertical-align: middle;
+	height: 20px;
+	margin: 90px 80px;
+	background: rgba(255, 255, 255, 0.35);
+}
+		
+/* Face Transforms */		
+div.cube figure.front { 
+	transform: rotateY(0deg) translateZ(100px);
+}
+div.cube figure.back {
+	transform: rotateY(180deg) translateZ(100px);	
+}
+div.cube figure.right {
+	transform: rotateY(90deg) translateZ(100px);
+}
+div.cube figure.left {
+	transform: rotateY(-90deg) translateZ(100px);	
+}
+div.cube figure.top {
+	transform: rotateX( 90deg) translateZ(100px);
+}
+div.cube figure.bottom {
+	transform: rotateX(-90deg) translateZ(100px);		
+}	
+
+
+/* Axis Transforms */
+
+div.cube figure.xaxis {
+	transform:  rotateX(-90deg) translateY(-50px) translateZ(50px); 
+	border-right: 3px solid black; 
+	border-bottom: 3px solid black;
+}
+div.cube .yaxis {
+	transform: rotateY(-90deg) translateZ(-50px) translateX(-50px); 
+	border-right: 3px solid black; 
+	border-bottom: 3px solid black;
+}		
+div.cube .zaxis  {
+	transform: rotateX(0deg) translateX(100px) translateY(100px); 
+	border-left: 3px solid black; 
+	border-top: 3px solid black;
+}
+
+/* Border Adjustments */
+
+div#outcome3q div.cube figure.back {
+	border-bottom: 2px solid rgba(255, 0, 0, 0.3);
+	border-right: 2px solid rgba(255, 0, 0, 0.3);	
+}
+
+div#outcome3q div.cube figure.left {
+	border-bottom: 2px solid rgba(255, 0, 0, 0.3);
+	border-left: 2px solid rgba(255, 0, 0, 0.3);	
+}
+
+div#outcome3q div.cube figure.bottom {
+	border-left: 2px solid rgba(255, 0, 0, 0.3);	
+	border-bottom: 2px solid rgba(255, 0, 0, 0.3);		
+}
+
+/* Border Adjustments */
+
+div#outcomefront div.cube figure.back {
+	border: 2px solid rgba(255, 0, 0, 0.3);	
+}
+
+div#outcomefront div.cube figure.left {
+	border-top: 2px solid rgba(255, 0, 0, 0.3);	
+	border-bottom: 2px solid rgba(255, 0, 0, 0.3);	
+}
+
+div#outcomefront div.cube figure.right {
+	border-top: 2px solid rgba(255, 0, 0, 0.3);	
+	border-bottom: 2px solid rgba(255, 0, 0, 0.3);	
+}
+
+div#outcomefront div.cube figure.top {
+	border-left: 2px solid rgba(255, 0, 0, 0.3);	
+	border-right: 2px solid rgba(255, 0, 0, 0.3);	
+}
+
+div#outcomefront div.cube figure.bottom {
+	border-left: 2px solid rgba(255, 0, 0, 0.3);	
+	border-right: 2px solid rgba(255, 0, 0, 0.3);	
+}
+
+
+   

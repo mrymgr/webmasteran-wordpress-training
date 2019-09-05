@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   <meta charset="utf-8" />
+   <title>Payment Form</title>
+   <link href="base.css" rel="stylesheet" />
+   <link href="styles.css" rel="stylesheet" />
+   <link href="transition.css" rel="stylesheet" />
+   <link href="validate.css" rel="stylesheet" />	
+</head>
+
+<body>
+   <header>
+      <img src="csb_logo.png" alt="The Classical Sketchbook" id="logoimg" />
+      <nav class="horizontal" id="topLinks">
+         <ul>
+            <li><a href="#">gallery</a></li>
+            <li><a href="#">history</a></li>
+            <li><a href="#">artists</a></li>
+            <li><a href="#">articles</a></li>
+            <li><a href="#">shop</a></li>
+         </ul>
+      </nav>
+   </header>
+   
+   <section>
+      <article> 
+        <h1>Payment Form</h1> 
+        <form id="payment">		  
+         <fieldset id="creditCard">
+            <legend>Credit Card (required)</legend>
+
+            <fieldset>
+               <label class="cardLabel">
+                  <input name="cCard" value="amex" type="radio" required />
+                  <img src="amex.png" alt="American Express" />
+               </label>
+               <label class="cardLabel">               
+                  <input name="cCard" value="discover" type="radio" required />
+                  <img src="discover.png" alt="Discover" />
+               </label>
+               <label class="cardLabel">                  
+                  <input name="cCard" value="master" type="radio" required />
+                  <img src="master.png" alt="MasterCard" />
+               </label>
+               <label class="cardLabel">                  
+                  <input name="cCard" value="visa" type="radio" required />
+                  <img src="visa.png" alt="Visa" />
+               </label>
+            </fieldset>
+
+            <label for="cardBox">Credit Card Number</label>
+            <input name="cardNumber" id="cardBox" type="text" required />
+			 
+            <label for="csc">CSC</label>
+            <input name="csc" id="csc" type="text" pattern="^\d{3}$" placeholder="nnn" />
+			 
+            <label for="monthList">Expiration Date</label>
+            <select name="cardMonth" id="monthList" required>
+               <option value="">--Month--</option>
+               <option value="01">January (01)</option>
+               <option value="02">February (02)</option>
+               <option value="03">March (03)</option>
+               <option value="04">April (04)</option>
+               <option value="05">May (05)</option>
+               <option value="06">June (06)</option>
+               <option value="07">July (07)</option>
+               <option value="08">August (08)</option>
+               <option value="09">September (09)</option>
+               <option value="10">October (10)</option>
+               <option value="11">November (11)</option>
+               <option value="12">December (12)</option>
+            </select>
+            <select name="cardYear" id="yearList" required>
+               <option value="">--Year--</option>
+               <option value="2017">2017</option>
+               <option value="2018">2018</option>
+               <option value="2019">2019</option>
+               <option value="2020">2020</option>
+               <option value="2021">2021</option>
+            </select>
+         </fieldset>
+			<input type="button" value="apply" />
+		  </form>
+      </article>         
+   </section>  
+   
+   <nav class="vertical">
+      <img src="csb_img.png" alt="" />
+         <ul>
+            <li class="lTitle">Gallery</li>
+            <li><a href="#">Pre-Renaissance</a></li>			 
+            <li><a href="#">Renaissance</a></li>
+            <li><a href="#">Mannerism</a></li>
+            <li><a href="#">Northern Artists</a></li>
+            <li><a href="#">18th Century Masters</a></li>
+            <li><a href="#">19th Century Masters</a></li>
+
+            <li class="lTitle">The Art of the Sketch</li>
+            <li><a href="#">Painting vs. Drawing</a></li>
+            <li><a href="#">Paper and Chalk</a></li>
+            <li><a href="#">Preservation</a></li>
+
+            <li class="lTitle">Gift Shop</li>
+            <li><a href="#">Posters</a></li>
+            <li><a href="#">Shirts</a></li>
+            <li><a href="#">Coffee Mugs</a></li>
+            <li><a href="#">Books</a></li>
+            <li><a href="#">Miscellaneous</a></li>			 
+         </ul>
+   </nav>
+
+   <footer>
+      The Classical Sketchbook &copy; 2020 English (US) <span> <a href="#">About</a> <a href="#">Developers</a> <a href="#">Terms</a> </span>
+   </footer>
+</body>
+</html>

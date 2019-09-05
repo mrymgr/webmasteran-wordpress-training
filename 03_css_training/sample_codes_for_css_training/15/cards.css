@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+figure#card img#cover {
+	transform: perspective(600px) rotateY(0deg);
+	transform-origin: left center;
+	box-shadow: 5px 5px 10px rgb(101, 101, 101);	
+	transition: all 1s linear;
+}
+
+figure#card:hover img#cover {
+	transform: perspective(600px) rotateY(-180deg);
+	box-shadow: -5px 5px 10px rgb(101, 101, 101);	
+
+}

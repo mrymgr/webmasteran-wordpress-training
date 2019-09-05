@@ -1,0 +1,259 @@
+@charset "utf-8";
+
+
+
+html {
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+   height: 100%;
+   font-size: 18px;
+   color: rgb(101, 101, 101);
+}
+
+body {
+   padding: 20px 0px 0px 20px;
+   position: relative;
+}
+
+h1 {
+   font-weight: normal;
+   font-size: 2.4em;
+   margin-top: 5px;
+   margin-left: 20px;
+   padding-bottom: 30px;
+}
+
+div#borderOptions {
+   line-height: 2em;
+   z-index: 1;
+   position: relative;
+   width: 620px;
+   background-color: rgba(255, 255, 255, 0.8);
+   border-right: 1px solid rgb(155, 155, 155);
+}
+
+
+
+input.eraseT {
+   display: inline-block;
+   margin-right: 10px;
+}
+
+div#outcome {
+   position: absolute;
+   top: 80px;
+   left: 400px;
+   font-size: 22px;
+}
+
+
+div#outcomebox {
+   width: 300px;
+   height: 375px;
+   position: absolute;
+   top: 20px;
+   left: 380px;
+   z-index: -1;	
+   background-color: yellow;
+}
+
+div#outcomeback {
+   width: 300px;
+   height: 375px;
+   position: absolute;
+   top: 20px;
+   left: 380px;
+   z-index: -2; 
+   background-color: transparent;
+   outline: 2px solid rgb(191,191,191);
+}
+
+
+div#outcomebox img {
+	width: 300px;
+	height: 375px;
+}
+
+
+div#outcomecode {
+   background-color: rgba(255, 255, 255, 0.8);
+   padding: 1px;
+   width: 100%;
+}
+
+
+
+ul#transOptions {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+}
+
+ul#transOptions li {
+	padding: 5px;
+	color: black;
+	-webkit-flex: 0 0 200px;
+	flex: 0 0 200px;
+}
+
+h2 {
+	font-weight: normal;
+	text-align: left;
+}
+ul#transOptions li h3 {
+	font-weight: normal;
+	text-align: center;
+}
+
+
+table.matrixsample {
+	font-family: serif;
+	font-size: 1em;
+	font-weight: normal;
+	width: 150px;
+	margin: 0px auto;
+}
+
+table.matrixsample td {
+	height: 20px;	
+	min-width: 30px;
+	text-align: center;
+	vertical-align: center;
+	padding: 0px;
+}
+
+ul#transOptions li div {
+	width: 180px;
+	text-align: center;
+	font-size: 1em;
+}
+
+ul#transOptions i {
+	font-family: serif;
+}
+
+ul#transOptions li:nth-of-type(even) {
+	background-color: hsla(123,27%,61%,0.5);
+}
+
+ul#transOptions li:nth-of-type(odd) {
+	background-color: hsla(218,25%,56%,0.5);
+}
+
+ul#transOptions li imgx {
+	display: inline-block;
+	height: 80px;
+	margin: 10px 20px -3px 15px;
+}
+
+ul#transOptions label {
+	font-family: serif;
+	font-style: italic;
+}
+
+ul#transOptions li input[type="text"] {
+	display: inline-block;
+	width: 40px;
+}
+
+
+
+
+table {
+	border-collapse: collapse;
+	position: relative; 
+	border: none; 
+	padding: 0px;	
+}
+
+
+table.matrix td {
+	padding: 0px;
+}
+
+table.matrix:before, table.matrix:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    border: 2px solid #000;
+    width: 5px;
+    height: 100%;
+}
+
+table.matrix:before {
+    left: -10px;
+    border-right: 0;
+}
+
+table.matrix:after {
+    right: -10px;
+    border-left: 0;
+}
+
+table#matrixout {
+	margin: 10px;
+}
+
+table#matrixout td {
+	margin: 0px; padding: 0px; border: none;
+}
+
+table#matrixout input {
+	border: none;
+	width: 60px;
+	margin: 0px; 
+	height: 40px; 
+	padding: 0px; 
+	text-align: center;
+}
+
+#m11, #c0 {
+	color: black;
+	background-color: hsla(69,66%,80%,1.00);
+}
+
+#m21, #c1 {
+	color: black;
+	background-color: hsla(69,66%,70%,1.00);
+}
+
+#m12, #c2 {
+	color: black;
+	background-color: hsla(190,66%,80%,1.00);
+}
+
+
+#m22, #c3 {
+	color: black;
+	background-color: hsla(190,66%,70%,1.00);
+}
+
+#m13, #c4 {
+	color: black;
+	background-color: hsla(0, 66%, 80%, 1.00);
+}
+
+#m23, #c5 {
+	color: black;
+	background-color: hsla(0, 66%, 70%, 1.00);
+}
+
+
+
+div#outcometrans input {
+	width: 40px;
+	text-align: center;
+	border: none;
+}
+
+div#outcomecode input#applyTrans {
+	width: 230px;
+	height: 30px;
+	margin-bottom: 5px;
+}
+
+div#outcomecode input#resetTrans {
+	width: 230px;
+	height: 30px;
+}
+   

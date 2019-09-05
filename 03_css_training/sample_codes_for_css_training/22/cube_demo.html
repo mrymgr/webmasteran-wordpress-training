@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+   <meta charset="utf-8" />
+   <title>CSS Cubes</title>
+   <link href="cube_base.css" rel="stylesheet" />
+   <link href="cube_layout.css" rel="stylesheet" />
+   <script src="cube_demo.js" async></script>
+</head>
+
+<body>
+    
+   <h1>CSS Cubes</h1>
+   <div id="3dOptions">	   
+	   <div id="setupCube">
+			<h2>Insert Cube Face</h2>		   
+			<input class="insertFace" type="button" value="Front" id="insertFront" /> 
+		   	<input class="insertFace" type="button" value="Back" id="insertBack" />
+		   	<input class="insertFace" type="button" value="Bottom" id="insertBottom" />
+		   	<input class="insertFace" type="button" value="Left" id="insertLeft" />	
+		   	<input class="insertFace" type="button" value="Right" id="insertRight" />
+		   	<input class="insertFace" type="button" value="Top" id="insertTop" /><br />			   
+	   </div>
+	   <div id="innerTrans">
+			<h2>Rotate Cube</h2>	   
+		   <label for="xdeg">Rotate x-axis</label> -360deg <input type="range" name="rotatex" id="rotatex" value="-24" min="-360" max="360" step="5"/> 360deg<br />
+		   <label for="ydeg">Rotate y-axis</label> -360deg <input type="range" name="rotatey" id="rotatey" value="-40" min="-360" max="360" step="5"/> 360deg<br />	
+		   <label for="ydeg">Rotate z-axis</label> -360deg <input type="range" name="rotatez" id="rotatez" value="0" min="-360" max="360" step="5"/> 360deg<br />			   
+	   </div>
+	   
+	   <div id="htmlCode">
+		   <h2>HTML</h2>
+		   <div id="containerCodeStart">
+			   &lt;div id="container" &gt;
+		   </div>
+		   <div id="cubeCodeStart">
+			   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="cube" &gt;
+		   </div>
+		   <div id="frontHTML">
+			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="front" &gt; ... &lt;/div&gt;
+		   </div>
+		   <div id="backHTML">
+			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="back" &gt; ... &lt;/div&gt;
+		   </div>
+		   <div id="bottomHTML">
+			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="bottom" &gt; ... &lt;/div&gt;
+		   </div>
+		   <div id="leftHTML">
+			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="left" &gt; ... &lt;/div&gt;
+		   </div>
+		   <div id="rightHTML">
+			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="right" &gt; ... &lt;/div&gt;
+		   </div>
+		   <div id="topHTML">
+			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="top" &gt; ... &lt;/div&gt;
+		   </div>		   
+		   <div id="cubeCodeEnd">
+			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+		   </div>		   
+		   <div id="containerCodeEnd">
+			   &lt;/div&gt;
+		   </div>		   
+	   </div>
+	   <div id="cssCode">
+		   <h2>CSS</h2>
+		   <div id="containerCSS">
+			   div#container {<br />
+			   &nbsp;&nbsp;&nbsp; perspective: 1500px;<br />
+			   }
+		   </div>
+		   <div id="cubeCSS">
+			   div#cube {<br />
+			   &nbsp;&nbsp;&nbsp;position: relative;<br />			   
+			   &nbsp;&nbsp;&nbsp;transform-style: preserve-3d;<br />
+			   &nbsp;&nbsp;&nbsp;transform: <span id="cubeTranscode">rotateX(-24deg) rotateY(-40deg) rotateZ(0deg)</span>;<br />
+			   }
+		   </div>
+		   <div id="facesCSS">
+			   div#cube div.faces {<br />
+			   &nbsp;&nbsp;&nbsp;position: absolute; top: 0; left: 0;<br />
+			   }
+		   </div>		   
+		   <div id="frontCSS">
+			   div#front {
+			   transform: rotateY(0deg) translateZ(150px);
+			   }
+		   </div>		   
+		   <div id="backCSS">
+			   div#back {
+			   transform: rotateY(180deg) translateZ(150px);		   
+			   }
+		   </div>
+		   <div id="bottomCSS">
+			   div#bottom {
+			  transform: rotateX(-90deg) translateZ(150px);		   
+			   }
+		   </div>
+		   <div id="leftCSS">
+			   div#left {
+			   transform: rotateY(-90deg) translateZ(150px);		   
+			   }
+		   </div>
+		   <div id="rightCSS">
+			   div#right {
+			   transform: rotateY(90deg) translateZ(150px);	   
+			   }
+		   </div>		   
+		   <div id="topCSS">
+			   div#top {
+			   transform: rotateX(90deg) translateZ(150px);   
+			   }
+		   </div>		   
+	   </div>	   
+
+   </div>
+   
+     
+   <div id="container">
+	  <div id="cube"> 
+		<div class="faces" id="front"><span>FRONT</span></div>	
+		<div class="faces" id="back"><span>BACK</span></div>	
+		<div class="faces" id="bottom"><span>BOTTOM</span></div>	
+		<div class="faces" id="left"><span>LEFT</span></div>	
+		<div class="faces" id="right"><span>RIGHT</span></div>	
+		<div class="faces" id="top"><span>TOP</span></div>			  
+	   </div>	   
+   </div>   
+
+</body>
+</html>

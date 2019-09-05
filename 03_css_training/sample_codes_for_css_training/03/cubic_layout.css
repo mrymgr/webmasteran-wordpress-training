@@ -1,0 +1,244 @@
+@charset "utf-8";
+
+
+
+html {
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+   height: 100%;
+   font-size: 18px;
+   color: rgb(101, 101, 101);
+}
+
+body {
+   padding: 20px 0px 0px 20px;
+   position: relative;
+}
+
+h1 {
+   font-weight: normal;
+   font-size: 2.4em;
+   margin-top: 5px;
+   margin-left: 0px;
+   padding-bottom: 10px;
+}
+
+
+label {
+   display: inline-block;
+   width: 70px;
+   margin-left: 10px;
+   margin-right: 10px;
+}
+
+
+
+h2 {
+	font-weight: normal;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font-size: 1.1em;
+}
+
+
+
+input[type="number"] {
+	width: 45px;
+	margin-left: 10px;
+	text-align: right;
+}
+
+table {
+	width: 550px;
+	border-collapse: collapse;
+	border: 5px outset rgb(121, 121, 121);
+	box-shadow: 5px 5px 15px rgb(101, 101, 101);
+}
+
+table tr:first-of-type th {
+	background-color: rgb(121, 121, 121);
+	color: rgb(251, 251, 251);
+	padding: 5px 0px;
+}
+
+table th {
+	font-weight: normal;
+}
+
+table tr th:last-of-type {
+	vertical-align: bottom;
+}
+
+
+table tbody tr:nth-of-type(even) {
+	background-color: rgb(255, 230, 230)
+}
+
+table tbody tr:nth-of-type(odd) {
+	background-color: rgb(255, 255, 230)
+}
+
+table img {
+	width: 50px;
+}
+
+table tr td:first-of-type {
+	width: 110px;
+	padding-top: 10px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+table tr td:last-of-type {
+	padding-top: 10px;
+	vertical-align: top;
+	padding-left: 20px;
+}
+
+table td canvas {
+	background-color: rgb(229, 229, 229);
+	width: 50px;
+	height: 50px;
+}
+
+input.bInput {
+	text-align: right;
+	font-size: 0.65em;
+	margin: 0px 3px 0px 0px;
+	display: inline-block;
+	width: 45px;
+	color: rgb(51, 51, 51);
+}
+
+
+div#outcome {
+   position: absolute;
+   top: 80px;
+   left: 580px;
+   font-size: 22px;
+}
+
+div#outcome div#outcomebox:hover+h3+div#transCSS span#transCode {
+	color: red;
+	background-color: hsla(54,88%,52%,0.26);
+}
+
+div#outcomebox {
+	width: 700px;
+	position: relative;
+	top: 0px; left: 0px;
+	border: 1px solid rgb(101, 101, 101);
+	height: 444px;
+    cursor: pointer;
+	background: url(graph.png);	
+	background-position: 142px 115px;
+}
+
+div#outcomebox div#startingBox {
+	width: 70px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 443px;
+	background-color: red;
+	box-shadow: 0px 0px 35px black inset;
+	color: white;
+}
+
+div#startingBox h4 {
+	text-align: center;
+	height: 70px;
+	width: 373px;
+	line-height: 70px;
+	transform-origin: top left;
+	letter-spacing: 0.8em;
+	font-size: 1.4em;
+	text-shadow: 3px 3px 6px black;
+	transform: rotate(270deg) translate(-373px, 0px);
+
+	cursor: pointer;
+}
+
+div#track {
+	position: relative;
+	width: 830px;
+	left: 70px;
+	height: 420px;
+
+}
+
+div#outcome img, div#outcome canvas {
+	display: block;
+	position: absolute;
+	left: 10px;
+	width: 60px;
+	height: 60px;
+	box-shadow: 5px 5px 15px rgb(155, 0, 0);
+}
+
+div#outcome canvas {
+	background-color: rgb(229, 229, 229);
+	left: 0px;
+}
+
+
+img#easeImg {
+	top: 20px;
+}
+
+img#linearImg {
+	top: 90px;
+}
+
+
+img#easeInImg {
+	top: 160px;
+}
+
+img#easeOutImg {
+	top: 230px;
+}
+
+img#easeInOutImg {
+	top: 300px;
+}
+
+canvas#bezCanvas2 {
+	top: 370px;
+}
+
+h3 {
+	width: 700px;
+	font-weight: normal;
+	font-size: 0.9em;
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+	font-style: italic;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+div#outcomebox div#transobject {
+
+
+   	position: absolute;
+   	top: 0px;
+   	color: rgb(0, 255, 0);
+	border: 3px solid rgb(101, 101, 101);
+
+}
+
+
+
+
+
+
+div#outcomecode {
+	line-height: 1.2em;
+}
+
+div#transCSS {
+	margin-left: 75px;
+	font-size: 0.85em;
+	line-height: 0.8em;
+}
+
+   
