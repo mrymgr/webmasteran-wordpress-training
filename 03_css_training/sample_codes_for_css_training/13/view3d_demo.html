@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+   <meta charset="utf-8" />
+   <title>CSS 3D View</title>
+   <link href="view3d_base.css" rel="stylesheet" />
+   <link href="view3d_layout.css" rel="stylesheet" />
+   <script src="view3d_demo.js" async></script>
+</head>
+
+<body>
+    
+   <h1>CSS 3D View</h1>
+   <div id="3dOptions">
+	   <label for="xdeg">Rotate x-axis</label> -360deg <input type="range" name="xdeg" id="xdeg" value="-24" min="-360" max="360" step="2"/> 360deg<br />
+	   <label for="ydeg">Rotate y-axis</label> -360deg <input type="range" name="ydeg" id="ydeg" value="-40" min="-360" max="360" step="2"/> 360deg<br />
+	   <label for="zdeg">Rotate z-axis</label> -360deg <input type="range" name="zdeg" id="zdeg" value="0" min="-360" max="360" step="2" /> 360deg<br /><br />
+	   
+	   <input id="quarter3" type="image" src="button1.png" alt="3-quarter view" />
+	   <input id="frontview" type="image" src="button2.png" alt="front view" />
+	   <input id="topview" type="image" src="button3.png" alt="top view" />	
+	   <input id="sideview" type="image" src="button4.png" alt="side view" /><br /><br />
+	   
+	   <label for="labels">Display Axis Labels</label> <input type="checkbox" id="labels" name="labels" checked /><br />
+	   <label for="axes">Display Axes</label> <input type="checkbox" id="axes" name="axes" checked /><br />	 
+	   <label for="box">Display Box</label> <input type="checkbox" id="box" name="box" checked /><br />
+	   <label for="tbox">Transparent Box</label> <input type="checkbox" id="tbox" name="tbox" checked /><br />
+	   <label for="figure">Display Figure</label> <input type="checkbox" id="figure" name="figure" /><br /><br />
+	   
+	   <label for="perspective">Set Perspective</label> 300px <input type="range" name="perspective" id="perspective" value="1200" min="300" max="1500" step="100"/> 1500px 
+   </div>
+   
+     
+   <div id="outcome">
+	  <div id="cube">
+		  <figure class="face front"><span>z+</span></figure>
+		<figure class="face back"><span>z&ndash;</span></figure>
+		<figure class="face right"><span>x+</span></figure>
+		<figure class="face left"><span>x&ndash;</span></figure>
+		<figure class="face top"><span>y&ndash;</span></figure>
+		<figure class="face bottom"><span>y+</span></figure>
+		<figure class="axis xaxis"></figure>
+		<figure class="axis yaxis"></figure>
+		<figure class="axis zaxis"></figure>
+		<img id="figure3d" src="rubens.png" alt=""/>
+	  </div>	   
+   </div>   
+
+</body>
+</html>

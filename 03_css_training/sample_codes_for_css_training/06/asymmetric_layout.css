@@ -1,0 +1,214 @@
+@charset "utf-8";
+
+
+
+html {
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+   height: 100%;
+   font-size: 18px;
+   color: rgb(101, 101, 101);
+}
+
+body {
+   padding: 20px 0px 0px 20px;
+   position: relative;
+}
+
+h1 {
+   font-weight: normal;
+   font-size: 2.1em;
+	margin: 0px 0px 20px 0px
+}
+
+div#transitionOptions, div#transitionOptionsb {
+	width: 650px;
+	outline: 1px solid rgb(151, 151, 151);
+	padding-top: 2px;
+	padding-left: 10px;
+	padding-bottom: 3px;
+	margin-top: 0px;
+	line-height: 0.4em;
+	font-size: 0.7em;
+}
+
+label {
+   display: inline-block;
+   width: 200px;
+   margin-left: 10px;
+   margin-right: 10px;
+}
+
+label.cblal {
+	width: 165px;	
+}
+
+label.cblal2 {
+	width: 10px;	
+}
+
+h2 {
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	margin-top: 10px;
+	margin-bottom: 8px;
+	font-size: 1.3em;
+	width: 100%;
+}
+
+div#transitionOptions div:last-of-type h2, div#transitionOptionsb div:last-of-type h2 {
+	border-top: 1px solid rgb(101,101,101);
+	padding-top: 8px;
+}
+
+div#transitionOptions {
+	background-color: hsla(67,78%,64%,0.17);
+}
+div#transitionOptionsb {
+	background-color: hsla(263,60%,69%,0.17);
+}
+
+input#enableTrans {
+	display: inline-block;
+	margin: 0px 5px 0px 10px;
+	width: 15px;
+	height: 15px;
+}
+
+input#enableTrans2 {
+	display: inline-block;
+	margin: 0px 5px 0px 10px;
+	width: 15px;
+	height: 15px;
+}
+
+input {
+	margin: 5px 0px;
+}
+input[type="number"] {
+	width: 45px;
+	height: 8px;
+	margin-left: 10px;
+	text-align: right;
+}
+
+input[type="range"] {
+	height: 10px;
+}
+
+input[type="radio"] {
+	margin: 5px 0px 5px 10px;
+	height: 10px;
+}
+
+input[type="checkbox"] {
+	margin: 5px 0px 0px 20px;
+	height: 10px;
+}
+
+input[type="color"] {
+	height: 20px;
+
+}
+
+select {
+	height: 17px;
+}
+
+select[disabled] {
+	background-color: rgb(235, 235, 235);
+}
+
+div#trans span:first-of-type {
+	display: inline-block;
+	width: 165px;
+}
+
+div#outcome {
+   position: absolute;
+   top: 60px;
+   left: 680px;
+   font-size: 22px;
+}
+
+span#transCode {
+	color: red;
+	background-color: hsla(67,78%,64%,0.17);	
+}
+
+span#transCode2 {
+	color: red;
+	background-color: hsla(263,60%,69%,0.17);	
+}
+
+span#transCodeLabel {
+	display: inline-block;
+	width: 100px;
+	float: left;
+	margin-left: 20px;
+}
+
+span#transCodeLabel2 {
+	display: inline-block;
+	width: 100px;
+	float: left;
+	margin-left: 20px;
+}
+
+span#transCode {
+	display: inline-block;
+	width: 450px;
+	float: left;
+}
+
+span#transCode2 {
+	display: inline-block;
+	width: 450px;
+	float: left;
+}
+
+div#outcomebox {
+	width: 600px;
+	position: relative;
+	top: 0px; left: 0px;
+	border: 1px solid rgb(101, 101, 101);
+	height: 200px;
+    cursor: pointer;		
+}
+
+h3 {
+	width: 700px;
+	font-weight: normal;
+	font-size: 0.9em;
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+	font-style: italic;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+div#outcomebox div#transobject {
+
+
+   	position: absolute;
+   	top: 0px;
+   	color: rgb(0, 255, 0);
+	border: 3px solid rgb(101, 101, 101);
+
+}
+
+span#trans1Entry, span#trans2Entry {
+	display: none;
+}
+
+
+
+
+div#outcomecode {
+	line-height: 1.2em;
+}
+
+div#transCSS {
+	margin-left: 75px;
+	font-size: 0.9em;
+}
+
+   

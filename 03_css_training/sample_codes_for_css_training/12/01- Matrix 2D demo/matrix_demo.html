@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+   <meta charset="utf-8" />
+   <title>CSS 2D Matrix Transformation</title>
+   <link href="matrix_base.css" rel="stylesheet" />
+   <link href="matrix_layout.css" rel="stylesheet" />
+   <script src="matrix_demo.js" async></script>
+</head>
+
+<body>
+    
+   <h1>CSS 2D Matrix Transformation</h1>
+   <div id="borderOptions">
+	 <h2>Select a Transformation Type</h2> 
+	  <ul id="transOptions">
+		  <li id="opt1">
+			 <h3>scale(<em>a</em>, <em>b</em>)</h3>
+			 <table class="matrix matrixsample">
+				 <tr>
+					  <td><em>a</em></td>
+					  <td>0</td>
+					  <td>0</td>	
+				  </tr>
+				  <tr>
+					  <td>0</td>
+					  <td><em>b</em></td>
+					  <td>0</td>			  
+				  </tr>
+				  <tr>
+					  <td>0</td>
+					  <td>0</td>
+					  <td>1</td>	
+				  </tr> 
+				 </table>
+			  <div class="options">
+				  <label for="scalea">a</label> <input type="text" id="scalea" />
+				  <label for="scaleb">b</label> <input type="text" id="scaleb" />
+				  <input type="button" value="apply" id="applyScale" />
+			  </div>
+		  </li>
+		  
+		  <li id="opt2">
+			 <h3>translate(<i>x</i>, <i>y</i>)</h3>
+			 <table class="matrix matrixsample">
+				 <tr>
+					  <td>1</td>
+					  <td>0</td>
+					  <td><em>x</em></td>	
+				  </tr>
+				  <tr>
+					  <td>0</td>
+					  <td>1</td>
+					  <td><em>y</em></td>			  
+				  </tr>
+				  <tr>
+					  <td>0</td>
+					  <td>0</td>
+					  <td>1</td>	
+				  </tr> 
+			  </table>	
+			  <div class="options">
+			  	<label for="translatex">x</label> <input type="text" id="translatex" />
+			  	<label for="translatey">y</label> <input type="text" id="translatey" />
+			  	<input type="button" value="apply" id="applyTranslate" />
+			  </div>
+		  </li>
+		  <li id="opt3">
+			 <h3>skew(<i>x</i>, <i>y</i>)</h3>
+			 <table class="matrix matrixsample">
+				 <tr>
+					  <td>1</td>
+					  <td>tan <em>x</em></td>
+					  <td>0</td>	
+				  </tr>
+				  <tr>
+					  <td>tan <em>y</em></td>
+					  <td>1</td>
+					  <td>0</td>			  
+				  </tr>
+				  <tr>
+					  <td>0</td>
+					  <td>0</td>
+					  <td>1</td>	
+				  </tr> 
+			  </table>
+			  <div class="options">			  
+			  	<label for="skewx">x</label> <input type="text" id="skewx" />
+			  	<label for="skewy">y</label> <input type="text" id="skewy" />
+			  	<input type="button" value="apply" id="applySkew" />
+			  </div>
+		  </li>
+		  
+		  <li id="opt4">
+			 <h3>rotate(<i>&theta;</i>)</h3>
+			 <table class="matrix matrixsample">
+				 <tr>
+					  <td>cos <em>&theta;</em></td>
+					  <td>-sin <em>&theta;</em></td>
+					  <td>0</td>	
+				  </tr>
+				  <tr>
+					  <td>sin <em>&theta;</em></td>
+					  <td>cos <em>&theta;</em></td>
+					  <td>0</td>			  
+				  </tr>
+				  <tr>
+					  <td>0</td>
+					  <td>0</td>
+					  <td>1</td>	
+				  </tr> 
+			  </table>	
+			  <div class="options">			  
+				  <label for="rotate">&theta;</label> <input type="text" id="theta" />
+				  <input type="button" value="apply" id="applyRotate" />			  
+			  </div>				  
+		  </li>
+		  
+		  <li id="opt5">
+			 <h3>horizontal reflection</h3>
+			 <table class="matrix matrixsample">
+				 <tr>
+					  <td>-1</td>
+					  <td>0</td>
+					  <td>0</td>	
+				  </tr>
+				  <tr>
+					  <td>0</td>
+					  <td>1</td>
+					  <td>0</td>			  
+				  </tr>
+				  <tr>
+					  <td>0</td>
+					  <td>0</td>
+					  <td>1</td>	
+				  </tr> 
+			  </table>	
+			  <div class="options">			  
+			  	<input type="button" value="apply" id="applyHorz" />			  
+			  </div>				  
+		  </li>	
+		  
+		  <li id="opt6">
+			 <h3>vertical reflection</h3>
+			 <table class="matrix matrixsample">
+				 <tr>
+					  <td>1</td>
+					  <td>0</td>
+					  <td>0</td>	
+				  </tr>
+				  <tr>
+					  <td>0</td>
+					  <td>-1</td>
+					  <td>0</td>			  
+				  </tr>
+				  <tr>
+					  <td>0</td>
+					  <td>0</td>
+					  <td>1</td>	
+				  </tr> 
+			  </table>	
+			  <div class="options">			  
+			  	<input type="button" value="apply" id="applyVert" />
+			  </div>				  
+		  </li>		  
+	  </ul>
+	  <h2>Enter the Matrix Values Directly</h2>
+      <div id="outcomecode">	   
+		 <table class="matrix" id="matrixout">
+			  <tr>
+				  <td><input type="text" id="m11" class="matrixcell" value="1"/></td>
+				  <td><input type="text" id="m12" class="matrixcell"  value="0"/></td>
+				  <td><input type="text" id="m13" class="matrixcell"  value="0"/></td>	
+			  </tr>
+			 <tr>
+				  <td><input type="text" id="m21" class="matrixcell"  value="0"/></td>
+				  <td><input type="text" id="m22" class="matrixcell" value="1"/></td>
+				  <td><input type="text" id="m23" class="matrixcell"  value="0"/></td>			  
+		   </tr>
+			 <tr>
+				  <td><input type="text" id="m31" readonly value="0" /></td>
+				  <td><input type="text" id="m32" readonly value="0"/></td>
+				  <td><input type="text" id="m33" readonly value="1"/></td>	
+		   </tr>		  
+	    </table>	
+ 		  
+	    <div id="outcometrans">
+			  transform: matrix( <input type="text" id="c0" class="transformcell" value="1" readonly /> , 
+			  					<input type="text" id="c1" class="transformcell" value="0" readonly /> ,
+			  					<input type="text" id="c2" class="transformcell" value="0" readonly /> ,
+			  					<input type="text" id="c3" class="transformcell" value="1" readonly /> ,
+			  					<input type="text" id="c4" class="transformcell" value="0" readonly /> ,
+			  					<input type="text" id="c5" class="transformcell" value="0" readonly /> );
+	    </div>
+	  </div>		  
+
+		<div id="originInputBox">
+			<label>transform-origin</label>
+			<select id="hKeyword">
+				<option value="left">left</option>            
+				<option selected value="center">center</option>  
+				<option value="right">right</option>                         
+			</select> 
+			<select id="vKeyword">
+				<option value="top">top</option>            
+				<option selected value="center">center</option>  
+				<option value="bottom">bottom</option>                         
+			</select>
+		</div> 		  
+	
+	   
+	  <div id="buttons">
+	  	  <input type="button" id="applyTrans" value="Run Matrix Transformation" />
+	  	  <input type="button" id="resetTrans" value="Reset Marix" />		  
+	  </div>
+	  
+</div>
+   
+     
+<div id="outcome">
+	<div id="outcomeback"></div>
+	<div id="outcomebox"><img src="pontormo.png" alt="" /></div>    
+</div>  
+
+</body>
+</html>

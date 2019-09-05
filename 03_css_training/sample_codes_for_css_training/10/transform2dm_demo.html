@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+   <meta charset="utf-8" />
+   <title>CSS 2D Multiple Transformations</title>
+   <link href="transform2dm_base.css" rel="stylesheet" />
+   <link href="transform2dm_layout.css" rel="stylesheet" />
+   <script src="transform2dm_demo.js" async></script>
+</head>
+
+<body>
+    
+   <h1>CSS 2D Multiple Transformations</h1>
+   <div id="borderOptions">   
+
+      <label for="useTranslateX">translateX</label> <input type="checkbox" name="transtype" id="useTranslateX" class="eraseT" /> -100px <input id="translatex2" type="range" min="-100" max="100" step="5" value="0" class="transBox" /> 100px<br />
+        
+      <label for="useTranslateY">translateY</label> <input type="checkbox" name="transtype" id="useTranslateY" class="eraseT" /> -100px <input id="translatey2" type="range" min="-100" max="100" step="5" value="0" class="transBox" /> 100px<br />    
+	   
+
+      <label for="useTranslate">translate</label> <input type="checkbox" name="transtype" id="useTranslate" class="eraseT" /> -100px <input id="translatex1" type="range" min="-100" max="100" step="5" value="0" /> 100px<br />
+      <label style="width: 171px"></label> -100px <input id="translatey1" type="range" min="-100" max="100" step="5" value="0" /> 100px<br />  
+
+      <label for="useScaleX">scaleX</label> <input type="checkbox" name="transtype" id="useScaleX" class="eraseT" /> -2.0 <input id="scalex2" type="range" min="-2" max="2" step="0.1" value="1" class="transBox" /> 2.0<br />
+        
+      <label for="useScaleY">scaleY</label> <input type="checkbox" name="transtype" id="useScaleY" class="eraseT" /> 2.0 <input id="scaley2" type="range" min="-2" max="2" step="0.1" value="1" class="transBox" /> 2.0<br />
+
+	  <label for="useScale">scale</label> <input type="checkbox" name="transtype" id="useScale" class="eraseT" /> -2.0 <input id="scalex1" type="range" min="-2" max="2" step="0.1" value="1" /> 2.0<br />
+      <label style="width: 171px"></label> -2.0 <input id="scaley1" type="range" min="-2" max="2" step="0.1" value="1" /> 2.0<br />       
+
+      <label for="useSkewX">skewX</label> <input type="checkbox" name="transtype" id="useSkewX" class="eraseT" /> -360deg <input id="skewx2" type="range" min="-360" max="360" step="10" value="0" class="transBox" /> 360deg<br />
+        
+      <label for="useSkewY">skewY</label> <input type="checkbox" name="transtype" id="useSkewY" class="eraseT" /> -360deg <input id="skewy2" type="range" min="-360" max="360" step="10" value="0" class="transBox" /> 360deg<br />       
+
+      <label for="useSkew">skew</label> <input type="checkbox" name="transtype" id="useSkew" class="eraseT" /> -360deg <input id="skewx1" type="range" min="-360" max="360" step="10" value="0" /> 360deg<br />
+      <label style="width: 171px"></label> -360deg <input id="skewy1" type="range" min="-360" max="360" step="10" value="0" /> 360deg<br /> 
+	   
+      <label for="useRotate">rotate</label> <input type="checkbox" name="transtype" id="useRotate" class="eraseT" /> -360deg <input id="rotate" type="range" min="-360" max="360" step="10" value="0" class="transBox" /> 360deg<br /> 
+	  
+	  <div style="margin-top: 20px; border-top: 1px solid rgb(155, 155, 155); border-bottom: 1px solid rgb(155, 155, 155)">
+	 <label>transform-origin</label><input type="radio" name="posType" id="posKey" checked />   
+	 <select id="hKeyword">
+		<option value="left">left</option>            
+		<option selected value="center">center</option>  
+		<option value="right">right</option>                         
+	 </select> 
+	 <select id="vKeyword">
+		<option value="top">top</option>            
+		<option selected value="center">center</option>  
+		<option value="bottom">bottom</option>                         
+	 </select><br />
+		  
+	 <label></label><input type="radio" name="posType" id="posP" />  
+	 0% <input id="hPos" type="range" min="0" max="100" step="1" value="50" /> 100%<br /> 
+	 <label></label><span style="display: inline-block; width: 25px"></span>0% <input id="vPos" type="range" min="0" max="100" step="1" value="50" /> 100%
+	   </div>
+	   
+	  <div id="summary">
+		  <div id="outcomecode">
+			  <label id="translabel">transform: </label><span id="outcometrans">none</span>
+			  <label id="originlabel">transform-origin: </label><span id="origincode">initial</span>;
+		  </div>
+      	<input type="button" value="Reset Transformations" id="erase" />		  
+	   </div>
+
+   </div>
+   
+     
+   <div id="outcome">
+	  <div id="outcomeback"></div> 	   
+      <div id="outcomebox"><img src="davinci.png" alt="" /></div>    
+   </div>   
+
+</body>
+</html>

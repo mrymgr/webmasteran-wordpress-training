@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+   <meta charset="utf-8" />
+   <title>Multiplying 3x1 Matrices</title>
+   <link href="multiplier31_base.css" rel="stylesheet" />
+   <link href="multiplier31_layout.css" rel="stylesheet" />
+   <script src="multiplier31_demo.js" async></script>
+</head>
+
+<body>
+    
+	<h1>Multiplying 3x1 Matrices</h1>
+	<h2>Enter your Matrix Values Below</h2>
+	<div id="matrices">
+		 <table class="matrix matrixsample" id="matrix1">
+			 <tr>
+				  <td><input type="text" value="1" /></td>
+				  <td><input type="text" value="0" /></td>
+				  <td><input type="text" value="0" /></td>	
+			  </tr>
+			  <tr>
+				  <td><input type="text" value="0" /></td>
+				  <td><input type="text" value="1" /></td>
+				  <td><input type="text" value="0" /></td>		  
+			  </tr>
+			  <tr>
+				  <td><input type="text" value="0"  /></td>
+				  <td><input type="text" value="0"  /></td>
+				  <td><input type="text" value="1"  /></td>	
+			  </tr>
+		</table>
+		<table class="msymbol"><tr><td>&times;</td></tr></table>		
+		 <table class="matrix matrixsample" id="matrix2">
+			 <tr>
+				  <td><input type="text" value="0" /></td>	
+			  </tr>
+			  <tr>
+				  <td><input type="text" value="0" /></td>	  
+			  </tr>
+			  <tr>
+				  <td><input type="text" value="1"  /></td>	
+			  </tr>
+		</table>
+		<table class="msymbol"><tr><td>=</td></tr></table>
+		 <table class="matrix matrixsample" id="matrix3">
+			 <tr>
+				  <td><input type="text" value="" readonly /></td>	
+			  </tr>
+			  <tr>
+				  <td><input type="text" value="" readonly /></td>		  
+			  </tr>
+			  <tr>
+				  <td><input type="text" value="" readonly /></td>	
+			  </tr>
+		</table>
+		<table id="summary">
+			<tr><td></td><td class="sym">&times;</td><td></td><td class="sym">=</td><td></td></tr>
+			<tr><td></td><td class="sym">&times;</td><td></td><td class="sym">=</td><td></td></tr>
+			<tr><td></td><td class="sym">&times;</td><td></td><td class="sym">=</td><td></td></tr>			
+			<tr><td colspan="4"></td><td></td></tr>			
+		</table>
+	</div>
+	<div id="controls">
+		<input type="button" id="start" value="start" /><input type="button" id="mmult" value="next ->" disabled />
+	</div>
+</body>
+</html>

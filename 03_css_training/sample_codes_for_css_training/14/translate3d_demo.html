@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+   <meta charset="utf-8" />
+   <title>CSS 3D Translation</title>
+   <link href="translate3d_base.css" rel="stylesheet" />
+   <link href="translate3d_layout.css" rel="stylesheet" />
+   <script src="translate3d_demo.js" async></script>
+</head>
+
+<body>
+    
+   <h1>CSS 3D Translations</h1>
+   <div id="transformOptions">   
+
+      <label for="useTranslateX">translateX</label> <input type="radio" name="transtype" id="useTranslateX" class="eraseT" /> -300px <input id="translatex2" type="range" min="-300" max="300" step="10" value="0" class="transBox" /> 300px<br /> 
+	   
+      <label for="useTranslateY">translateY</label> <input type="radio" name="transtype" id="useTranslateY" class="eraseT" /> -300px <input id="translatey2" type="range" min="-300" max="300" step="10" value="0" class="transBox" /> 300px<br /> 
+	   
+      <label for="useTranslateZ">translateZ</label> <input type="radio" name="transtype" id="useTranslateZ" class="eraseT" /> -300px <input id="translatez2" type="range" min="-300" max="300" step="10" value="0" class="transBox" /> 300px<br />  	   
+	  
+      <label for="usetranslate3d">translate3d</label> <input type="radio" name="transtype" id="usetranslate3d" class="eraseT" />
+	   	<label class="translate3dlabel">x: </label> <input type="text" id="tx" class="transBox" value="0" />
+	   	<label class="translate3dlabel">y: </label> <input type="text" id="ty" class="transBox" value="0" />
+	   	<label class="translate3dlabel">z: </label> <input type="text" id="tz" class="transBox" value="0" /><br />	
+	   
+	  <div style="margin-top: 20px; border-top: 1px solid rgb(155, 155, 155); border-bottom: 1px solid rgb(155, 155, 155)">
+	 <label>perspective</label> 200px <input id="perspective" type="range" min="200" max="1600" step="100" value="800" /> 1600px 
+	   </div>	   
+	   
+	  <div id="summary">
+		  <div id="outcomecode">
+			  <label>transform: </label><span id="pvalue">perspective(800px) </span><span id="outcometrans"></span>;<br />
+			  <label>transform-origin: </label><span id="origincode">initial</span>;
+		  </div>
+      	<input type="button" value="Reset Transformations" id="erase" />		  
+	   </div>
+
+   </div>
+   
+     
+   <div id="outcome3q" class="preview">
+	  <h3>Three-Quarter View</h3>	   
+	  <div class="cube">
+		<figure class="face front"><span>z+</span></figure>
+		<figure class="face back"><span>z&ndash;</span></figure>
+		<figure class="face right"><span>x+</span></figure>
+		<figure class="face left"><span>x&ndash;</span></figure>
+		<figure class="face top"><span>y&ndash;</span></figure>
+		<figure class="face bottom"><span>y+</span></figure>
+		<figure class="axis xaxis"></figure>
+		<figure class="axis yaxis"></figure>
+		<figure class="axis zaxis"></figure>
+		<img id="figure3q" class="previewimg" src="rubens.png" alt=""/>
+	  </div>
+   </div> 
+   <div id="outcomefront" class="preview">
+	  <h3>User's View</h3>	   
+	  <div class="cube">
+		<figure class="face front"><span>z+</span></figure>
+		<figure class="face back"><span>z&ndash;</span></figure>
+		<figure class="face right"><span>x+</span></figure>
+		<figure class="face left"><span>x&ndash;</span></figure>
+		<figure class="face top"><span>y&ndash;</span></figure>
+		<figure class="face bottom"><span>y+</span></figure>
+		<figure class="axis xaxis"></figure>
+		<figure class="axis yaxis"></figure>
+		<figure class="axis zaxis"></figure>	  
+		<img id="figurefront" class="previewimg" src="rubens.png" alt=""/>
+	  </div>
+   </div>	
+
+</body>
+</html>

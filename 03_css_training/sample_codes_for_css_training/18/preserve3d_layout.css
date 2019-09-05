@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+
+
+html {
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+   height: 100%;
+   font-size: 18px;
+   color: rgb(101, 101, 101);
+}
+
+body {
+   padding: 20px 0px 0px 20px;
+   position: relative;
+}
+
+h1 {
+   font-weight: normal;
+   font-size: 2.4em;
+   margin-top: 5px;
+   margin-left: 20px;
+   padding-bottom: 10px;
+}
+
+h2 {
+   font-weight: normal;
+   font-size: 1.3em;
+   margin: 20px 0px 5px 0px;
+}
+
+p {
+	width: 700px;
+}
+
+div#3dOptions {
+   line-height: 2em;
+   z-index: 1;
+   width: 650px;
+   background-color: rgba(255, 255, 255, 0.8);
+   border-right: 1px solid rgb(155, 155, 155);
+}
+
+label {
+	display: inline-block;
+	width: 150px;
+	margin-right: 5px;
+}
+
+label.tinyLabel {
+	width: 40px;
+	margin: 0px;
+	text-align: right;
+}
+
+label.tinyLabel2 {
+	width: 100px;
+	margin: 0px;	
+}
+
+label.tinyLabel3 {
+	width: 70px;
+	margin: 0px;
+}
+
+p#showp {
+	display: none;
+}
+
+div#outerp p, div#innerp p {
+	margin-left: 25px;
+	color: red;
+}
+
+div#outerp p:first-of-type, div#innerp p:first-of-type, div#outerp p:last-of-type, div#innerp p:last-of-type {
+	margin-left: 0px;
+}
+
+div#outerp, div#innerp {
+	margin: 10px 0px;
+}
+
+input#tx2, input#ty2, input#tz2 {
+	width: 40px;
+	text-align: right;
+	margin: 0px;
+}
+
+input#resetButton {
+	display: block;
+	font-size: 1em;
+	width: 100px;
+	height: 30px;
+	margin: 20px 0px 0px 20px;
+}
+div#outcome {
+	position: absolute;
+	top: 50px;
+	left: 750px;
+	width: 500px;
+	height: 500px;	
+}
+
+div#container {
+	position: relative;
+	width: 300px;
+	height: 300px;
+	background-color: hsla(32,77%,47%,1);
+	border: 15px outset hsla(32, 50%, 20%,1);	
+}
+
+div#container img {
+	display: block;
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	top: 50px;
+	left: 50px;	
+}
+
+

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+   <meta charset="utf-8" />
+   <title>CSS Calculated 3d Matrix</title>
+   <link href="matrix3dcalc_base.css" rel="stylesheet" />
+   <link href="matrix3dcalc_layout.css" rel="stylesheet" />
+   <script src="matrix3dcalc_demo.js" async></script>
+</head>
+
+<body>
+    
+   <h1>CSS Calculated 3d Matrix</h1>
+   <div id="transformOptions">   
+
+      <label for="useTranslateX">translateX</label> <input type="checkbox" name="transtype" id="useTranslateX" class="eraseT" /> -300px <input id="translatex2" type="range" min="-300" max="300" step="10" value="0" class="transBox" /> 300px<br /> 
+	   
+      <label for="useTranslateY">translateY</label> <input type="checkbox" name="transtype" id="useTranslateY" class="eraseT" /> -300px <input id="translatey2" type="range" min="-300" max="300" step="10" value="0" class="transBox" /> 300px<br /> 
+	   
+      <label for="useTranslateZ">translateZ</label> <input type="checkbox" name="transtype" id="useTranslateZ" class="eraseT" /> -300px <input id="translatez2" type="range" min="-300" max="300" step="10" value="0" class="transBox" /> 300px<br />  	   
+	  
+      <label for="usetranslate3d">translate3d</label> <input type="checkbox" name="transtype" id="usetranslate3d" class="eraseT" />
+	   	<label class="translate3dlabel">x: </label> <input type="text" id="tx" class="transBox" value="0" />
+	   	<label class="translate3dlabel">y: </label> <input type="text" id="ty" class="transBox" value="0" />
+	   	<label class="translate3dlabel">z: </label> <input type="text" id="tz" class="transBox" value="0" /><br /> 
+
+      <label for="usescaleX">scaleX</label> <input type="checkbox" name="transtype" id="usescaleX" class="eraseT" /> -2 <input id="scalex2" type="range" min="-2" max="2" step="0.1" value="1" class="transBox" /> 2<br /> 
+	   
+      <label for="usescaleY">scaleY</label> <input type="checkbox" name="transtype" id="usescaleY" class="eraseT" /> -2 <input id="scaley2" type="range" min="-2" max="2" step="0.1" value="1" class="transBox" /> 2<br /> 
+	   
+      <label for="usescaleZ">scaleZ</label> <input type="checkbox" name="transtype" id="usescaleZ" class="eraseT" /> -2 <input id="scalez2" type="range" min="-2" max="2" step="0.1" value="1" class="transBox" /> 2<br /> 	   
+	  
+      <label for="usescale3d">scale3d</label> <input type="checkbox" name="transtype" id="usescale3d" class="eraseT" />
+	   	<label class="scale3dlabel">x: </label> <input type="text" id="sx" class="transBox" value="1" />
+	   	<label class="scale3dlabel">y: </label> <input type="text" id="sy" class="transBox" value="1" />
+	   	<label class="scale3dlabel">z: </label> <input type="text" id="sz" class="transBox" value="1" /><br />    
+	   
+      <label for="useRotateX">rotateX</label> <input type="checkbox" name="transtype" id="useRotateX" class="eraseT" /> -360deg <input id="rotatex2" type="range" min="-360" max="360" step="10" value="0" class="transBox" /> 360deg<br /> 
+	   
+      <label for="useRotateY">rotateY</label> <input type="checkbox" name="transtype" id="useRotateY" class="eraseT" /> -360deg <input id="rotatey2" type="range" min="-360" max="360" step="10" value="0" class="transBox" /> 360deg<br /> 
+	   
+      <label for="useRotateZ">rotateZ</label> <input type="checkbox" name="transtype" id="useRotateZ" class="eraseT" /> -360deg <input id="rotatez2" type="range" min="-360" max="360" step="10" value="0" class="transBox" /> 360deg<br /> 	   
+	  
+      <label for="userotate3d">rotate3d</label> <input type="checkbox" name="transtype" id="userotate3d" class="eraseT" />
+	   	<label class="rotate3dlabel">x: </label> <input type="text" id="vx" class="transBox" value="1" />
+	   	<label class="rotate3dlabel">y: </label> <input type="text" id="vy" class="transBox" value="1" />
+	   	<label class="rotate3dlabel">z: </label> <input type="text" id="vz" class="transBox" value="0" /><br />
+	    <label id="ranglelabel">angle: </label> -360deg <input id="vangle" type="range" min="-360" max="360" step="10" value="0" class="transBox" /> 360deg<br /> 
+	  
+	  <div style="margin-top: 20px; border-top: 1px solid rgb(155, 155, 155)">
+	 <label>transform-origin</label>
+	 <select id="hKeyword">
+		<option value="left">left</option>            
+		<option selected value="center">center</option>  
+		<option value="right">right</option>                         
+	 </select> 
+	 <select id="vKeyword">
+		<option value="top">top</option>            
+		<option selected value="center">center</option>  
+		<option value="bottom">bottom</option>                         
+	 </select>
+	 <select id="zOrigin">
+		 <option value="-200px">-200px</option>		 
+		 <option value="-100px">-100px</option>
+		 <option value="-50px">-50px</option>
+		 <option value="0px" selected>0px</option>
+		 <option value="50px">50px</option>		 
+		 <option value="100px">100px</option>
+		 <option value="200px">200px</option>		 
+	</select>
+	   </div> 
+	  <div style="margin-top: 0px; border-bottom: 1px solid rgb(155, 155, 155)">
+	 <label>perspective</label> 200px <input id="perspective" type="range" min="200" max="2000" step="100" value="1200" /> 2000px 
+	   </div>	   
+	   
+	  <div id="summary">
+		  <table>
+			  <tr>
+				  <td>transform-origin: </td>
+				  <td><span id="origincode">initial</span>;</td>
+			  </tr>			  
+			  <tr>
+				  <td>transform: </td>
+				  <td>
+				  <span id="pvalue">perspective(1200px) </span> <span id="outcometrans"></span>;
+				  </td>
+			  </tr>
+			  <tr>
+				  <td>transform (computed): </td>
+				  <td>
+				  <span id="outcomecalc">matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.000833333, 0, 0, 0, 1)</span>;
+				  </td>
+			  </tr>			  
+		  </table>
+      	<input type="button" value="Reset Transformations" id="erase" />		  
+	   </div>
+
+   </div>
+   
+   <div id="outcomefront" class="preview">
+	  <h3>User's View</h3>	   
+	  <div class="cube">
+		<figure class="face front"><span>z+</span></figure>
+		<figure class="face back"><span>z&ndash;</span></figure>
+		<figure class="face right"><span>x+</span></figure>
+		<figure class="face left"><span>x&ndash;</span></figure>
+		<figure class="face top"><span>y&ndash;</span></figure>
+		<figure class="face bottom"><span>y+</span></figure>
+		<figure class="axis xaxis"></figure>
+		<figure class="axis yaxis"></figure>
+		<figure class="axis zaxis"></figure>	  
+		<img id="figurefront" class="previewimg" src="pontormo.png" alt=""/>
+	  </div>
+   </div>	
+	
+   <div id="outcomematrix">	   
+	   <table id="mTable">
+		   <caption>3D Transformation Matrix</caption>
+		   <tr>
+			   <td id="m0">1</td>
+			   <td id="m4">0</td>
+			   <td id="m8">0</td>
+			   <td id="m12">0</td>			   
+		   </tr>
+		   <tr>
+			   <td id="m1">0</td>
+			   <td id="m5">1</td>
+			   <td id="m9">0</td>
+			   <td id="m13">0</td>			   
+		   </tr>	
+		   <tr>
+			   <td id="m2">0</td>
+			   <td id="m6">0</td>
+			   <td id="m10">1</td>
+			   <td id="m14">0</td>			   
+		   </tr>
+		   <tr>
+			   <td id="m3">0</td>
+			   <td id="m7">0</td>
+			   <td id="m11">-0.000833333</td>
+			   <td id="m15">1</td>			   
+		   </tr>		   
+	   </table>
+   </div>	
+	
+</body>
+</html>

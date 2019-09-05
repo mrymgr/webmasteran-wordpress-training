@@ -1,0 +1,122 @@
+@charset "utf-8";
+
+
+
+html {
+   font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+   height: 100%;
+   font-size: 18px;
+   color: rgb(101, 101, 101);
+}
+
+body {
+   padding: 20px 0px 0px 20px;
+   position: relative;
+}
+
+h1 {
+   font-weight: normal;
+   font-size: 2.4em;
+   margin-top: 5px;
+   margin-left: 0px;
+   padding-bottom: 30px;
+}
+
+
+label {
+   display: inline-block;
+   width: 200px;
+   margin-left: 10px;
+   margin-right: 10px;
+}
+
+label.cblal {
+	width: 165px;	
+}
+
+label.cblal2 {
+	width: 10px;	
+}
+
+h2 {
+	font-weight: normal;
+	margin-top: 30px;
+	margin-bottom: 5px;
+	font-size: 1.1em;
+}
+
+div#initial h2 {
+	margin-top: 0px;
+}
+
+input {
+	margin: 5px 0px;
+}
+input[type="number"] {
+	width: 45px;
+	margin-left: 10px;
+	text-align: right;
+}
+
+
+div#trans span:first-of-type {
+	display: inline-block;
+	width: 165px;
+}
+
+div#outcome {
+   position: absolute;
+   top: 80px;
+   left: 650px;
+   font-size: 22px;
+}
+
+div#outcome div#outcomebox:hover+h3+div#transCSS span#transCode {
+	color: red;
+	background-color: hsla(54,88%,52%,0.26);	
+}
+
+div#outcomebox {
+	width: 700px;
+	position: relative;
+	top: 0px; left: 0px;
+	border: 1px solid rgb(101, 101, 101);
+	height: 200px;
+    cursor: pointer;		
+}
+
+h3 {
+	width: 700px;
+	font-weight: normal;
+	font-size: 0.9em;
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+	font-style: italic;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+div#outcomebox div#transobject {
+
+
+   	position: absolute;
+   	top: 0px;
+   	color: rgb(0, 255, 0);
+	border: 3px solid rgb(101, 101, 101);
+
+}
+
+
+
+
+
+
+div#outcomecode {
+	line-height: 1.2em;
+}
+
+div#transCSS {
+	margin-left: 125px;
+	font-size: 0.9em;
+}
+
+   

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+   <meta charset="utf-8" />
+   <title>CSS Backfaces</title>
+   <link href="backface_base.css" rel="stylesheet" />
+   <link href="backface_layout.css" rel="stylesheet" />
+   <script src="backface_demo.js" async></script>
+</head>
+
+<body>
+    
+   <h1>CSS Backfaces</h1>
+   <div id="3dOptions">	   
+	   <div id="setupCard">
+			<h2>Create Card</h2>		   
+			<input type="button" value="Insert Front Object" id="insertFront" /> 
+		   	<input type="button" value="Insert Back Object" id="insertBack" /><br />
+		   	<input id="useBackface" type="checkbox" checked /> <label for="useBackface">Display Backfaces</label>  
+	   </div>
+	   <div id="innerTrans">
+			<h2>Rotate Card</h2>	   
+		   <label for="xdeg">Rotate x-axis</label> 0deg <input type="range" name="rotatex" id="rotatex" value="0" min="0" max="360" step="5"/> 360deg<br />
+		   <label for="ydeg">Rotate y-axis</label> 0deg <input type="range" name="rotatey" id="rotatey" value="0" min="0" max="360" step="5"/> 360deg<br />		   
+	   </div>
+	   
+	   <div id="htmlCode">
+		   <h2>HTML</h2>
+		   <div id="containerCodeStart">
+			   &lt;div id="container" &gt;
+		   </div>
+		   <div id="cardCodeStart">
+			   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="card" &gt;
+		   </div>
+		   <div id="frontCodeStart">
+			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="front" &gt; ... &lt;/div&gt;
+		   </div>
+		   <div id="backCodeStart">
+			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="back" &gt; ... &lt;/div&gt;
+		   </div>		   
+		   <div id="cardCodeEnd">
+			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+		   </div>		   
+		   <div id="containerCodeEnd">
+			   &lt;/div&gt;
+		   </div>		   
+	   </div>
+	   <div id="cssCode">
+		   <h2>CSS</h2>
+		   <div id="containerCSS">
+			   div#container {<br />
+			   &nbsp;&nbsp;&nbsp; perspective: 1500px;<br />
+			   }
+		   </div>
+		   <div id="cardCSS">
+			   div#card {<br />
+			   &nbsp;&nbsp;&nbsp;transform-style: preserve-3d;<br />
+			   &nbsp;&nbsp;&nbsp;transform: <span id="cardTranscode">rotateX(0deg) rotateY(0deg)</span>;<br />
+			   }
+		   </div>
+		   <div id="frontCSS">
+			   div#front {<br />
+			   &nbsp;&nbsp;&nbsp;position: absolute; top: 0px; left: 0px;<br />
+			   <span id="showFrontBackface">&nbsp;&nbsp;&nbsp;<span id="backFrontcode">backface-visibility: visible</span>;<br /></span>
+			   }
+		   </div>		   
+		   <div id="backCSS">
+			   div#back {<br />
+			   &nbsp;&nbsp;&nbsp;position: absolute; top: 0px; left: 0px;<br />
+			   &nbsp;&nbsp;&nbsp;transform: rotateY(180deg);<br />
+			   <span id="showBackBackface">&nbsp;&nbsp;&nbsp;<span id="backBackcode">backface-visibility: visible</span>;<br /></span>			   
+			   }
+		   </div>		   
+	   </div>	   
+
+   </div>
+   
+     
+   <div id="container">
+	  <div id="card"> 
+		<img src="michelangelo.png" id="front" alt="Michelangelo Sketch" />
+		<div id="back">
+			<h1>Study for the Battle of Cascina</h1>
+			<p>This card displays a sketch for the painting <em>Battle of Cascina</em> by
+			   Michelangelo, in which Florentine soldiers bathing in a river are taken by surprise by the Pisan army.
+			  This prepatory sketch of part of the final painting depicts
+			   a soldier emerging naked from the river to face the attacking Pisans.</p>
+			<p>The final painting was destroyed shortly after its completion, so prepatory
+				sketches are all that remain of Michelangelo's vision.
+			</p>
+			<foot>Chalk and silver rod on paper, Galleria degli Uffizi, Florence</foot>
+		</div>		  
+	   </div>	   
+   </div>   
+
+</body>
+</html>

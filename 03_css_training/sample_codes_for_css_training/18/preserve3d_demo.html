@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+   <meta charset="utf-8" />
+   <title>CSS Transform Style</title>
+   <link href="preserve3d_base.css" rel="stylesheet" />
+   <link href="preserve3d_layout.css" rel="stylesheet" />
+   <script src="preserve3d_demo.js" async></script>
+</head>
+
+<body>
+    
+   <h1>CSS Transform Style</h1>
+   <div id="3dOptions">
+	   <div id="outerTrans">
+		   <h2>Container</h2>
+		   <label for="xdeg">Rotate x-axis</label> -360deg <input type="range" name="rotatex" id="rotatex" value="0" min="-360" max="360" step="2"/> 360deg<br />
+		   <label for="ydeg">Rotate y-axis</label> -360deg <input type="range" name="rotatey" id="rotatey" value="0" min="-360" max="360" step="2"/> 360deg<br />
+		   <label for="zdeg">Rotate z-axis</label> -360deg <input type="range" name="rotatez" id="rotatez" value="0" min="-360" max="360" step="2" /> 360deg   
+	   </div>
+	   <div id="innerTrans">
+			<h2>Inner Object</h2>
+		   <label for="usetranslate3d">translate3d</label>
+		   <label class="tinyLabel">x: </label> <input type="text" id="tx2" class="transBox" value="0" />
+		   <label class="tinyLabel">y: </label> <input type="text" id="ty2" class="transBox" value="0" />
+		   <label class="tinyLabel">z: </label> <input type="text" id="tz2" class="transBox" value="0" /><br />		   
+		   <label for="xdeg">Rotate x-axis</label> -360deg <input type="range" name="rotatex2" id="rotatex2" value="0" min="-360" max="360" step="2"/> 360deg<br />
+		   <label for="ydeg">Rotate y-axis</label> -360deg <input type="range" name="rotatey2" id="rotatey2" value="0" min="-360" max="360" step="2"/> 360deg<br />
+		   <label for="zdeg">Rotate z-axis</label> -360deg <input type="range" name="rotatez2" id="rotatez2" value="0" min="-360" max="360" step="2" /> 360deg
+	   </div>
+	   
+	   <div style="margin-top: 20px; border-top: 1px solid rgb(155, 155, 155); border-bottom: 1px solid rgb(155, 155, 155); width: 650px"> 
+		   <label for="perspective">Perspective: </label> 300px <input type="range" name="perspective" id="perspective" value="1200" min="300" max="1500" step="100"/> 1500px 
+		   <br />
+		   <label></label><label class="tinyLabel3" for="useFn">function</label> <input type="radio" name="ptype" id="useFn" value="useFn" checked />
+										   <label class="tinyLabel3" for="useP">property</label> <input type="radio" name="ptype" id="useP" /><br /><br />	  
+		   
+		   <label>transform-style: </label><label class="tinyLabel" for="tsflat">flat</label> <input type="radio" name="ts" id="tsflat" value="flat" checked />
+										   <label class="tinyLabel2" for="tspreserve">preserve-3d</label> <input type="radio" name="ts" id="tspreserve" value="preserve-3d" /><br />
+	   </div>
+	   <div id="outerp">
+		   <p>div#container {</p>
+		   <p>transform: <span id="containerTranscode1">perspective(1200px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)</span>;</p>
+		   <p>transform-style: <span id="containerTranscode2">flat</span>;</p>
+		   <p id="showp"></p>
+		   <p>}</p>
+	   </div>
+	   <div id="innerp">
+		   <p>div#container img {</p>
+		   <p>transform: <span id="imgTranscode">translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)</span>;</p>
+		   <p>}</p>			   
+	   </div>
+ 
+	   <input type="button" value="reset" id="resetButton" />
+   </div>
+   
+     
+   <div id="outcome">
+	  <div id="container" style="transform-style: flat; perspective: 1200px; transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);">
+		<img id="figure3d" src="piazzetta.png" alt="" style="transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);"/>
+	  </div>	   
+   </div>   
+
+</body>
+</html>
