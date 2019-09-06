@@ -38,6 +38,15 @@ Files of this section contain of:
 2. Practical animation and transition samples from Lynda CSS training course.
 3. Useful links for CSS training.
 
+### Section 4: PHP training
+
+> In this section, we had a crash course to learn PHP for webmasters. 
+This section covers all of thing that you will face with PHP in your everyday tasks as a webmaster. 
+With learning this section, you will be able to read php codes and also manipulate them easily.   
+
+Files of this section contain of: 
+1. Sample codes that we used in our training
+
 
 ## License
 > You can use this materials for free.
