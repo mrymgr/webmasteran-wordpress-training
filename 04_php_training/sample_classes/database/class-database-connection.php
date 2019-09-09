@@ -4,10 +4,10 @@ namespace Webmasteran\Sample_Classes\Database;
 
 class Database_Connection {
 	public $connection;
-	private $servername = "localhost";
+	private $server_name = "localhost";
 	private $username = "mehdi";
 	private $password = "mznx9182";
-	private $dbname = "sampledb";
+	private $db_name = "sampledb";
 
 	/**
 	 * Database_Connection constructor.
@@ -21,7 +21,7 @@ class Database_Connection {
 
 	public function open_db_connection() {
 		try {
-			$this->connection = new \PDO( "mysql:host={$this->servername};dbname=$this->dbname;chartset=utf8", $this->username, $this->password );
+			$this->connection = new \PDO( "mysql:host={$this->server_name};db_name=$this->db_name;chartset=utf8", $this->username, $this->password );
 			// set the PDO error mode to exception
 			$this->connection->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION );
 			echo "Connected successfully";
