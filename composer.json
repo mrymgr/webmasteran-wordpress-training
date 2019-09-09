@@ -1,0 +1,11 @@
+{
+  "name": "mehdi/webmasteran",
+  "description": "This is only sample for Webmasteran course",
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Webmasteran\\": "04_php_training/"
+    }
+  }
+}
