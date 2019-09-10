@@ -1,7 +1,7 @@
 <?php
 use Webmasteran\Sample_Classes\First_Sample;
 use Webmasteran\Sample_Classes\Apps\Second_Sample;
-use Webmasteran\Sample_Classes\Database\Database_Connection;
+use Webmasteran\Sample_Classes\Database\Db_Extend;
 
 require '../vendor/autoload.php';
 /*
@@ -19,10 +19,18 @@ echo '<hr>';
  * Sample of database connection with a class
  *
  * */
-$db_connection = new Database_Connection();
+$msndb = new Db_Extend();
+$result = $msndb->normal_query('SELECT * FROM users');
+var_dump($result);
+echo '<hr>';
 
-/*manipulate database here*/
-$db_connection->close_db_connection();
+$result = $msndb->fetch_all('SELECT * FROM users');
+var_dump($result);
+echo '<hr>';
+
+$result = $msndb->fetch_one("SELECT * FROM users WHERE first_name='ali'");
+var_dump($result);
+
 
 
 
