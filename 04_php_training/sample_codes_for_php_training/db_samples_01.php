@@ -3,8 +3,8 @@
  * Sample to connect a specific database
  */
 $host = "localhost";
-$username   = "mehdi";
-$password   = "mznx9182";
+$db_usernam   = "mehdi";
+$db_password   = "mznx9182";
 $db     = "gallery_db";
 $charset = 'utf8mb4';
 //DSN: abbreviation of Data Source Name
@@ -17,7 +17,7 @@ $options = [
 ];
 
 try {
-	$connection = new PDO( $dsn, $username, $password, $options );
+	$connection = new PDO( $dsn, $db_usernam, $db_password, $options );
 	/*
 	 * if you do not send options, you can only set attribute by this method in the following
 	 * 	$connection->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -56,7 +56,7 @@ echo '<hr>';
 
 /*get all of result with fetchAll method*/
 $stmt = $connection->query('SELECT * FROM users');
-$result = $stmt->fetchAll(PDO::FETCH_OBJ);
+$result = $stmt->fetchAll(PDO::FETCH_BOTH);
 var_dump($result);
 
 echo '<hr>';
@@ -70,5 +70,3 @@ echo '<b>First name is: '. $result['first_name']. '</b><br>';
 echo '<b>Last name is: '. $result['last_name']. '</b><br>';
 
 echo '<hr>';
-
-$connection = null;

@@ -19,7 +19,7 @@ echo '<hr>';
  * Sample of database connection with a class
  *
  * */
-$msndb = new Db_Extend();
+$msndb = Db_Extend::getInstance();
 $result = $msndb->normal_query('SELECT * FROM users');
 var_dump($result);
 echo '<hr>';

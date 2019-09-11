@@ -4,7 +4,7 @@ namespace Webmasteran\Sample_Classes\Database;
 
 class Db_Extend extends \PDO {
 
-	public $query;
+	private static $instance;
 	private $host = "localhost";
 	private $username = "mehdi";
 	private $password = "mznx9182";
@@ -17,6 +17,7 @@ class Db_Extend extends \PDO {
 		];
 
 	#make a connection
+
 	public function __construct() {
 
 		$dsn = "mysql:host={$this->host};dbname=$this->db;chartset=utf8";
@@ -30,6 +31,16 @@ class Db_Extend extends \PDO {
 			die( 'You can not continue!' );
 		}
 	}
+
+
+	public static function getInstance() {
+		if ( ! self::$instance ) { // If no instance then make one
+			self::$instance = new self();
+		}
+
+		return self::$instance;
+	}
+
 
 	public function normal_query( $sql ) {
 		$stmt = $this->query( $sql );
