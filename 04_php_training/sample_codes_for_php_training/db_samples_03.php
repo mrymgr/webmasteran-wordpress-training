@@ -61,8 +61,8 @@ $run_condition_1 = false;
 if ( $run_condition_1 ) {
 
 	msn_get_message( 'first' );
-	# Unnamed placeholders - ripe for SQL Injection!
-	$sample_username  = 'ghasemak2';
+	# Unnamed placeholders
+	$sample_username  = 'ghasemak';
 	$sample_password  = 'ghasemak';
 	$sample_firstname = 'ghasemak';
 	$sample_lastname  = 'ghasemzadeh';
@@ -128,7 +128,124 @@ if ( $run_condition_3 ) {
 	try {
 		$stmt = $connection->prepare( $sample_query );
 		#you can convert your object to an array and pass it to execute method
-		$stmt->execute( array_values((array) $new_user) );
+		$stmt->execute( array_values( (array) $new_user ) );
+
+		msn_execute_message();
+	} catch ( PDOException $e ) {
+		msn_execute_message( 'failed', $e );
+	}
+
+}
+
+
+$run_condition_4 = false;
+
+
+if ( $run_condition_4 ) {
+
+	msn_get_message( 'forth' );
+	# Unnamed placeholders
+	$sample_username  = 'ghasemak4';
+	$sample_password  = 'ghasemak4';
+	$sample_firstname = 'ghasemak4';
+	$sample_lastname  = 'ghasemzadeh4';
+	$sample_query     = "INSERT INTO users (username, password, first_name, last_name) VALUES ( ? , ? , ? , ? )";
+
+	try {
+		#Example with bindParam method
+		$stmt = $connection->prepare( $sample_query );
+		$stmt->bindParam( 1, $sample_username );
+		$stmt->bindParam( 2, $sample_password );
+		$stmt->bindParam( 3, $sample_firstname );
+		$stmt->bindParam( 4, $sample_lastname );
+		$stmt->execute();
+		msn_execute_message();
+	} catch ( PDOException $e ) {
+		msn_execute_message( 'failed', $e );
+	}
+
+}
+
+
+$run_condition_5 = false;
+
+
+if ( $run_condition_5 ) {
+
+	msn_get_message( 'fifth' );
+	#named placeholders
+	$sample_username  = 'ghasemak5';
+	$sample_password  = 'ghasemak5';
+	$sample_firstname = 'ghasemak5';
+	$sample_lastname  = 'ghasemzadeh5';
+	$sample_query     = "INSERT INTO users (username, password, first_name, last_name) VALUES ( :username , :password , :first_name , :last_name )";
+
+	try {
+		#Sample with bindParam
+		$stmt = $connection->prepare( $sample_query );
+		$stmt->bindParam( ':username', $sample_username );
+		$stmt->bindParam( ':password', $sample_password );
+		$stmt->bindParam( ':first_name', $sample_firstname );
+		$stmt->bindParam( ':last_name', $sample_lastname );
+		$stmt->execute();
+		msn_execute_message();
+	} catch ( PDOException $e ) {
+		msn_execute_message( 'failed', $e );
+	}
+
+}
+
+$run_condition_6 = false;
+
+
+if ( $run_condition_6 ) {
+
+	msn_get_message( 'sixth' );
+	#named placeholders
+	$sample_username  = 'ghasemak6';
+	$sample_password  = 'ghasemak6';
+	$sample_firstname = 'ghasemak6';
+	$sample_lastname  = 'ghasemzadeh6';
+	$sample_user      = [
+		':username'   => $sample_username,
+		':password'   => $sample_password,
+		':first_name' => $sample_firstname,
+		':last_name'  => $sample_lastname,
+	];
+	$sample_query     = "INSERT INTO users (username, password, first_name, last_name) VALUES ( :username , :password , :first_name , :last_name )";
+
+	try {
+		$stmt = $connection->prepare( $sample_query );
+		$stmt->execute( $sample_user );
+		msn_execute_message();
+	} catch ( PDOException $e ) {
+		msn_execute_message( 'failed', $e );
+	}
+
+}
+
+
+$run_condition_7 = false;
+
+
+if ( $run_condition_7 ) {
+
+	msn_get_message( 'seventh' );
+
+	$msn_users = [
+		'ali'     => 'alavi',
+		'gholam'  => 'gholami',
+		'goolakh' => 'goolakhi',
+		'hamed'   => 'hamedi',
+	];
+
+	$sample_query = "UPDATE  users SET last_name = ? WHERE username = ?";
+
+	try {
+		$stmt = $connection->prepare( $sample_query );
+		foreach ( $msn_users as $key => $value ) {
+			$stmt->execute( [ $value, $key ] );
+		}
 
 		msn_execute_message();
 	} catch ( PDOException $e ) {
