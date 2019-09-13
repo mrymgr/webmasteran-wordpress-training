@@ -1,0 +1,25 @@
+#nav{
+    background-color: rgb(126, 78, 204);
+    height: 70px;
+}
+.nav-div{
+    height: 70px;
+    width: 110px;
+    text-align: center;
+    float: left;
+    margin:0px 10px ;
+}
+.shortText{
+    display: inline-block;
+    margin: 22px 10px;
+}
+.longText{
+    display: inline-block;
+    margin: 15px 10px;
+}
+a{
+    color: white;
+}
+.nav-div:hover{
+    background-color: rgb(202, 176, 223);
+}

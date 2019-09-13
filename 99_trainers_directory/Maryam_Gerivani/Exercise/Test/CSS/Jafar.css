@@ -1,0 +1,48 @@
+*{ 
+    font-family: 'vazir';
+    direction: rtl;
+}
+ul{ list-style-type: disc }
+
+li { display: list-item }
+
+a{ 
+    text-decoration: none;
+    color: black;
+}
+h2{ text-align: center; }
+
+#main{
+    background-color: rgb(224, 221, 221);
+    margin: 25px 0;
+}
+#title{ padding: 10px }
+
+#picture{
+    background-color: white;
+    width: 95%;
+    margin: 0px auto;
+    padding: 5px;
+}
+#picture img {
+    display: block;
+    margin: 10px auto;
+    width: 50%;
+}
+#life{
+    text-align: right;
+    width: 60%;
+    margin: 0px auto;
+    padding: 20px;
+}
+
+h2 , #title , #picture , p:nth-last-child(1){ text-align: center }
+
+@media screen and (max-width:600px){ 
+    #picture img {
+        width: 100%
+    } 
+    #life {
+        width: 100%
+    }
+}

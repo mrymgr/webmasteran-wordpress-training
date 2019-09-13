@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+@font-face{
+    font-family: "vazir";
+    src:url(font/Vazir-FD.eot),
+    url(fontVazir-FD.ttf)format("ttf"),
+    url(font/Vazir-FD.woff)format("woff"),
+    url(font/Vazir-FD.woff2)format("woff2");
+}
+#body{
+    font-family: 'vazir',Arial,sans-serif;
+    position: relative;
+}
+#nav{
+    background-color:rgb(126, 78, 204);
+    height: 70px;
+}
+ul{
+    list-style-type: none;
+}
+li{
+    display: inline-block;
+    margin-top: 22px;
+}
+a{
+    color:white;
+    text-decoration: none;
+}
+
+.nav-li{
+    display: inline-block;
+    text-align: center;
+    height: 70px;
+    width: 110px;
+}
+.nav-li:hover{
+    background-color: rgb(202, 176, 223);
+}
+

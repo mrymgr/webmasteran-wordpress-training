@@ -1,0 +1,60 @@
+#body{
+    background-color: rgb(250, 226, 119);
+    direction: rtl;
+    text-align: center;
+    min-width: 320px;
+}
+#main{
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 4px;
+    width: 75%;
+    max-width: 900px;
+    padding: 10px;
+    padding-top: 20px;
+}
+h1,p{text-align: center;}
+
+.label{
+    display: inline-block;
+    text-align: left;
+    padding: 5px;
+    margin-top: 20px;
+    width: 40%;
+    vertical-align: top;
+    
+}
+.input-field{
+    font-family: 'vazir';
+    height: 30px;
+    width: 280px;
+    padding: 5px;
+    margin: 10px;
+    border: solid 1px rgb(190, 186, 186);
+    border-radius: 2px;
+}
+.dropdown{
+    font-family: 'vazir';
+    width: 140px;
+    height: 35px;
+    margin:10px;
+    margin-top: 20px;
+    border: 1px solid rgb(190, 186, 186);
+    border-radius: 2px;
+}
+.radio , .checkbox{
+    position: relative;
+    right: -35px;
+    top:-1px;
+    display: block;
+}
+.userRatings, input[type="checkbox"] {
+    margin-right: 5px;
+}
+.data{
+    display: inline-block;
+    text-align: right;
+    vertical-align: middle;
+    width: 48%;
+    margin-top: 12px;
+}
