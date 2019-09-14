@@ -15,6 +15,7 @@ This repository contains all of subjects and codes which we used in "Webmasteran
 > In this section, we had a crash course to learn web fundamentals for webmasters. 
 
 Files of this section contain of:
+
 1. Images for presentation that we used in this section
 2. Links to see this training in [wpwebmaster site](https://wpwebmaster.ir)
 
