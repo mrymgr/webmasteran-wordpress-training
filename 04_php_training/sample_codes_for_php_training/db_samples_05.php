@@ -33,7 +33,14 @@ function msn_has_change( $row_count ) {
 
 function msn_get_class_constant_list( $class_name ) {
 	$temp_class = new ReflectionClass( $class_name );
-	return array_flip( $temp_class->getConstants() );
+	$class_constants = $temp_class->getConstants();
+	$fetch_constants = [];
+	foreach ($class_constants as $key => $value ) {
+		if ( strpos($key,'FETCH') === 0  && strpos($key, 'ORI') === false) {
+			$fetch_constants[$key] = $value;
+		}
+	}
+	return array_flip( $fetch_constants );
 
 }
 
@@ -169,7 +176,7 @@ if ( $run_condition_2 ) {
 }
 
 
-$run_condition_3 = false;
+$run_condition_3 = true;
 
 
 if ( $run_condition_3 ) {
@@ -238,7 +245,7 @@ if ( $run_condition_5 ) {
 	$sample_query    = "SELECT * FROM users WHERE username = 'gholam'";
 
 	/*get list of constant*/
-	$msn_constant_list = msn_get_class_constant_list('PDO');
+	$msn_constant_list = msn_get_class_constant_list( 'PDO' );
 	//var_dump($msn_constant_list);
 	try {
 		foreach ( $msn_fetch_modes as $msn_fetch_mode ) {
@@ -252,29 +259,19 @@ if ( $run_condition_5 ) {
 
 }
 
-/*$run_condition_6 = false;
+$run_condition_6 = false;
 
 
 if ( $run_condition_6 ) {
 
 	msn_get_message( 'sixth' );
-	#named placeholders
-	$sample_username  = 'ghasemak6';
-	$sample_password  = 'ghasemak6';
-	$sample_firstname = 'ghasemak6';
-	$sample_lastname  = 'ghasemzadeh6';
-	$sample_user      = [
-		':username'   => $sample_username,
-		':password'   => $sample_password,
-		':first_name' => $sample_firstname,
-		':last_name'  => $sample_lastname,
-	];
-	$sample_query     = "INSERT INTO users (username, password, first_name, last_name) VALUES ( :username , :password , :first_name , :last_name )";
+
+	$sample_query = "SELECT count(*) FROM users";
 
 	try {
-		$stmt = $connection->prepare( $sample_query );
-		$stmt->execute( $sample_user );
+		$users_row_count = $connection->query( $sample_query )->fetchColumn();
 		msn_execute_message();
+		echo "<h2>The number of records in users table is: $users_row_count</h2>";
 	} catch ( PDOException $e ) {
 		msn_execute_message( 'failed', $e );
 	}
@@ -282,34 +279,41 @@ if ( $run_condition_6 ) {
 }
 
 
-$run_condition_7 = false;
+$run_condition_7 = true;
 
 
 if ( $run_condition_7 ) {
 
 	msn_get_message( 'seventh' );
 
-	$msn_users = [
-		'ali'     => 'alavi',
-		'gholam'  => 'gholami',
-		'goolakh' => 'goolakhi',
-		'hamed'   => 'hamedi',
+	$method_queries = [
+		[ PDO::FETCH_ASSOC, 'SELECT first_name  FROM users' ],
+		[ PDO::FETCH_OBJ, 'SELECT first_name,last_name  FROM users' ],
+		[ PDO::FETCH_COLUMN, 'SELECT last_name  FROM users' ],
+		[ PDO::FETCH_KEY_PAIR, 'SELECT id, username  FROM users' ],
+		[ PDO::FETCH_UNIQUE, 'SELECT *  FROM users' ],
+		[ PDO::FETCH_GROUP, 'SELECT last_name, first_name, username  FROM users' ],
 	];
+	$msn_constant_list = msn_get_class_constant_list( 'PDO' );
 
-	$sample_query = "UPDATE  users SET last_name = ? WHERE username = ?";
-
-	try {
-		$stmt = $connection->prepare( $sample_query );
-		foreach ( $msn_users as $key => $value ) {
-			$stmt->execute( [ $value, $key ] );
+	foreach ( $method_queries as $method_query ) {
+		try {
+			$method = $method_query[0];
+			$stmt = $connection->prepare( $method_query[1] );
+			$stmt->execute();
+			$data = $stmt->fetchAll( $method);
+			/*get list of constant*/
+			echo "<h2>The query is: </h2>";
+			echo "<h3>$method_query[1]</h3>";
+			echo "<h2>The method is: $msn_constant_list[$method]</h2>";
+			var_dump($data);
+		} catch ( PDOException $e ) {
+			msn_execute_message( 'failed', $e );
 		}
-
-		msn_execute_message();
-	} catch ( PDOException $e ) {
-		msn_execute_message( 'failed', $e );
 	}
 
-}*/
+
+}
 
 $connection = null;
 
