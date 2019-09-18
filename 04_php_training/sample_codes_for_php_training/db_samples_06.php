@@ -33,13 +33,6 @@ if ( false ) {
 }
 
 if ( false ) {
-	$result = $msndb->fetch_all_query( 'SELECT * FROM users', null, true );
-	var_dump( $result );
-	echo '<hr>';
-	echo '<hr>';
-}
-
-if ( false ) {
 	$sample_users[]            = [ 'ghasemak1', 'ghasemak1', 'ghasemak1', 'ghasemzadeh' ];
 	$sample_users[]            = [ 'ghasemak2', 'ghasemak2', 'ghasemak2', 'ghasemzadeh' ];
 	$sample_users[]            = [ 'ghasemak3', 'ghasemak3', 'ghasemak3', 'ghasemzadeh' ];
