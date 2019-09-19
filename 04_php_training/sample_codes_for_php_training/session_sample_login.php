@@ -24,7 +24,7 @@ function msn_do_login( $username, $password ) {
 }
 
 function msn_redirect_page() {
-    header( "Location: http://localhost/php/webmasters/session_sample_panel.php" ); /* Redirect browser */
+    header( "Location: session_sample_panel.php" ); /* Redirect browser */
    	exit();
 }
 
