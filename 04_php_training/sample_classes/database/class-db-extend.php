@@ -19,7 +19,7 @@ class Db_Extend extends \PDO {
 	private $row_count;
 
 	#make a connection
-	public function __construct( $host, $username, $password, $db ) {
+	public function __construct( $host, $username, $password, $db, $show_message ) {
 
 		$this->host     = $host;
 		$this->username = $username;
@@ -29,7 +29,9 @@ class Db_Extend extends \PDO {
 		$dsn = "mysql:host={$this->host};dbname=$this->db;chartset=utf8";
 		try {
 			parent::__construct( $dsn, $this->username, $this->password, $this->options );
-			$this->success_message( 'success_connect' );
+			if ($show_message) {
+				$this->success_message( 'success_connect' );
+			}
 		} catch ( \PDOException $e ) {
 			$this->fail_message( 'failed_connect', $e );
 		}
@@ -87,9 +89,9 @@ class Db_Extend extends \PDO {
 		die( 'You can not continue!' );
 	}
 
-	public static function get_instance( $host = "localhost", $username = "mehdi", $password = "mznx9182", $db = "gallery_db" ) {
+	public static function get_instance( $host = "localhost", $username = "mehdi", $password = "mznx9182", $db = "gallery_db", $show_message = true ) {
 		if ( ! self::$instance ) { // If no instance then make one
-			self::$instance = new self( $host, $username, $password, $db );
+			self::$instance = new self( $host, $username, $password, $db, $show_message );
 		}
 
 		return self::$instance;
