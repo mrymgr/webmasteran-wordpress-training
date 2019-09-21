@@ -14,6 +14,7 @@ global $current_script;
     <!-- UIkit JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit-icons.min.js"></script>
+    <script src="js/Chart.bundle.min.js"></script>
     <style>
         .msn-p-td-10 {
             padding-bottom: 10px !important;
@@ -31,13 +32,26 @@ global $current_script;
     <div class="uk-navbar-left">
 
         <ul class="uk-navbar-nav">
-            <li><a href="#">Show</a></li>
+            <li>
+                <a href="#">Show</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li class="<?php echo $current_script == 'db_samples_11' ? 'uk-active' : ''; ?>">
+                            <a href="db_samples_11.php">Chart</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li>
                 <a href="#">Insert</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="<?php echo $current_script == 'db_samples_07'? 'uk-active': ''; ?>"><a href="db_samples_07.php">From form</a></li>
-                        <li class="<?php echo $current_script == 'db_samples_09'? 'uk-active': ''; ?>"><a href="db_samples_09.php">Random generate</a></li>
+                        <li class="<?php echo $current_script == 'db_samples_07' ? 'uk-active' : ''; ?>">
+                            <a href="db_samples_07.php">From form</a>
+                        </li>
+                        <li class="<?php echo $current_script == 'db_samples_09' ? 'uk-active' : ''; ?>">
+                            <a href="db_samples_09.php">Random
+                                generate</a></li>
                     </ul>
                 </div>
             </li>
