@@ -1,7 +1,7 @@
 <?php
 
 use Webmasteran\Sample_Classes\Database\Db_Extend;
-use Webmasteran\Sample_Classes\Database\Utility;
+use Webmasteran\Sample_Classes\Functions\Utility;
 
 require '../../vendor/autoload.php';
 $euro   = '';
@@ -25,8 +25,8 @@ date_default_timezone_set( "Asia/Tehran" );
 #Insert data in database
 $msn_db_connection = Db_Extend::get_instance( "localhost", "mehdi", "mznx9182", "msntrainers", true );
 while ( $loop_count ) {
-	$dollar = rand(11000, 13000);
-	$euro = rand( 13000, 16000);
+	$dollar = rand(10000, 14000);
+	$euro = rand( 12000, 17000);
 	$day = rand(1,28);
 	$month = rand(1,12);
 	$hour = rand(1,14);

@@ -1,7 +1,7 @@
 <?php
 
 use Webmasteran\Sample_Classes\Database\Db_Extend;
-use Webmasteran\Sample_Classes\Database\Utility;
+use Webmasteran\Sample_Classes\Functions\Utility;
 
 require '../../vendor/autoload.php';
 $euro   = '';

@@ -1,46 +1,72 @@
 <?php
 
 use Webmasteran\Sample_Classes\Database\Db_Extend;
+use Webmasteran\Sample_Classes\Functions\Date;
 
 require '../../vendor/autoload.php';
-$current_script = basename(__FILE__, '.php');
+$current_script = basename( __FILE__, '.php' );
 require_once 'template_parts/header_db_sample.php';
 ?>
 
 
-<div class="uk-section msn-p-td-10">
-    <div class="uk-container">
-        <div class="uk-child-width-expand@s" uk-grid>
-            <div class="uk-width-1-1@m">
-                <div class="uk-card uk-card-default uk-card-body">
-                    <canvas id="currency"></canvas>
+    <div class="uk-section msn-p-td-10">
+        <div class="uk-container">
+            <div class="uk-child-width-expand@s" uk-grid>
+                <div class="uk-width-1-1@m">
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <canvas id="currency-line-chart"></canvas>
+                    </div>
                 </div>
+
             </div>
 
         </div>
-
-    </div>
-    <div class="uk-container">
-        <div class="uk-child-width-expand@s uk-width-2-3 uk-margin-auto msn-p-15" uk-grid>
-            <form class="uk-form-stacked" action="db_samples_10.php" method="post">
-
-                <div class="uk-margin">
-                    <label class="uk-form-label" for="number">Number of rows that you want to generate</label>
-                    <div class="uk-form-controls">
-                        <input class="uk-input" id="number" name="number" type="text" placeholder="Put only numbers here!">
+        <br>
+        <div class="uk-container">
+            <div class="uk-child-width-expand@s" uk-grid>
+                <div class="uk-width-1-1@m">
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <canvas id="currency-radar-chart"></canvas>
                     </div>
                 </div>
-                <button class="uk-button uk-button-primary" name="random-generate">Save to Database</button>
 
-            </form>
+            </div>
 
         </div>
     </div>
 
-</div>
-
 
 <?php
+
+#select data from database
+$msn_db_connection = Db_Extend::get_instance( "localhost", "mehdi", "mznx9182", "msntrainers" );
+$dates             = [];
+$jalali_dates      = [];
+$dollars           = [];
+$euros             = [];
+$sample_query      = "SELECT dollar, euro, DATE(created_date) as created_date FROM currency ORDER BY created_date DESC LIMIT 15";
+//$sample_query      = "SELECT dollar, euro, created_date FROM currency ORDER BY id DESC LIMIT 15";
+$records = array_reverse( $msn_db_connection->fetch_all_query( $sample_query ) );
+
+foreach ( $records as $record ) {
+	$dates[]   = $record->created_date;
+	$dollars[] = $record->dollar;
+	$euros[]   = $record->euro;
+
+}
+
+foreach ( $dates as $date ) {
+	[ $year, $month, $day ] = explode( '-', $date );
+	$jalali_dates[] = Date::gregorian_to_jalali( $year, $month, $day, ' / ' );
+}
+
+/*var_dump( $dates );
+var_dump( $jalali_dates );
+var_dump( $dollars );
+var_dump( $euros );*/
+
+
+require_once 'template_parts/script_section_db_sample.php';
 require_once 'template_parts/footer_db_sample.php';
 
 

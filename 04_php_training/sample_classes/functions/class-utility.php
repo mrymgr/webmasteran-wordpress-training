@@ -1,6 +1,6 @@
 <?php
 
-namespace Webmasteran\Sample_Classes\Database;
+namespace Webmasteran\Sample_Classes\Functions;
 
 class Utility {
 
