@@ -39,7 +39,7 @@ require_once 'template_parts/header_db_sample.php';
 <?php
 
 #select data from database
-$msn_db_connection = Db_Extend::get_instance( "localhost", "mehdi", "mznx9182", "msntrainers" );
+$msn_db_connection = Db_Extend::get_instance( "localhost", "mehdi", "mznx9182", "msntrainers", false );
 $dates             = [];
 $jalali_dates      = [];
 $dollars           = [];

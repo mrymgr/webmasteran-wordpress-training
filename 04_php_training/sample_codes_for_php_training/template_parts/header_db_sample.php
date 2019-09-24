@@ -55,7 +55,16 @@ global $current_script;
                     </ul>
                 </div>
             </li>
-            <li><a href="#">Item</a></li>
+            <li>
+                <a href="#">Other</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li class="<?php echo $current_script == 'db_samples_12' ? 'uk-active' : ''; ?>">
+                            <a href="db_samples_12.php">Delete</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
         </ul>
 
     </div>
