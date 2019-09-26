@@ -21,6 +21,14 @@ class Utility {
 
 		return $data;
 	}
+
+	public static function get_id( $id ) {
+		if ( isset( $id ) && ! empty( $id ) && is_numeric( $id ) && $id > 0 ) {
+			return $id;
+		} else {
+			die( '<h2>You can not access to this page, Please use another links from site menu!</h2>' );;
+		}
+	}
 }
 
 

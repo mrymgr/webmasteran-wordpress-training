@@ -131,7 +131,7 @@ class Db_Extend extends \PDO {
 		}
 	}
 
-	public function safe_fetch( $sql, $args, $mode = null, $show_message = false ) {
+	public function safe_fetch( $sql, $args = null , $mode = null, $show_message = false ) {
 		try {
 			$stmt = $this->prepare( $sql );
 			$stmt->execute( $args );
@@ -148,7 +148,7 @@ class Db_Extend extends \PDO {
 
 	#get the number of rows in a result
 
-	public function safe_fetch_all( $sql, $args, $mode = null, $show_message = false ) {
+	public function safe_fetch_all( $sql, $args = null , $mode = null, $show_message = false ) {
 		try {
 			$stmt = $this->prepare( $sql );
 			$stmt->execute( $args );

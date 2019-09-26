@@ -1,16 +1,16 @@
 <?php
 
 use Webmasteran\Sample_Classes\Database\Db_Extend;
-
+use Webmasteran\Sample_Classes\Functions\Utility;
 
 require '../../vendor/autoload.php';
 $current_script = basename( __FILE__, '.php' );
 require_once 'template_parts/header_db_sample.php';
-if ( isset( $_GET['id'] ) && ! empty( $_GET['id'] ) && is_numeric( $_GET['id'] ) ) {
-	$id = $_GET['id'];
-} else {
-	die( '<h2>You can not access to this page, Please use another links from site menu!</h2>' );
+
+if ( @Utility::get_id($_GET['id']) ) {
+    $id = Utility::get_id($_GET['id']);
 }
+
 
 #select data from database
 $msn_db_connection = Db_Extend::get_instance( "localhost", "mehdi", "mznx9182", "msntrainers", false );

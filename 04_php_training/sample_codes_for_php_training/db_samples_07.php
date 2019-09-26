@@ -42,6 +42,9 @@ require_once 'template_parts/header_db_sample.php';
                         <input class="uk-input" id="dollar" name="dollar" type="text" placeholder="Put your dollar price here!">
                     </div>
                 </div>
+                <div>
+                    <input type="hidden" name="request-type" value="insert">
+                </div>
                 <button class="uk-button uk-button-primary" name="save-to-db">Save to Database</button>
 
             </form>
