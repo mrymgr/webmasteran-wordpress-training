@@ -5,3 +5,5 @@ if ( @$_SESSION['is_user_login']) {
 } else {
 	echo 'Ananas gholam!';
 }
+
+/*var_dump($_SESSION);*/
