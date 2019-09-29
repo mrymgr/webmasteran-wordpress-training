@@ -48,6 +48,14 @@ With learning this section, you will be able to read php codes and also manipula
 Files of this section contain of: 
 1. Sample codes that we used in our training
 
+### Section 5: WordPress training
+
+> In this section, we had a crash course to learn WordPress concepts and structures for webmasters. 
+This section covers all of thing that you will face with WordPress in your everyday tasks as a webmaster. 
+With learning this section, you will be able to customize your WordPress site easily.   
+
+Files of this section contain of: 
+1. Useful links for WordPress training.
 
 ## License
 > You can use this materials for free.
