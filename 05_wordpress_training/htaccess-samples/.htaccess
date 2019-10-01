@@ -1,0 +1,244 @@
+#sample of using comment and IfModule
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+
+# With rewrite ruls you can convert
+#     www.example.com?course=ml&class=regression
+# to  www.example.com/course/ml/class/regression
+
+#several RewriteCond AND with each other
+RewriteCond C1
+RewriteCond C2
+RewriteRule R
+
+#if you need to OR, you must use OR explicitly
+RewriteCond C1 [OR]
+RewriteCond C2
+RewriteRule R
+
+#sample of variables in conditions
+# 6G:[QUERY STRINGS]
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{QUERY_STRING} (eval\() [NC,OR]
+RewriteCond %{QUERY_STRING} (127\.0\.0\.1) [NC,OR]
+RewriteCond %{QUERY_STRING} ([a-z0-9]{2000,}) [NC,OR]
+RewriteCond %{QUERY_STRING} (javascript:)(.*)(;) [NC,OR]
+RewriteCond %{QUERY_STRING} (base64_encode)(.*)(\() [NC,OR]
+RewriteCond %{QUERY_STRING} (GLOBALS|REQUEST)(=|\[|%) [NC,OR]
+RewriteCond %{QUERY_STRING} (<|%3C)(.*)script(.*)(>|%3) [NC,OR]
+RewriteCond %{QUERY_STRING} (\|\.\.\.|\.\./|~|`|<|>|\|) [NC,OR]
+RewriteCond %{QUERY_STRING} (boot\.ini|etc/passwd|self/environ) [NC,OR]
+RewriteCond %{QUERY_STRING} (thumbs?(_editor|open)?|tim(thumb)?)\.php [NC,OR]
+RewriteCond %{QUERY_STRING} ('|\")(.*)(drop|insert|md5|select|union) [NC]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule .* - [F]
+</IfModule>
+
+# 6G:[REFERRERS]
+<IfModule mod_rewrite.c>
+RewriteCond %{HTTP_REFERER} ([a-z0-9]{2000,}) [NC,OR]
+RewriteCond %{HTTP_REFERER} (semalt.com|todaperfeita) [NC]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule .* - [F]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} POST
+RewriteCond %{REQUEST_URI} ^(.*)?wp-comments-post\.php(.*)$
+RewriteCond %{HTTP_REFERER} !^http(s)?://wpwebmaster\.ir [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule .* http://127.0.0.1 [L]
+</IfModule>
+
+#AIOWPS_PREVENT_IMAGE_HOTLINKS_START
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_FILENAME} \.(gif|jpe?g?|png)$ [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://wpwebmaster\.ir [NC]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule \.(gif|jpe?g?|png)$ - [F,NC,L]
+</IfModule>
+#AIOWPS_PREVENT_IMAGE_HOTLINKS_END
+
+#list of server variables:
+# http://httpd.apache.org/docs/current/mod/mod_rewrite.html
+
+#Sample of flags in .htaccess file
+L - last to parse
+F - url forbidden
+N - begin rewriting process again
+R - Redirect
+NC - case insensitive
+#list of rewrite rules flags
+# https://httpd.apache.org/docs/2.4/rewrite/flags.html
+
+
+#Sample of redirecting old url to new url:
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www.oldurl.com$ [OR]
+RewriteCond %{HTTP_HOST} ^oldurl.com$
+RewriteRule ^$ http://newurl.com [L,R=301]
+
+
+#Sample of changing path from oldpath to newpath:
+RewriteEngine On
+RewriteRule ^oldpath$ newpath
+
+#Sample of changing query string into path:
+#(Use of regular expression grouping)
+#Input Url: www.example.com/course?id=5
+#Output Url: www.example.com/course/id/5
+
+RewriteEngine On
+RewriteCond %{QUERY_STRING} ^id=([0-9]*)$
+RewriteRule ^(.*)$ $0/id/%1?
+
+
+#definition of $0
+#$1 = the first captured group
+#$0 = the entire matched pattern
+#for example, if the pattern was:
+#^prefix(.*)$
+#then you might get the following results:
+#$1 = "foo"
+#$0 = "prefixfoo"
+
+# meaning of %1: match of the first subpattern
+
+#Sample of redirecting invalid urls to home page:
+#Input Url: www.example.com/home.js
+#Output Url: www.example.com/home.js
+
+#Input Url: www.example.com/random.hack
+#Outpur Url: www.example.com/index.html
+
+RewriteEngine On
+RewriteRule !.(js|gif|jpg|png|css|eot|svg|ttf|woff|woff2|map)$ index.html
+
+#sample of WordPress rewrite rules
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+#Prevent access to wp-login.php file
+<Files wp-login.php>
+Order deny,allow
+Deny from all
+Allow from 198.11.109.98 localhost
+</Files>
+
+ErrorDocument 401 default
+ErrorDocument 403 default
+<Files wp-login.php>
+Order deny,allow
+Deny from all
+Allow from 198.101.159.98 localhost
+</Files>
+
+#Redirect everything the www subdomain
+<IfModule mod_rewrite.c>
+ RewriteEngine On
+ RewriteCond %{HTTP_HOST} !^www\. [NC]
+ RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+#Redirect everything to HTTPS
+<IfModule mod_rewrite.c>
+ RewriteEngine On
+ RewriteCond %{HTTPS} !on [NC]
+ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+# pass the default character set
+AddDefaultCharset utf-8
+
+# set the server timezone
+SetEnv TZ America/Washington
+
+# set the server administrator email
+SetEnv SERVER_ADMIN default@example.com
+
+#enable browser caching
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access 1 year"
+ExpiresByType image/jpeg "access 1 year"
+ExpiresByType image/gif "access 1 year"
+ExpiresByType image/png "access 1 year"
+ExpiresByType text/css "access 1 year"
+ExpiresByType application/pdf "access 1 month"
+ExpiresByType text/x-javascript "access 1 month"
+ExpiresByType application/x-shockwave-flash "access 1 month"
+ExpiresByType image/x-icon "access 1 year"
+ExpiresDefault "access 2 days"
+</IfModule>
+
+#enable file caching
+# cache images and flash content for one month
+<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf)$">
+Header set Cache-Control "max-age=2592000"
+</FilesMatch>
+
+# cache text, css, and javascript files for one week
+<FilesMatch ".(js|css|pdf|txt)$">
+Header set Cache-Control "max-age=604800"
+</FilesMatch>
+
+
+#Ban Suspicious IP Addresses
+<Limit GET POST>
+order allow,deny
+deny from xxx.xxx.xx.x
+allow from all
+</Limit>
+
+
+#Disable Image Hotlinking in WordPress Using .htaccess
+ Hotlinking is the process of sharing an image by directly linking to your website. I
+RewriteEngine on
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?yourwebsite.com [NC]
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?yourotherwebsite.com [NC]
+RewriteRule \.(jpg|jpeg|png|gif)$ http://i.imgur.com/g7ptdBB.png [NC,R,L]
+
+
+
+
+
