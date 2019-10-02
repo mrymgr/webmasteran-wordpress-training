@@ -27,6 +27,11 @@ Apply security with htaccess:
 https://blog.templatetoaster.com/wordpress-htaccess-file-guide/#wordpress-security-htaccess
 https://premium.wpmudev.org/blog/htaccess/
 
+- **robots.txt sources**:
+https://moz.com/learn/seo/robotstxt
+https://support.google.com/webmasters/answer/6062596?hl=en
+https://developers.google.com/search/reference/robots_txt
+https://www.robotstxt.org/db.html
 
 
 
