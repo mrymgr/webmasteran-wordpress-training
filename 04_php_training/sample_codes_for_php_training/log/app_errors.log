@@ -1,0 +1,27 @@
+2019-10-04 17:20:52 - Error number:[256], Error message: [calcDivision(): Error zero divisor]
+This error locates in file name: [C:\xampp\htdocs\php\webmasteran\04_php_training\sample_codes_for_php_training\debugging_samples_03.php] and line number:[8] 
+Variables: Array
+(
+    [a] => 20
+    [b] => 0
+)
+
+=======================================
+2019-10-04 18:52:37 - Error number:[256], Error message: [calcDivision(): Error zero divisor]
+This error locates in file name: [C:\xampp\htdocs\php\webmasteran\04_php_training\sample_codes_for_php_training\debugging_samples_03.php] and line number:[8] 
+Variables: Array
+(
+    [a] => 20
+    [b] => 0
+)
+
+=======================================
+2019-10-04 18:52:52 - Error number:[256], Error message: [calcDivision(): Error zero divisor]
+This error locates in file name: [C:\xampp\htdocs\php\webmasteran\04_php_training\sample_codes_for_php_training\debugging_samples_03.php] and line number:[8] 
+Variables: Array
+(
+    [a] => 20
+    [b] => 0
+)
+
+=======================================
