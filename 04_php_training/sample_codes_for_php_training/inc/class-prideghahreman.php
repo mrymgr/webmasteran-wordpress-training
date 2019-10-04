@@ -6,7 +6,7 @@ final class PrideGhahreman extends MsnCar {
 	public static $car_static_property = "This is for child class";
 	public $wings_number;
 
-	public function __construct( $name, $door_count, $company ) {
+	public function __construct( $name = 'Prido shasi kootah', $door_count = 3, $company  = 'Saipa Ghashang') {
 		parent::__construct( $name, $door_count, $company ); // Call the parent class's constructor
 		echo "A new constructor in " . __CLASS__ . ".<br />";
 	}

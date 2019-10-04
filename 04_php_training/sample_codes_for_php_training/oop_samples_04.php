@@ -17,3 +17,14 @@ $newobj->wings_number = 2;
 echo $newobj;
 echo '<hr>';
 MsnCar::car_reference();
+
+echo '<br>';
+echo '<hr>';
+
+#Sample of overloading method in PHP
+$obj1 = new PrideGhahreman();
+var_dump($obj1);
+$obj2 = new PrideGhahreman('Prido shasi boland' );
+var_dump($obj2);
+$obj3 = new PrideGhahreman('Prido bi shasi' , 18 , 'Saipa palang' );
+var_dump($obj3);

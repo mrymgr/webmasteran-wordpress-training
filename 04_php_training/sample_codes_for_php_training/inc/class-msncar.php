@@ -9,7 +9,7 @@ class MsnCar {
 	private $wheel_count = 4;
 	private $door_count;
 
-	public function __construct( $name, $door_count, $company ) {
+	public function __construct( $name = 'charcharkh', $door_count = 2 , $company = 'Gholam Khodro' ) {
 		$this->name       = $name;
 		$this->door_count = $door_count;
 		$this->company    = $company;

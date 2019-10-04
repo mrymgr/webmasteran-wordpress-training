@@ -33,5 +33,11 @@ https://support.google.com/webmasters/answer/6062596?hl=en
 https://developers.google.com/search/reference/robots_txt
 https://www.robotstxt.org/db.html
 
+- **wp-config source**:
+https://wordpress.org/support/article/editing-wp-config-php/
+https://wordpress.org/support/article/giving-wordpress-its-own-directory/
+https://wp-mix.com/wordpress-difference-between-home_url-site_url/
+https://w3guy.com/subtle-difference-home_url-site_url/
+
 
 
