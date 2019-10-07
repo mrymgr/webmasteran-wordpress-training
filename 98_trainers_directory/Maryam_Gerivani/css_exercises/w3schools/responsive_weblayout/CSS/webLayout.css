@@ -1,0 +1,65 @@
+
+body { 
+    font-family: 'vazir';
+    direction: rtl;
+    padding: 20px;
+}
+#header{
+    padding:30px;
+    text-align: center;
+    background-color: rgb(202, 176, 223);
+}
+#nav{overflow: hidden}
+#nav a{
+    display: inline-block;
+    padding: 20px ;
+    text-align: center;
+}
+#nav a:hover{ background-color: rgb(202, 176, 223) }
+
+.rightCol{
+    float: right;
+    width:75%;
+    
+}
+.leftCol{
+    float: right;
+    width: 25%;
+    padding-right: 20px;
+}
+.image{
+    background-color:rgb(126, 78, 204);
+    width: 100%;
+    padding:25px;
+}
+#row::after{
+    content:"";
+    
+    display: table;
+    clear:both;
+}
+.card{
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px ;
+    background-color:rgb(202, 176, 223);
+}
+#footer{
+    padding:20px;
+    text-align: center;
+    background-color: rgb(126, 78, 204);
+    margin-top: 20px;
+}
+@media screen and (max-width:800px){
+    .leftCol , .rightCol {
+        width: 100%;
+        padding: 0;
+    }
+}
+@media screen and (max-width:400px){
+    #nav a{
+        float: none;
+        display: block;
+        width: 100%;
+    }
+}

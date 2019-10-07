@@ -1,0 +1,43 @@
+*{ box-sizing:border-box }
+#about{
+    position: relative;
+    right:950px;
+}
+#imageGallery{
+    height: 700px;
+    width: 1250px;
+    margin: 5px auto;
+    
+}
+#imageGallery::after{
+    content: "";
+    overflow: hidden;
+    clear: both;
+}
+.imgGlrySection{
+    height: 305px;
+    width: 300px;
+    background-color: #e7e7e7d8;
+    margin: 5px;
+    float: right;
+    position: relative;
+}
+.imgGlrySection::after{
+    overflow: auto;
+    clear: both;
+    display: table;
+}
+.imgGlrySection:hover{
+    border:solid 0.5px rgb(156, 151, 151);
+}
+.img{
+    height: 200px;
+    width: 298px;
+    margin: 0px auto;
+    
+}
+.imgGlrySection p{
+    padding: 3px 10px;
+    font-size: 14px;
+    justify-content: stretch;
+}

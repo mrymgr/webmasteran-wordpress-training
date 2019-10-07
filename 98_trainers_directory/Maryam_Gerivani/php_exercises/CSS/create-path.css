@@ -1,0 +1,11 @@
+form{
+    margin:0px auto;
+}
+
+body{
+    background-image: url(../Image/john-schnobrich-yFbyvpEGHFQ-unsplash\ \(1\).jpg);
+    background-size: 100%;
+    color: white;
+}
+.error{ color: red; }
+.displayNone{ display: none;}

@@ -1,0 +1,35 @@
+#imageGridDiv{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    margin: 0px auto;
+    
+}
+.imageGridCol{
+    flex: 20%;
+    max-width: 20%;
+    padding: 0 4px;
+}
+.imageGridCol img{
+    margin-top:8px;
+    vertical-align: middle;
+    width: 100%;
+}
+@media screen and (max-width:800px){
+    .imageGridCol{
+        flex: 25%;
+        max-width: 50%;
+    }
+}
+@media screen and (max-width:600px){
+    .imageGridCol{
+        flex:50%;
+        max-width:50%;
+    }
+}
+@media screen and (max-width:400px){
+    .imageGridCol{
+        flex:100%;
+        max-width:100%;
+    }
+}
