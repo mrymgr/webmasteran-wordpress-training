@@ -38,6 +38,38 @@ https://wordpress.org/support/article/editing-wp-config-php/
 https://wordpress.org/support/article/giving-wordpress-its-own-directory/
 https://wp-mix.com/wordpress-difference-between-home_url-site_url/
 https://w3guy.com/subtle-difference-home_url-site_url/
+https://www.wpbeginner.com/beginners-guide/how-to-edit-wp-config-php-file-in-wordpress/
 
+- **top open-source frameworks for WordPress developers**:
+https://includewp.com/
+
+
+- **how WordPress loads and works**:
+https://www.wpbeginner.com/wp-tutorials/how-wordpress-actually-works-behind-the-scenes-infographic/
+https://wordpress.stackexchange.com/questions/71406/is-there-a-flowchart-for-wordpress-loading-sequence
+https://medium.com/@dendeffe/wordpress-loading-sequence-a-guided-tour-e077c7dbd119
+https://carlalexander.ca/wordpress-adventurous-loading/
+https://www.mikeinmonospace.com/wordpress-internals-loading-sequence/
+https://www.rarst.net/wordpress/wordpress-query-functions/
+https://www.rarst.net/wordpress/wordpress-excerpt-teaser/
+https://theme.fm/wordpress-internals-how-wordpress-boots-up/
+https://theme.fm/wordpress-internals-how-wordpress-boots-up-part-2/
+https://www.youtube.com/watch?v=BZg8_hksQ2g
+https://code.tutsplus.com/articles/the-wordpress-theme-files-execution-hierarchy--wp-23508
+https://www.smashingmagazine.com/2015/06/wordpress-custom-page-templates/
+https://weberience.com/wordpress-plugins-loading-order/
+https://humanshell.net/2011/08/wordpress-initialization/
+https://mashable.com/2011/01/11/how-wordpress-themes-actually-work-infographic/?europe=true#Ckfg777ZykqS
+https://yoast.com/wordpress-theme-anatomy/
+https://www.youtube.com/watch?v=OT4RQhvnt-s
+https://www.youtube.com/watch?v=2XWJ8VBjXXU
+https://www.youtube.com/user/WordPressNYC/featured
+https://www.wpsuperstars.net/how-wordpress-themes-work/
+https://wordpress.stackexchange.com/questions/57996/looking-for-wordpress-system-diagrams
+http://www.blogopreneur.com/v1/2009/12/10/wordpress-2-8-6-erd-database-schema/
+https://www.linsoftware.com/how-does-wordpress-store-taxonomy-in-database/
+https://codex.buddypress.org/developer/buddypress-database-diagram/
+https://codex.wordpress.org/User:Fpp
+https://codex.wordpress.org/images/2/20/WP_27_modules.JPG
 
 
