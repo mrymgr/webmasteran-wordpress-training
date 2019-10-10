@@ -44,6 +44,20 @@ https://www.wpbeginner.com/beginners-guide/how-to-edit-wp-config-php-file-in-wor
 https://includewp.com/
 
 
+- **About Gutenberg block editor**:
+https://developer.wordpress.org/block-editor/
+https://www.wpbeginner.com/beginners-guide/how-to-use-the-new-wordpress-block-editor/
+https://www.codeinwp.com/blog/wordpress-gutenberg-guide/
+https://webdesign.tutsplus.com/tutorials/wordpress-gutenberg-editor-quick-start-tutorial--cms-33051
+https://webdesign.tutsplus.com/categories/wordpress-gutenberg
+https://webdesign.tutsplus.com/articles/gutenberg-optimized-themes--cms-32428
+https://wordpress.org/plugins/kioken-blocks/
+https://createandcode.com/gutenberg-vs-elementor-comparison/
+https://themeisle.com/blog/gutenberg-block-editor-vs-elementor-vs-divi-builder/
+https://www.wpbeginner.com/beginners-guide/gutenberg-vs-wordpress-page-builders/
+
+
+
 - **how WordPress loads and works**:
 https://www.wpbeginner.com/wp-tutorials/how-wordpress-actually-works-behind-the-scenes-infographic/
 https://wordpress.stackexchange.com/questions/71406/is-there-a-flowchart-for-wordpress-loading-sequence
@@ -71,5 +85,8 @@ https://www.linsoftware.com/how-does-wordpress-store-taxonomy-in-database/
 https://codex.buddypress.org/developer/buddypress-database-diagram/
 https://codex.wordpress.org/User:Fpp
 https://codex.wordpress.org/images/2/20/WP_27_modules.JPG
+
+
+
 
 
