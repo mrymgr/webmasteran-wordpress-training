@@ -1,0 +1,33 @@
+- **file upload**:
+https://www.php.net/manual/en/features.file-upload.errors.php
+
+
+- **Work with file system**:
+https://stackoverflow.com/questions/3349753/delete-directory-with-files-in-it
+https://paulund.co.uk/php-delete-directory-and-files-in-directory
+
+
+- **Work with datetime as an object**:
+https://thevaluable.dev/php-datetime-create-compare-format/
+https://www.php.net/manual/en/book.datetime.php
+https://www.startutorial.com/articles/view/master-php-datetime
+https://www.tutorialrepublic.com/php-tutorial/php-date-and-time.php
+
+- **PHP errors**:
+https://www.w3schools.com/php/php_error.asp
+https://www.tutorialrepublic.com/php-tutorial/php-error-handling.php
+https://www.w3schools.com/php/php_exception.asp
+https://www.php.net/manual/en/language.exceptions.php
+https://www.tutorialspoint.com/php/php_error_handling.htm
+https://www.tutorialrepublic.com/php-tutorial/php-error-handling.php
+
+- **PHP & ajax**:
+https://www.tutorialspoint.com/php/php_and_ajax.htm
+
+- **Work with database**:
+http://www.mysqltutorial.org/mysql-create-table/
+http://www.mysqltutorial.org/mysql-insert-into-select/
+https://code.tutsplus.com/tutorials/why-you-should-be-using-phps-pdo-for-database-access--net-12059
+https://phpdelusions.net/pdo
+http://www.mysqltutorial.org/
+
