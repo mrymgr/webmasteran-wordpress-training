@@ -13,7 +13,8 @@ class Date {
 	 * @Version: 2.70 =>[ 1395/11/22 = 1438/05/12 = 2017/02/10 ]
 	 */
 
-	/*	F	*/	public static function jstrftime( $format, $timestamp = '', $none = '', $time_zone = 'Asia/Tehran', $tr_num = 'fa' ) {
+	/*	F	*/
+	public static function jstrftime( $format, $timestamp = '', $none = '', $time_zone = 'Asia/Tehran', $tr_num = 'fa' ) {
 
 		$T_sec = 0;/* <= رفع خطاي زمان سرور ، با اعداد '+' و '-' بر حسب ثانيه */
 

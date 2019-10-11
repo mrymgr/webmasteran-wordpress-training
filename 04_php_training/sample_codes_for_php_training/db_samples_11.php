@@ -44,10 +44,10 @@ $dates             = [];
 $jalali_dates      = [];
 $dollars           = [];
 $euros             = [];
-$sample_query      = "SELECT dollar, euro, DATE(created_date) as created_date FROM currency ORDER BY created_date DESC LIMIT 15";
+$sample_query      = "SELECT dollar, euro, DATE(created_date) as created_date FROM currency ORDER BY created_date DESC LIMIT 20";
 //$sample_query      = "SELECT dollar, euro, created_date FROM currency ORDER BY id DESC LIMIT 15";
 $records = array_reverse( $msn_db_connection->fetch_all_query( $sample_query ) );
-
+//var_dump($msn_db_connection->fetch_all_query( $sample_query ));
 foreach ( $records as $record ) {
 	$dates[]   = $record->created_date;
 	$dollars[] = $record->dollar;
@@ -66,7 +66,7 @@ var_dump( $dollars );
 var_dump( $euros );*/
 
 
-require_once 'template_parts/script_section_db_sample.php';
+
 require_once 'template_parts/footer_db_sample.php';
 
 

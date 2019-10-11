@@ -35,6 +35,8 @@ while ( $loop_count ) {
 	$loop_count--;
 }
 
+//var_dump($sample_records);
+
 
 
 $sample_query      = "INSERT INTO currency (dollar, euro, created_date) VALUES ( ? , ? , ? )";
