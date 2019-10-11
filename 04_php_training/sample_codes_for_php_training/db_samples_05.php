@@ -3,7 +3,7 @@
  * Sample to connect a specific database
  */
 $host        = "localhost";
-$db_usernam  = "mehdi";
+$db_username = "mehdi";
 $db_password = "mznx9182";
 $db          = "gallery_db";
 $charset     = 'utf8mb4';
@@ -32,14 +32,17 @@ function msn_has_change( $row_count ) {
 }
 
 function msn_get_class_constant_list( $class_name ) {
-	$temp_class = new ReflectionClass( $class_name );
+	$temp_class      = new ReflectionClass( $class_name );
 	$class_constants = $temp_class->getConstants();
+	//var_dump($class_constants);
 	$fetch_constants = [];
-	foreach ($class_constants as $key => $value ) {
-		if ( strpos($key,'FETCH') === 0  && strpos($key, 'ORI') === false) {
-			$fetch_constants[$key] = $value;
+	foreach ( $class_constants as $key => $value ) {
+		if ( strpos( $key, 'FETCH' ) === 0 && strpos( $key, 'ORI' ) === false ) {
+			$fetch_constants[ $key ] = $value;
 		}
 	}
+	/*var_dump($fetch_constants);
+	var_dump(array_flip( $fetch_constants ));*/
 	return array_flip( $fetch_constants );
 
 }
@@ -89,7 +92,7 @@ function msn_execute_message( $situation = 'success_insert', $e = null ) {
 
 
 try {
-	$connection = new PDO( $dsn, $db_usernam, $db_password, $options );
+	$connection = new PDO( $dsn, $db_username, $db_password, $options );
 	/*
 	 * if you do not send options, you can only set attribute by this method in the following
 	 * 	$connection->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -176,7 +179,7 @@ if ( $run_condition_2 ) {
 }
 
 
-$run_condition_3 = true;
+$run_condition_3 = false;
 
 
 if ( $run_condition_3 ) {
@@ -279,14 +282,14 @@ if ( $run_condition_6 ) {
 }
 
 
-$run_condition_7 = true;
+$run_condition_7 = false;
 
 
 if ( $run_condition_7 ) {
 
 	msn_get_message( 'seventh' );
 
-	$method_queries = [
+	$method_queries    = [
 		[ PDO::FETCH_ASSOC, 'SELECT first_name  FROM users' ],
 		[ PDO::FETCH_OBJ, 'SELECT first_name,last_name  FROM users' ],
 		[ PDO::FETCH_COLUMN, 'SELECT last_name  FROM users' ],
@@ -299,14 +302,14 @@ if ( $run_condition_7 ) {
 	foreach ( $method_queries as $method_query ) {
 		try {
 			$method = $method_query[0];
-			$stmt = $connection->prepare( $method_query[1] );
+			$stmt   = $connection->prepare( $method_query[1] );
 			$stmt->execute();
-			$data = $stmt->fetchAll( $method);
+			$data = $stmt->fetchAll( $method );
 			/*get list of constant*/
 			echo "<h2>The query is: </h2>";
 			echo "<h3>$method_query[1]</h3>";
 			echo "<h2>The method is: $msn_constant_list[$method]</h2>";
-			var_dump($data);
+			var_dump( $data );
 		} catch ( PDOException $e ) {
 			msn_execute_message( 'failed', $e );
 		}

@@ -122,7 +122,10 @@ if ( $run_condition_3 ) {
 
 	msn_get_message( 'third' );
 
-	$new_user     = new Msn_Generate_User( 'ghasemak2', 'ghasemak2', 'ghasemak2', 'ghasemzadeh' );
+	$new_user = new Msn_Generate_User( 'ghasemak2', 'ghasemak2', 'ghasemak2', 'ghasemzadeh' );
+	/*var_dump( $new_user );
+	var_dump( (array) $new_user );
+	var_dump( array_values( (array) $new_user ) );*/
 	$sample_query = "INSERT INTO users (username, password, first_name, last_name) VALUES ( ? , ? , ? , ? )";
 
 	try {

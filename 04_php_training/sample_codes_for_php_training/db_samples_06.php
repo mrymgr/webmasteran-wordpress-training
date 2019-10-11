@@ -10,6 +10,7 @@ require '../../vendor/autoload.php';
  *
  * */
 $msndb = Db_Extend::get_instance();
+var_dump($msndb);
 
 if ( false ) {
 	$result = $msndb->fetch_query( 'SELECT * FROM users', PDO::FETCH_ASSOC, true );

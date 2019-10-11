@@ -3,7 +3,7 @@
  * Sample to connect a specific database
  */
 $host        = "localhost";
-$db_usernam  = "mehdi";
+$db_username = "mehdi";
 $db_password = "mznx9182";
 $db          = "msntrainers";
 $charset     = 'utf8mb4';
@@ -51,7 +51,7 @@ function msn_execute_message( $situation = 'success_insert', $e = null ) {
 
 
 try {
-	$connection = new PDO( $dsn, $db_usernam, $db_password, $options );
+	$connection = new PDO( $dsn, $db_username, $db_password, $options );
 	/*
 	 * if you do not send options, you can only set attribute by this method in the following
 	 * 	$connection->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -61,7 +61,7 @@ try {
 	msn_execute_message( 'failed', $e );
 }
 
-$run_condition_1 = false;
+$run_condition_1 = true;
 
 
 if ( $run_condition_1 ) {
@@ -90,7 +90,7 @@ if ( $run_condition_1 ) {
 
 }
 
-$run_condition_2 = false;
+$run_condition_2 = true;
 
 
 if ( $run_condition_2 ) {
@@ -98,8 +98,8 @@ if ( $run_condition_2 ) {
 	msn_get_message( 'second' );
 
 	#Create a table with foreign key
-	$create_checklist_table =
-		"CREATE TABLE IF NOT EXISTS checklists (
+	$create_checklist_table
+		= "CREATE TABLE IF NOT EXISTS checklists (
 		    todo_id INT AUTO_INCREMENT,
 		    task_id INT,
 		    todo VARCHAR(255) NOT NULL,
