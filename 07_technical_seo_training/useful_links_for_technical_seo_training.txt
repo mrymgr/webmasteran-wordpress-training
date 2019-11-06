@@ -1,0 +1,15 @@
+- **Web Performance & Page Speed**:
+====================================
+
+https://developers.google.com/web/fundamentals/performance/get-started
+
+https://web.dev/learn/
+
+website performance optimization course in udacity:
+https://classroom.udacity.com/courses/ud884
+
+https://hpbn.co/
+
+https://webpack.js.org/configuration/performance/
+
+https://www.litespeedtech.com/wordpress-acceleration-with-lscache

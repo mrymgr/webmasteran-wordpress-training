@@ -1,11 +1,11 @@
 - **Specificity calculator**:
-
+=============================
 https://specificity.keegan.st/
 
 
 
 -  **An article about inheritance in CSS**:
-
+===========================================
 https://www.sitepoint.com/css-inheritance-introduction/
 
 https://webdesignplayground.io
@@ -14,7 +14,7 @@ https://webdesignplayground.io
 
 
 - **Box sizing**: 
-
+=================
 https://codepen.io/team/css-tricks/pen/970f26f621cfa3ae3eec7e2a6b0e8c97
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
@@ -23,7 +23,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
 
 
 - **sample of units in css**:
-
+=============================
 https://codepen.io/timseverien/pen/rkhgo
 
 https://codepen.io/timseverien/pen/zaDIo
@@ -42,8 +42,8 @@ https://www.sitepoint.com/css-viewport-units-quick-start/
 
 
 
-- **background: **
-
+- **background**:
+=================
 https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/background-position
@@ -57,8 +57,8 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip
 
 
 
-- **boder in css:**
-
+- **boder in css**:
+===================
 https://developer.mozilla.org/en-US/docs/Web/CSS/border-style
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/border-width
@@ -69,7 +69,7 @@ https://www.w3schools.com/css/tryit.asp?filename=trycss_background-image_attachm
 
 
 - **border-image:**
-
+===================
 https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-source
 
 https://www.w3schools.com/css/css3_border_images.asp
@@ -109,17 +109,17 @@ https://webcode.tools/css-generator
 
 
 - **Typography samples**
-
+========================
 https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow
 
 - **a tag samples**
-
+===================
 https://css-tricks.com/css-basics-styling-links-like-boss/
 
 https://freshdesignweb.com/css3-buttons/
 
 - **display samples**
-
+=====================
 https://www.w3schools.com/css/tryit.asp?filename=trycss_inline-block_span1
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/display
@@ -134,7 +134,7 @@ https://www.w3schools.com/css/tryit.asp?filename=trycss_image_text_top_left
 
 
 - **shadow box samples**:
-
+=============================
 https://www.w3schools.com/css/tryit.asp?filename=trycss3_box-shadow6
 
 https://www.w3schools.com/css/tryit.asp?filename=trycss3_box-shadow4
@@ -145,7 +145,7 @@ https://www.w3schools.com/css/tryit.asp?filename=trycss3_box-shadow5
 
 
 - **vendor prefix**:
-
+=============================
 https://autoprefixer.github.io/
 
 https://github.com/postcss/autoprefixer
@@ -154,7 +154,7 @@ https://github.com/postcss/autoprefixer
 
 
 - **float samples**
-
+=============================
 https://www.w3schools.com/css/tryit.asp?filename=trycss_layout_clear
 
 https://www.w3schools.com/css/tryit.asp?filename=trycss_layout_clearfix
@@ -177,7 +177,7 @@ https://www.w3schools.com/css/tryit.asp?filename=trycss_layout_webpage
 
 
 - **opacity sample**
-
+=============================
 https://www.w3schools.com/css/tryit.asp?filename=trycss_image_transparency
 
 https://www.w3schools.com/css/tryit.asp?filename=trycss_opacity_box
@@ -194,7 +194,7 @@ https://codepen.io/anon/pen/aOpOMV
 
 
 - **list samples**
-
+=============================
 https://www.w3schools.com/cssref/tryit.asp?filename=trycss_list-style-type_all
 
 https://www.w3schools.com/cssref/playit.asp?filename=playcss_list-style-image&preval=none
@@ -204,7 +204,7 @@ https://www.w3schools.com/cssref/playit.asp?filename=playcss_list-style-position
 
 
 - **Transition**: 
-
+=============================
 https://en.wikipedia.org/wiki/B%C3%A9zier_curve
 
 https://easings.net/en
@@ -233,7 +233,7 @@ https://www.the-art-of-web.com/css/css-animation/
 
 
 - **Animation & transition library**:
-
+=======================================
 https://www.w3schools.com/css/tryit.asp?filename=trycss3_animation3
 
 https://www.w3schools.com/css/tryit.asp?filename=trycss3_animation_delay
@@ -294,7 +294,7 @@ https://1stwebdesigner.com/css-effects/
 
 
 - **flex**:
-
+=============================
 https://css-tricks.com/snippets/css/a-guide-to-flexbox
 
 https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox
@@ -313,7 +313,7 @@ https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_order_2
 
 
 - **viewport samples**:
-
+=============================
 https://www.w3schools.com/css/example_withoutviewport.htm
 
 https://www.w3schools.com/css/example_withviewport.htm
@@ -322,7 +322,7 @@ https://www.w3schools.com/css/example_withviewport.htm
 
 
 - **grid-view samples**:
-
+=============================
 https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_cols
 
 https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_styles
@@ -333,7 +333,7 @@ https://getbootstrap.com/docs/4.3/layout/overview/
 
 
 - **media query samples**:
-
+=============================
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#attr-media
 
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source
@@ -354,7 +354,7 @@ https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_col-s
 
 
 - **srcset samples**:
-
+=============================
 https://www.sitepoint.com/how-to-build-responsive-images-with-srcset/
 
 https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
