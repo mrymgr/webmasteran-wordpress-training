@@ -1,0 +1,71 @@
+- **Applicable linux command**:
+===============================
+https://linuxize.com/post/how-to-set-or-change-timezone-on-ubuntu-18-04/
+
+
+- **firewall & iptable configuration**:
+=======================================
+https://wiki.ubuntu.com/OnNetworkConnectionRunScript
+https://askubuntu.com/questions/321979/when-does-ubuntu-12-04-run-network-if-pre-up-d-and-if-up-d-scripts/322654
+https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands
+https://docs.iredmail.org/enable.smtps.html#on-debianubuntu
+https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-iptables-on-ubuntu-14-04
+
+- **Apache configuration**:
+===========================
+https://www.linode.com/docs/web-servers/apache-tips-and-tricks/tuning-your-apache-server/
+https://www.assistanz.com/understanding-optimizing-apache-using-prefork-mpm-version-2-4/
+http://cloudinservice.com/tune-apache-performance-using-mpm-prefork-module/
+https://serverfault.com/questions/776805/mpm-prefork-values-for-2-4-gb-ram
+https://www.idea11.com.au/tuning-apache2-apache2buddy/
+https://www.techrepublic.com/article/how-to-tune-apache-in-seconds-with-apache2buddy-pl/
+https://serverfault.com/questions/779740/why-the-warning-for-a2dismod-autoindex
+
+
+- **Mariadb configuration**:
+============================
+https://linuxize.com/post/how-to-install-mariadb-on-ubuntu-18-04/
+https://computingforgeeks.com/how-to-install-mariadb-on-ubuntu/
+https://www.digitalocean.com/community/tutorials/how-to-reset-your-mysql-or-mariadb-root-password-on-ubuntu-18-04
+https://kyup.com/tutorials/create-new-user-grant-permissions-mysql/
+https://linuxize.com/post/how-to-manage-mysql-databases-and-users-from-the-command-line/
+https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line
+https://www.processio.com/mysqld_safe-directory-var-run-mysqld-unix-socket-file-dont-exists/
+https://www.digitalocean.com/community/tutorials/how-to-reset-your-mysql-or-mariadb-root-password-on-ubuntu-18-04
+https://mariadb.com/kb/en/library/set-password/
+https://www.digitalocean.com/community/tutorials/how-to-secure-mysql-and-mariadb-databases-in-a-linux-vps
+https://kerneltalks.com/tools/how-to-start-stop-restart-mariadb-server-in-linux/
+
+
+- **PHP configuration**:
+========================
+https://mediatemple.net/community/products/dv/204404214/how-do-i-set-the-path-for-open_basedir
+https://www.a2hosting.com/kb/developer-corner/php/using-php.ini-directives/php-expose-php-directive
+
+- **fail2ban configuration**:
+=============================
+https://www.techrepublic.com/article/how-to-install-fail2ban-on-ubuntu-server-18-04/
+https://www.lifewire.com/install-fail2ban-on-ubuntu-server-18-04-4179020
+
+- **SSL configuration**:
+========================
+https://vivin.ir/science-and-technology/computer/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-18-04/
+
+- **PHPMyadmin configuration**:
+===============================
+https://www.tecmint.com/install-lamp-with-phpmyadmin-in-ubuntu-18-04/
+https://askubuntu.com/questions/848019/phpmyadmin-not-working-anymore-since-switching-to-php7
+https://stackoverflow.com/questions/46736319/phpmyadmin-error-mysqli-real-connect-hy000-1045-access-denied-for-user-p
+https://devanswers.co/problem-php-7-2-phpmyadmin-warning-in-librariessql-count/
+https://medium.com/@chaloemphonthipkasorn/แก้-bug-phpmyadmin-php7-2-ubuntu-16-04-92b287090b01
+https://askubuntu.com/questions/969417/change-phpmyadmin-url-through-etc-apache2-conf-available-phpmyadmin-conf
+https://www.tecmint.com/disable-root-login-access-to-phpmyadmin/
+https://www.tecmint.com/secure-phpmyadmin-centos-ubuntu/
+https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04
+https://hostadvice.com/how-to/how-to-secure-phpmyadmin-on-ubuntu-18-04-vps-or-dedicated-server/
+
+- **wp-cli configuration**:
+===========================
+https://www.linode.com/docs/websites/cms/install-wordpress-using-wp-cli-on-ubuntu-18-04/
+https://linuxhandbook.com/install-wp-cli-linux/
+
