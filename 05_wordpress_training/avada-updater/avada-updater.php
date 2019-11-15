@@ -18,7 +18,8 @@ $whole_site_backup_path        = $main_path . 'whole-site-backup/';
 $backup_zip_file_name          = $host_name . '-backup-' . date( 'Y-m-d' ) . '.zip';
 $main_log_file                 = 'update-log-file-' . date( 'Ymd' ) . '.log';
 
-$htaccess_lite_speed_config = <<< HTACCESS
+$htaccess_lite_speed_config
+	= <<< HTACCESS
 <IfModule Litespeed>
 RewriteEngine On
 RewriteRule .* - [E=noabort:1]
@@ -26,19 +27,11 @@ RewriteRule .* - [E=noconntimeout:1]
 </IfModule>
 HTACCESS;
 
-/*
-
-<IfModule Litespeed>
-RewriteEngine On
-RewriteRule .* - [E=noabort:1]
-RewriteRule .* - [E=noconntimeout:1]
-</IfModule>
-*/
-
-
 $avada_version    = '5.8.2';
 $is_check_updraft = true;
-$has_backup_zip   = false;
+$updraft_path     = 'wp-content/updraft/';
+$updraft_bak_path = $main_path . 'updraft-bak/';
+$has_backup_zip   = true;
 
 /*
  * Change max_execution_time
@@ -48,10 +41,10 @@ $has_backup_zip   = false;
 function msn_change_ini_settings() {
 	//ini_set( 'max_input_vars', '10000' );
 	set_time_limit( - 1 );
-	var_dump( (int) ini_get( 'max_input_time' ) );
+	/*var_dump( (int) ini_get( 'max_input_time' ) );
 	var_dump( (int) ini_get( 'max_execution_time' ) );
 	var_dump( (int) ini_get( 'memory_limit' ) );
-	var_dump( (int) ini_get( 'max_input_vars' ) );
+	var_dump( (int) ini_get( 'max_input_vars' ) );*/
 }
 
 /*
@@ -74,16 +67,20 @@ function msn_check_server_type() {
 /*
  * Write on log file
  * */
-function msn_write_on_log_file( $string, $file_name ) {
+function msn_write_on_log_file( $string, $file_name, $show_on_screen = true ) {
 
-	if ( ! file_exists( $file_name ) ) {
-		file_put_contents( $file_name, $string );
-	} else {
+	if ( file_exists( $file_name ) ) {
 		$file_content = file_get_contents( $file_name );
 		file_put_contents( $file_name, $string, FILE_APPEND | LOCK_EX );
+
+	} else {
+		file_put_contents( $file_name, $string );
 	}
-	echo "<p>$string</p>";
-	echo '<hr>';
+	if ( $show_on_screen ) {
+		$string = str_replace('*','',$string);
+		echo "<p style='font-size: 20px;font-weight: bold;'>$string</p>";
+		echo '<hr>';
+	}
 }
 
 /*
@@ -134,17 +131,18 @@ function msn_check_critical_file_exist( $path, $type, $logfile ) {
 		}
 
 		msn_write_on_log_file( $error_message . PHP_EOL, $logfile );
-		echo "<h1>$error_message</h1>";
+		//echo "<h1>$error_message</h1>";
 		die( '<h2>You can not continue!!!</h2>' );
 	}
 
 }
 
-function msn_check_directory_exist( $path, $type ) {
+function msn_check_directory_exist( $path, $type, $logfile ) {
 	if ( ! file_exists( $path ) ) {
 		mkdir( $path, 0755 );
-		echo "<br>The directory for {$type} is created succesfully!";
-		echo '<hr>';
+		$message =  PHP_EOL .'*******' . PHP_EOL . PHP_EOL . "The directory for {$type} is created succesfully at: " . date( 'Y-m-d H:i:s' ) . '.'
+		           . PHP_EOL . PHP_EOL . '*******';
+		msn_write_on_log_file( $message . PHP_EOL, $logfile );
 	}
 }
 
@@ -368,7 +366,8 @@ if ( msn_check_server_type() == 'litespeed' ) {
 	}
 	msn_write_on_log_file( $msn_writing_message, $main_log_file );
 } else {
-	$msn_writing_message = PHP_EOL . 'It is not LiteSpeed Server. So nothing write on log file at: ' . date( 'Y-m-d' ) . '.' . PHP_EOL;
+	$msn_writing_message = '*******' . PHP_EOL . PHP_EOL . 'It is not LiteSpeed Server. So nothing write on log file at: ' . date( 'Y-m-d' ) . '.'
+	                       . PHP_EOL . PHP_EOL . '*******';
 	msn_write_on_log_file( $msn_writing_message, $main_log_file );
 }
 
@@ -386,19 +385,16 @@ msn_check_critical_file_exist( $avada_new_fusion_core_file, 'avada_fusion_core_f
  * Checking directory or files that we need to continue this script.
  * If they don't exist, we will create theme.
  * */
-msn_check_directory_exist( $avada_older_version_path, 'keeping older versions of Avada ' );
-msn_check_directory_exist( $avada_lang_path, 'keeping language files of Avada' );
-msn_check_directory_exist( $avada_lang_path, 'keeping language files of Avada' );
-msn_check_directory_exist( $whole_site_backup_path, 'keeping log files of update process' );
+msn_check_directory_exist( $avada_older_version_path, 'keeping older versions of Avada ', $main_log_file );
+msn_check_directory_exist( $avada_lang_path, 'keeping language files of Avada', $main_log_file );
+msn_check_directory_exist( $updraft_bak_path, 'keeping extra updraft files ', $main_log_file );
+msn_check_directory_exist( $whole_site_backup_path, 'keeping log files of update process', $main_log_file );
 
 
 /*
  * move updraft files (if it's exist)
  * */
 /*if ( $is_check_updraft ) {
-	$updraft_path     = 'wp-content/updraft/';
-	$updraft_bak_path = $main_path . 'updraft-bak/';
-	msn_check_directory_exist( $updraft_bak_path, 'keeping extra updraft files ' );
 	echo '<h2>back up results for updraft files</h2>';
 	msn_move_all_updraft_files( $updraft_path, $updraft_bak_path );
 	echo '<hr>';
