@@ -8,15 +8,18 @@ $main_path                     = '../temp-source/';
 $has_host_name                 = true;
 $host_name                     = 'jesmoravan.com';
 $main_wordpress_path           = dirname( __FILE__ );
-$avada_new_version_path        = $main_path . 'avada-new-version-files/';
-$avada_new_theme_file          = $avada_new_version_path . 'avada-new.zip';
-$avada_new_fusion_builder_file = $avada_new_version_path . 'fusion-builder-new.zip';
-$avada_new_fusion_core_file    = $avada_new_version_path . 'fusion-core-new.zip';
-$avada_older_version_path      = $main_path . 'avada-older-versions/';
-$avada_lang_path               = $main_path . 'avada-lang-bak/';
-$whole_site_backup_path        = $main_path . 'whole-site-backup/';
-$backup_zip_file_name          = $host_name . '-backup-' . date( 'Y-m-d' ) . '.zip';
-$main_log_file                 = 'update-log-file-' . date( 'Ymd' ) . '.log';
+$avada_new_files_temp_path     = $main_path . '01-temp-new-version-files/';
+$avada_new_theme_file          = $avada_new_files_temp_path . 'avada-new.zip';
+$avada_new_fusion_builder_file = $avada_new_files_temp_path . 'fusion-builder-new.zip';
+$avada_new_fusion_core_file    = $avada_new_files_temp_path . 'fusion-core-new.zip';
+
+$avada_older_version_path = $main_path . '02-avada-older-versions/';
+$avada_new_version_path   = $main_path . '03-avada-new-version-files/';
+$avada_lang_path          = $main_path . '04-avada-lang-bak/';
+$whole_site_backup_path   = $main_path . '05-whole-site-backup/';
+$log_files_path           = $main_path . '06-log-files/';
+$backup_zip_file_name     = $host_name . '-backup-' . date( 'Y-m-d' ) . '.zip';
+$main_log_file            = 'update-log-file-' . date( 'Ymd' ) . '.log';
 
 $htaccess_lite_speed_config
 	= <<< HTACCESS
@@ -27,11 +30,12 @@ RewriteRule .* - [E=noconntimeout:1]
 </IfModule>
 HTACCESS;
 
-$avada_version    = '5.8.2';
-$is_check_updraft = true;
-$updraft_path     = 'wp-content/updraft/';
-$updraft_bak_path = $main_path . 'updraft-bak/';
-$has_backup_zip   = true;
+$avada_last_version    = '6.0.0';
+$avada_current_version = '6.1.2';
+$is_check_updraft      = true;
+$updraft_path          = 'wp-content/updraft/';
+$updraft_bak_path      = $main_path . '07-updraft-bak/';
+$has_backup_zip        = true;
 
 /*
  * Change max_execution_time
@@ -69,6 +73,7 @@ function msn_check_server_type() {
  * */
 function msn_write_on_log_file( $string, $file_name, $show_on_screen = true ) {
 
+	$string = '*****' . PHP_EOL . PHP_EOL . $string . PHP_EOL . PHP_EOL . '*************' . PHP_EOL;
 	if ( file_exists( $file_name ) ) {
 		$file_content = file_get_contents( $file_name );
 		file_put_contents( $file_name, $string, FILE_APPEND | LOCK_EX );
@@ -77,7 +82,7 @@ function msn_write_on_log_file( $string, $file_name, $show_on_screen = true ) {
 		file_put_contents( $file_name, $string );
 	}
 	if ( $show_on_screen ) {
-		$string = str_replace('*','',$string);
+		$string = str_replace( '*', '', $string );
 		echo "<p style='font-size: 20px;font-weight: bold;'>$string</p>";
 		echo '<hr>';
 	}
@@ -92,15 +97,14 @@ function msn_file_prepend( $string, $filename ) {
 	if ( preg_match( "/E=noabort:1/", $fileContent )
 	     && preg_match( "/E=noconntimeout:1/", $fileContent )
 	) {
-		echo 'yes yes <br>';
 
-		return true;
+		return 'already is written';
 	}
 	$result = file_put_contents( $filename, $string . "\n" . $fileContent );
 	if ( $result === false ) {
 		return false;
 	} else {
-		return true;
+		return 'succesfully is wrote';
 	}
 
 }
@@ -110,7 +114,7 @@ function msn_file_prepend( $string, $filename ) {
  * Check critical directory or files
  * */
 function msn_check_critical_file_exist( $path, $type, $logfile ) {
-	$error_message = PHP_EOL . 'Error message created on: ' . date( 'Y-m-d' ) . '.' . PHP_EOL;
+	$error_message = 'Error message created on: ' . date( 'Y-m-d' ) . '.' . PHP_EOL;
 	if ( ! file_exists( $path ) ) {
 		switch ( $type ) {
 			case 'main_path':
@@ -130,7 +134,7 @@ function msn_check_critical_file_exist( $path, $type, $logfile ) {
 				break;
 		}
 
-		msn_write_on_log_file( $error_message . PHP_EOL, $logfile );
+		msn_write_on_log_file( $error_message, $logfile );
 		//echo "<h1>$error_message</h1>";
 		die( '<h2>You can not continue!!!</h2>' );
 	}
@@ -140,9 +144,8 @@ function msn_check_critical_file_exist( $path, $type, $logfile ) {
 function msn_check_directory_exist( $path, $type, $logfile ) {
 	if ( ! file_exists( $path ) ) {
 		mkdir( $path, 0755 );
-		$message =  PHP_EOL .'*******' . PHP_EOL . PHP_EOL . "The directory for {$type} is created succesfully at: " . date( 'Y-m-d H:i:s' ) . '.'
-		           . PHP_EOL . PHP_EOL . '*******';
-		msn_write_on_log_file( $message . PHP_EOL, $logfile );
+		$message = "The directory for {$type} is created succesfully at: " . date( 'Y-m-d H:i:s' ) . '.';
+		msn_write_on_log_file( $message, $logfile );
 	}
 }
 
@@ -359,15 +362,16 @@ msn_change_ini_settings();
 if ( msn_check_server_type() == 'litespeed' ) {
 	$htaccess_file_path         = __DIR__ . '/.htaccess';
 	$result_of_htaccess_writing = msn_file_prepend( $htaccess_lite_speed_config, $htaccess_file_path );
-	if ( $result_of_htaccess_writing ) {
-		$msn_writing_message = PHP_EOL . 'Writing on htaccess file was successful on: ' . date( 'Y-m-d' ) . '.' . PHP_EOL;
+	if ( $result_of_htaccess_writing == 'already is written' ) {
+		$msn_writing_message = 'htaccess file was overwritten already. You do not to need extra actions on it. ';
+	} elseif ( $result_of_htaccess_writing == 'succesfully is wrote' ) {
+		$msn_writing_message = 'Writing on htaccess file was successful on: ' . date( 'Y-m-d' ) . '.';
 	} else {
-		$msn_writing_message = PHP_EOL . 'Error when Writing on htaccess file!!! It was at: ' . date( 'Y-m-d' ) . '.' . PHP_EOL;
+		$msn_writing_message = 'Error when Writing on htaccess file!!! It was at: ' . date( 'Y-m-d' ) . '.';
 	}
 	msn_write_on_log_file( $msn_writing_message, $main_log_file );
 } else {
-	$msn_writing_message = '*******' . PHP_EOL . PHP_EOL . 'It is not LiteSpeed Server. So nothing write on log file at: ' . date( 'Y-m-d' ) . '.'
-	                       . PHP_EOL . PHP_EOL . '*******';
+	$msn_writing_message = 'It is not LiteSpeed Server. So nothing write on log file at: ' . date( 'Y-m-d' ) . '.';
 	msn_write_on_log_file( $msn_writing_message, $main_log_file );
 }
 
@@ -376,7 +380,7 @@ if ( msn_check_server_type() == 'litespeed' ) {
  * Checking critical directory and file before executing script
  * */
 msn_check_critical_file_exist( $main_path, 'main_path', $main_log_file );
-msn_check_critical_file_exist( $avada_new_version_path, 'avada_file_path', $main_log_file );
+msn_check_critical_file_exist( $avada_new_files_temp_path, 'avada_file_path', $main_log_file );
 msn_check_critical_file_exist( $avada_new_theme_file, 'avada_theme_file', $main_log_file );
 msn_check_critical_file_exist( $avada_new_fusion_builder_file, 'avada_fusion_builder_file', $main_log_file );
 msn_check_critical_file_exist( $avada_new_fusion_core_file, 'avada_fusion_core_file', $main_log_file );
@@ -385,10 +389,16 @@ msn_check_critical_file_exist( $avada_new_fusion_core_file, 'avada_fusion_core_f
  * Checking directory or files that we need to continue this script.
  * If they don't exist, we will create theme.
  * */
-msn_check_directory_exist( $avada_older_version_path, 'keeping older versions of Avada ', $main_log_file );
+msn_check_directory_exist( $avada_new_version_path, 'keeping new versions of Avada files ', $main_log_file );
+msn_check_directory_exist( $avada_older_version_path, 'keeping older versions of Avada files', $main_log_file );
 msn_check_directory_exist( $avada_lang_path, 'keeping language files of Avada', $main_log_file );
 msn_check_directory_exist( $updraft_bak_path, 'keeping extra updraft files ', $main_log_file );
-msn_check_directory_exist( $whole_site_backup_path, 'keeping log files of update process', $main_log_file );
+msn_check_directory_exist( $whole_site_backup_path, 'keeping whole site files for update process', $main_log_file );
+msn_check_directory_exist( $log_files_path, 'keeping log files of update process', $main_log_file );
+
+/*
+ * moving old avada files and change them with new files
+ * */
 
 
 /*
