@@ -124,13 +124,13 @@ function msn_check_critical_file_exist( $path, $type, $logfile ) {
 				$error_message .= 'You must define correct avada file path';
 				break;
 			case 'avada_theme_file':
-				$error_message .= 'You must put theme zip file in avada-new-version-filse directory';
+				$error_message .= 'You must put theme zip file in 01-temp-new-version-files directory';
 				break;
 			case 'avada_fusion_builder_file':
-				$error_message .= 'You must put fusion builder zip file in avada-new-version-filse directory';
+				$error_message .= 'You must put fusion builder zip file in 01-temp-new-version-files directory';
 				break;
 			case 'avada_fusion_core_file':
-				$error_message .= 'You must put fusion core zip file in avada-new-version-filse directory';
+				$error_message .= 'You must put fusion core zip file in 01-temp-new-version-files directory';
 				break;
 		}
 
@@ -379,11 +379,18 @@ if ( msn_check_server_type() == 'litespeed' ) {
 /*
  * Checking critical directory and file before executing script
  * */
-msn_check_critical_file_exist( $main_path, 'main_path', $main_log_file );
-msn_check_critical_file_exist( $avada_new_files_temp_path, 'avada_file_path', $main_log_file );
-msn_check_critical_file_exist( $avada_new_theme_file, 'avada_theme_file', $main_log_file );
-msn_check_critical_file_exist( $avada_new_fusion_builder_file, 'avada_fusion_builder_file', $main_log_file );
-msn_check_critical_file_exist( $avada_new_fusion_core_file, 'avada_fusion_core_file', $main_log_file );
+$critical_files = [
+	[ $main_path, 'main_path' ],
+	[ $avada_new_files_temp_path, 'avada_file_path' ],
+	[ $avada_new_theme_file, 'avada_theme_file' ],
+	[ $avada_new_fusion_builder_file, 'avada_fusion_builder_file' ],
+	[ $avada_new_fusion_core_file, 'avada_fusion_core_file' ],
+];
+
+foreach ( $critical_files as $critical_file ) {
+	msn_check_critical_file_exist( $critical_file[0], $critical_file[1], $main_log_file );
+}
+
 
 /*
  * Checking directory or files that we need to continue this script.
