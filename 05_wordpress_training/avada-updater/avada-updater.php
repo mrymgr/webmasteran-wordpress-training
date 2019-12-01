@@ -1,5 +1,7 @@
 <?php
 
+#set time zone
+date_default_timezone_set( 'Asia/Tehran' );
 
 /*
  * Define paths and files for updater script
@@ -12,14 +14,13 @@ $avada_new_files_temp_path     = $main_path . '01-temp-new-version-files/';
 $avada_new_theme_file          = $avada_new_files_temp_path . 'avada-new.zip';
 $avada_new_fusion_builder_file = $avada_new_files_temp_path . 'fusion-builder-new.zip';
 $avada_new_fusion_core_file    = $avada_new_files_temp_path . 'fusion-core-new.zip';
-
-$avada_older_version_path = $main_path . '02-avada-older-versions/';
-$avada_new_version_path   = $main_path . '03-avada-new-version-files/';
-$avada_lang_path          = $main_path . '04-avada-lang-bak/';
-$whole_site_backup_path   = $main_path . '05-whole-site-backup/';
-$log_files_path           = $main_path . '06-log-files/';
-$backup_zip_file_name     = $host_name . '-backup-' . date( 'Y-m-d' ) . '.zip';
-$main_log_file            = 'update-log-file-' . date( 'Ymd' ) . '.log';
+$avada_older_version_path      = $main_path . '02-avada-older-versions/';
+$avada_new_version_path        = $main_path . '03-avada-new-version-files/';
+$avada_lang_path               = $main_path . '04-avada-lang-bak/';
+$whole_site_backup_path        = $main_path . '05-whole-site-backup/';
+$log_files_path                = $main_path . '06-log-files/';
+$backup_zip_file_name          = $host_name . '-backup-' . date( 'Y-m-d' ) . '.zip';
+$main_log_file                 = 'update-log-file-' . date( 'Ymd' ) . '.log';
 
 $htaccess_lite_speed_config
 	= <<< HTACCESS
@@ -114,7 +115,7 @@ function msn_file_prepend( $string, $filename ) {
  * Check critical directory or files
  * */
 function msn_check_critical_file_exist( $path, $type, $logfile ) {
-	$error_message = 'Error message created on: ' . date( 'Y-m-d' ) . '.' . PHP_EOL;
+	$error_message = 'Error message created on: ' . date( 'Y-m-d  H:i:s' ) . '.' . PHP_EOL;
 	if ( ! file_exists( $path ) ) {
 		switch ( $type ) {
 			case 'main_path':
@@ -141,6 +142,9 @@ function msn_check_critical_file_exist( $path, $type, $logfile ) {
 
 }
 
+/*
+ * check directory exists and if not, it will create
+ * */
 function msn_check_directory_exist( $path, $type, $logfile ) {
 	if ( ! file_exists( $path ) ) {
 		mkdir( $path, 0755 );
@@ -149,37 +153,58 @@ function msn_check_directory_exist( $path, $type, $logfile ) {
 	}
 }
 
-function msn_move_all_updraft_files( $dir, $new_dir ) {
+/*
+ * Check is directory empty or not
+ * */
+function msn_is_dir_empty( $dir_name ) {
+	if ( ! is_dir( $dir_name ) ) {
+		return false;
+	}
+	foreach ( scandir( $dir_name ) as $file ) {
+		if ( ! in_array( $file, array( '.', '..', '.svn', '.git' ) ) ) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+/*
+ * Move all files in a directory
+ * */
+function msn_move_all_files( $dir, $new_dir, $logfile = null, $is_updraft = false ) {
 	// Open a known directory, and proceed to read its contents
 	if ( is_dir( $dir ) ) {
 		if ( $dh = opendir( $dir ) ) {
 			while ( ( $file = readdir( $dh ) ) !== false ) {
-				echo '<br>Moving: ' . $file;
 				//exclude unwanted
-				if ( $file == ".htaccess" ) {
-					continue;
-				}
 				if ( $file == "." ) {
 					continue;
 				}
 				if ( $file == ".." ) {
 					continue;
 				}
-				if ( $file == "index.html" ) {
-					continue;
-				}
-				if ( $file == "web.config" ) {
-					continue;
+				if ( $is_updraft ) {
+					if ( $file == ".htaccess" ) {
+						continue;
+					}
+					if ( $file == "index.html" ) {
+						continue;
+					}
+					if ( $file == "web.config" ) {
+						continue;
+					}
 				}
 
 				//if ($file=="index.php") continue; for example if you have index.php in the folder
 				if ( rename( $dir . '/' . $file, $new_dir . '/' . $file ) ) {
-					echo " Files Copyed Successfully";
-					echo ": $new_dir/$file";
+					$message = "{$file} is copied in {$new_dir} successfully at: " . date( 'Y-m-d H:i:s' ) . '.';
+					msn_write_on_log_file( $message, $logfile );
 					//if files you are moving are images you can print it from
 					//new folder to be sure they are there
 				} else {
-					echo "File Not Copy";
+					$message = "{$file} was successfully copied in {$new_dir}  at: " . date( 'Y-m-d H:i:s' ) . '.';
+					msn_write_on_log_file( $message, $logfile );
 				}
 			}
 			closedir( $dh );
@@ -363,15 +388,16 @@ if ( msn_check_server_type() == 'litespeed' ) {
 	$htaccess_file_path         = __DIR__ . '/.htaccess';
 	$result_of_htaccess_writing = msn_file_prepend( $htaccess_lite_speed_config, $htaccess_file_path );
 	if ( $result_of_htaccess_writing == 'already is written' ) {
-		$msn_writing_message = 'htaccess file was overwritten already. You do not to need extra actions on it. ';
+		$msn_writing_message = 'htaccess file was overwritten already. You do not to need extra actions on it. Date of checking: '
+		                       . date( 'Y-m-d  H:i:s' );
 	} elseif ( $result_of_htaccess_writing == 'succesfully is wrote' ) {
-		$msn_writing_message = 'Writing on htaccess file was successful on: ' . date( 'Y-m-d' ) . '.';
+		$msn_writing_message = 'Writing on htaccess file was successful on: ' . date( 'Y-m-d  H:i:s' ) . '.';
 	} else {
-		$msn_writing_message = 'Error when Writing on htaccess file!!! It was at: ' . date( 'Y-m-d' ) . '.';
+		$msn_writing_message = 'Error when Writing on htaccess file!!! It was at: ' . date( 'Y-m-d  H:i:s' ) . '.';
 	}
 	msn_write_on_log_file( $msn_writing_message, $main_log_file );
 } else {
-	$msn_writing_message = 'It is not LiteSpeed Server. So nothing write on log file at: ' . date( 'Y-m-d' ) . '.';
+	$msn_writing_message = 'It is not LiteSpeed Server. So nothing write on htaccess file. Date is : ' . date( 'Y-m-d  H:i:s' ) . '.';
 	msn_write_on_log_file( $msn_writing_message, $main_log_file );
 }
 
@@ -391,21 +417,45 @@ foreach ( $critical_files as $critical_file ) {
 	msn_check_critical_file_exist( $critical_file[0], $critical_file[1], $main_log_file );
 }
 
-
 /*
  * Checking directory or files that we need to continue this script.
  * If they don't exist, we will create theme.
  * */
-msn_check_directory_exist( $avada_new_version_path, 'keeping new versions of Avada files ', $main_log_file );
-msn_check_directory_exist( $avada_older_version_path, 'keeping older versions of Avada files', $main_log_file );
-msn_check_directory_exist( $avada_lang_path, 'keeping language files of Avada', $main_log_file );
-msn_check_directory_exist( $updraft_bak_path, 'keeping extra updraft files ', $main_log_file );
-msn_check_directory_exist( $whole_site_backup_path, 'keeping whole site files for update process', $main_log_file );
-msn_check_directory_exist( $log_files_path, 'keeping log files of update process', $main_log_file );
+$important_directories = [
+	[ $avada_new_version_path, 'keeping new versions of Avada files' ],
+	[ $avada_older_version_path, 'keeping older versions of Avada files' ],
+	[ $avada_lang_path, 'keeping language files of Avada' ],
+	[ $updraft_bak_path, 'keeping extra updraft files' ],
+	[ $whole_site_backup_path, 'keeping whole site files for update process' ],
+	[ $log_files_path, 'keeping log files of update process' ],
+];
+
+foreach ( $important_directories as $important_directory ) {
+	msn_check_directory_exist( $important_directory[0], $important_directory[1], $main_log_file );
+}
 
 /*
  * moving old avada files and change them with new files
  * */
+if ( ! msn_is_dir_empty( $avada_new_version_path ) ) {
+
+	$last_version_avada_directory = $avada_older_version_path . $avada_last_version . '/';
+	if ( ! file_exists( $last_version_avada_directory ) ) {
+		mkdir( $last_version_avada_directory, 0755 );
+	}
+	msn_move_all_files( $avada_new_version_path, $last_version_avada_directory, $main_log_file );
+	msn_move_all_files( $avada_new_files_temp_path, $avada_new_version_path, $main_log_file );
+} else {
+	$msn_message_for_empty_dir = 'There is nothing to archive last Avada files: ' . date( 'Y-m-d  H:i:s' );
+	msn_write_on_log_file( $msn_message_for_empty_dir, $main_log_file );
+}
+
+/*
+ * Assign new path for Avada files
+ * */
+$avada_new_theme_file          = $avada_new_version_path . 'avada-new.zip';
+$avada_new_fusion_builder_file = $avada_new_version_path . 'fusion-builder-new.zip';
+$avada_new_fusion_core_file    = $avada_new_version_path . 'fusion-core-new.zip';
 
 
 /*
@@ -413,7 +463,7 @@ msn_check_directory_exist( $log_files_path, 'keeping log files of update process
  * */
 /*if ( $is_check_updraft ) {
 	echo '<h2>back up results for updraft files</h2>';
-	msn_move_all_updraft_files( $updraft_path, $updraft_bak_path );
+	msn_move_all_files( $updraft_path, $updraft_bak_path, $main_log_file, true );
 	echo '<hr>';
 }*/
 
@@ -425,25 +475,25 @@ msn_check_directory_exist( $log_files_path, 'keeping log files of update process
  * https://stackoverflow.com/questions/7739870/increase-max-execution-time-for-php
  *
  *
- * */
-
-/*
+ * */ /*
  * zip all of file in wp root directory
  * https://stackoverflow.com/questions/36287554/php-ziparchive-file-permissions
  * https://gist.github.com/mikamboo/9205589
  * https://stackoverflow.com/questions/9262622/set-permissions-for-all-files-and-folders-recursively
  * */
-if ( $has_backup_zip ) {
-	echo 'yes!!!';
-} else {
-	//$result_of_zipping = msn_zip_data( $main_wordpress_path, $whole_site_backup_path . 'backup.zip', 'windows' );
-	$result_of_zipping = msn_zip_data( $main_wordpress_path, $backup_zip_file_name );
-	if ( $result_of_zipping === false ) {
-		echo 'We can not zip your data!<br>';
-		echo '<hr>';
+{
+	if ( $has_backup_zip ) {
+		echo 'yes!!!';
 	} else {
-		echo 'Zipping your file is successful!<br>';
-		echo '<hr>';
+		//$result_of_zipping = msn_zip_data( $main_wordpress_path, $whole_site_backup_path . 'backup.zip', 'windows' );
+		$result_of_zipping = msn_zip_data( $main_wordpress_path, $backup_zip_file_name );
+		if ( $result_of_zipping === false ) {
+			echo 'We can not zip your data!<br>';
+			echo '<hr>';
+		} else {
+			echo 'Zipping your file is successful!<br>';
+			echo '<hr>';
+		}
 	}
 }
 
@@ -453,6 +503,6 @@ if ( $has_backup_zip ) {
 	$updraft_path     = 'wp-content/updraft/';
 	$updraft_bak_path = $main_path . 'updraft-bak/';
 	echo '<h2>Results for moving updraft files to original directory</h2>';
-	msn_move_all_updraft_files( $updraft_bak_path, $updraft_path );
+	msn_move_all_files( $updraft_bak_path, $updraft_path, $main_log_file, true);
 	echo '<hr>';
 }*/
