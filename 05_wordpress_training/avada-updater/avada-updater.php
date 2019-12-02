@@ -20,6 +20,7 @@ $avada_lang_path               = $main_path . '04-avada-lang-bak/';
 $whole_site_backup_path        = $main_path . '05-whole-site-backup/';
 $log_files_path                = $main_path . '06-log-files/';
 $backup_zip_file_name          = $host_name . '-backup-' . date( 'Y-m-d' ) . '.zip';
+$backup_zip_file_path          = './' . $backup_zip_file_name;
 $main_log_file                 = 'update-log-file-' . date( 'Ymd' ) . '.log';
 
 $htaccess_lite_speed_config
@@ -36,7 +37,7 @@ $avada_current_version = '6.1.2';
 $is_check_updraft      = false;
 $updraft_path          = 'wp-content/updraft/';
 $updraft_bak_path      = $main_path . '07-updraft-bak/';
-$has_backup_zip        = true;
+$has_backup_zip        = false;
 
 /*
  * Change max_execution_time
@@ -489,19 +490,48 @@ if ( $is_check_updraft ) {
  * https://gist.github.com/mikamboo/9205589
  * https://stackoverflow.com/questions/9262622/set-permissions-for-all-files-and-folders-recursively
  * */
-{
-	if ( $has_backup_zip ) {
-		echo 'yes!!!';
+
+function msn_move_file( $old_path, $new_path, $log_file, $type = 'zipped-site-backup' ) {
+	$msn_moving_message = [];
+	if ( $type == 'zipped-site-backup' ) {
+		$msn_moving_message = [
+			'successful'   => 'Zipped whole site backeup file is successfully move to backup directory on : ',
+			'unsuccessful' => 'Unfortunately we can not move zipped whole site backup file to backup directory! The Date for this message is : ',
+		];
+	}
+	$msn_moving_result = rename( $old_path, $new_path );
+	if ( $msn_moving_result ) {
+		$msn_moving_message = $msn_moving_message['successful'] . date( 'Y-m-d  H:i:s' ) . ' .';
+		msn_write_on_log_file( $msn_moving_message, $log_file );
 	} else {
-		//$result_of_zipping = msn_zip_data( $main_wordpress_path, $whole_site_backup_path . 'backup.zip', 'windows' );
-		$result_of_zipping = msn_zip_data( $main_wordpress_path, $backup_zip_file_name );
-		if ( $result_of_zipping === false ) {
-			echo 'We can not zip your data!<br>';
-			echo '<hr>';
-		} else {
-			echo 'Zipping your file is successful!<br>';
-			echo '<hr>';
+		$msn_moving_message = $msn_moving_message['unsuccessful'] . date( 'Y-m-d  H:i:s' );
+		msn_write_on_log_file( $msn_moving_message, $log_file );
+	}
+}
+
+if ( $has_backup_zip ) {
+	$msn_zipping_message = 'No need to zip Data! The Date for checking is : ' . date( 'Y-m-d  H:i:s' );
+	msn_write_on_log_file( $msn_zipping_message, $main_log_file );
+	if ( file_exists( $backup_zip_file_path ) ) {
+		msn_move_file( $backup_zip_file_path, $whole_site_backup_path . $backup_zip_file_name, $main_log_file );
+	}
+	msn_write_on_log_file( msn_section_separator(), $main_log_file );
+} else {
+	//$result_of_zipping = msn_zip_data( $main_wordpress_path, $whole_site_backup_path . 'backup.zip', 'windows' );
+	$result_of_zipping = msn_zip_data( $main_wordpress_path, $backup_zip_file_name );
+	if ( $result_of_zipping === false ) {
+		echo 'We can not zip your data!<br>';
+		echo '<hr>';
+		$msn_zipping_message = 'Unfortunately we can not zip whole of site file! The Date for this message: ' . date( 'Y-m-d  H:i:s' ) . '.';
+		msn_write_on_log_file( $msn_zipping_message, $main_log_file );
+		msn_write_on_log_file( msn_section_separator(), $main_log_file );
+	} else {
+		$msn_zipping_message = 'Zipping whole site files backup was successfully done on: ' . date( 'Y-m-d  H:i:s' ) . '.';
+		msn_write_on_log_file( $msn_zipping_message, $main_log_file );
+		if ( file_exists( $backup_zip_file_path ) ) {
+			msn_move_file( $backup_zip_file_path, $whole_site_backup_path . $backup_zip_file_name, $main_log_file );
 		}
+		msn_write_on_log_file( msn_section_separator(), $main_log_file );
 	}
 }
 
