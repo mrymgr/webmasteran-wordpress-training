@@ -6,22 +6,25 @@ date_default_timezone_set( 'Asia/Tehran' );
 /*
  * Define paths and files for updater script
  * */
-$main_path                     = '../temp-source/';
-$has_host_name                 = true;
-$host_name                     = 'jesmoravan.com';
-$main_wordpress_path           = dirname( __FILE__ );
-$avada_new_files_temp_path     = $main_path . '01-temp-new-version-files/';
-$avada_new_theme_file          = $avada_new_files_temp_path . 'avada-new.zip';
-$avada_new_fusion_builder_file = $avada_new_files_temp_path . 'fusion-builder-new.zip';
-$avada_new_fusion_core_file    = $avada_new_files_temp_path . 'fusion-core-new.zip';
-$avada_older_version_path      = $main_path . '02-avada-older-versions/';
-$avada_new_version_path        = $main_path . '03-avada-new-version-files/';
-$avada_lang_path               = $main_path . '04-avada-lang-bak/';
-$whole_site_backup_path        = $main_path . '05-whole-site-backup/';
-$log_files_path                = $main_path . '06-log-files/';
-$backup_zip_file_name          = $host_name . '-backup-' . date( 'Y-m-d' ) . '.zip';
-$backup_zip_file_path          = './' . $backup_zip_file_name;
-$main_log_file                 = 'update-log-file-' . date( 'Ymd' ) . '.log';
+$main_path                         = '../temp-source/';
+$has_host_name                     = true;
+$host_name                         = 'jesmoravan.com';
+$main_wordpress_path               = dirname( __FILE__ );
+$avada_new_files_temp_path         = $main_path . '01-temp-new-version-files/';
+$avada_new_theme_file              = $avada_new_files_temp_path . 'avada-new.zip';
+$avada_new_fusion_builder_file     = $avada_new_files_temp_path . 'fusion-builder-new.zip';
+$avada_new_fusion_core_file        = $avada_new_files_temp_path . 'fusion-core-new.zip';
+$avada_older_version_path          = $main_path . '02-avada-older-versions/';
+$avada_new_version_path            = $main_path . '03-avada-new-version-files/';
+$avada_lang_path                   = $main_path . '04-avada-lang-bak/';
+$whole_site_backup_path            = $main_path . '05-whole-site-backup/';
+$current_avada_theme_path          = 'wp-content/themes/Avada/';
+$current_avada_fusion_builder_path = 'wp-content/plugins/fusion-builder/';
+$current_avada_fusion_core_path    = 'wp-content/plugins/fusion-core/';
+$log_files_path                    = $main_path . '06-log-files/';
+$backup_zip_file_name              = $host_name . '-backup-' . date( 'Y-m-d' ) . '.zip';
+$backup_zip_file_path              = './' . $backup_zip_file_name;
+$main_log_file                     = 'update-log-file-' . date( 'Ymd' ) . '.log';
 
 $htaccess_lite_speed_config
 	= <<< HTACCESS
@@ -32,12 +35,13 @@ RewriteRule .* - [E=noconntimeout:1]
 </IfModule>
 HTACCESS;
 
-$avada_last_version    = '6.0.0';
-$avada_current_version = '6.1.2';
-$is_check_updraft      = false;
-$updraft_path          = 'wp-content/updraft/';
-$updraft_bak_path      = $main_path . '07-updraft-bak/';
-$has_backup_zip        = false;
+$avada_last_version          = '6.0.0';
+$avada_current_version       = '6.1.2';
+$is_check_updraft            = false;
+$updraft_path                = 'wp-content/updraft/';
+$updraft_bak_path            = $main_path . '07-updraft-bak/';
+$has_backup_zip              = true;
+$is_need_to_copy_avada_files = true;
 
 /*
  * Change max_execution_time
@@ -371,6 +375,12 @@ function msn_zip_data( $source, $destination, $os = 'linux' ) {
 	}
 }
 
+function msn_make_directory( $directory ) {
+	if ( ! file_exists( $directory ) ) {
+		mkdir( $directory, 0755 );
+	}
+}
+
 
 /*
  * =======================
@@ -441,20 +451,24 @@ msn_write_on_log_file( msn_section_separator(), $main_log_file );
 /*
  * moving old avada files and change them with new files
  * */
-if ( ! msn_is_dir_empty( $avada_new_version_path ) ) {
 
-	$last_version_avada_directory = $avada_older_version_path . $avada_last_version . '/';
-	if ( ! file_exists( $last_version_avada_directory ) ) {
-		mkdir( $last_version_avada_directory, 0755 );
+if ( $is_need_to_copy_avada_files ) {
+	if ( ! msn_is_dir_empty( $avada_new_version_path ) ) {
+
+		$last_version_avada_path = $avada_older_version_path . $avada_last_version . '/';
+		msn_make_directory( $last_version_avada_path );
+		/*if ( ! file_exists( $last_version_avada_path ) ) {
+			mkdir( $last_version_avada_path, 0755 );
+		}*/
+		msn_move_all_files( $avada_new_version_path, $last_version_avada_path, $main_log_file );
+		msn_move_all_files( $avada_new_files_temp_path, $avada_new_version_path, $main_log_file );
+		msn_write_on_log_file( msn_section_separator(), $main_log_file );
+	} else {
+		$msn_message_for_empty_dir = 'There is nothing to archive last Avada files: ' . date( 'Y-m-d  H:i:s' );
+		msn_write_on_log_file( $msn_message_for_empty_dir, $main_log_file );
+		msn_move_all_files( $avada_new_files_temp_path, $avada_new_version_path, $main_log_file );
+		msn_write_on_log_file( msn_section_separator(), $main_log_file );
 	}
-	msn_move_all_files( $avada_new_version_path, $last_version_avada_directory, $main_log_file );
-	msn_move_all_files( $avada_new_files_temp_path, $avada_new_version_path, $main_log_file );
-	msn_write_on_log_file( msn_section_separator(), $main_log_file );
-} else {
-	$msn_message_for_empty_dir = 'There is nothing to archive last Avada files: ' . date( 'Y-m-d  H:i:s' );
-	msn_write_on_log_file( $msn_message_for_empty_dir, $main_log_file );
-	msn_move_all_files( $avada_new_files_temp_path, $avada_new_version_path, $main_log_file );
-	msn_write_on_log_file( msn_section_separator(), $main_log_file );
 }
 
 /*
@@ -489,6 +503,9 @@ if ( $is_check_updraft ) {
  * https://stackoverflow.com/questions/36287554/php-ziparchive-file-permissions
  * https://gist.github.com/mikamboo/9205589
  * https://stackoverflow.com/questions/9262622/set-permissions-for-all-files-and-folders-recursively
+ *
+ * https://www.geeksforgeeks.org/copy-the-entire-contents-of-a-directory-to-another-directory-in-php/
+ * https://stackoverflow.com/questions/9835492/move-all-files-and-folders-in-a-folder-to-another
  * */
 
 function msn_move_file( $old_path, $new_path, $log_file, $type = 'zipped-site-backup' ) {
@@ -509,6 +526,7 @@ function msn_move_file( $old_path, $new_path, $log_file, $type = 'zipped-site-ba
 	}
 }
 
+
 if ( $has_backup_zip ) {
 	$msn_zipping_message = 'No need to zip Data! The Date for checking is : ' . date( 'Y-m-d  H:i:s' );
 	msn_write_on_log_file( $msn_zipping_message, $main_log_file );
@@ -520,8 +538,6 @@ if ( $has_backup_zip ) {
 	//$result_of_zipping = msn_zip_data( $main_wordpress_path, $whole_site_backup_path . 'backup.zip', 'windows' );
 	$result_of_zipping = msn_zip_data( $main_wordpress_path, $backup_zip_file_name );
 	if ( $result_of_zipping === false ) {
-		echo 'We can not zip your data!<br>';
-		echo '<hr>';
 		$msn_zipping_message = 'Unfortunately we can not zip whole of site file! The Date for this message: ' . date( 'Y-m-d  H:i:s' ) . '.';
 		msn_write_on_log_file( $msn_zipping_message, $main_log_file );
 		msn_write_on_log_file( msn_section_separator(), $main_log_file );
@@ -534,6 +550,132 @@ if ( $has_backup_zip ) {
 		msn_write_on_log_file( msn_section_separator(), $main_log_file );
 	}
 }
+
+/*
+ * Remove all of files and directory in a directory
+ * */
+function msn_remove_directory( $dir ) {
+	if ( is_dir( $dir ) ) {
+		$files = scandir( $dir );
+		foreach ( $files as $file ) {
+			if ( $file != "." && $file != ".." ) {
+				msn_remove_directory( "$dir/$file" );
+			}
+		}
+		$result = rmdir( $dir );
+		if ( ! $result ) {
+			return [ false, $dir ];
+		}
+	} else if ( file_exists( $dir ) ) {
+		$result = unlink( $dir );
+		if ( ! $result ) {
+			return [ false, $dir ];
+		}
+	}
+
+	return [ true, $dir ];
+}
+
+/*
+ * Function to Copy all folders and files in a directory
+ * */
+function msn_copy_directory( $source, $destination ) {
+	/*if ( file_exists( $destination ) ) {
+		msn_remove_directory( $destination );
+	}*/
+	if ( is_dir( $source ) ) {
+		@mkdir( $destination );
+		$files = scandir( $source );
+		foreach ( $files as $file ) {
+			if ( $file != "." && $file != ".." ) {
+				msn_copy_directory( "$source/$file", "$destination/$file" );
+			}
+		}
+	} else if ( file_exists( $source ) ) {
+		$result = copy( $source, $destination );
+		if ( ! $result ) {
+			return [ false, $source, $destination ];
+		}
+	}
+
+	return [ true, $source, $destination ];
+}
+
+/*
+ * function to copy a file
+ * */
+function msn_copy_file( $source, $destination ) {
+	if ( file_exists( $source ) ) {
+		$result = copy( $source, $destination );
+		if ( ! $result ) {
+			return [ false, $source, $destination ];
+		}
+	}
+
+	return [ true, $source, $destination ];
+}
+
+/*
+ * First: backup language file
+ * Second: Move current Avada theme, fusion builder and fusion core to
+ * last version avada directory (for backup them)
+ * */
+$last_version_avada_path                = $avada_older_version_path . $avada_last_version . '/';
+$last_version_avada_theme_path          = $last_version_avada_path . 'Avada/';
+$last_version_avada_fusion_builder_path = $last_version_avada_path . 'fusion-builder/';
+$last_version_avada_fusion_core_path    = $last_version_avada_path . 'fusion-core/';
+
+/*
+ * Farsi language files
+ * */
+$msn_lang_list_items = [
+	$current_avada_fusion_builder_path . 'languages/fusion-builder-fa_IR.mo',
+	$current_avada_fusion_builder_path . 'languages/fusion-builder-fa_IR.po',
+	$current_avada_fusion_core_path . 'languages/fusion-core-fa_IR.mo',
+	$current_avada_fusion_core_path . 'languages/fusion-core-fa_IR.po',
+];
+
+foreach ( $msn_lang_list_items as $msn_lang_list_item ) {
+	$msn_copy_lang_result = msn_copy_file( $msn_lang_list_item, $avada_lang_path );
+	if ( $msn_copy_lang_result[0] ) {
+		$copy_lang_message = "The copy from << {$msn_copy_lang_result[1]} >> to << {$msn_copy_lang_result[2]} >> was successful on: "
+		                     . date( 'Y-m-d  H:i:s' )
+		                     . '.';
+	} else {
+		$copy_lang_message = "We can not copy from << {$msn_copy_lang_result[1]} >> to << {$msn_copy_lang_result[2]} >> on: " . date( 'Y-m-d  H:i:s' )
+		                     . '!!!';
+	}
+	msn_write_on_log_file( $copy_lang_message, $main_log_file );
+}
+msn_write_on_log_file( msn_section_separator(), $main_log_file );
+
+$msn_move_list_items = [
+	[ $current_avada_theme_path, $last_version_avada_theme_path ],
+	[ $current_avada_fusion_builder_path, $last_version_avada_fusion_builder_path ],
+	[ $current_avada_fusion_core_path, $last_version_avada_fusion_core_path ],
+];
+
+foreach ( $msn_move_list_items as $msn_move_list_item ) {
+	$msn_move_result = msn_copy_directory( $msn_move_list_item[0], $msn_move_list_item[1] );
+	if ( $msn_move_result[0] ) {
+		$move_file_message = "The moving files from {$msn_move_result[1]} to {$msn_move_result[2]} was successful on: " . date( 'Y-m-d  H:i:s' )
+		                     . '.';
+	} else {
+		$move_file_message = "We can not move file from {$msn_move_result[1]} to {$msn_move_result[2]}  on: " . date( 'Y-m-d  H:i:s' ) . '!!!';
+	}
+	msn_write_on_log_file( $move_file_message, $main_log_file );
+	$msn_remove_result = msn_remove_directory( $msn_move_list_item[0] );
+	if ( $msn_remove_result[0] ) {
+		$remove_file_message = "Removing of {$msn_remove_result[1]}  was successful on: " . date( 'Y-m-d  H:i:s' )
+		                       . '.';
+	} else {
+		$remove_file_message = "We can not remove {$msn_remove_result[1]}   on: " . date( 'Y-m-d  H:i:s' ) . '!!!';
+	}
+	msn_write_on_log_file( $remove_file_message, $main_log_file );
+
+}
+msn_write_on_log_file( msn_section_separator(), $main_log_file );
+
 
 
 if ( $is_check_updraft ) {
