@@ -40,7 +40,7 @@ $avada_current_version       = '6.1.2';
 $is_check_updraft            = false;
 $updraft_path                = 'wp-content/updraft/';
 $updraft_bak_path            = $main_path . '07-updraft-bak/';
-$has_backup_zip              = true;
+$has_backup_zip              = false;
 $is_need_to_copy_avada_files = true;
 
 /*
@@ -629,14 +629,27 @@ $last_version_avada_fusion_core_path    = $last_version_avada_path . 'fusion-cor
  * Farsi language files
  * */
 $msn_lang_list_items = [
-	$current_avada_fusion_builder_path . 'languages/fusion-builder-fa_IR.mo',
-	$current_avada_fusion_builder_path . 'languages/fusion-builder-fa_IR.po',
-	$current_avada_fusion_core_path . 'languages/fusion-core-fa_IR.mo',
-	$current_avada_fusion_core_path . 'languages/fusion-core-fa_IR.po',
+	[
+		'source_path' => $current_avada_fusion_builder_path . 'languages/fusion-builder-fa_IR.mo',
+		'file_name'   => 'fusion-builder-fa_IR.mo',
+	],
+	[
+		'source_path' => $current_avada_fusion_builder_path . 'languages/fusion-builder-fa_IR.po',
+		'file_name'   => 'fusion-builder-fa_IR.po',
+	],
+	[
+		'source_path' => $current_avada_fusion_core_path . 'languages/fusion-core-fa_IR.mo',
+		'file_name'   => 'fusion-core-fa_IR.mo',
+	],
+	[
+		'source_path' => $current_avada_fusion_core_path . 'languages/fusion-core-fa_IR.po',
+		'file_name'   => 'fusion-core-fa_IR.po',
+	],
+
 ];
 
 foreach ( $msn_lang_list_items as $msn_lang_list_item ) {
-	$msn_copy_lang_result = msn_copy_file( $msn_lang_list_item, $avada_lang_path );
+	$msn_copy_lang_result = msn_copy_file( $msn_lang_list_item['source_path'], $avada_lang_path . $msn_lang_list_item['file_name'] );
 	if ( $msn_copy_lang_result[0] ) {
 		$copy_lang_message = "The copy from << {$msn_copy_lang_result[1]} >> to << {$msn_copy_lang_result[2]} >> was successful on: "
 		                     . date( 'Y-m-d  H:i:s' )
@@ -658,24 +671,23 @@ $msn_move_list_items = [
 foreach ( $msn_move_list_items as $msn_move_list_item ) {
 	$msn_move_result = msn_copy_directory( $msn_move_list_item[0], $msn_move_list_item[1] );
 	if ( $msn_move_result[0] ) {
-		$move_file_message = "The moving files from {$msn_move_result[1]} to {$msn_move_result[2]} was successful on: " . date( 'Y-m-d  H:i:s' )
+		$move_file_message = "The moving files from << {$msn_move_result[1]} >> to << {$msn_move_result[2]} >> was successful on: " . date( 'Y-m-d  H:i:s' )
 		                     . '.';
 	} else {
-		$move_file_message = "We can not move file from {$msn_move_result[1]} to {$msn_move_result[2]}  on: " . date( 'Y-m-d  H:i:s' ) . '!!!';
+		$move_file_message = "We can not move file from << {$msn_move_result[1]} >> to << {$msn_move_result[2]} >>  on: " . date( 'Y-m-d  H:i:s' ) . '!!!';
 	}
 	msn_write_on_log_file( $move_file_message, $main_log_file );
 	$msn_remove_result = msn_remove_directory( $msn_move_list_item[0] );
 	if ( $msn_remove_result[0] ) {
-		$remove_file_message = "Removing of {$msn_remove_result[1]}  was successful on: " . date( 'Y-m-d  H:i:s' )
+		$remove_file_message = "Removing of << {$msn_remove_result[1]} >>  was successful on: " . date( 'Y-m-d  H:i:s' )
 		                       . '.';
 	} else {
-		$remove_file_message = "We can not remove {$msn_remove_result[1]}   on: " . date( 'Y-m-d  H:i:s' ) . '!!!';
+		$remove_file_message = "We can not remove << {$msn_remove_result[1]} >>   on: " . date( 'Y-m-d  H:i:s' ) . '!!!';
 	}
 	msn_write_on_log_file( $remove_file_message, $main_log_file );
 
 }
 msn_write_on_log_file( msn_section_separator(), $main_log_file );
-
 
 
 if ( $is_check_updraft ) {
