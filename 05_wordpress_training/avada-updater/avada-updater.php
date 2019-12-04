@@ -10,6 +10,8 @@ $main_path                         = '../temp-source/';
 $has_host_name                     = true;
 $host_name                         = 'jesmoravan.com';
 $main_wordpress_path               = dirname( __FILE__ );
+$main_theme_path                   = 'wp-content/themes/';
+$main_plugin_path                  = 'wp-content/plugins/';
 $avada_new_files_temp_path         = $main_path . '01-temp-new-version-files/';
 $avada_new_theme_file              = $avada_new_files_temp_path . 'avada-new.zip';
 $avada_new_fusion_builder_file     = $avada_new_files_temp_path . 'fusion-builder-new.zip';
@@ -35,8 +37,8 @@ RewriteRule .* - [E=noconntimeout:1]
 </IfModule>
 HTACCESS;
 
-$avada_last_version          = '6.0.0';
-$avada_current_version       = '6.1.2';
+$avada_last_version          = '6.0.1';
+$avada_new_version           = '6.1.2';
 $is_check_updraft            = false;
 $updraft_path                = 'wp-content/updraft/';
 $updraft_bak_path            = $main_path . '07-updraft-bak/';
@@ -381,133 +383,9 @@ function msn_make_directory( $directory ) {
 	}
 }
 
-
 /*
- * =======================
- * Starting Point of Script
- * ========================
+ * Move file to another directory
  * */
-
-/*
- * set ini settings
- * */
-msn_change_ini_settings();
-
-/*
- * Check type of webserver and put related code on it
- * */
-if ( msn_check_server_type() == 'litespeed' ) {
-	$htaccess_file_path         = __DIR__ . '/.htaccess';
-	$result_of_htaccess_writing = msn_file_prepend( $htaccess_lite_speed_config, $htaccess_file_path );
-	if ( $result_of_htaccess_writing == 'already is written' ) {
-		$msn_writing_message = 'htaccess file was overwritten already. You do not to need extra actions on it. Date of checking: '
-		                       . date( 'Y-m-d  H:i:s' );
-	} elseif ( $result_of_htaccess_writing == 'succesfully is wrote' ) {
-		$msn_writing_message = 'Writing on htaccess file was successful on: ' . date( 'Y-m-d  H:i:s' ) . '.';
-	} else {
-		$msn_writing_message = 'Error when Writing on htaccess file!!! It was at: ' . date( 'Y-m-d  H:i:s' ) . '.';
-	}
-	msn_write_on_log_file( $msn_writing_message, $main_log_file );
-} else {
-	$msn_writing_message = 'It is not LiteSpeed Server. So nothing write on htaccess file. Date is : ' . date( 'Y-m-d  H:i:s' ) . '.';
-	msn_write_on_log_file( $msn_writing_message, $main_log_file );
-	msn_write_on_log_file( msn_section_separator(), $main_log_file );
-}
-
-
-/*
- * Checking critical directory and file before executing script
- * */
-$critical_files = [
-	[ $main_path, 'main_path' ],
-	[ $avada_new_files_temp_path, 'avada_file_path' ],
-	[ $avada_new_theme_file, 'avada_theme_file' ],
-	[ $avada_new_fusion_builder_file, 'avada_fusion_builder_file' ],
-	[ $avada_new_fusion_core_file, 'avada_fusion_core_file' ],
-];
-
-foreach ( $critical_files as $critical_file ) {
-	msn_check_critical_file_exist( $critical_file[0], $critical_file[1], $main_log_file );
-}
-
-/*
- * Checking directory or files that we need to continue this script.
- * If they don't exist, we will create theme.
- * */
-$important_directories = [
-	[ $avada_new_version_path, 'keeping new versions of Avada files' ],
-	[ $avada_older_version_path, 'keeping older versions of Avada files' ],
-	[ $avada_lang_path, 'keeping language files of Avada' ],
-	[ $updraft_bak_path, 'keeping extra updraft files' ],
-	[ $whole_site_backup_path, 'keeping whole site files for update process' ],
-	[ $log_files_path, 'keeping log files of update process' ],
-];
-
-foreach ( $important_directories as $important_directory ) {
-	msn_check_directory_exist( $important_directory[0], $important_directory[1], $main_log_file );
-}
-msn_write_on_log_file( msn_section_separator(), $main_log_file );
-
-/*
- * moving old avada files and change them with new files
- * */
-
-if ( $is_need_to_copy_avada_files ) {
-	if ( ! msn_is_dir_empty( $avada_new_version_path ) ) {
-
-		$last_version_avada_path = $avada_older_version_path . $avada_last_version . '/';
-		msn_make_directory( $last_version_avada_path );
-		/*if ( ! file_exists( $last_version_avada_path ) ) {
-			mkdir( $last_version_avada_path, 0755 );
-		}*/
-		msn_move_all_files( $avada_new_version_path, $last_version_avada_path, $main_log_file );
-		msn_move_all_files( $avada_new_files_temp_path, $avada_new_version_path, $main_log_file );
-		msn_write_on_log_file( msn_section_separator(), $main_log_file );
-	} else {
-		$msn_message_for_empty_dir = 'There is nothing to archive last Avada files: ' . date( 'Y-m-d  H:i:s' );
-		msn_write_on_log_file( $msn_message_for_empty_dir, $main_log_file );
-		msn_move_all_files( $avada_new_files_temp_path, $avada_new_version_path, $main_log_file );
-		msn_write_on_log_file( msn_section_separator(), $main_log_file );
-	}
-}
-
-/*
- * Assign new path for Avada files
- * */
-$avada_new_theme_file          = $avada_new_version_path . 'avada-new.zip';
-$avada_new_fusion_builder_file = $avada_new_version_path . 'fusion-builder-new.zip';
-$avada_new_fusion_core_file    = $avada_new_version_path . 'fusion-core-new.zip';
-
-
-/*
- * move updraft files (if it's exist)
- * */
-if ( $is_check_updraft ) {
-	echo '<h2>back up results for updraft files</h2>';
-	$updraft_unwanted_files = [ ".htaccess", "index.html", "web.config" ];
-	msn_move_all_files( $updraft_path, $updraft_bak_path, $main_log_file, $updraft_unwanted_files );
-	msn_write_on_log_file( msn_section_separator(), $main_log_file );
-}
-
-/*
- * zip all of data in root directory
- * Some notes about zipping:
- * https://www.litespeedtech.com/support/wiki/doku.php/litespeed_wiki:php:run-without-timeouts
- * https://clients.netorigin.com.au/knowledgebase/156/How-do-I-increase-the-connection-timeout-for-my-website.html
- * https://stackoverflow.com/questions/7739870/increase-max-execution-time-for-php
- *
- *
- * */
-/*
- * zip all of file in wp root directory
- * https://stackoverflow.com/questions/36287554/php-ziparchive-file-permissions
- * https://gist.github.com/mikamboo/9205589
- * https://stackoverflow.com/questions/9262622/set-permissions-for-all-files-and-folders-recursively
- *
- * https://www.geeksforgeeks.org/copy-the-entire-contents-of-a-directory-to-another-directory-in-php/
- * https://stackoverflow.com/questions/9835492/move-all-files-and-folders-in-a-folder-to-another
- * */
-
 function msn_move_file( $old_path, $new_path, $log_file, $type = 'zipped-site-backup' ) {
 	$msn_moving_message = [];
 	if ( $type == 'zipped-site-backup' ) {
@@ -526,30 +404,6 @@ function msn_move_file( $old_path, $new_path, $log_file, $type = 'zipped-site-ba
 	}
 }
 
-
-if ( $has_backup_zip ) {
-	$msn_zipping_message = 'No need to zip Data! The Date for checking is : ' . date( 'Y-m-d  H:i:s' );
-	msn_write_on_log_file( $msn_zipping_message, $main_log_file );
-	if ( file_exists( $backup_zip_file_path ) ) {
-		msn_move_file( $backup_zip_file_path, $whole_site_backup_path . $backup_zip_file_name, $main_log_file );
-	}
-	msn_write_on_log_file( msn_section_separator(), $main_log_file );
-} else {
-	//$result_of_zipping = msn_zip_data( $main_wordpress_path, $whole_site_backup_path . 'backup.zip', 'windows' );
-	$result_of_zipping = msn_zip_data( $main_wordpress_path, $backup_zip_file_name );
-	if ( $result_of_zipping === false ) {
-		$msn_zipping_message = 'Unfortunately we can not zip whole of site file! The Date for this message: ' . date( 'Y-m-d  H:i:s' ) . '.';
-		msn_write_on_log_file( $msn_zipping_message, $main_log_file );
-		msn_write_on_log_file( msn_section_separator(), $main_log_file );
-	} else {
-		$msn_zipping_message = 'Zipping whole site files backup was successfully done on: ' . date( 'Y-m-d  H:i:s' ) . '.';
-		msn_write_on_log_file( $msn_zipping_message, $main_log_file );
-		if ( file_exists( $backup_zip_file_path ) ) {
-			msn_move_file( $backup_zip_file_path, $whole_site_backup_path . $backup_zip_file_name, $main_log_file );
-		}
-		msn_write_on_log_file( msn_section_separator(), $main_log_file );
-	}
-}
 
 /*
  * Remove all of files and directory in a directory
@@ -616,9 +470,201 @@ function msn_copy_file( $source, $destination ) {
 }
 
 /*
+ * Bulk copy function for copying many files in one process
+ * */
+function msn_bulk_copy_process( $list_items, $log_file ) {
+	foreach ( $list_items as $list_item ) {
+		$msn_copy_lang_result = msn_copy_file( $list_item['source_path'], $list_item['destination_file_name'] );
+		if ( $msn_copy_lang_result[0] ) {
+			$copy_lang_message = "The copy from << {$msn_copy_lang_result[1]} >> to << {$msn_copy_lang_result[2]} >> was successful on: "
+			                     . date( 'Y-m-d  H:i:s' )
+			                     . '.';
+		} else {
+			$copy_lang_message = "We can not copy from << {$msn_copy_lang_result[1]} >> to << {$msn_copy_lang_result[2]} >> on: "
+			                     . date( 'Y-m-d  H:i:s' )
+			                     . '!!!';
+		}
+		msn_write_on_log_file( $copy_lang_message, $log_file );
+	}
+	msn_write_on_log_file( msn_section_separator(), $log_file );
+}
+
+
+/*
+ * =======================
+ * Starting Point of Script
+ * ========================
+ * */
+
+/*
+ * =================
+ * set ini settings
+ * =================
+ * */
+msn_change_ini_settings();
+
+/*
+ * ==================================================
+ * Check type of webserver and put related code on it
+ * ==================================================
+ * */
+if ( msn_check_server_type() == 'litespeed' ) {
+	$htaccess_file_path         = __DIR__ . '/.htaccess';
+	$result_of_htaccess_writing = msn_file_prepend( $htaccess_lite_speed_config, $htaccess_file_path );
+	if ( $result_of_htaccess_writing == 'already is written' ) {
+		$msn_writing_message = 'htaccess file was overwritten already. You do not to need extra actions on it. Date of checking: '
+		                       . date( 'Y-m-d  H:i:s' );
+	} elseif ( $result_of_htaccess_writing == 'succesfully is wrote' ) {
+		$msn_writing_message = 'Writing on htaccess file was successful on: ' . date( 'Y-m-d  H:i:s' ) . '.';
+	} else {
+		$msn_writing_message = 'Error when Writing on htaccess file!!! It was at: ' . date( 'Y-m-d  H:i:s' ) . '.';
+	}
+	msn_write_on_log_file( $msn_writing_message, $main_log_file );
+} else {
+	$msn_writing_message = 'It is not LiteSpeed Server. So nothing write on htaccess file. Date is : ' . date( 'Y-m-d  H:i:s' ) . '.';
+	msn_write_on_log_file( $msn_writing_message, $main_log_file );
+	msn_write_on_log_file( msn_section_separator(), $main_log_file );
+}
+
+
+/*
+ * ============================================================
+ * Checking critical directory and file before executing script
+ * =============================================================
+ * */
+$critical_files = [
+	[ $main_path, 'main_path' ],
+	[ $avada_new_files_temp_path, 'avada_file_path' ],
+	[ $avada_new_theme_file, 'avada_theme_file' ],
+	[ $avada_new_fusion_builder_file, 'avada_fusion_builder_file' ],
+	[ $avada_new_fusion_core_file, 'avada_fusion_core_file' ],
+];
+
+foreach ( $critical_files as $critical_file ) {
+	msn_check_critical_file_exist( $critical_file[0], $critical_file[1], $main_log_file );
+}
+
+/*
+ * =================================================================
+ * Checking directory or files that we need to continue this script.
+ * If they don't exist, we will create theme.
+ * =================================================================
+ * */
+$important_directories = [
+	[ $avada_new_version_path, 'keeping new versions of Avada files' ],
+	[ $avada_older_version_path, 'keeping older versions of Avada files' ],
+	[ $avada_lang_path, 'keeping language files of Avada' ],
+	[ $updraft_bak_path, 'keeping extra updraft files' ],
+	[ $whole_site_backup_path, 'keeping whole site files for update process' ],
+	[ $log_files_path, 'keeping log files of update process' ],
+];
+
+foreach ( $important_directories as $important_directory ) {
+	msn_check_directory_exist( $important_directory[0], $important_directory[1], $main_log_file );
+}
+msn_write_on_log_file( msn_section_separator(), $main_log_file );
+
+/*
+ * =====================================================
+ * moving old avada files and change them with new files
+ * =====================================================
+ * */
+
+if ( $is_need_to_copy_avada_files ) {
+	if ( ! msn_is_dir_empty( $avada_new_version_path ) ) {
+
+		$last_version_avada_path = $avada_older_version_path . $avada_last_version . '/';
+		msn_make_directory( $last_version_avada_path );
+		/*if ( ! file_exists( $last_version_avada_path ) ) {
+			mkdir( $last_version_avada_path, 0755 );
+		}*/
+		msn_move_all_files( $avada_new_version_path, $last_version_avada_path, $main_log_file );
+		msn_move_all_files( $avada_new_files_temp_path, $avada_new_version_path, $main_log_file );
+		msn_write_on_log_file( msn_section_separator(), $main_log_file );
+	} else {
+		$msn_message_for_empty_dir = 'There is nothing to archive last Avada files: ' . date( 'Y-m-d  H:i:s' );
+		msn_write_on_log_file( $msn_message_for_empty_dir, $main_log_file );
+		msn_move_all_files( $avada_new_files_temp_path, $avada_new_version_path, $main_log_file );
+		msn_write_on_log_file( msn_section_separator(), $main_log_file );
+	}
+}
+
+/*
+ * ===============================
+ * Assign new path for Avada files
+ * ===============================
+ * */
+$avada_new_theme_file          = $avada_new_version_path . 'avada-new.zip';
+$avada_new_fusion_builder_file = $avada_new_version_path . 'fusion-builder-new.zip';
+$avada_new_fusion_core_file    = $avada_new_version_path . 'fusion-core-new.zip';
+
+
+/*
+ * ==================================
+ * move updraft files (if it's exist)
+ * ==================================
+ * */
+if ( $is_check_updraft ) {
+	echo '<h2>back up results for updraft files</h2>';
+	$updraft_unwanted_files = [ ".htaccess", "index.html", "web.config" ];
+	msn_move_all_files( $updraft_path, $updraft_bak_path, $main_log_file, $updraft_unwanted_files );
+	msn_write_on_log_file( msn_section_separator(), $main_log_file );
+}
+
+/*
+ * zip all of data in root directory
+ * Some notes about zipping:
+ * https://www.litespeedtech.com/support/wiki/doku.php/litespeed_wiki:php:run-without-timeouts
+ * https://clients.netorigin.com.au/knowledgebase/156/How-do-I-increase-the-connection-timeout-for-my-website.html
+ * https://stackoverflow.com/questions/7739870/increase-max-execution-time-for-php
+ *
+ *
+ * */
+/*
+ * zip all of file in wp root directory
+ * https://stackoverflow.com/questions/36287554/php-ziparchive-file-permissions
+ * https://gist.github.com/mikamboo/9205589
+ * https://stackoverflow.com/questions/9262622/set-permissions-for-all-files-and-folders-recursively
+ *
+ * https://www.geeksforgeeks.org/copy-the-entire-contents-of-a-directory-to-another-directory-in-php/
+ * https://stackoverflow.com/questions/9835492/move-all-files-and-folders-in-a-folder-to-another
+ * */
+
+
+/*
+ * ===========================================
+ * Zip whole site and move to backup directory
+ * ===========================================
+ * */
+if ( $has_backup_zip ) {
+	$msn_zipping_message = 'No need to zip Data! The Date for checking is : ' . date( 'Y-m-d  H:i:s' );
+	msn_write_on_log_file( $msn_zipping_message, $main_log_file );
+	if ( file_exists( $backup_zip_file_path ) ) {
+		msn_move_file( $backup_zip_file_path, $whole_site_backup_path . $backup_zip_file_name, $main_log_file );
+	}
+	msn_write_on_log_file( msn_section_separator(), $main_log_file );
+} else {
+	//$result_of_zipping = msn_zip_data( $main_wordpress_path, $whole_site_backup_path . 'backup.zip', 'windows' );
+	$result_of_zipping = msn_zip_data( $main_wordpress_path, $backup_zip_file_name );
+	if ( $result_of_zipping === false ) {
+		$msn_zipping_message = 'Unfortunately we can not zip whole of site file! The Date for this message: ' . date( 'Y-m-d  H:i:s' ) . '.';
+		msn_write_on_log_file( $msn_zipping_message, $main_log_file );
+		msn_write_on_log_file( msn_section_separator(), $main_log_file );
+	} else {
+		$msn_zipping_message = 'Zipping whole site files backup was successfully done on: ' . date( 'Y-m-d  H:i:s' ) . '.';
+		msn_write_on_log_file( $msn_zipping_message, $main_log_file );
+		if ( file_exists( $backup_zip_file_path ) ) {
+			msn_move_file( $backup_zip_file_path, $whole_site_backup_path . $backup_zip_file_name, $main_log_file );
+		}
+		msn_write_on_log_file( msn_section_separator(), $main_log_file );
+	}
+}
+
+
+/*
+ * ===========================
  * First: backup language file
- * Second: Move current Avada theme, fusion builder and fusion core to
- * last version avada directory (for backup them)
+ * ===========================
  * */
 $last_version_avada_path                = $avada_older_version_path . $avada_last_version . '/';
 $last_version_avada_theme_path          = $last_version_avada_path . 'Avada/';
@@ -626,41 +672,37 @@ $last_version_avada_fusion_builder_path = $last_version_avada_path . 'fusion-bui
 $last_version_avada_fusion_core_path    = $last_version_avada_path . 'fusion-core/';
 
 /*
- * Farsi language files
+ * Copy Farsi language files
  * */
 $msn_lang_list_items = [
 	[
-		'source_path' => $current_avada_fusion_builder_path . 'languages/fusion-builder-fa_IR.mo',
-		'file_name'   => 'fusion-builder-fa_IR.mo',
+		'source_path'           => $current_avada_fusion_builder_path . 'languages/fusion-builder-fa_IR.mo',
+		'destination_file_name' => $avada_lang_path . 'fusion-builder-fa_IR.mo',
 	],
 	[
-		'source_path' => $current_avada_fusion_builder_path . 'languages/fusion-builder-fa_IR.po',
-		'file_name'   => 'fusion-builder-fa_IR.po',
+		'source_path'           => $current_avada_fusion_builder_path . 'languages/fusion-builder-fa_IR.po',
+		'destination_file_name' => $avada_lang_path . 'fusion-builder-fa_IR.po',
 	],
 	[
-		'source_path' => $current_avada_fusion_core_path . 'languages/fusion-core-fa_IR.mo',
-		'file_name'   => 'fusion-core-fa_IR.mo',
+		'source_path'           => $current_avada_fusion_core_path . 'languages/fusion-core-fa_IR.mo',
+		'destination_file_name' => $avada_lang_path . 'fusion-core-fa_IR.mo',
 	],
 	[
-		'source_path' => $current_avada_fusion_core_path . 'languages/fusion-core-fa_IR.po',
-		'file_name'   => 'fusion-core-fa_IR.po',
+		'source_path'           => $current_avada_fusion_core_path . 'languages/fusion-core-fa_IR.po',
+		'destination_file_name' => $avada_lang_path . 'fusion-core-fa_IR.po',
 	],
 
 ];
 
-foreach ( $msn_lang_list_items as $msn_lang_list_item ) {
-	$msn_copy_lang_result = msn_copy_file( $msn_lang_list_item['source_path'], $avada_lang_path . $msn_lang_list_item['file_name'] );
-	if ( $msn_copy_lang_result[0] ) {
-		$copy_lang_message = "The copy from << {$msn_copy_lang_result[1]} >> to << {$msn_copy_lang_result[2]} >> was successful on: "
-		                     . date( 'Y-m-d  H:i:s' )
-		                     . '.';
-	} else {
-		$copy_lang_message = "We can not copy from << {$msn_copy_lang_result[1]} >> to << {$msn_copy_lang_result[2]} >> on: " . date( 'Y-m-d  H:i:s' )
-		                     . '!!!';
-	}
-	msn_write_on_log_file( $copy_lang_message, $main_log_file );
-}
-msn_write_on_log_file( msn_section_separator(), $main_log_file );
+msn_bulk_copy_process( $msn_lang_list_items, $main_log_file );
+
+
+/*
+ * ===================================================================
+ * Second: Move current Avada theme, fusion builder and fusion core to
+ * last version avada directory (for backup them)
+ * ===================================================================
+ * */
 
 $msn_move_list_items = [
 	[ $current_avada_theme_path, $last_version_avada_theme_path ],
@@ -671,10 +713,12 @@ $msn_move_list_items = [
 foreach ( $msn_move_list_items as $msn_move_list_item ) {
 	$msn_move_result = msn_copy_directory( $msn_move_list_item[0], $msn_move_list_item[1] );
 	if ( $msn_move_result[0] ) {
-		$move_file_message = "The moving files from << {$msn_move_result[1]} >> to << {$msn_move_result[2]} >> was successful on: " . date( 'Y-m-d  H:i:s' )
+		$move_file_message = "The moving files from << {$msn_move_result[1]} >> to << {$msn_move_result[2]} >> was successful on: "
+		                     . date( 'Y-m-d  H:i:s' )
 		                     . '.';
 	} else {
-		$move_file_message = "We can not move file from << {$msn_move_result[1]} >> to << {$msn_move_result[2]} >>  on: " . date( 'Y-m-d  H:i:s' ) . '!!!';
+		$move_file_message = "We can not move file from << {$msn_move_result[1]} >> to << {$msn_move_result[2]} >>  on: " . date( 'Y-m-d  H:i:s' )
+		                     . '!!!';
 	}
 	msn_write_on_log_file( $move_file_message, $main_log_file );
 	$msn_remove_result = msn_remove_directory( $msn_move_list_item[0] );
@@ -689,7 +733,35 @@ foreach ( $msn_move_list_items as $msn_move_list_item ) {
 }
 msn_write_on_log_file( msn_section_separator(), $main_log_file );
 
+/*
+ * ===============================================================
+ * Copy new version of Avada theme, fusion builder and fusion core
+ * to related directory in WordPress themes and plugins directory
+ * ===============================================================
+ * */
 
+$msn_new_version_files = [
+	[
+		'source_path'           => $avada_new_theme_file,
+		'destination_file_name' => $main_theme_path . 'avada-new.zip',
+	],
+	[
+		'source_path'           => $avada_new_fusion_builder_file,
+		'destination_file_name' => $main_plugin_path . 'fusion-builder-new.zip',
+	],
+	[
+		'source_path'           => $avada_new_fusion_core_file,
+		'destination_file_name' => $main_plugin_path . 'fusion-core-new.zip',
+	],
+];
+msn_bulk_copy_process( $msn_new_version_files, $main_log_file );
+
+
+/*
+ * =====================================================
+ * Return updraft files to its directory in WordPress site
+ * =====================================================
+ * */
 if ( $is_check_updraft ) {
 	echo '<h2>Results for moving updraft files to original directory</h2>';
 	msn_move_all_files( $updraft_bak_path, $updraft_path, $main_log_file );
