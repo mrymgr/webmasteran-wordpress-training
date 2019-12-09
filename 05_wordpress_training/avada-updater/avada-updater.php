@@ -24,7 +24,7 @@ $current_avada_theme_path          = 'wp-content/themes/Avada/';
 $current_avada_fusion_builder_path = 'wp-content/plugins/fusion-builder/';
 $current_avada_fusion_core_path    = 'wp-content/plugins/fusion-core/';
 $log_files_path                    = $main_path . '06-log-files/';
-$backup_zip_file_name              = $host_name . '-backup-' . date( 'Y-m-d' ) . '.zip';
+$backup_zip_file_name              = $host_name . '-files-backup-' . date( 'Y-m-d' ) . '.zip';
 $backup_zip_file_path              = './' . $backup_zip_file_name;
 $main_log_file                     = 'update-log-file-' . date( 'Ymd' ) . '.log';
 
@@ -37,7 +37,7 @@ RewriteRule .* - [E=noconntimeout:1]
 </IfModule>
 HTACCESS;
 
-$avada_last_version          = '6.0.2';
+$avada_last_version          = '6.0.3';
 $avada_new_version           = '6.1.2';
 $is_check_updraft            = true;
 $updraft_path                = 'wp-content/updraft/';
@@ -453,6 +453,25 @@ function msn_remove_directory( $dir ) {
 }
 
 /*
+ * Function to remove a file in a specific source
+ *
+ * */
+function msn_remove_file( $source ) {
+	if ( file_exists( $source ) ) {
+		$success_message = "Removing << {$source} >> file was successful on: " . date( 'Y-m-d  H:i:s' ) . '.';
+		$failed_message  = "We can not remove << {$source} >> file on: " . date( 'Y-m-d  H:i:s' ) . '!!!';
+		$result          = unlink( $source );
+		if ( $result ) {
+			return [ true, $success_message ];
+		} else {
+			return [ false, $failed_message ];
+		}
+	} else {
+		return [ false, "Unfortunately << {$source} >> file is not exist. So we can not remove it on: " . date( 'Y-m-d  H:i:s' ) . '!!!' ];
+	}
+}
+
+/*
  * Function to Copy all folders and files in a directory
  * */
 function msn_copy_directory( $source, $destination ) {
@@ -482,13 +501,18 @@ function msn_copy_directory( $source, $destination ) {
  * */
 function msn_copy_file( $source, $destination ) {
 	if ( file_exists( $source ) ) {
-		$result = copy( $source, $destination );
-		if ( ! $result ) {
-			return [ false, $source, $destination ];
-		}
-	}
 
-	return [ true, $source, $destination ];
+		$success_message = "The copy from << {$source} >> to << {$destination} >> was successful on: " . date( 'Y-m-d  H:i:s' ) . '.';
+		$failed_message  = "We can not copy from << {$source} >> to << {$destination} >> on: " . date( 'Y-m-d  H:i:s' ) . '!!!';
+		$result          = copy( $source, $destination );
+		if ( $result ) {
+			return [ true, $success_message ];
+		} else {
+			return [ false, $failed_message ];
+		}
+	} else {
+		return [ false, "Unfortunately << {$source} >> file is not exist. So we can not copy it on: " . date( 'Y-m-d  H:i:s' ) . '!!!' ];
+	}
 }
 
 /*
@@ -497,24 +521,17 @@ function msn_copy_file( $source, $destination ) {
 function msn_bulk_copy_process( $list_items, $log_file ) {
 	foreach ( $list_items as $list_item ) {
 		$msn_copy_lang_result = msn_copy_file( $list_item['source_path'], $list_item['destination_file_name'] );
-		if ( $msn_copy_lang_result[0] ) {
-			$copy_lang_message = "The copy from << {$msn_copy_lang_result[1]} >> to << {$msn_copy_lang_result[2]} >> was successful on: "
-			                     . date( 'Y-m-d  H:i:s' )
-			                     . '.';
-		} else {
-			$copy_lang_message = "We can not copy from << {$msn_copy_lang_result[1]} >> to << {$msn_copy_lang_result[2]} >> on: "
-			                     . date( 'Y-m-d  H:i:s' )
-			                     . '!!!';
-		}
-		msn_write_on_log_file( $copy_lang_message, $log_file );
+		msn_write_on_log_file( $msn_copy_lang_result[1], $log_file );
 	}
 	msn_write_on_log_file( msn_section_separator(), $log_file );
 }
 
-
+/*
+ * Bulk move function for moving many files in a list in one process
+ * */
 function msn_bulk_move_process( $list_items, $log_file, $type = 'normal' ) {
-	foreach ($list_items as $list_item ) {
-		msn_move_file($list_item['source_path'],$list_item['destination_file_name'],$log_file,$type );
+	foreach ( $list_items as $list_item ) {
+		msn_move_file( $list_item['source_path'], $list_item['destination_file_name'], $log_file, $type );
 	}
 }
 
@@ -763,7 +780,6 @@ foreach ( $msn_move_list_items as $msn_move_list_item ) {
 msn_write_on_log_file( msn_section_separator(), $main_log_file );
 
 
-
 /*
  * ===================================================
  * Unzipped Avada theme & fusion core & fusion builder
@@ -826,7 +842,22 @@ $msn_lang_list_items = [
 
 ];
 
-msn_bulk_move_process($msn_lang_list_items, $main_log_file);
+msn_bulk_move_process( $msn_lang_list_items, $main_log_file );
+msn_write_on_log_file( msn_section_separator(), $main_log_file );
+
+/*
+ * =======================================
+ * Copy new avada.pot to Avada child theme
+ * =======================================
+ * */
+
+$avada_child_theme_lang_path          = $main_theme_path . 'Avada-Child-Theme/languages/';
+$avada_child_theme_lang_pot_file_path = $avada_child_theme_lang_path . 'Avada.pot';
+$avada_new_lang_pot_file_path         = $current_avada_theme_path . 'languages/Avada.pot';
+$msn_remove_pot_file_result           = msn_remove_file( $avada_child_theme_lang_pot_file_path );
+msn_write_on_log_file( $msn_remove_pot_file_result[1], $main_log_file );
+$msn_copy_original_pot_file_result = msn_copy_file( $avada_new_lang_pot_file_path, $avada_child_theme_lang_pot_file_path );
+msn_write_on_log_file( $msn_copy_original_pot_file_result[1], $main_log_file );
 msn_write_on_log_file( msn_section_separator(), $main_log_file );
 
 /*
