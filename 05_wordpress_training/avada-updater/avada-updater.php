@@ -37,7 +37,7 @@ RewriteRule .* - [E=noconntimeout:1]
 </IfModule>
 HTACCESS;
 
-$avada_last_version          = '6.0.3';
+$avada_last_version          = '6.0.4';
 $avada_new_version           = '6.1.2';
 $is_check_updraft            = true;
 $updraft_path                = 'wp-content/updraft/';
@@ -403,7 +403,7 @@ function msn_make_directory( $directory ) {
 /*
  * Move file to another directory
  * */
-function msn_move_file( $old_path, $new_path, $log_file, $type = 'normal' ) {
+function msn_move_file( $old_path, $new_path, $log_file = null, $type = 'normal' ) {
 	$msn_moving_message = [];
 	if ( $type == 'zipped-site-backup' ) {
 		$msn_moving_message = [
@@ -417,13 +417,16 @@ function msn_move_file( $old_path, $new_path, $log_file, $type = 'normal' ) {
 		];
 	}
 	$msn_moving_result = rename( $old_path, $new_path );
-	if ( $msn_moving_result ) {
-		$msn_moving_message = $msn_moving_message['successful'] . date( 'Y-m-d  H:i:s' ) . ' .';
-		msn_write_on_log_file( $msn_moving_message, $log_file );
-	} else {
-		$msn_moving_message = $msn_moving_message['unsuccessful'] . date( 'Y-m-d  H:i:s' ) . '!!!';
-		msn_write_on_log_file( $msn_moving_message, $log_file );
+	if ( $log_file !== null ) {
+		if ( $msn_moving_result ) {
+			$msn_moving_message = $msn_moving_message['successful'] . date( 'Y-m-d  H:i:s' ) . ' .';
+			msn_write_on_log_file( $msn_moving_message, $log_file );
+		} else {
+			$msn_moving_message = $msn_moving_message['unsuccessful'] . date( 'Y-m-d  H:i:s' ) . '!!!';
+			msn_write_on_log_file( $msn_moving_message, $log_file );
+		}
 	}
+
 }
 
 
@@ -818,7 +821,7 @@ msn_write_on_log_file( msn_section_separator(), $main_log_file );
 
 /*
  * ===============================================
- * Copy lang file to related original directories
+ * Move lang file to related original directories
  * ===============================================
  * */
 
@@ -870,3 +873,11 @@ if ( $is_check_updraft ) {
 	msn_move_all_files( $updraft_bak_path, $updraft_path, $main_log_file );
 	msn_write_on_log_file( msn_section_separator(), $main_log_file );
 }
+
+/*
+ * ==============================
+ * Move log file to its directory
+ * ==============================
+ * */
+
+msn_move_file( $main_log_file, $log_files_path . $main_log_file );
