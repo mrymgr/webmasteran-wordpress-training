@@ -8,7 +8,7 @@ date_default_timezone_set( 'Asia/Tehran' );
  * */
 $main_path                         = '../temp-source/';
 $has_host_name                     = true;
-$host_name                         = 'jesmoravan';
+$host_name                         = 'webmaster';
 $main_wordpress_path               = dirname( __FILE__ );
 $main_theme_path                   = 'wp-content/themes/';
 $main_plugin_path                  = 'wp-content/plugins/';
@@ -26,7 +26,7 @@ $current_avada_fusion_core_path    = 'wp-content/plugins/fusion-core/';
 $log_files_path                    = $main_path . '06-log-files/';
 $backup_zip_file_name              = $host_name . '-files-backup-' . date( 'Y-m-d' ) . '.zip';
 $backup_zip_file_path              = './' . $backup_zip_file_name;
-$main_log_file                     = 'update-log-file-' . date( 'Ymd' ) . '.log';
+$main_log_file                     = "{$host_name}-update-log-file-" . date( 'Ymd' ) . '.log';
 
 $htaccess_lite_speed_config
 	= <<< HTACCESS
@@ -37,13 +37,14 @@ RewriteRule .* - [E=noconntimeout:1]
 </IfModule>
 HTACCESS;
 
-$avada_last_version          = '6.0.4';
-$avada_new_version           = '6.1.2';
-$is_check_updraft            = true;
-$updraft_path                = 'wp-content/updraft/';
-$updraft_bak_path            = $main_path . '07-updraft-bak/';
-$has_backup_zip              = false;
-$is_need_to_copy_avada_files = true;
+$avada_last_version = '6.0.5';
+$avada_new_version  = '6.1.2';
+$is_check_updraft   = false;
+$updraft_path       = 'wp-content/updraft/';
+$updraft_bak_path   = $main_path . '07-updraft-bak/';
+$has_backup_zip     = false;
+$update_site_count  = 2;
+
 
 /*
  * Change max_execution_time
@@ -589,9 +590,15 @@ $critical_files = [
 	[ $avada_new_fusion_core_file, 'avada_fusion_core_file' ],
 ];
 
-foreach ( $critical_files as $critical_file ) {
-	msn_check_critical_file_exist( $critical_file[0], $critical_file[1], $main_log_file );
+/*
+ * check if only first time to update the site or not
+ * */
+if ( $update_site_count == 1 ) {
+	foreach ( $critical_files as $critical_file ) {
+		msn_check_critical_file_exist( $critical_file[0], $critical_file[1], $main_log_file );
+	}
 }
+
 
 /*
  * =================================================================
@@ -619,14 +626,10 @@ msn_write_on_log_file( msn_section_separator(), $main_log_file );
  * =====================================================
  * */
 
-if ( $is_need_to_copy_avada_files ) {
+$last_version_avada_path = $avada_older_version_path . $avada_last_version . '-' . $host_name . '/';
+msn_make_directory( $last_version_avada_path );
+if ( $update_site_count == 1 ) {
 	if ( ! msn_is_dir_empty( $avada_new_version_path ) ) {
-
-		$last_version_avada_path = $avada_older_version_path . $avada_last_version . '-' . $host_name . '/';
-		msn_make_directory( $last_version_avada_path );
-		/*if ( ! file_exists( $last_version_avada_path ) ) {
-			mkdir( $last_version_avada_path, 0755 );
-		}*/
 		msn_move_all_files( $avada_new_version_path, $last_version_avada_path, $main_log_file );
 		msn_move_all_files( $avada_new_files_temp_path, $avada_new_version_path, $main_log_file );
 		msn_write_on_log_file( msn_section_separator(), $main_log_file );
