@@ -1,17 +1,59 @@
 <?php
 
-#set time zone
+/*
+ * set time zone
+ * */
 date_default_timezone_set( 'Asia/Tehran' );
+
+#put your script directory here:
+$msn_script_directory = 'updater';
+$msn_script_path      = dirname( __FILE__ );
+$msn_main_start_path  = str_replace( $msn_script_directory, '', $msn_script_path );
+/*
+ * For linux OS
+ * */
+$msn_main_start_path = str_replace( '//', '', $msn_main_start_path );
+/*
+ * For Windows OS
+ * */
+$msn_main_start_path = str_replace( '\/', '', $msn_main_start_path );
+
+#put your main domain name here:
+$msn_domain_name = 'spec';
+//$msn_domain_name = 'firstsite.com';
+//$msn_domain_name = 'secondsite.com';
+switch ( $msn_domain_name ) {
+	case 'firstsite.com':
+		$host_name = 'firstsite';
+		$host_path = 'firstsite.com/';
+		break;
+	case 'secondsite.com':
+		$host_name = 'secondsite';
+		$host_path = 'secondsite.com/';
+		break;
+	case 'spec':
+		$host_name = 'spec';
+		$host_path = 'spec/';
+		break;
+	case 'webmaster':
+		$host_name = 'webmaster';
+		$host_path = 'webmaster/';
+		break;
+}
 
 /*
  * Define paths and files for updater script
  * */
-$main_path                         = '../temp-source/';
-$has_host_name                     = true;
-$host_name                         = 'webmaster';
-$main_wordpress_path               = dirname( __FILE__ );
-$main_theme_path                   = 'wp-content/themes/';
-$main_plugin_path                  = 'wp-content/plugins/';
+$main_path = '../temp-source/';
+//$has_host_name = true;
+if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Windows' ) !== false ) {
+	$main_wordpress_path = str_replace( '/', '\\', $msn_main_start_path . $host_path );
+} else {
+	$main_wordpress_path = $msn_main_start_path . $host_path;
+}
+
+$main_theme_path                   = '../' . $host_path . 'wp-content/themes/';
+$main_plugin_path                  = '../' . $host_path . 'wp-content/plugins/';
 $avada_new_files_temp_path         = $main_path . '01-temp-new-version-files/';
 $avada_new_theme_file              = $avada_new_files_temp_path . 'avada-new.zip';
 $avada_new_fusion_builder_file     = $avada_new_files_temp_path . 'fusion-builder-new.zip';
@@ -20,13 +62,14 @@ $avada_older_version_path          = $main_path . '02-avada-older-versions/';
 $avada_new_version_path            = $main_path . '03-avada-new-version-files/';
 $avada_lang_path                   = $main_path . '04-avada-lang-bak/';
 $whole_site_backup_path            = $main_path . '05-whole-site-backup/';
-$current_avada_theme_path          = 'wp-content/themes/Avada/';
-$current_avada_fusion_builder_path = 'wp-content/plugins/fusion-builder/';
-$current_avada_fusion_core_path    = 'wp-content/plugins/fusion-core/';
+$current_avada_theme_path          = '../' . $host_path . 'wp-content/themes/Avada/';
+$current_avada_fusion_builder_path = '../' . $host_path . 'wp-content/plugins/fusion-builder/';
+$current_avada_fusion_core_path    = '../' . $host_path . 'wp-content/plugins/fusion-core/';
 $log_files_path                    = $main_path . '06-log-files/';
-$backup_zip_file_name              = $host_name . '-files-backup-' . date( 'Y-m-d' ) . '.zip';
-$backup_zip_file_path              = './' . $backup_zip_file_name;
-$main_log_file                     = "{$host_name}-update-log-file-" . date( 'Ymd' ) . '.log';
+$backup_zip_file_name              = $host_name . '-files-backup-' . date( 'Ymd-Hi' ) . '.zip';
+//$backup_zip_file_name              = $host_name . '-files-backup-' . date( 'Ymd-1206' ) . '.zip';
+$backup_zip_file_path = '../' . $host_path . $backup_zip_file_name;
+$main_log_file        = $log_files_path . "{$host_name}-update-log-file-" . date( 'Ymd' ) . '.log';
 
 $htaccess_lite_speed_config
 	= <<< HTACCESS
@@ -36,14 +79,19 @@ RewriteRule .* - [E=noabort:1]
 RewriteRule .* - [E=noconntimeout:1]
 </IfModule>
 HTACCESS;
-
+#put last version of avada here:
 $avada_last_version = '6.0.5';
-$avada_new_version  = '6.1.2';
-$is_check_updraft   = false;
-$updraft_path       = 'wp-content/updraft/';
-$updraft_bak_path   = $main_path . '07-updraft-bak/';
-$has_backup_zip     = false;
-$update_site_count  = 2;
+#put new version of avada here:
+$avada_new_version = '6.1.2';
+#put state of checking updraft here:
+$is_check_updraft = true;
+$updraft_path     = '../' . $host_path . 'wp-content/updraft/';
+$updraft_bak_path = $main_path . '07-updraft-bak/';
+#Important Note: you must define correct zip file name if this option is true
+#put state of checking zip backup file here:
+$has_backup_zip = false;
+#put count of update site here:
+$update_site_count = 1;
 
 
 /*
@@ -559,7 +607,7 @@ msn_change_ini_settings();
  * ==================================================
  * */
 if ( msn_check_server_type() == 'litespeed' ) {
-	$htaccess_file_path         = __DIR__ . '/.htaccess';
+	$htaccess_file_path         = '../' . $host_path . '/.htaccess';
 	$result_of_htaccess_writing = msn_file_prepend( $htaccess_lite_speed_config, $htaccess_file_path );
 	if ( $result_of_htaccess_writing == 'already is written' ) {
 		$msn_writing_message = 'htaccess file was overwritten already. You do not to need extra actions on it. Date of checking: '
@@ -694,23 +742,18 @@ if ( $has_backup_zip ) {
 	if ( file_exists( $backup_zip_file_path ) ) {
 		msn_move_file( $backup_zip_file_path, $whole_site_backup_path . $backup_zip_file_name, $main_log_file, $type = 'zipped-site-backup' );
 	}
-	msn_write_on_log_file( msn_section_separator(), $main_log_file );
 } else {
 	//$result_of_zipping = msn_zip_data( $main_wordpress_path, $whole_site_backup_path . 'backup.zip', 'windows' );
-	$result_of_zipping = msn_zip_data( $main_wordpress_path, $backup_zip_file_name );
+	$result_of_zipping = msn_zip_data( $main_wordpress_path, $whole_site_backup_path . $backup_zip_file_name );
 	if ( $result_of_zipping === false ) {
 		$msn_zipping_message = 'Unfortunately we can not zip whole of site file! The Date for this message: ' . date( 'Y-m-d  H:i:s' ) . '!!!';
 		msn_write_on_log_file( $msn_zipping_message, $main_log_file );
-		msn_write_on_log_file( msn_section_separator(), $main_log_file );
 	} else {
 		$msn_zipping_message = 'Zipping whole site files backup was successfully done on: ' . date( 'Y-m-d  H:i:s' ) . '.';
 		msn_write_on_log_file( $msn_zipping_message, $main_log_file );
-		if ( file_exists( $backup_zip_file_path ) ) {
-			msn_move_file( $backup_zip_file_path, $whole_site_backup_path . $backup_zip_file_name, $main_log_file, $type = 'zipped-site-backup' );
-		}
-		msn_write_on_log_file( msn_section_separator(), $main_log_file );
 	}
 }
+msn_write_on_log_file( msn_section_separator(), $main_log_file );
 
 
 /*
@@ -877,10 +920,3 @@ if ( $is_check_updraft ) {
 	msn_write_on_log_file( msn_section_separator(), $main_log_file );
 }
 
-/*
- * ==============================
- * Move log file to its directory
- * ==============================
- * */
-
-msn_move_file( $main_log_file, $log_files_path . $main_log_file );
