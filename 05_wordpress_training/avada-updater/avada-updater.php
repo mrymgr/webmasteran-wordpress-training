@@ -6,7 +6,8 @@
 date_default_timezone_set( 'Asia/Tehran' );
 
 #put your script directory here:
-$msn_script_directory = 'updater';
+//$msn_script_directory = 'updater';
+$msn_script_directory = 'update.wpwebmaster.ir';
 $msn_script_path      = dirname( __FILE__ );
 $msn_main_start_path  = str_replace( $msn_script_directory, '', $msn_script_path );
 /*
@@ -19,25 +20,41 @@ $msn_main_start_path = str_replace( '//', '', $msn_main_start_path );
 $msn_main_start_path = str_replace( '\/', '', $msn_main_start_path );
 
 #put your main domain name here:
-$msn_domain_name = 'spec';
+$msn_domain_name = 'jesmoravan';
+//$msn_domain_name = 'stargaz';
 //$msn_domain_name = 'firstsite.com';
 //$msn_domain_name = 'secondsite.com';
+//$msn_domain_name = 'spec';
 switch ( $msn_domain_name ) {
+	case 'stargaz':
+		$host_name        = 'stargaz';
+		$host_path        = 'stargazetrading.com/';
+		$is_check_updraft = true;
+		break;
+	case 'jesmoravan':
+		$host_name        = 'jesmoravan';
+		$host_path        = 'jesmoravan.com/';
+		$is_check_updraft = true;
+		break;
 	case 'firstsite.com':
-		$host_name = 'firstsite';
-		$host_path = 'firstsite.com/';
+		$host_name        = 'firstsite';
+		$host_path        = 'firstsite.com/';
+		$is_check_updraft = true;
 		break;
 	case 'secondsite.com':
-		$host_name = 'secondsite';
-		$host_path = 'secondsite.com/';
+		$host_name        = 'secondsite';
+		$host_path        = 'secondsite.com/';
+		$is_check_updraft = true;
 		break;
 	case 'spec':
-		$host_name = 'spec';
-		$host_path = 'spec/';
+		$host_name        = 'spec';
+		$host_path        = 'spec/';
+		$is_check_updraft = true;
 		break;
 	case 'webmaster':
-		$host_name = 'webmaster';
-		$host_path = 'webmaster/';
+		$host_name        = 'webmaster';
+		$host_path        = 'webmaster/';
+		$is_check_updraft = false;
 		break;
 }
 
@@ -46,7 +63,7 @@ switch ( $msn_domain_name ) {
  * */
 $main_path = '../temp-source/';
 //$has_host_name = true;
-if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Windows' ) !== false ) {
+if ( PHP_OS == 'WINNT' ) {
 	$main_wordpress_path = str_replace( '/', '\\', $msn_main_start_path . $host_path );
 } else {
 	$main_wordpress_path = $msn_main_start_path . $host_path;
@@ -80,18 +97,17 @@ RewriteRule .* - [E=noconntimeout:1]
 </IfModule>
 HTACCESS;
 #put last version of avada here:
-$avada_last_version = '6.0.5';
+$avada_last_version = '6.0.1';
 #put new version of avada here:
 $avada_new_version = '6.1.2';
-#put state of checking updraft here:
-$is_check_updraft = true;
+//$is_check_updraft = true;
 $updraft_path     = '../' . $host_path . 'wp-content/updraft/';
 $updraft_bak_path = $main_path . '07-updraft-bak/';
 #Important Note: you must define correct zip file name if this option is true
 #put state of checking zip backup file here:
 $has_backup_zip = false;
 #put count of update site here:
-$update_site_count = 1;
+$update_site_count = 2;
 
 
 /*
