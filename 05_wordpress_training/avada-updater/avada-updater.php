@@ -6,8 +6,7 @@
 date_default_timezone_set( 'Asia/Tehran' );
 
 #put your script directory here:
-//$msn_script_directory = 'updater';
-$msn_script_directory = 'update.wpwebmaster.ir';
+$msn_script_directory = 'updater';
 $msn_script_path      = dirname( __FILE__ );
 $msn_main_start_path  = str_replace( $msn_script_directory, '', $msn_script_path );
 /*
@@ -20,22 +19,11 @@ $msn_main_start_path = str_replace( '//', '', $msn_main_start_path );
 $msn_main_start_path = str_replace( '\/', '', $msn_main_start_path );
 
 #put your main domain name here:
-$msn_domain_name = 'jesmoravan';
-//$msn_domain_name = 'stargaz';
-//$msn_domain_name = 'firstsite.com';
-//$msn_domain_name = 'secondsite.com';
-//$msn_domain_name = 'spec';
+$msn_domain_name = 'firstsite.com';
+$msn_domain_name = 'secondsite.com';
+$msn_domain_name = 'spec';
+$msn_domain_name = 'webmaster';
 switch ( $msn_domain_name ) {
-	case 'stargaz':
-		$host_name        = 'stargaz';
-		$host_path        = 'stargazetrading.com/';
-		$is_check_updraft = true;
-		break;
-	case 'jesmoravan':
-		$host_name        = 'jesmoravan';
-		$host_path        = 'jesmoravan.com/';
-		$is_check_updraft = true;
-		break;
 	case 'firstsite.com':
 		$host_name        = 'firstsite';
 		$host_path        = 'firstsite.com/';
@@ -97,7 +85,7 @@ RewriteRule .* - [E=noconntimeout:1]
 </IfModule>
 HTACCESS;
 #put last version of avada here:
-$avada_last_version = '6.0.1';
+$avada_last_version = '6.0.3';
 #put new version of avada here:
 $avada_new_version = '6.1.2';
 //$is_check_updraft = true;
