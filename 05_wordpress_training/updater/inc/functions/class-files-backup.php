@@ -1,8 +1,8 @@
 <?php
 /**
- * Backup Class File
+ * Files_Backup Class File
  *
- * This file contains Backup class which can backup from whole of your WordPress site
+ * This file contains Files_Backup class which can backup from whole of your WordPress site
  *
  * @package    Updater\Inc\Functions
  * @author     Mehdi Soltani <soltani.n.mehdi@gmail.com>
@@ -15,14 +15,14 @@ namespace Updater\Inc\Functions;
 
 
 /**
- * Class Backup
+ * Class Files_Backup
  *
- * This file contains Backup class which can backup from whole of your WordPress site
+ * This file contains Files_Backup class which can backup from whole of your WordPress site
  *
  * @package    Updater\Inc\Functions
  * @author     Mehdi Soltani <soltani.n.mehdi@gmail.com>
  */
-class Backup {
+class Files_Backup {
 
 	private $whole_site_backup_path;
 	private $backup_zip_file_name;

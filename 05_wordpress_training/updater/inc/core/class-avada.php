@@ -25,23 +25,22 @@ namespace Updater\Inc\Core;
 class Avada {
 
 	/**
-	 * The unique identifier of this theme.
+	 * Points to current version of Avada at the moment in your WordPress site
 	 *
 	 * @since    1.0.1
-	 * @access   protected
-	 * @var      string $theme_name The string used to uniquely identify this theme.
+	 * @access   private
+	 * @var      string $avada_last_version current version of Avada.
 	 */
-	public $theme_name;
+	private $avada_last_version;
 
 	/**
-	 * The current version of the theme.
+	 * Points to new version of Avada that wants to update
 	 *
 	 * @since    1.0.1
-	 * @access   protected
-	 * @var      string $theme_version The current version of the theme.
+	 * @access   private
+	 * @var      string $avada_last_version current version of Avada.
 	 */
-	protected $theme_version;
-
+	private $avada_new_version;
 	private $avada_new_files_temp_path;
 	private $avada_new_theme_file;
 	private $avada_new_fusion_builder_file;
@@ -61,7 +60,9 @@ class Avada {
 	 * @access public
 	 * @since  1.0.1
 	 */
-	public function __construct( $main_path, $host_path ) {
+	public function __construct( $main_path, $host_path, $avada_last_version, $avada_new_version ) {
+		$this->avada_last_version                = $avada_last_version;
+		$this->avada_new_version                 = $avada_new_version;
 		$this->avada_new_files_temp_path         = $main_path . '01-temp-new-version-files/';
 		$this->avada_new_theme_file              = $this->avada_new_files_temp_path . 'avada-new.zip';
 		$this->avada_new_fusion_builder_file     = $this->avada_new_files_temp_path . 'fusion-builder-new.zip';
@@ -73,6 +74,14 @@ class Avada {
 		$this->current_avada_fusion_builder_path = '../' . $host_path . 'wp-content/plugins/fusion-builder/';
 		$this->current_avada_fusion_core_path    = '../' . $host_path . 'wp-content/plugins/fusion-core/';
 
+	}
+
+	public function avada_last_version(  ) {
+		return $this->avada_last_version;
+	}
+
+	public function avada_new_version(  ) {
+		return $this->avada_new_version;
 	}
 
 	public function avada_new_files_temp_path() {
@@ -114,6 +123,8 @@ class Avada {
 	public function current_avada_fusion_core_path() {
 		return $this->current_avada_fusion_core_path;
 	}
+
+
 }
 
 
