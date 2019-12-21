@@ -14,6 +14,7 @@
 namespace Updater\Inc\Functions;
 
 use Updater\Inc\Config\Host_config;
+use Updater\Inc\Config\Primary_Setting;
 
 
 /**
@@ -43,15 +44,15 @@ class Path {
 	private $main_log_file;
 
 	public function __construct(
-		$script_directory, $script_path, $domain_name, $main_path
+		Primary_Setting $primary_setting_obj
 	) {
-		$this->script_directory = $script_directory;
-		$this->script_path      = $script_path;
-		$this->domain_name      = $domain_name;
-		$this->main_path        = $main_path;
+		$this->script_directory = $primary_setting_obj->script_directory();
+		$this->script_path      = $primary_setting_obj->script_path();
+		$this->domain_name      = $primary_setting_obj->domain_name();
+		$this->main_path        = $primary_setting_obj->main_path();
 		$this->main_start_path  = $this->set_main_start_path();
-		$this->host_name        = $this->set_host_config( $domain_name )['host_name'];
-		$this->host_path        = $this->set_host_config( $domain_name )['host_path'];
+		$this->host_name        = $this->set_host_config( $this->domain_name )['host_name'];
+		$this->host_path        = $this->set_host_config( $this->domain_name )['host_path'];
 		/*		$this->host_name        = $this->set_host_name_path( $domain_name )['host_name'];
 				$this->host_path        = $this->set_host_name_path( $domain_name )['host_path'];*/
 
@@ -130,7 +131,7 @@ class Path {
 		return $this->main_log_file;
 	}
 
-	private function set_host_name_path( $domain_name ) {
+	/*private function set_host_name_path( $domain_name ) {
 		switch ( $domain_name ) {
 			case 'anyl':
 				$host_name = 'anyl';
@@ -189,7 +190,7 @@ class Path {
 			'host_name' => $host_name,
 			'host_path' => $host_path,
 		];
-	}
+	}*/
 
 }
 

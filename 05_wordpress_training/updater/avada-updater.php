@@ -7,6 +7,7 @@ use Updater\Inc\Core\Updraft;
 use Updater\Inc\Functions\Files_Backup;
 use Updater\Inc\Functions\Utility;
 use Updater\Inc\Functions\Path;
+use Updater\Inc\Config\Primary_Setting;
 
 
 require_once 'inc/class-autoloader.php';
@@ -15,40 +16,15 @@ require_once 'inc/class-autoloader.php';
  * */
 Utility::set_time_zone( 'Asia/Tehran' );
 
-#put your script directory here:
-$script_directory = 'updater';
-//$msn_script_directory = 'update.wpwebmaster.ir';
 $script_path = dirname( __FILE__ );
-#put your main domain name here:
+$primary_setting_obj = new Primary_Setting($script_path);
 /*
- * Note: for new domain name you must set host_name and host_path in Path class
- * and is_check_updraft in Updraft class
+ * sample of dependency injection
  * */
-//$domain_name = 'novinbazsazi';
-//$domain_name = 'jesmoravan';
-//$domain_name = 'test-academy';
-//$msn_domain_name = 'anyl';
-//$domain_name = 'aitanrehab';
-//$domain_name = 'hekmat';
-//$domain_name = 'stargaz';
-//$domain_name = 'wpwebmaster';
-//$domain_name = 'firstsite.com';
-//$domain_name = 'secondsite.com';
-$domain_name = 'spec';
-/*
- * Define paths and files for updater script
- * */
-$main_path = '../temp-source/';
-#put last version of avada here:
-$avada_last_version = '6.0.3';
-#put new version of avada here:
-$avada_new_version = '6.1.2';
-
-$path_obj    = new Path( $script_directory, $script_path, $domain_name, $main_path );
-$avada_obj   = new Avada( $path_obj->main_path(), $path_obj->host_path(), $avada_last_version, $avada_new_version );
+$path_obj    = new Path( $primary_setting_obj);
+$avada_obj   = new Avada( $path_obj->main_path(), $path_obj->host_path(), $primary_setting_obj->avada_last_version(), $primary_setting_obj->avada_new_version() );
 $backup_obj  = new Files_Backup( $path_obj->main_path(), $path_obj->host_name(), $path_obj->host_path() );
-$updraft_obj = new Updraft( $path_obj->main_path(), $path_obj->host_path(), $domain_name );
-
+$updraft_obj = new Updraft( $path_obj->main_path(), $path_obj->host_path(), $primary_setting_obj->domain_name() );
 
 
 /*
