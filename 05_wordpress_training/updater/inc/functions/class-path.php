@@ -42,6 +42,8 @@ class Path {
 	private $main_plugin_path;
 	private $log_files_path;
 	private $main_log_file;
+	private $htaccess_file_path;
+	private $wordpress_htaccess_file_path;
 
 	public function __construct(
 		Primary_Setting $primary_setting_obj
@@ -56,11 +58,13 @@ class Path {
 		/*		$this->host_name        = $this->set_host_name_path( $domain_name )['host_name'];
 				$this->host_path        = $this->set_host_name_path( $domain_name )['host_path'];*/
 
-		$this->wordpress_path   = $this->set_wordpress_path();
-		$this->main_theme_path  = '../' . $this->host_path . 'wp-content/themes/';
-		$this->main_plugin_path = '../' . $this->host_path . 'wp-content/plugins/';
-		$this->log_files_path   = $this->main_path . '06-log-files/';
-		$this->main_log_file    = $this->log_files_path . "{$this->host_name}-update-log-file-" . date( 'Ymd' ) . '.log';
+		$this->wordpress_path               = $this->set_wordpress_path();
+		$this->main_theme_path              = '../' . $this->host_path . 'wp-content/themes/';
+		$this->main_plugin_path             = '../' . $this->host_path . 'wp-content/plugins/';
+		$this->log_files_path               = $this->main_path . '06-log-files/';
+		$this->main_log_file                = $this->log_files_path . "{$this->host_name}-update-log-file-" . date( 'Ymd' ) . '.log';
+		$this->wordpress_htaccess_file_path = '../' . $this->host_path . '.htaccess';
+		$this->htaccess_file_path           =  './.htaccess';
 
 	}
 
@@ -131,66 +135,9 @@ class Path {
 		return $this->main_log_file;
 	}
 
-	/*private function set_host_name_path( $domain_name ) {
-		switch ( $domain_name ) {
-			case 'anyl':
-				$host_name = 'anyl';
-				$host_path = 'anyl.wpwebmaster.ir/';
-				break;
-			case 'aitanrehab':
-				$host_name = 'aitan';
-				$host_path = 'aitanrehab/';
-				break;
-			case 'hekmat':
-				$host_name = 'hekmat';
-				$host_path = 'hco.wpwebmaster.ir/';
-				break;
-			case 'novinbazsazi':
-				$host_name = 'novinbazsazi';
-				$host_path = 'novinbazsazi.com/';
-				break;
-			case 'test-academy':
-				$host_name = 'test-academy';
-				$host_path = 'academy.wpwebmaster.ir/';
-				break;
-			case 'stargaz':
-				$host_name = 'stargaz';
-				$host_path = 'stargazetrading.com/';
-				break;
-			case 'jesmoravan':
-				$host_name = 'jesmoravan';
-				$host_path = 'jesmoravan.com/';
-				break;
-			case 'wpwebmaster':
-				$host_name = 'wpwebmaster';
-				$host_path = 'public_html/';
-				break;
-			case 'firstsite.com':
-				$host_name = 'firstsite';
-				$host_path = 'firstsite.com/';
-				break;
-			case 'secondsite.com':
-				$host_name = 'secondsite';
-				$host_path = 'secondsite.com/';
-				break;
-			case 'webmaster':
-				$host_name = 'webmaster';
-				$host_path = 'webmaster/';
-				break;
-			case 'spec':
-				$host_name = 'spec';
-				$host_path = 'spec/';
-				break;
-			default:
-				$host_name = 'spec';
-				$host_path = 'spec/';
-		}
-
-		return [
-			'host_name' => $host_name,
-			'host_path' => $host_path,
-		];
-	}*/
+	public function htaccess_file_path() {
+		return $this->htaccess_file_path;
+	}
 
 }
 

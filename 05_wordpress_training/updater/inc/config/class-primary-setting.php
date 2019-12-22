@@ -24,10 +24,13 @@ namespace Updater\Inc\Config;
  */
 class Primary_Setting {
 
+
+	protected $script_path;
+	#put state of checking zip backup file here:
+	protected $has_backup_zip;
 	//$msn_script_directory = 'update.wpwebmaster.ir';
-	private $script_path;
 	#put your script directory here:
-	private $script_directory;
+	protected $script_directory;
 	#put your main domain name here:
 	/*
 	 * Note: for new domain name you must set host_name and host_path in Path class
@@ -43,35 +46,32 @@ class Primary_Setting {
 	//$domain_name = 'wpwebmaster';
 	//$domain_name = 'firstsite.com';
 	//$domain_name = 'secondsite.com';
-	private $domain_name;
+	protected $domain_name;
 	/*
 	 * Define paths and files for updater script
 	 * */
-	private $main_path;
-	#put last version of avada here:
-	private $avada_last_version;
-	#put new version of avada here:
-	private $avada_new_version;
+	protected $main_path;
 
 	public function __construct(
 		$script_path,
+		$has_backup_zip = false,
 		$script_directory = 'updater',
 		$domain_name = 'spec',
-		$main_path = '../temp-source/',
-		$avada_last_version = '6.0.3',
-		$avada_new_version = '6.1.2'
+		$main_path = '../temp-source/'
 	) {
-		//$msn_script_directory = 'update.wpwebmaster.ir';
-		$this->script_path        = $script_path;
-		$this->script_directory   = $script_directory;
-		$this->domain_name        = $domain_name;
-		$this->main_path          = $main_path;
-		$this->avada_last_version = $avada_last_version;
-		$this->avada_new_version  = $avada_new_version;
+		$this->script_path      = $script_path;
+		$this->has_backup_zip   = $has_backup_zip;
+		$this->script_directory = $script_directory;
+		$this->domain_name      = $domain_name;
+		$this->main_path        = $main_path;
 	}
 
 	public function script_path() {
 		return $this->script_path;
+	}
+
+	public function has_backup_zip(  ) {
+		return $this->has_backup_zip;
 	}
 
 	public function script_directory() {
@@ -82,19 +82,9 @@ class Primary_Setting {
 		return $this->domain_name;
 	}
 
-	public function main_path(  ) {
+	public function main_path() {
 		return $this->main_path;
 	}
-
-	public function avada_last_version() {
-		return $this->avada_last_version;
-	}
-
-	public function avada_new_version() {
-		return $this->avada_new_version;
-	}
-
-
 }
 
 
