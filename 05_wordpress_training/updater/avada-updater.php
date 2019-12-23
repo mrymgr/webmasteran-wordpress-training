@@ -44,6 +44,7 @@ class  Avada_Updater {
 	 */
 	public $files_process_obj;
 	public $htaccess_lite_speed_config;
+	public $critical_files;
 
 	public function __construct( $primary_values ) {
 		$this->set_primary_config( $primary_values );
@@ -59,6 +60,16 @@ class  Avada_Updater {
 		 * ==================================================
 		 * */
 		$this->htaccess_litespeed_check();
+		/*
+		 * ============================================================
+		 * Checking critical directory and file before executing script
+		 * =============================================================
+		 * */
+		if ( $this->primary_setting_obj->update_site_count() == 1 ) {
+			foreach ( $this->critical_files as $critical_file ) {
+				$this->check_critical_files_exists( $critical_file['path'], $critical_file['type'], $this->path_obj->main_log_file() );
+			}
+		}
 	}
 
 	public function set_primary_config( $primary_values ) {
@@ -81,6 +92,35 @@ class  Avada_Updater {
 			$this->primary_setting_obj->domain_name() );
 		$this->files_process_obj          = new Files_Process();
 		$this->htaccess_lite_speed_config = $primary_values['htaccess_lite_speed_config'];
+		/*
+		 * critical files
+		 * */
+		$this->set_critical_files();
+	}
+
+	public function set_critical_files() {
+		$this->critical_files = [
+			[
+				'path' => $this->path_obj->main_path(),
+				'type' => 'main_path',
+			],
+			[
+				'path' => $this->avada_obj->avada_new_files_temp_path(),
+				'type' => 'avada_file_path',
+			],
+			[
+				'path' => $this->avada_obj->avada_new_theme_file(),
+				'type' => 'avada_theme_file',
+			],
+			[
+				'path' => $this->avada_obj->avada_new_fusion_builder_file(),
+				'type' => 'avada_fusion_builder_file',
+			],
+			[
+				'path' => $this->avada_obj->avada_new_fusion_core_file(),
+				'type' => 'avada_fusion_core_file',
+			],
+		];
 	}
 
 	public function htaccess_litespeed_check() {
@@ -94,6 +134,37 @@ class  Avada_Updater {
 		$this->files_process_obj->append( $msn_writing_message, $this->path_obj->main_log_file() );
 		$this->files_process_obj->append_section_separator( $this->path_obj->main_log_file() );
 
+
+	}
+
+	/*
+	 * Check critical directory or files
+	 * */
+	public function check_critical_files_exists( $path, $type, $logfile ) {
+		$error_message = 'Error message created on: ' . date( 'Y-m-d  H:i:s' ) . '.' . PHP_EOL;
+		if ( ! file_exists( $path ) ) {
+			switch ( $type ) {
+				case 'main_path':
+					$error_message .= 'You must define correct main path!';
+					break;
+				case 'avada_file_path':
+					$error_message .= 'You must define correct avada file path!';
+					break;
+				case 'avada_theme_file':
+					$error_message .= 'You must put theme zip file in 01-temp-new-version-files directory!';
+					break;
+				case 'avada_fusion_builder_file':
+					$error_message .= 'You must put fusion builder zip file in 01-temp-new-version-files directory!';
+					break;
+				case 'avada_fusion_core_file':
+					$error_message .= 'You must put fusion core zip file in 01-temp-new-version-files directory!';
+					break;
+			}
+
+			$this->files_process_obj->append( $error_message, $this->path_obj->main_log_file() );
+			$this->files_process_obj->append_section_separator( $this->path_obj->main_log_file() );
+			die( '<h2>You can not continue!!!</h2>' );
+		}
 
 	}
 }
@@ -110,14 +181,15 @@ RewriteRule .* - [E=noconntimeout:1]
 HTACCESS;
 
 $updater_obj = new Avada_Updater( $primary_values );
-
-/*var_dump( $updater_obj->primary_setting_obj );
+var_dump( $updater_obj->primary_setting_obj );
 var_dump( $updater_obj->path_obj );
 var_dump( $updater_obj->avada_obj );
 var_dump( $updater_obj->backup_obj );
-var_dump( $updater_obj->updraft_obj );*/
+var_dump( $updater_obj->updraft_obj );
 
 /*
 
 */
+
+
 

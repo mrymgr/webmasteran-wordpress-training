@@ -62,7 +62,7 @@ class Path {
 		$this->main_theme_path              = '../' . $this->host_path . 'wp-content/themes/';
 		$this->main_plugin_path             = '../' . $this->host_path . 'wp-content/plugins/';
 		$this->log_files_path               = $this->main_path . '06-log-files/';
-		$this->main_log_file                = $this->log_files_path . "{$this->host_name}-update-log-file-" . date( 'Ymd' ) . '.log';
+		$this->main_log_file                = 'logs/' . "{$this->host_name}-update-log-file-" . date( 'Ymd' ) . '.log';
 		$this->wordpress_htaccess_file_path = '../' . $this->host_path . '.htaccess';
 		$this->htaccess_file_path           =  './.htaccess';
 
