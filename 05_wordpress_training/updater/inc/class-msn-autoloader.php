@@ -23,7 +23,7 @@ namespace Updater\Inc;
  * @package    UpdaterInc
  * @author     Mehdi Soltani <soltani.n.mehdi@gmail.com>
  */
-class Autoloader {
+class Msn_Autoloader {
 
 	protected $name_space = 'Updater';
 
@@ -45,6 +45,7 @@ class Autoloader {
 	 */
 	public function autoload( $class_name ) {
 		// If the specified $class_name does not include our namespace, duck out.
+		var_dump($class_name);
 		if ( false === strpos( $class_name, $this->name_space ) ) {
 			return;
 		}

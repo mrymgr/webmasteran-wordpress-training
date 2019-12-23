@@ -24,9 +24,9 @@ namespace Updater\Inc\Functions;
  * @package    Updater\Inc\Functions
  * @author     Mehdi Soltani <soltani.n.mehdi@gmail.com>
  */
-class Utility {
+trait Utility {
 
-	public static function set_time_zone( $area ) {
+	public function set_time_zone( $area ) {
 		date_default_timezone_set( $area );
 	}
 
@@ -45,7 +45,7 @@ class Utility {
 	 *
 	 * @return string String with trailing slash added.
 	 */
-	public static function trailingslashit( $string ) {
+	public function trailingslashit( $string ) {
 		return untrailingslashit( $string ) . '/';
 	}
 
@@ -61,7 +61,7 @@ class Utility {
 	 *
 	 * @return string String without the trailing slashes.
 	 */
-	public static function untrailingslashit( $string ) {
+	public function untrailingslashit( $string ) {
 		return rtrim( $string, '/\\' );
 	}
 
@@ -70,7 +70,7 @@ class Utility {
 	 * Change memory_limit
 	 * Change max_input_time
 	 * */
-	public static function change_ini_settings() {
+	public function change_ini_settings() {
 		//ini_set( 'max_input_vars', '10000' );
 		set_time_limit( - 1 );
 		/*var_dump( (int) ini_get( 'max_input_time' ) );
@@ -82,7 +82,7 @@ class Utility {
 	/*
 	 * get type of webserver
 	 * */
-	public static function check_server_type() {
+	public function check_server_type() {
 		$server_type = $_SERVER['SERVER_SOFTWARE'];
 
 		if ( preg_match( "/apache/i", $server_type ) ) {

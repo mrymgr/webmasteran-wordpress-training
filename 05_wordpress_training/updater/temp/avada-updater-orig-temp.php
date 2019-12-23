@@ -151,6 +151,7 @@ $update_site_count = 2;
  * Change memory_limit
  * Change max_input_time
  * */
+//OK
 function msn_change_ini_settings() {
 	//ini_set( 'max_input_vars', '10000' );
 	set_time_limit( - 1 );
