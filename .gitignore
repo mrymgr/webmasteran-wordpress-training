@@ -1,3 +1,6 @@
 /vendor/
 /04_php_training/test1.php
 /.idea/
+/05_wordpress_training/updater/.idea/
+/05_wordpress_training/updater/vendor/
+/05_wordpress_training/updater/temp/
