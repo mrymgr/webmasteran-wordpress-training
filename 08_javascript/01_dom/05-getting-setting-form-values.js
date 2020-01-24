@@ -61,6 +61,9 @@ for (let i = 0, max = mainForm.length; i < max; i++) {
  * Setting New Value of Form
  * =========================
  * formElement.value = 'New value';
+ * radio.checked = true;
+ * checkbox.checked = true;
+ * option.selected = true;
  *
  *******************************/
 mainForm = document.getElementById('main-contact'),
@@ -70,6 +73,31 @@ fullName.value = 'Mehdi Soltani';
 phonePreference.value = 'checked';
 console.log(phonePreference);
 
+//another sample for for changing checked & select value.
+subject = document.querySelector('select');
+newsletter = document.getElementsByName('newsletter')[0];
+phonePreference.checked = true;
+newsletter.checked = false;
+subject.children[1].selected = true;
+
+/********************************
+ * A more specific way of selecting option fields
+ *
+ *******************************/
+for (let i = 0, max = subject.children.length; i < max; i++) {
+    if ('other' === subject.children[i].value) {
+        subject.children[i].selected = true;
+    }
+}
+
+/********************************
+ * Change read only fields
+ * Remove attribute
+ *
+ *******************************/
+let readOnlyField = document.getElementsByName( 'cant-touch-this' )[0];
+ readOnlyField.removeAttribute( 'readonly' );
+ readOnlyField.value = 'Changed it';
 
 
 
