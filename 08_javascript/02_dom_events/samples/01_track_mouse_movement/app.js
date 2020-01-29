@@ -67,22 +67,25 @@ class Execute_Sections {
 
     myChecking(checkVisibilityObject) {
         if ('block' === checkVisibilityObject.firstContentDisplayStyle) {
+            this.removeExtraEvents();
             contentSampleObject.run();
         } else if ('block' === checkVisibilityObject.contactDisplayStyle) {
+            this.removeExtraEvents();
             contactSampleObject.run();
         } else if ('block' === checkVisibilityObject.dragDropDisplayStyle) {
+            this.removeExtraEvents();
             dragSampleObject.run();
         } else if ('block' === checkVisibilityObject.lightboxDemoDisplayStyle) {
+            this.removeExtraEvents();
             lightboxSampleObject.run();
         } else if ('block' === checkVisibilityObject.videoDisplayStyle) {
+            this.removeExtraEvents();
             videoSampleObject.run();
         }
+    }
 
-        /*
-
-        lightboxDemoDisplayStyle: "none"
-        videoDisplayStyle: "none
-        * */
+    removeExtraEvents() {
+        document.removeEventListener('mousemove', contentSampleObject.logMousePosition);
     }
 
 
@@ -97,11 +100,13 @@ class Content_Sample {
          *
          *******************************/
 
-        var logMousePosition = function () {
-            console.log(event.clientX + ' x ' + event.clientY);
-        };
-        document.addEventListener('mousemove', logMousePosition, false);
+        document.addEventListener('mousemove', this.logMousePosition);
     }
+
+    logMousePosition(){
+        console.log(event.clientX + ' x ' + event.clientY);
+    }
+
 }
 
 class Contact_Sample {
