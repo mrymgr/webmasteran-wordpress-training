@@ -66,20 +66,16 @@ class Check_Visible {
 class Execute_Sections {
 
     myChecking(checkVisibilityObject) {
+        this.removeExtraEvents();
         if ('block' === checkVisibilityObject.firstContentDisplayStyle) {
-            this.removeExtraEvents();
             contentSampleObject.run();
         } else if ('block' === checkVisibilityObject.contactDisplayStyle) {
-            this.removeExtraEvents();
             contactSampleObject.run();
         } else if ('block' === checkVisibilityObject.dragDropDisplayStyle) {
-            this.removeExtraEvents();
             dragSampleObject.run();
         } else if ('block' === checkVisibilityObject.lightboxDemoDisplayStyle) {
-            this.removeExtraEvents();
             lightboxSampleObject.run();
         } else if ('block' === checkVisibilityObject.videoDisplayStyle) {
-            this.removeExtraEvents();
             videoSampleObject.run();
         }
     }
@@ -156,162 +152,6 @@ document.addEventListener('click', function () {
 
 
 let form = document.getElementById('contact');
-
-
-/********************************
- * Track Mouse Movement
- * 1.4.1.1
- *
- *******************************/
-
-// var logMousePosition = function() {
-//   console.log( event.clientX + ' x ' + event.clientY );
-// }
-//
-// document.addEventListener( 'mousemove', logMousePosition, false );
-
-
-/********************************
- * When Mouse Moves Over or
- * Enters an Element
- * 1.4.1.2
- *
- *******************************/
-
-// var child = document.querySelector( '.child' ),
-//     mouseOver,
-//     mouseEnter,
-//     mouseLeave;
-//
-// mouseOver = function mouseOver() {
-//   console.log( 'Mouse over' );
-// }
-// mouseEnter = function mouseEnter() {
-//   console.log( 'Mouse enter' );
-//   child.style.cursor = 'wait';
-// }
-// mouseLeave = function mouseLeave() {
-//   console.log( 'Mouse left' );
-//   child.style.cursor = 'pointer';
-// }
-//
-// child.addEventListener( 'mouseover', mouseOver );
-// child.addEventListener( 'mouseenter', mouseEnter );
-// child.addEventListener( 'mouseleave', mouseLeave );
-
-
-/********************************
- * Log Keys Pressed and
- * Creating Shortcuts
- * 1.4.1.3
- *
- *******************************/
-
-// var logKeys,
-//     updateText,
-//     showShortcuts;
-//
-// logKeys = function(){
-//   var keynum;
-//
-//   if( window.event ) {
-//     // For IE
-//     key = event.keyCode;
-//   } else if( event.which ) {
-//     // Other browsers
-//     key = event.which;
-//   }
-//
-//   updateText( key, event );
-//
-//
-// }
-//
-// updateText = function( key ) {
-//
-//   var textContainer = document.getElementById( 'loggedKeys' ),
-//       text = textContainer.textContent;
-//
-//   console.log( key );
-//
-//   if ( 3 === key ) {
-//
-//     console.log( 'Cleared!' );
-//     text = '';
-//
-//   } else if ( 19 === key ) {
-//
-//     console.log( 'Saved!' );
-//
-//   } else if ( 32 === key) {
-//
-//     text += ' ';
-//
-//   } else {
-//
-//     text += String.fromCharCode( key );
-//
-//   }
-//
-//   textContainer.innerHTML = text;
-//
-// }
-//
-//
-// showShortcuts = function() {
-//
-//   var parentEl = document.querySelector( '.parent' ),
-//       helpTextEl = document.createElement( 'p' ),
-//       helpText = document.createTextNode( 'Shortcuts: Save [crt + s] -- Clear [crt + c]' );
-//
-//   helpTextEl.appendChild( helpText );
-//   parentEl.appendChild( helpTextEl );
-//
-//
-// }
-//
-// showShortcuts();
-// document.addEventListener( 'keypress', logKeys );
-
-
-/********************************
- * Scroll to an Element
- * 1.4.1.4
- *
- *******************************/
-
-// var parentEl = document.querySelector( '.parent' ),
-//     footer = document.getElementsByTagName( 'footer' )[0],
-//     pEl = document.createElement( 'p' ),
-//     linkEl = document.createElement( 'a' ),
-//     aText = document.createTextNode( 'Scroll to Footer' ),
-//     footerY;
-//
-// footer.style.marginTop = '4000px';
-// footerY = footer.getBoundingClientRect().top,
-// linkEl.setAttribute( 'href', '#' );
-// linkEl.classList.add( 'button' );
-// linkEl.appendChild( aText );
-// pEl.appendChild( linkEl );
-// parentEl.appendChild( pEl );
-//
-// scrollToFooter = function( event ) {
-//
-//   // For Chrome
-//   window.scrollBy( 0, footerY );
-//   event.preventDefault();
-//
-//   // // For Firefox
-//   // window.scrollBy({
-//   //   'left': 0,
-//   //   'top': footerY,
-//   //   'behavior': 'smooth',
-//   // });
-//   // event.preventDefault();
-//
-// };
-//
-// linkEl.addEventListener( 'click', scrollToFooter );
 
 
 /********************************
