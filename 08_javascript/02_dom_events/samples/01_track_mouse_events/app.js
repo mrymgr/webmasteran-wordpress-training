@@ -24,20 +24,24 @@ class Get_Element_Target {
         this.removeExtraEvents();
         if ('mouse-movement' === this.id) {
             mouseMovementObject.run();
-        } else if ('mouse-over') {
+        } else if ('mouse-over' === this.id) {
             mouseOverObject.run();
-        } else if ('key-press') {
+        } else if ('key-press' === this.id) {
             keyPressObject.run();
-        } else if ('scroll') {
+        } else if ('scroll' === this.id) {
             scrollObject.run();
         }
     }
 
     removeExtraEvents() {
+        console.clear();
         document.removeEventListener('mousemove', mouseMovementObject.logMousePosition);
-        mouseOverObject.child.removeEventListener('mouseover', mouseOverObject.mouseOver);
-        mouseOverObject.child.removeEventListener('mouseenter', mouseOverObject.mouseEnter);
-        mouseOverObject.child.removeEventListener('mouseleave', mouseOverObject.mouseLeave);
+        childElm.removeEventListener('mouseover', mouseOverObject.mouseOver);
+        childElm.removeEventListener('mouseenter', mouseOverObject.mouseEnter);
+        childElm.removeEventListener('mouseleave', mouseOverObject.mouseLeave);
+        document.removeEventListener('keydown', function () {
+            keyPressObject.logKeys()
+        });
 
     }
 
@@ -63,9 +67,9 @@ class Mouse_Movement {
 
 class Mouse_Over {
 
-    constructor() {
+    /*constructor() {
         this.child = document.querySelector('.child');
-    }
+    }*/
 
     run() {
 
@@ -77,9 +81,9 @@ class Mouse_Over {
          *
          *******************************/
 
-        this.child.addEventListener('mouseover', this.mouseOver);
-        this.child.addEventListener('mouseenter', this.mouseEnter);
-        this.child.addEventListener('mouseleave', this.mouseLeave);
+        childElm.addEventListener('mouseover', this.mouseOver);
+        childElm.addEventListener('mouseenter', this.mouseEnter);
+        childElm.addEventListener('mouseleave', this.mouseLeave);
 
     }
 
@@ -87,21 +91,80 @@ class Mouse_Over {
         console.log('Mouse over');
     }
 
-    mouseLeave = function() {
+    mouseLeave = function () {
         console.log('Mouse left');
-    }
+        childElm.style.cursor = 'pointer';
+
+    };
 
     mouseEnter() {
         console.log('Mouse enter');
-        //this.child.style.cursor = 'wait';
+        childElm.style.cursor = 'wait';
     }
 }
 
 class Key_Press {
+
     run() {
         console.log('We are in: ' + this.constructor.name);
+        this.showShortcuts();
+        document.addEventListener('keydown', function () {
+            keyPressObject.logKeys(event)
+        });
 
     }
+
+
+    logKeys(event) {
+        /*console.log('keycode:' + event.keyCode);
+        console.log('which:' + event.which);
+        console.log('key:' + event.key);
+        console.log('alt:' + event.altKey);
+        console.log('ctrl:' + event.ctrlKey);
+        console.log('meta:' + event.metaKey);
+        console.log('buble:' + event.bubbles);*/
+        this.key = event.keyCode;
+        this.updateText(event);
+    };
+
+    updateText = function (event) {
+        console.log(this.key);
+        this.textContainer = document.getElementById('loggedKeys'),
+            this.text = this.textContainer.textContent;
+        /*console.log(this.textContainer);
+        console.log(this.text);*/
+
+        if (46 === this.key) {
+
+            console.log('Cleared!');
+            this.text = '';
+
+        } else if (19 === this.key) {
+
+            console.log('Saved!');
+
+        } else if (32 === this.key) {
+
+            this.text += ' ';
+
+        } else {
+
+            this.text += String.fromCharCode(this.key);
+
+        }
+
+        this.textContainer.innerHTML = this.text;
+    };
+
+    showShortcuts = function () {
+        this.helpTextEl = document.createElement('p'),
+            this.helpText = document.createTextNode('Shortcuts: Save [pause button ] -- Clear [Delete]');
+
+        this.helpTextEl.appendChild(this.helpText);
+        parentEl.appendChild(this.helpTextEl);
+    }
+
+
 }
 
 class Scroll {
@@ -111,7 +174,10 @@ class Scroll {
     }
 }
 
-let mouseMovementObject = new Mouse_Movement(),
+
+let childElm = document.querySelector('.child'),
+    parentEl = document.querySelector('.parent'),
+    mouseMovementObject = new Mouse_Movement(),
     mouseOverObject = new Mouse_Over(),
     keyPressObject = new Key_Press(),
     scrollObject = new Scroll(),
