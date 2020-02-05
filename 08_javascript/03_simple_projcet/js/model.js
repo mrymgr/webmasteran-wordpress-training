@@ -15,7 +15,7 @@ model = {
      */
     init: function () {
         this.updateLocalStore(jsonData);
-        console.log(this.getPosts());
+        //console.log(this.getPosts());
         //this.removeLocalStore();
     },
 
