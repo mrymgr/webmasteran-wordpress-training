@@ -8,13 +8,14 @@
  * The main app object.
  *
  */
-var vanillaPress = {
+let vanillaPress = {
 
   init: function() {
 
     // Add any functions here you want
     // to run to start the application
-    console.log( jsonData );
+    //console.log( jsonData );
+      model.init();
 
   }
 
