@@ -16,6 +16,7 @@ let vanillaPress = {
     // to run to start the application
     //console.log( jsonData );
       model.init();
+      view.init();
 
   }
 

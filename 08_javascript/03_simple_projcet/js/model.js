@@ -51,7 +51,6 @@ model = {
      * Delete data from local store
      *
      */
-
     removeLocalStore: function () {
         localStorage.removeItem(this.modelName);
     }

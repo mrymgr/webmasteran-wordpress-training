@@ -28,9 +28,10 @@ let view = {
         let postMarkup = document.createDocumentFragment(),
             primaryContentEl = helpers.getPageContentEl();
         for (let i = 0 , max = this.posts.length; i < max ; i++) {
-            console.log('yes:' + i);
             postMarkup.appendChild(this.createPostMarkup(this.posts[i]))
+
         }
+        primaryContentEl.appendChild(postMarkup);
 
     },
 
@@ -42,8 +43,23 @@ let view = {
      */
     createPostMarkup: function (post) {
 
-        console.log(post);
+        let articleEl = document.createElement('article'),
+            titleEl = document.createElement('h3'),
+            titleLink = document.createElement('a'),
+            titleText = document.createTextNode(post.title),
+            contentEl = document.createElement('div');
+
+        titleLink.appendChild(titleText);
+        titleLink.href = '#' + post.slug;
+        titleEl.appendChild(titleLink);
+
+        contentEl.appendChild(document.createTextNode(post.content));
+
+        articleEl.appendChild(titleEl);
+        articleEl.appendChild(contentEl);
+
+        return articleEl;
+
     }
 };
 
-view.init();

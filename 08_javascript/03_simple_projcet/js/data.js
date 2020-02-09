@@ -1,7 +1,7 @@
 /**
  * Main JSON object of posts, pages and settings
  */
-var posts =
+let posts =
         [
             {
                 "id": 1,
@@ -10,7 +10,7 @@ var posts =
                 "slug": "hello-world",
                 "type": "posts",
                 "title": "Hello world!",
-                "content": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p> "
+                "content": "Welcome to WordPress. This is your first post. Edit or delete it, then start writing! "
             },
             {
                 "id": 2,
@@ -19,7 +19,7 @@ var posts =
                 "slug": "learning-javascript",
                 "type": "posts",
                 "title": "Learning JavaScript!",
-                "content": "<p>I'm learning JavaScript and super excited!!!</p> "
+                "content": "I'm learning JavaScript and super excited!!! "
             },
             {
                 "id": 3,
@@ -28,7 +28,7 @@ var posts =
                 "slug": "rest-api",
                 "type": "posts",
                 "title": "The REST API!",
-                "content": "<p>I've started working with the REST API in WordPress, what fun!</p> "
+                "content": "I've started working with the REST API in WordPress, what fun! "
             },
             {
                 "id": 4,
@@ -37,7 +37,7 @@ var posts =
                 "slug": "json-data",
                 "type": "posts",
                 "title": "JSON Data!",
-                "content": "<p>So, with the REST API it is posible to pull in WordPress data as pure JSON.  Now I'm figuring out what to do with the data</p> "
+                "content": "So, with the REST API it is posible to pull in WordPress data as pure JSON.  Now I'm figuring out what to do with the data "
             },
             {
                 "id": 5,
@@ -46,7 +46,7 @@ var posts =
                 "slug": "javascript-project",
                 "type": "posts",
                 "title": "JavaScript Project",
-                "content": "<p>I've started working with the REST API in WordPress, what fun!</p> "
+                "content": "I've started working with the REST API in WordPress, what fun! "
             },
             {
                 "id": 6,
@@ -55,7 +55,17 @@ var posts =
                 "slug": "gholam-project",
                 "type": "posts",
                 "title": "Gholam Project",
-                "content": "<p>Gholam has started working with the REST API in WordPress, what fun!</p> "
+                "content": "Gholam has started working with the REST API in WordPress, what fun! "
+            }
+            ,
+            {
+                "id": 7,
+                "date": "2019-01-13T22:05:09",
+                "modified": "2019-01-13T22:05:09",
+                "slug": "Gholam-sun-project",
+                "type": "posts",
+                "title": "Gholam sun Project",
+                "content": "Gholam sun has started working with the REST API in WordPress, what fun! "
             }
         ],
     jsonData = JSON.stringify(posts);
