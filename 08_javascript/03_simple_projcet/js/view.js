@@ -10,8 +10,8 @@
 let view = {
 
     /**
-   	 * @var posts array of post objects
-   	 */
+     * @var posts array of post objects
+     */
     posts: model.getPosts(),
     /**
      * Init function for view object
@@ -27,7 +27,7 @@ let view = {
     loadBlogPosts: function () {
         let postMarkup = document.createDocumentFragment(),
             primaryContentEl = helpers.getPageContentEl();
-        for (let i = 0 , max = this.posts.length; i < max ; i++) {
+        for (let i = 0, max = this.posts.length; i < max; i++) {
             postMarkup.appendChild(this.createPostMarkup(this.posts[i]))
 
         }
@@ -59,6 +59,19 @@ let view = {
         articleEl.appendChild(contentEl);
 
         return articleEl;
+
+    },
+
+    /**
+     * Clears title and main content from page
+     *
+     *
+     */
+    clearContent: function () {
+        let titleEl = helpers.getPageTitleEl(),
+            contentEl = helpers.getPageContentEl();
+        titleEl.innerHTML = '';
+        contentEl.innerHTML = '';
 
     }
 };
