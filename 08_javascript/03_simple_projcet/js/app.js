@@ -1,28 +1,28 @@
-
+"use strict";
 /**
  * Main app file.  Initializes app components.
  */
 
 
 /**
- * The main app object.
+ * The main app class.
  *
  */
-let vanillaPress = {
 
-  init: function() {
+class VanillaPress {
+    init() {
+        // Add any functions here you want
+        // to run to start the application
+        //console.log( jsonData );
+        //console.log(model);
+        model.init();
+        view.init();
+        router.init();
 
-    // Add any functions here you want
-    // to run to start the application
-    //console.log( jsonData );
-      model.init();
-      router.init();
-      view.init();
 
-  }
+    }
+}
 
-};
-
+let vanillaPress = new VanillaPress();
 vanillaPress.init();
 
-// Add your custom code starting here:

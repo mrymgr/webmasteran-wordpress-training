@@ -322,7 +322,7 @@ body {
   -moz-flex-direction: row;
   flex-direction: row;
   -ms-flex-direction: row;
-  height: 100vh;
+  /*height: 100vh;*/
   background-color: #000;
 }
 #wrapper #editor {

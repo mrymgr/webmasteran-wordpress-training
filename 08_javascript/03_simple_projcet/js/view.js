@@ -1,39 +1,48 @@
+"use strict";
 /**
  * View file for displaying content
  * */
 
 /**
- * Main view object
+ * Main View class
  *
+ * @property array {posts} Array of posts for view object
  * */
-
-let view = {
+class View {
 
     /**
-     * @var posts array of post objects
+     * class constructor method
      */
-    posts: model.getPosts(),
+    constructor() {
+        /**
+         * @var posts array of post objects
+         */
+        this.posts = model.getPosts()
+    }
+
+
     /**
      * Init function for view object
      */
-    init: function () {
+    init() {
 
         this.loadBlogPosts();
-    },
+    }
 
     /**
      * Get blog post and appends them to the page.
      */
-    loadBlogPosts: function () {
+    loadBlogPosts() {
         let postMarkup = document.createDocumentFragment(),
-            primaryContentEl = helpers.getPageContentEl();
+            primaryContentEl = Helpers.getPageContentEl();
+        this.posts = model.getPosts();
         for (let i = 0, max = this.posts.length; i < max; i++) {
             postMarkup.appendChild(this.createPostMarkup(this.posts[i]))
 
         }
         primaryContentEl.appendChild(postMarkup);
 
-    },
+    }
 
     /**
      * Create Markup for blog posts
@@ -41,7 +50,7 @@ let view = {
      * @param object {post} Post to create markup
      * @return object {articleEl} Final post markup
      */
-    createPostMarkup: function (post) {
+    createPostMarkup(post) {
 
         let articleEl = document.createElement('article'),
             titleEl = document.createElement('h3'),
@@ -60,19 +69,21 @@ let view = {
 
         return articleEl;
 
-    },
+    }
 
     /**
      * Clears title and main content from page
      *
      *
      */
-    clearContent: function () {
-        let titleEl = helpers.getPageTitleEl(),
-            contentEl = helpers.getPageContentEl();
+    clearContent() {
+        let titleEl = Helpers.getPageTitleEl(),
+            contentEl = Helpers.getPageContentEl();
         titleEl.innerHTML = '';
         contentEl.innerHTML = '';
 
     }
-};
+}
+
+let view = new View();
 

@@ -1,26 +1,31 @@
+"use strict";
 /**
  * Helper file for extra helper function
  * */
 
-let helpers = {
 
-    init: function () {
-    },
+/**
+ *
+ */
+class Helpers {
+    init() {
+    }
 
     /**
      * get content with 'pageContent' id
      */
-    getPageContentEl: function () {
+    static getPageContentEl() {
         return document.getElementById('pageContent');
-    },
+    }
 
     /**
      * get pageTitle with 'pageTitle' id
      */
-    getPageTitleEl: function () {
+    static getPageTitleEl() {
         return document.getElementById('pageTitle');
     }
-};
+
+}
 
 //to test returns of helpers object methods
 /*console.log(helpers.getPageContentEl());;

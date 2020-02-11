@@ -1,61 +1,74 @@
+"use strict";
 /**
  * Model file for working with data
  * */
 
 /**
- * Main Model Object
+ * Main Model class
+ *
+ * @see https://googlechrome.github.io/samples/classes-es6/
+ * @property string    {modelName} Name of model object
+ * @property array {posts} Array of posts for model object
  * */
-let model;
-model = {
+class Model{
 
-    modelName: 'gholamPress',
     /**
-     * Init model object in our app
+     * class constructor method
+     */
+    constructor() {
+        this.modelName = 'gholamPress';
+        this.posts = [];
+    }
+
+    /**
+     * Init model object in app
      *
      */
-    init: function () {
+    init() {
         this.updateLocalStore(jsonData);
-        //console.log(this.getPosts());
+        this.posts = this.getLocalStore();
         //this.removeLocalStore();
-    },
+    }
 
     /**
      * Gets posts from local store
      *
      * @return posts {array} An array of post objects
      */
-    getPosts: function () {
-        let posts = this.getLocalStore();
-        return posts;
-    },
+    getPosts() {
+        //let posts = this.getLocalStore();
+        return this.posts;
+    }
 
     /**
      * Gets content from local store
      *
      * @return store {object} object or array of object of site data
      */
-    getLocalStore: function () {
+    getLocalStore() {
         return JSON.parse(localStorage.getItem(this.modelName));
-    },
+    }
 
     /**
      * Save temporary store to local storage
      *
      * @param store {string} JSON string of data to store
      */
-    updateLocalStore: function (store) {
+    updateLocalStore(store) {
         localStorage.setItem(this.modelName, store);
-    },
+    }
 
     /**
      * Delete data from local store
      *
      */
-    removeLocalStore: function () {
+    removeLocalStore() {
         localStorage.removeItem(this.modelName);
     }
 
+}
 
-};
+let model = new Model();
+
 
 
