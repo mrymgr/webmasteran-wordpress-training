@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /**
  * Model file for working with data
  * */

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /**
  * Helper file for extra helper function
  * */

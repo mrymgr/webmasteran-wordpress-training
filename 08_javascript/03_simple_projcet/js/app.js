@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /**
  * Main app file.  Initializes app components.
  */

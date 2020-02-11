@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /**
  * View file for displaying content
  * */
