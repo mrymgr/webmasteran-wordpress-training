@@ -18,7 +18,8 @@ class View {
         /**
          * @var posts array of post objects
          */
-        this.posts = model.getPosts()
+        this.posts = model.getPosts();
+        this.pages = model.getPages();
     }
 
 
@@ -27,7 +28,7 @@ class View {
      */
     init() {
 
-        this.loadBlogPosts();
+        this.createMainMenu();
     }
 
     /**
@@ -98,7 +99,27 @@ class View {
         contentEl.innerHTML = '';
 
     }
+
+    /**
+     * Create Main Menu links for pages
+     *
+     */
+    createMainMenu() {
+        let menuMarkup = document.createDocumentFragment(),
+            mainMenuEl = Helpers.getMainMenuEl();
+        /*this.pages = model.getPages();*/
+        for( let i = 0 , max = this.pages.length ; i < max ; i++) {
+            menuMarkup.appendChild(Helpers.createMenuItem(this.pages[i]));
+
+        }
+        mainMenuEl.appendChild(menuMarkup);
+
+    }
+
+
 }
 
 let view = new View();
+
+
 

@@ -88,5 +88,5 @@ let posts =
                 "content": "Drop me a line with any questions :)"
             }
         ],
-jsonData = JSON.stringify({"posts": posts, "pages": pages});
+data = {"posts": posts, "pages": pages};
 

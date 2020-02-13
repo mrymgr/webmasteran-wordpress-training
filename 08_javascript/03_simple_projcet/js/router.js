@@ -39,6 +39,7 @@ class Router {
      */
     loadContent() {
         let slug = router.getSlug();
+
         view.clearContent();
         if (null === slug) {
             view.loadBlogPosts();
