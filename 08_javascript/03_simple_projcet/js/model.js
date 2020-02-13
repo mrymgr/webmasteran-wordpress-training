@@ -19,6 +19,7 @@ class Model {
     constructor() {
         this.modelName = 'gholamPress';
         this.posts = [];
+        this.pages = [];
     }
 
     /**
@@ -27,7 +28,11 @@ class Model {
      */
     init() {
         this.updateLocalStore(jsonData);
-        this.posts = this.getLocalStore();
+        console.log(jsonData);
+        this.posts = this.getLocalStore().posts;
+        this.pages = this.getLocalStore().pages;
+        console.log(this.posts);
+        console.log(this.pages);
         //this.removeLocalStore();
     }
 
