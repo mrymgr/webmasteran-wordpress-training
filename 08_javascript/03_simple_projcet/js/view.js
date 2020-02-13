@@ -1,4 +1,5 @@
 'use strict';
+
 /**
  * View file for displaying content
  * */
@@ -44,11 +45,25 @@ class View {
 
     }
 
+
+    /**
+     * Load a single blog post
+     *
+     * @param {string} slug  Post to create markup
+     */
+    loadBlogPost(slug) {
+        let post = model.getPost(slug),
+            titleEl = Helpers.getPageTitleEl(),
+            contentEl = Helpers.getPageContentEl();
+        titleEl.innerHTML = post.title;
+        contentEl.innerHTML = post.content;
+    }
+
     /**
      * Create Markup for blog posts
      *
-     * @param object {post} Post to create markup
-     * @return object {articleEl} Final post markup
+     * @param {object} post Post to create markup
+     * @return {object} articleEl Final post markup
      */
     createPostMarkup(post) {
 

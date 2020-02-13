@@ -16,7 +16,6 @@ class VanillaPress {
         //console.log( jsonData );
         //console.log(model);
         model.init();
-        view.init();
         router.init();
 
 

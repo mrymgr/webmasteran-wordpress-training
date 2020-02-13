@@ -43,7 +43,9 @@ class Router {
         if (null === slug) {
             view.loadBlogPosts();
         } else {
-            console.log('load post' + slug);
+            /*console.log('load post' + slug);
+            console.log(model.getPost(slug));*/
+            view.loadBlogPost(slug);
         }
 
     }

@@ -1,4 +1,5 @@
 'use strict';
+
 /**
  * Model file for working with data
  * */
@@ -10,7 +11,7 @@
  * @property string    {modelName} Name of model object
  * @property array {posts} Array of posts for model object
  * */
-class Model{
+class Model {
 
     /**
      * class constructor method
@@ -38,6 +39,22 @@ class Model{
     getPosts() {
         //let posts = this.getLocalStore();
         return this.posts;
+    }
+
+    /**
+     * Get a single post based on URL
+     *
+     * @param slug {string} The slug for the Post
+     * @return post {object} Single post object
+     */
+    getPost(slug) {
+        for (let i = 0, max = this.posts.length; i < max; i++) {
+            if (slug === this.posts[i].slug ) {
+                return this.posts[i];
+            }
+        }
+        return null;
+
     }
 
     /**
