@@ -18,7 +18,7 @@ class VanillaPress {
         model.init();
         view.init();
         router.init();
-
+        editor.init();
 
     }
 }

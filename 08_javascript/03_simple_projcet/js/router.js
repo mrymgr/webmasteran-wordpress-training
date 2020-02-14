@@ -11,6 +11,10 @@
  */
 class Router {
 
+    constructor() {
+        this.slug = window.location.hash;
+    }
+
     /**
      * Initialized the router
      */
@@ -26,11 +30,11 @@ class Router {
      * @return slug {string} Slug for content
      */
     getSlug() {
-        let slug = window.location.hash;
-        if ("" === slug) {
+        this.slug = window.location.hash;
+        if ("" === this.slug) {
             return null;
         } else {
-            return slug.substring(1);
+            return this.slug.substring(1);
         }
     }
 
@@ -38,17 +42,14 @@ class Router {
      * Determines what to load in the view
      */
     loadContent() {
-        let slug = router.getSlug();
-
+        this.slug = this.getSlug();
         view.clearContent();
-        if (null === slug) {
+        if (null === this.slug) {
             view.loadSingleContent('home');
-        } else if ( 'blog' === slug ){
+        } else if ( 'blog' === this.slug ){
             view.loadBlogPosts();
         } else {
-            /*console.log('load post' + slug);
-            console.log(model.getPost(slug));*/
-            view.loadSingleContent(slug);
+            view.loadSingleContent(this.slug);
         }
 
     }
@@ -58,7 +59,7 @@ class Router {
      *
      */
     listenPageChange() {
-        window.addEventListener('hashchange', this.loadContent, false)
+        window.addEventListener('hashchange', this.loadContent.bind(this), false)
     }
 
 }

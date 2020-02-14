@@ -64,6 +64,22 @@ class Helpers {
 
     }
 
+    /**
+     * Gets the editor element in the DOM
+     * @return {object} Main editor DOM object
+     */
+    static getEditorEl() {
+        return document.getElementById('editor');
+    }
+
+    /**
+     * Gets the editor toggle element in the DOM
+     * @return {object} Main editor DOM object
+     */
+    static getEditorToggleEl() {
+        return document.getElementById('editorToggle');
+    }
+
 }
 
 //to test returns of helpers object methods
