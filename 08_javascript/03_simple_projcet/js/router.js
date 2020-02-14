@@ -42,11 +42,13 @@ class Router {
 
         view.clearContent();
         if (null === slug) {
+            view.loadSingleContent('home');
+        } else if ( 'blog' === slug ){
             view.loadBlogPosts();
         } else {
             /*console.log('load post' + slug);
             console.log(model.getPost(slug));*/
-            view.loadBlogPost(slug);
+            view.loadSingleContent(slug);
         }
 
     }

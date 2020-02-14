@@ -48,16 +48,26 @@ class View {
 
 
     /**
-     * Load a single blog post
+     * Load a single blog post or page
      *
      * @param {string} slug  Post to create markup
      */
-    loadBlogPost(slug) {
-        let post = model.getPost(slug),
+    loadSingleContent(slug) {
+        let contentObj = model.getPost(slug),
             titleEl = Helpers.getPageTitleEl(),
             contentEl = Helpers.getPageContentEl();
-        titleEl.innerHTML = post.title;
-        contentEl.innerHTML = post.content;
+        if  (null === contentObj) {
+            contentObj = model.getPage(slug);
+        }
+
+        if ( null === contentObj ) {
+            contentObj = {
+                title: '404 Error',
+                content: 'Content not found in this site!!!'
+            }
+        }
+        titleEl.innerHTML = contentObj.title;
+        contentEl.innerHTML = contentObj.content;
     }
 
     /**
