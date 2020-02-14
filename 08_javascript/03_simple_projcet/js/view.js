@@ -50,7 +50,7 @@ class View {
     /**
      * Load a single blog post or page
      *
-     * @param {string} slug  Post to create markup
+     * @param {String} slug  Post to create markup
      */
     loadSingleContent(slug) {
         let contentObj = model.getPost(slug),
@@ -73,8 +73,8 @@ class View {
     /**
      * Create Markup for blog posts
      *
-     * @param {object} post Post to create markup
-     * @return {object} articleEl Final post markup
+     * @param {Object} post Post to create markup
+     * @return {Object} articleEl Final post markup
      */
     createPostMarkup(post) {
 

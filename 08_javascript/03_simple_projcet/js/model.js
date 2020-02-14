@@ -46,8 +46,8 @@ class Model {
     /**
      * Get a single post based on URL
      *
-     * @param {string} slug  The slug for the Post
-     * @return {object} post  Single post object
+     * @param {String} slug  The slug for the Post
+     * @return {Object} post  Single post object
      */
     getPost(slug) {
         for (let i = 0, max = this.posts.length; i < max; i++) {
@@ -71,8 +71,8 @@ class Model {
     /**
      * Get a page based on URL
      *
-     * @param {string} slug  The slug for the page
-     * @return {object} page  Single page object
+     * @param {String} slug  The slug for the page
+     * @return {Object} page  Single page object
      */
     getPage(slug) {
         for (let i = 0, max = this.pages.length; i < max; i++) {
@@ -87,7 +87,7 @@ class Model {
     /**
      * Gets content from local store
      *
-     * @return {object} store  object or array of object of site data
+     * @return {Object} store  object or array of object of site data
      */
     getLocalStore() {
         return JSON.parse(localStorage.getItem(this.modelName));
@@ -96,7 +96,7 @@ class Model {
     /**
      * Save temporary store to local storage
      *
-     * @param {string} store  JSON string of data to store
+     * @param {String} store  JSON string of data to store
      */
     updateLocalStore(store) {
         localStorage.setItem(this.modelName, JSON.stringify(store));

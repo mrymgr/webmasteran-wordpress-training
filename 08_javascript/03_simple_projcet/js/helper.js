@@ -36,8 +36,8 @@ class Helpers {
     /**
      * Create a list item with a link inside for menus
      *
-     * @param {object} contentObj
-     * @return {object} menuItemEl list item DOM object
+     * @param {Object} contentObj
+     * @return {Object} menuItemEl list item DOM object
      */
     static createMenuItem(contentObj) {
         let menuItemEl = document.createElement('li');
@@ -48,8 +48,8 @@ class Helpers {
     /**
      * Create link
      *
-     * @param  {object} contentObj Page or post object to create link for
-     * @return {object} linkEl Link object
+     * @param  {Object} contentObj Page or post object to create link for
+     * @return {Object} linkEl Link object
      */
     static createLink(contentObj) {
         let linkEl = document.createElement('a'),
@@ -66,7 +66,7 @@ class Helpers {
 
     /**
      * Gets the editor element in the DOM
-     * @return {object} Main editor DOM object
+     * @return {Object} Main editor DOM object
      */
     static getEditorEl() {
         return document.getElementById('editor');
@@ -74,7 +74,7 @@ class Helpers {
 
     /**
      * Gets the editor toggle element in the DOM
-     * @return {object} Main editor DOM object
+     * @return {Object} Main editor DOM object
      */
     static getEditorToggleEl() {
         return document.getElementById('editorToggle');

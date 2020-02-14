@@ -34,7 +34,7 @@ class Editor {
 
     /**
      * Control the toggle for editor
-     * @return {object} Main toggle element
+     * @return {Object} Main toggle element
      */
     toggle(event) {
         this.editorEl.classList.toggle('hidden');

@@ -27,7 +27,7 @@ class Router {
     /**
      * Gets the slug from the url
      *
-     * @return slug {string} Slug for content
+     * @return slug {String} Slug for content
      */
     getSlug() {
         this.slug = window.location.hash;
