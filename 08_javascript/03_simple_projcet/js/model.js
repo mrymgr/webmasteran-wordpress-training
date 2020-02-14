@@ -27,7 +27,9 @@ class Model {
      *
      */
     init() {
-        this.updateLocalStore(data);
+        if (null === localStorage.getItem(this.modelName)) {
+            this.updateLocalStore(data);
+        }
         this.posts = this.getLocalStore().posts;
         this.pages = this.getLocalStore().pages;
         //this.removeLocalStore();
@@ -85,6 +87,41 @@ class Model {
     }
 
     /**
+     * Get a single post or page based on url slug
+     *
+     * @param {String} slug The slug for a post or page
+     * @return {Object} contentObj Single post or page
+     */
+    getContent(slug) {
+        let contentObj = this.getPost(slug);
+        if (null === contentObj) {
+            contentObj = model.getPage(slug);
+        }
+
+        if (null === contentObj) {
+            contentObj = {
+                title: '404 Error',
+                content: 'Content not found in this site!!!'
+            }
+        }
+        return contentObj;
+    }
+
+    /**
+     * Get a single post or page based on the current url
+     *
+     * @return {Object} contentObj single post or page
+     */
+    getCurrentContent() {
+        let slug = router.getSlug();
+        if (null === slug) {
+            slug = 'home'
+        }
+
+        return this.getContent(slug);
+    }
+
+    /**
      * Gets content from local store
      *
      * @return {Object} store  object or array of object of site data
@@ -99,7 +136,46 @@ class Model {
      * @param {String} store  JSON string of data to store
      */
     updateLocalStore(store) {
+
         localStorage.setItem(this.modelName, JSON.stringify(store));
+    }
+
+    /**
+     * Update post or page in local storage
+     *
+     * @param {Object} contentObj Content object to update
+     */
+    updateContent(contentObj) {
+        let store = this.getLocalStore(),
+            date = new Date();
+        if ('post' === contentObj.type) {
+            store = this.updateTempStore(store, 'posts', contentObj, date);
+        } else {
+            store = this.updateTempStore(store, 'pages', contentObj, date);
+        }
+        console.log(store);
+        this.updateLocalStore(store);
+
+    }
+
+    /**
+     * Update store temporary
+     *
+     * @param {Object} store Local storage contents of posts and pages
+     * @param {Object} type object of page
+     * @param {Object} contentObj content Object
+     * @param {Object} date date Object
+     * @return {Object} Object of posts and pages
+     */
+    updateTempStore(store, type, contentObj, date) {
+        store[type].forEach(function (content) {
+            if (content.id === contentObj.id) {
+                content.title = contentObj.title;
+                content.content = contentObj.content;
+                content.modified = date.toISOString();
+            }
+        });
+        return store;
     }
 
     /**
@@ -112,7 +188,7 @@ class Model {
 
 }
 
-var model = new Model();
+let model = new Model();
 
 
 

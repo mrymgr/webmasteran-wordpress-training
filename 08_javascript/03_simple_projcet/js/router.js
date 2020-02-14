@@ -43,6 +43,7 @@ class Router {
      */
     loadContent() {
         this.slug = this.getSlug();
+
         view.clearContent();
         if (null === this.slug) {
             view.loadSingleContent('home');
@@ -51,6 +52,7 @@ class Router {
         } else {
             view.loadSingleContent(this.slug);
         }
+        editor.fillEditoForm( model.getCurrentContent());
 
     }
 

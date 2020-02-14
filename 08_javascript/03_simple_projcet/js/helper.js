@@ -80,6 +80,30 @@ class Helpers {
         return document.getElementById('editorToggle');
     }
 
+    /**
+     * Gets editor title field element
+     * @return {Object} Title field
+     */
+    static getEditorTitleEl() {
+        return document.getElementById('editTitle');
+    }
+
+    /**
+     * Gets editor content field element
+     * @return {Object} Content field
+     */
+    static getEditorContentEl() {
+        return document.getElementById('editContent');
+    }
+
+    /**
+     * Gets editor update button
+     * @return {Object} update button object
+     */
+    static getEditorUpdateButtonEl() {
+        return document.getElementById('editUpdateBtn');
+    }
+
 }
 
 //to test returns of helpers object methods

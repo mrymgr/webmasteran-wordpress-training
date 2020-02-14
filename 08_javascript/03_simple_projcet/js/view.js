@@ -53,19 +53,10 @@ class View {
      * @param {String} slug  Post to create markup
      */
     loadSingleContent(slug) {
-        let contentObj = model.getPost(slug),
+        let contentObj = model.getContent(slug),
             titleEl = Helpers.getPageTitleEl(),
             contentEl = Helpers.getPageContentEl();
-        if  (null === contentObj) {
-            contentObj = model.getPage(slug);
-        }
 
-        if ( null === contentObj ) {
-            contentObj = {
-                title: '404 Error',
-                content: 'Content not found in this site!!!'
-            }
-        }
         titleEl.innerHTML = contentObj.title;
         contentEl.innerHTML = contentObj.content;
     }
@@ -124,6 +115,26 @@ class View {
         }
         mainMenuEl.appendChild(menuMarkup);
 
+    }
+
+    /**
+     * Update the main title for page or post from form editor
+     */
+    updateTitleFromForm() {
+        let titleEl = Helpers.getPageTitleEl(),
+            title = Helpers.getEditorTitleEl().value;
+        titleEl.innerHTML = title;
+        editor.currentContent.title = title;
+    }
+
+    /**
+     * Update the main content for page or post from form editor
+     */
+    updateContentFromForm() {
+        let contentEl = Helpers.getPageContentEl(),
+            content = Helpers.getEditorContentEl().value;
+        contentEl.innerHTML = content;
+        editor.currentContent.content = content;
     }
 
 
