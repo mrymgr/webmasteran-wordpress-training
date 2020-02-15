@@ -104,6 +104,14 @@ class Helpers {
         return document.getElementById('editUpdateBtn');
     }
 
+    /**
+     * Get all links in page
+     * @return {object[]} All link elements
+     */
+    static getLinks() {
+        return document.querySelectorAll('a');
+    }
+
 }
 
 //to test returns of helpers object methods

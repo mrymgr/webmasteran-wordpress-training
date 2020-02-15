@@ -14,19 +14,11 @@
 class Model {
 
     /**
-     * class constructor method
-     */
-    constructor() {
-        this.modelName = 'gholamPress';
-        this.posts = this.getLocalStore().posts;
-        this.pages = this.getLocalStore().pages;
-    }
-
-    /**
      * Init model object in app
      *
      */
     init() {
+        this.modelName = 'gholamPress';
         if (null === localStorage.getItem(this.modelName)) {
             this.updateLocalStore(data);
         }
@@ -153,7 +145,6 @@ class Model {
         } else {
             store = this.updateTempStore(store, 'pages', contentObj, date);
         }
-        console.log(store);
         this.updateLocalStore(store);
 
     }

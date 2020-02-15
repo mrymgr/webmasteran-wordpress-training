@@ -43,16 +43,19 @@ class Router {
      */
     loadContent() {
         this.slug = this.getSlug();
-
         view.clearContent();
         if (null === this.slug) {
             view.loadSingleContent('home');
-        } else if ( 'blog' === this.slug ){
+        } else if ('blog' === this.slug) {
             view.loadBlogPosts();
         } else {
             view.loadSingleContent(this.slug);
         }
-        editor.fillEditoForm( model.getCurrentContent());
+
+        if (false === editor.toggleEl.classList.contains('hidden')) {
+            editor.fillEditoForm(model.getCurrentContent());
+        }
+
 
     }
 

@@ -11,23 +11,16 @@
  * */
 class View {
 
-    /**
-     * class constructor method
-     */
-    constructor() {
-        /**
-         * @var posts array of post objects
-         */
-        this.posts = model.getPosts();
-        this.pages = model.getPages();
-    }
-
 
     /**
      * Init function for view object
      */
     init() {
-
+        /**
+         * @var posts array of post objects
+         */
+        this.posts = model.getPosts();
+        this.pages = model.getPages();
         this.createMainMenu();
     }
 
@@ -109,7 +102,7 @@ class View {
         let menuMarkup = document.createDocumentFragment(),
             mainMenuEl = Helpers.getMainMenuEl();
         /*this.pages = model.getPages();*/
-        for( let i = 0 , max = this.pages.length ; i < max ; i++) {
+        for (let i = 0, max = this.pages.length; i < max; i++) {
             menuMarkup.appendChild(Helpers.createMenuItem(this.pages[i]));
 
         }
@@ -120,21 +113,19 @@ class View {
     /**
      * Update the main title for page or post from form editor
      */
-    updateTitleFromForm() {
-        let titleEl = Helpers.getPageTitleEl(),
-            title = Helpers.getEditorTitleEl().value;
+    updateTitle(title) {
+        let titleEl = Helpers.getPageTitleEl();
         titleEl.innerHTML = title;
-        editor.currentContent.title = title;
+
+
     }
 
     /**
      * Update the main content for page or post from form editor
      */
-    updateContentFromForm() {
-        let contentEl = Helpers.getPageContentEl(),
-            content = Helpers.getEditorContentEl().value;
+    updateContent(content) {
+        let contentEl = Helpers.getPageContentEl();
         contentEl.innerHTML = content;
-        editor.currentContent.content = content;
     }
 
 
