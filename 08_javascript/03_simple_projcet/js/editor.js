@@ -104,14 +104,32 @@ class Editor {
      * Save content & title of editor in local storage
      */
     saveContent() {
+        event.preventDefault();
+        this.animateSaveButton();
         const title = Helpers.getEditorTitleEl().value;
         const content = Helpers.getEditorContentEl().value;
-        event.preventDefault();
         this.currentContent.title = title;
         this.currentContent.content = content;
         model.updateContent(this.currentContent);
         this.unSavedContent = false;
 
+
+    }
+
+    /**
+     * Animates the update button to mimic saving data
+     */
+    animateSaveButton() {
+        let updateButton = Helpers.getEditorUpdateButtonEl(),
+            saved = function () {
+                updateButton.innerText = 'Update';
+            },
+            saving = function () {
+                updateButton.innerText = 'Saved';
+                setTimeout(saved, 800);
+            };
+        updateButton.innerText = 'Saving...';
+        setTimeout(saving, 2000);
     }
 
     /**
