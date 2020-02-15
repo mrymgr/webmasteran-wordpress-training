@@ -28,6 +28,7 @@ class Editor {
      */
     init() {
         this.listenEditorToggle();
+        this.checkEditorHidden();
     }
 
     /**
@@ -140,9 +141,21 @@ class Editor {
         this.currentContent = model.getCurrentContent();
         this.editorEl.classList.toggle('hidden');
         this.toggleEl.classList.toggle('hidden');
-        event.preventDefault();
+        if (undefined !== event) {
+            event.preventDefault();
+        }
         if (false === this.toggleEl.classList.contains('hidden')) {
             this.fillEditoForm(this.currentContent);
+            model.updateIsEditorHidden(false);
+        } else {
+            model.updateIsEditorHidden(true);
+        }
+    }
+
+    checkEditorHidden() {
+        let isHidden = model.checkIsEditorHidden();
+        if ( false === isHidden ) {
+            this.toggle();
         }
     }
 }

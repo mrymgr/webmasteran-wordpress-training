@@ -88,5 +88,14 @@ let posts =
                 "content": "Drop me a line with any questions :)"
             }
         ],
-data = {"posts": posts, "pages": pages};
+    settings =
+        {
+            "isEditorHidden": "false"
+        },
+    data =
+        {
+            "posts": posts,
+            "pages": pages,
+            "settings": settings
+        };
 

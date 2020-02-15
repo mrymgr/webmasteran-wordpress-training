@@ -170,6 +170,27 @@ class Model {
     }
 
     /**
+     * Check local storage which is hidden or not
+     *
+     * @return {Boolean} Visibility state of editor
+     */
+    checkIsEditorHidden() {
+        let store = this.getLocalStore();
+        return store.settings.isEditorHidden;
+    }
+
+    /**
+     * Update state of isEditorHidden in local storage
+     *
+     * @param {Boolean} isHidden State of visibility of editor in browser
+     */
+    updateIsEditorHidden( isHidden ) {
+        let store = this.getLocalStore();
+        store.settings.isEditorHidden = isHidden;
+        this.updateLocalStore(store);
+    }
+
+    /**
      * Delete data from local store
      *
      */
