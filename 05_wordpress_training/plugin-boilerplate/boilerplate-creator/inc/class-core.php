@@ -91,7 +91,7 @@ class Core {
 	}
 
 	/**
-	 * Rename extra file in new plugin directory
+	 * Remove extra file in new plugin directory
 	 */
 	public function remove_extra_files() {
 		$this->file_process->remove_file( $this->settings->new_full_path . 'LICENSE.txt' );
@@ -103,12 +103,12 @@ class Core {
 	 * Rename main plugin file
 	 */
 	public function rename_main_plugin_file() {
-		rename(
+		$result = $this->file_process->rename_file(
 			$this->settings->new_full_path . 'plugin-name.php',
 			$this->settings->new_plugin_main_file_name
 		);
-
-		// TODO: log this process in future
+		$this->file_process->append( $result ['message'], $this->settings->main_log_file );
+		$this->file_process->append_section_separator( $this->settings->main_log_file );
 	}
 
 	/**
