@@ -51,19 +51,19 @@ class Core {
 		$this->set_time_zone( 'Asia/Tehran' );
 		$this->settings        = $settings;
 		$this->file_process    = $files_process;
-		$this->is_in_test_mode = true;
+		$this->is_in_test_mode = false;
 	}
 
 	public function init() {
 
 		if ( $this->is_in_test_mode ) {
-
-
+			var_dump( $this );
 		} else {
 			$this->create_new_project();
 			$this->create_new_files_and_directories();
 			$this->remove_extra_files();
 			$this->rename_main_plugin_file();
+			$this->customize_main_plugin_file();
 			var_dump( $this );
 			//TODO:
 		}
@@ -105,10 +105,79 @@ class Core {
 	public function rename_main_plugin_file() {
 		rename(
 			$this->settings->new_full_path . 'plugin-name.php',
-			$this->settings->new_full_path . str_replace( '/', '', $this->settings->new_path . '.php' )
+			$this->settings->new_plugin_main_file_name
 		);
 
 		// TODO: log this process in future
+	}
+
+	/**
+	 * Change main plugin file with new values
+	 */
+	public function customize_main_plugin_file() {
+		$search_and_replace_items = [
+			[
+				'search'  => $this->settings->old_plugin_name_in_header,
+				'replace' => $this->settings->new_plugin_name_in_header,
+			],
+			[
+				'search'  => $this->settings->old_plugin_description,
+				'replace' => $this->settings->new_plugin_description,
+			],
+			[
+				'search'  => $this->settings->old_plugin_version,
+				'replace' => $this->settings->new_plugin_version,
+			],
+			[
+				'search'  => $this->settings->old_namespace,
+				'replace' => $this->settings->new_namespace,
+			],
+			[
+				'search'  => $this->settings->old_namespace,
+				'replace' => $this->settings->new_namespace,
+			],
+			[
+				'search'  => $this->settings->old_link,
+				'replace' => $this->settings->new_link,
+			],
+			[
+				'search'  => $this->settings->old_author_name,
+				'replace' => $this->settings->new_author_name,
+			],
+			[
+				'search'  => $this->settings->old_author_uri,
+				'replace' => $this->settings->new_author_uri,
+			],
+			[
+				'search'  => $this->settings->old_author_email,
+				'replace' => $this->settings->new_author_email,
+			],
+			[
+				'search'  => $this->settings->old_main_plugin_name,
+				'replace' => $this->settings->new_main_plugin_name,
+			],
+			[
+				'search'  => $this->settings->old_plugin_name_main_name_const,
+				'replace' => $this->settings->new_plugin_name_main_name_const,
+			],
+			[
+				'search'  => $this->settings->old_plugin_name_const_prefix,
+				'replace' => $this->settings->new_plugin_name_const_prefix,
+			],
+			[
+				'search'  => $this->settings->old_plugin_name_method_prefix,
+				'replace' => $this->settings->new_plugin_name_method_prefix,
+			],
+
+
+		];
+		$result                   = $this->file_process->do_search_and_replace(
+			$this->settings->new_plugin_main_file_name,
+			$search_and_replace_items
+		);
+
+		$this->file_process->append( $result ['message'], $this->settings->main_log_file );
+		$this->file_process->append_section_separator( $this->settings->main_log_file );
 	}
 
 	/**

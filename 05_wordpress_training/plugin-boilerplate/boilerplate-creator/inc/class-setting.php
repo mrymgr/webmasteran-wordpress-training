@@ -59,7 +59,8 @@ use Boilerplate_Creator\Inc\Functions\Utility;
  * @property boolean $is_need_activation_hook
  * @property boolean $is_need_deactivation_hook
  * @property boolean $is_need_uninstall_hook
- * @property boolean $main_log_file
+ * @property string  $main_log_file
+ * @property string  $new_plugin_main_file_name
  *
  */
 class Setting {
@@ -104,6 +105,7 @@ class Setting {
 	protected $is_need_uninstall_hook;
 
 	protected $main_log_file;
+	protected $new_plugin_main_file_name;
 
 
 	public function __construct(
@@ -148,7 +150,9 @@ class Setting {
 		$this->is_need_deactivation_hook     = $initial_values['is_need_deactivation_hook'];
 		$this->is_need_uninstall_hook        = $initial_values['is_need_uninstall_hook'];
 
-		$this->main_log_file = $this->script_path . 'logs/' . "{$this->new_plugin_name_method_prefix}-creation-log-file" . date( 'Ymd' ) . '.log';
+		$this->main_log_file             = $this->script_path . 'logs/' . "{$this->new_plugin_name_method_prefix}-creation-log-file" . date( 'Ymd' )
+		                                   . '.log';
+		$this->new_plugin_main_file_name = $this->new_full_path . str_replace( '/', '', $this->new_path . '.php' );
 
 
 	}

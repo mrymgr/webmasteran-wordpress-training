@@ -319,6 +319,7 @@ class Files_Process {
 
 	/**
 	 * Bulk copy function for copying many files in one process
+	 *
 	 * @param $list_items
 	 *
 	 * @return array
@@ -426,6 +427,31 @@ class Files_Process {
 				'message' => "<< {$dir}  >> is not a valid dir!!!"
 			]
 		];
+	}
+
+	/**
+	 * Search and replace method
+	 *
+	 * @param $file_name
+	 * @param $search_and_replace_items
+	 */
+	public function do_search_and_replace( $file_name, $search_and_replace_items ) {
+		$str = file_get_contents( $file_name );
+		foreach ( $search_and_replace_items as $search_and_replace_item ) {
+			$str = str_replace( $search_and_replace_item['search'], $search_and_replace_item['replace'], $str );
+		}
+		$result = file_put_contents( $file_name, $str );
+		if ( $result === false ) {
+			return [
+				'type'    => false,
+				'message' => "Doing Search and Replace in {$file_name} was not successful at: " . date( 'Y-m-d H:i:s' ) . '!!!',
+			];
+		} else {
+			return [
+				'type'    => true,
+				'message' => "Doing Search and Replace in {$file_name} was successful at: " . date( 'Y-m-d H:i:s' ) . '.',
+			];
+		}
 	}
 
 
