@@ -4,6 +4,7 @@ namespace Boilerplate_Creator;
 require_once __DIR__ . '/vendor/autoload.php';
 
 use Boilerplate_Creator\Inc\Core;
+use Boilerplate_Creator\Inc\Functions\Files_Process;
 use Boilerplate_Creator\Inc\Setting;
 
 /**
@@ -42,7 +43,9 @@ $initial_values = [
 	'is_need_uninstall_hook'          => true,
 ];
 
-$main_settings_object = new Setting( $initial_values );
 
-
-var_dump( $main_settings_object );
+$core_object = new Core(
+	new Setting( $initial_values ),
+	new Files_Process()
+);
+$core_object->init();

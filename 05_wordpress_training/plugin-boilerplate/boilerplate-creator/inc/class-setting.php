@@ -13,6 +13,8 @@
 
 namespace Boilerplate_Creator\Inc;
 
+use Boilerplate_Creator\Inc\Functions\Utility;
+
 
 /**
  * Class Setting
@@ -23,6 +25,7 @@ namespace Boilerplate_Creator\Inc;
  * @author     Mehdi Soltani <soltani.n.mehdi@gmail.com>
  * @property string  $script_path
  * @property string  $old_path
+ * @property string  $old_full_path
  * @property string  $old_plugin_name_in_header
  * @property string  $old_plugin_description
  * @property string  $old_plugin_version
@@ -36,6 +39,7 @@ namespace Boilerplate_Creator\Inc;
  * @property string  $old_plugin_name_const_prefix
  * @property string  $old_plugin_name_method_prefix
  * @property string  $new_path
+ * @property string  $new_full_path
  * @property string  $new_plugin_name_in_header
  * @property string  $new_plugin_description
  * @property string  $new_plugin_version
@@ -55,12 +59,14 @@ namespace Boilerplate_Creator\Inc;
  * @property boolean $is_need_activation_hook
  * @property boolean $is_need_deactivation_hook
  * @property boolean $is_need_uninstall_hook
+ * @property boolean $main_log_file
  *
  */
 class Setting {
-
+	use Utility;
 	protected $script_path;
 	protected $old_path;
+	protected $old_full_path;
 	protected $old_plugin_name_in_header;
 	protected $old_plugin_description;
 	protected $old_plugin_version;
@@ -75,6 +81,7 @@ class Setting {
 	protected $old_plugin_name_method_prefix;
 
 	protected $new_path;
+	protected $new_full_path;
 	protected $new_plugin_name_in_header;
 	protected $new_plugin_description;
 	protected $new_plugin_version;
@@ -96,12 +103,15 @@ class Setting {
 	protected $is_need_deactivation_hook;
 	protected $is_need_uninstall_hook;
 
+	protected $main_log_file;
+
 
 	public function __construct(
 		$initial_values
 	) {
-		$this->script_path                     = $initial_values['script_path'];
+		$this->script_path                     = $this->trailingslashit( $initial_values['script_path'] );
 		$this->old_path                        = 'plugin-name-dir/';
+		$this->old_full_path                   = str_replace( 'boilerplate-creator/', '', $this->script_path ) . $this->old_path;
 		$this->old_plugin_name_in_header       = 'OOP WordPress Plugin Boilerplate';
 		$this->old_plugin_description          = 'Description for OOP Plugin';
 		$this->old_plugin_version              = '1.0.2';
@@ -116,6 +126,7 @@ class Setting {
 		$this->old_plugin_name_method_prefix   = 'plugin_name';
 
 		$this->new_path                        = $initial_values['new_path'];
+		$this->new_full_path                   = str_replace( 'boilerplate-creator/', '', $this->script_path ) . $this->new_path;
 		$this->new_plugin_name_in_header       = $initial_values['new_plugin_name_in_header'];
 		$this->new_plugin_description          = $initial_values['new_plugin_description'];
 		$this->new_plugin_version              = $initial_values['new_plugin_version'];
@@ -136,6 +147,8 @@ class Setting {
 		$this->is_need_activation_hook       = $initial_values['is_need_activation_hook'];
 		$this->is_need_deactivation_hook     = $initial_values['is_need_deactivation_hook'];
 		$this->is_need_uninstall_hook        = $initial_values['is_need_uninstall_hook'];
+
+		$this->main_log_file = $this->script_path . 'logs/' . "{$this->new_plugin_name_method_prefix}-creation-log-file" . date( 'Ymd' ) . '.log';
 
 
 	}
