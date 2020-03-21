@@ -4,3 +4,9 @@
 /05_wordpress_training/updater/.idea/
 /05_wordpress_training/updater/vendor/
 /05_wordpress_training/updater/temp/
+/08_javascript/03_simple_projcet/node_modules
+/08_javascript/03_simple_projcet/package.json
+/08_javascript/03_simple_projcet/package-lock.json
+/05_wordpress_training/plugin-boilerplate/plugin-name-dir/
+/.gitignore
+/05_wordpress_training/plugin-boilerplate/boilerplate-creator/vendor/
