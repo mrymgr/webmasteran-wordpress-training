@@ -59,6 +59,7 @@ class Core {
 
 		if ( $this->is_in_test_mode ) {
 
+			$this->customize_abstract_classes();
 			var_dump( $this );
 		} else {
 			$this->create_new_project();
@@ -70,6 +71,54 @@ class Core {
 			var_dump( $this );
 			//TODO:
 		}
+	}
+
+	/**
+	 * Customize abstract classes in plugin
+	 */
+	public function customize_abstract_classes() {
+
+
+		$admin_menu_search_items       = [
+			[
+				'search'  => $this->settings->old_plugin_version,
+				'replace' => $this->settings->new_plugin_version,
+			],
+			[
+				'search'  => $this->settings->old_namespace,
+				'replace' => $this->settings->new_namespace,
+			],
+			[
+				'search'  => $this->settings->old_namespace,
+				'replace' => $this->settings->new_namespace,
+			],
+			[
+				'search'  => $this->settings->old_link,
+				'replace' => $this->settings->new_link,
+			],
+			[
+				'search'  => $this->settings->old_author_name,
+				'replace' => $this->settings->new_author_name,
+			],
+			[
+				'search'  => $this->settings->old_author_uri,
+				'replace' => $this->settings->new_author_uri,
+			],
+			[
+				'search'  => $this->settings->old_author_email,
+				'replace' => $this->settings->new_author_email,
+			],
+
+		];
+		$search_and_replace_list_items = [
+			[
+				'file_name'    => $this->settings->new_abstract_file_full_path . 'class-admin-menu.php',
+				'search_items' => $admin_menu_search_items,
+			],
+		];
+		$results                       = $this->file_process->files_bulk_search_and_replace( $search_and_replace_list_items );
+		$this->file_process->several_appends( $results, $this->settings->main_log_file );
+
 	}
 
 	/**
