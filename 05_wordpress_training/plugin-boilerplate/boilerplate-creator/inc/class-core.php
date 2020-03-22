@@ -51,15 +51,13 @@ class Core {
 		$this->set_time_zone( 'Asia/Tehran' );
 		$this->settings        = $settings;
 		$this->file_process    = $files_process;
-		$this->is_in_test_mode = true;
+		$this->is_in_test_mode = false;
 	}
 
 	public function init() {
 
 
 		if ( $this->is_in_test_mode ) {
-
-			$this->customize_abstract_classes();
 			var_dump( $this );
 		} else {
 			$this->create_new_project();
@@ -68,99 +66,11 @@ class Core {
 			$this->rename_main_plugin_file();
 			$this->customize_main_plugin_file();
 			$this->rename_asset_files();
+			$this->customize_abstract_classes();
+			$this->customize_admin_classes();
 			var_dump( $this );
 			//TODO:
 		}
-	}
-
-	/**
-	 * Customize abstract classes and interfaces in plugin
-	 */
-	public function customize_abstract_classes() {
-
-
-		$general_search_items          = [
-			[
-				'search'  => $this->settings->old_plugin_version,
-				'replace' => $this->settings->new_plugin_version,
-			],
-			[
-				'search'  => $this->settings->old_namespace,
-				'replace' => $this->settings->new_namespace,
-			],
-			[
-				'search'  => $this->settings->old_namespace,
-				'replace' => $this->settings->new_namespace,
-			],
-			[
-				'search'  => $this->settings->old_link,
-				'replace' => $this->settings->new_link,
-			],
-			[
-				'search'  => $this->settings->old_author_name,
-				'replace' => $this->settings->new_author_name,
-			],
-			[
-				'search'  => $this->settings->old_author_uri,
-				'replace' => $this->settings->new_author_uri,
-			],
-			[
-				'search'  => $this->settings->old_author_email,
-				'replace' => $this->settings->new_author_email,
-			],
-
-		];
-		$search_and_replace_list_items = [
-			[
-				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-admin-menu.php',
-				'search_items' => $general_search_items,
-			],
-			[
-				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-admin-sub-menu.php',
-				'search_items' => $general_search_items,
-			],
-			[
-				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-admin-notice.php',
-				'search_items' => $general_search_items,
-			],
-			[
-				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-ajax.php',
-				'search_items' => $general_search_items, //TODO: it must be change in future
-			],
-			[
-				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-custom-post-type.php',
-				'search_items' => $general_search_items,
-			],
-			[
-				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-custom-taxonomy.php',
-				'search_items' => $general_search_items,
-			],
-			[
-				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-meta-box.php',
-				'search_items' => $general_search_items,
-			],
-			[
-				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-shortcode.php',
-				'search_items' => $general_search_items,
-			],
-			[
-				'file_name'    => $this->settings->new_interface_files_full_path . 'class-action-hook-interface.php',
-				'search_items' => $general_search_items,
-			],
-			[
-				'file_name'    => $this->settings->new_interface_files_full_path . 'class-filter-hook-interface.php',
-				'search_items' => $general_search_items,
-			],
-			[
-				'file_name'    => $this->settings->new_interface_files_full_path . 'custom-admin-columns/class-manage-post-columns.php',
-				'search_items' => $general_search_items,
-			],
-
-
-		];
-		$results                       = $this->file_process->files_bulk_search_and_replace( $search_and_replace_list_items );
-		$this->file_process->several_appends( $results, $this->settings->main_log_file );
-
 	}
 
 	/**
@@ -318,6 +228,112 @@ class Core {
 		];
 		$results           = $this->file_process->files_bulk_rename( $rename_list_items );
 		$this->file_process->several_appends( $results, $this->settings->main_log_file );
+	}
+
+	/**
+	 * Customize abstract classes and interfaces in plugin
+	 */
+	public function customize_abstract_classes() {
+		$search_and_replace_list_items = [
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-admin-menu.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-admin-sub-menu.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-admin-notice.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-ajax.php',
+				'search_items' => $this->settings->general_search_items, //TODO: it must be change in future
+			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-custom-post-type.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-custom-taxonomy.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-meta-box.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-shortcode.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_interface_files_full_path . 'class-action-hook-interface.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_interface_files_full_path . 'class-filter-hook-interface.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_interface_files_full_path . 'custom-admin-columns/class-manage-post-columns.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+
+
+		];
+		$results                       = $this->file_process->files_bulk_search_and_replace( $search_and_replace_list_items );
+		$this->file_process->several_appends( $results, $this->settings->main_log_file );
+
+	}
+
+	/**
+	 * Customize admin classes and interfaces in plugin
+	 */
+	public function customize_admin_classes() {
+		$meta_box_search_items         = [
+			[
+				'search'  => $this->settings->old_plugin_name_const_prefix . '_TEXTDOMAIN',
+				'replace' => $this->settings->new_plugin_name_const_prefix . '_TEXTDOMAIN',
+			],
+		];
+		$meta_box_search_items         = array_merge( $this->settings->general_search_items, $meta_box_search_items );
+		$admin_notice_search_items     = [
+			[
+				'search'  => $this->settings->old_small_name_with_dash,
+				'replace' => $this->settings->new_small_name_with_dash,
+			],
+		];
+		$admin_notice_search_items     = array_merge( $this->settings->general_search_items, $admin_notice_search_items );
+		$search_and_replace_list_items = [
+			[
+				'file_name'    => $this->settings->new_admin_files_full_path . 'class-admin-menu1.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_admin_files_full_path . 'class-admin-sub-menu1.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_admin_files_full_path . 'class-admin-sub-menu2.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_admin_files_full_path . 'class-meta-box3.php',
+				'search_items' => $meta_box_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_admin_files_full_path . 'class-meta-box4.php',
+				'search_items' => $meta_box_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_admin_files_full_path . 'notices/class-admin-notice1.php',
+				'search_items' => $admin_notice_search_items,
+			],
+		];
+		$results                       = $this->file_process->files_bulk_search_and_replace( $search_and_replace_list_items );
+		$this->file_process->several_appends( $results, $this->settings->main_log_file );
+
 	}
 
 	/**

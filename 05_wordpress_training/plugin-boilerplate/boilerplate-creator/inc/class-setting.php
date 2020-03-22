@@ -25,6 +25,7 @@ use Boilerplate_Creator\Inc\Functions\Utility;
  * @author     Mehdi Soltani <soltani.n.mehdi@gmail.com>
  * @property string  $script_path
  * @property string  $old_path
+ * @property string  $old_small_name_with_dash
  * @property string  $old_full_path
  * @property string  $old_plugin_name_in_header
  * @property string  $old_plugin_description
@@ -39,6 +40,7 @@ use Boilerplate_Creator\Inc\Functions\Utility;
  * @property string  $old_plugin_name_const_prefix
  * @property string  $old_plugin_name_method_prefix
  * @property string  $new_path
+ * @property string  $new_small_name_with_dash
  * @property string  $new_full_path
  * @property string  $new_plugin_name_in_header
  * @property string  $new_plugin_description
@@ -64,12 +66,15 @@ use Boilerplate_Creator\Inc\Functions\Utility;
  * @property string  $new_file_name_prefix
  * @property string  $new_abstract_files_full_path
  * @property string  $new_interface_files_full_path
+ * @property string  $new_admin_files_full_path
+ * @property array  $general_search_items
  *
  */
 class Setting {
 	use Utility;
 	protected $script_path;
 	protected $old_path;
+	protected $old_small_name_with_dash;
 	protected $old_full_path;
 	protected $old_plugin_name_in_header;
 	protected $old_plugin_description;
@@ -85,6 +90,7 @@ class Setting {
 	protected $old_plugin_name_method_prefix;
 
 	protected $new_path;
+	protected $new_small_name_with_dash;
 	protected $new_full_path;
 	protected $new_plugin_name_in_header;
 	protected $new_plugin_description;
@@ -112,6 +118,9 @@ class Setting {
 	protected $new_file_name_prefix;
 	protected $new_abstract_files_full_path;
 	protected $new_interface_files_full_path;
+	protected $new_admin_files_full_path;
+
+	protected $general_search_items;
 
 
 	public function __construct(
@@ -119,6 +128,7 @@ class Setting {
 	) {
 		$this->script_path                     = $this->trailingslashit( $initial_values['script_path'] );
 		$this->old_path                        = 'plugin-name-dir/';
+		$this->old_small_name_with_dash        = 'plugin-name';
 		$this->old_full_path                   = str_replace( 'boilerplate-creator/', '', $this->script_path ) . $this->old_path;
 		$this->old_plugin_name_in_header       = 'OOP WordPress Plugin Boilerplate';
 		$this->old_plugin_description          = 'Description for OOP Plugin';
@@ -134,6 +144,7 @@ class Setting {
 		$this->old_plugin_name_method_prefix   = 'plugin_name';
 
 		$this->new_path                        = $initial_values['new_path'];
+		$this->new_small_name_with_dash        = $initial_values['new_small_name_with_dash'];
 		$this->new_full_path                   = str_replace( 'boilerplate-creator/', '', $this->script_path ) . $this->new_path;
 		$this->new_plugin_name_in_header       = $initial_values['new_plugin_name_in_header'];
 		$this->new_plugin_description          = $initial_values['new_plugin_description'];
@@ -156,12 +167,46 @@ class Setting {
 		$this->is_need_deactivation_hook     = $initial_values['is_need_deactivation_hook'];
 		$this->is_need_uninstall_hook        = $initial_values['is_need_uninstall_hook'];
 
-		$this->main_log_file               = $this->script_path . 'logs/' . "{$this->new_plugin_name_method_prefix}-creation-log-file" . date( 'Ymd' )
-		                                     . '.log';
-		$this->new_plugin_main_file_name   = $this->new_full_path . str_replace( '/', '', $this->new_path . '.php' );
-		$this->new_file_name_prefix        = str_replace( '/', '', $this->new_path );
-		$this->new_abstract_files_full_path = $this->new_full_path . 'includes/abstracts/';
+		$this->main_log_file                 = $this->script_path . 'logs/' . "{$this->new_plugin_name_method_prefix}-creation-log-file"
+		                                       . date( 'Ymd' )
+		                                       . '.log';
+		$this->new_plugin_main_file_name     = $this->new_full_path . str_replace( '/', '', $this->new_path . '.php' );
+		$this->new_file_name_prefix          = str_replace( '/', '', $this->new_path );
+		$this->new_abstract_files_full_path  = $this->new_full_path . 'includes/abstracts/';
 		$this->new_interface_files_full_path = $this->new_full_path . 'includes/interfaces/';
+		$this->new_admin_files_full_path     = $this->new_full_path . 'includes/admin/';
+
+		$this->general_search_items = [
+			[
+				'search'  => $this->old_plugin_version,
+				'replace' => $this->new_plugin_version,
+			],
+			[
+				'search'  => $this->old_namespace,
+				'replace' => $this->new_namespace,
+			],
+			[
+				'search'  => $this->old_namespace,
+				'replace' => $this->new_namespace,
+			],
+			[
+				'search'  => $this->old_link,
+				'replace' => $this->new_link,
+			],
+			[
+				'search'  => $this->old_author_name,
+				'replace' => $this->new_author_name,
+			],
+			[
+				'search'  => $this->old_author_uri,
+				'replace' => $this->new_author_uri,
+			],
+			[
+				'search'  => $this->old_author_email,
+				'replace' => $this->new_author_email,
+			],
+
+		];
 
 
 	}

@@ -22,6 +22,7 @@ $initial_values = [
 	'script_path'                     => dirname( __FILE__ ),
 	'htaccess_config'                 => $htaccess_lite_speed_config,
 	'new_path'                        => 'restaurant-booking/',
+	'new_small_name_with_dash'        => 'restaurant-booking',
 	'new_plugin_name_in_header'       => 'Restaurant Booking',
 	'new_plugin_description'          => 'A plugin to book restaurant',
 	'new_plugin_version'              => '1.0.1',
