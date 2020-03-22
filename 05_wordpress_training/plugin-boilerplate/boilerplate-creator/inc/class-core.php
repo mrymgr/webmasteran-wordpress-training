@@ -51,12 +51,14 @@ class Core {
 		$this->set_time_zone( 'Asia/Tehran' );
 		$this->settings        = $settings;
 		$this->file_process    = $files_process;
-		$this->is_in_test_mode = false;
+		$this->is_in_test_mode = true;
 	}
 
 	public function init() {
 
+
 		if ( $this->is_in_test_mode ) {
+
 			var_dump( $this );
 		} else {
 			$this->create_new_project();
@@ -64,6 +66,7 @@ class Core {
 			$this->remove_extra_files();
 			$this->rename_main_plugin_file();
 			$this->customize_main_plugin_file();
+			$this->rename_asset_files();
 			var_dump( $this );
 			//TODO:
 		}
@@ -178,6 +181,52 @@ class Core {
 
 		$this->file_process->append( $result ['message'], $this->settings->main_log_file );
 		$this->file_process->append_section_separator( $this->settings->main_log_file );
+	}
+
+	/**
+	 * Rename asset files
+	 */
+	public function rename_asset_files() {
+		$rename_list_items = [
+			[
+				'old_name' => $this->settings->new_full_path . 'assets/admin/css/plugin-name-admin.css',
+				'new_name' => $this->settings->new_full_path . 'assets/admin/css/' . $this->settings->new_file_name_prefix . '-admin.css',
+			],
+			[
+				'old_name' => $this->settings->new_full_path . 'assets/admin/css/plugin-name-admin-ver-1.css',
+				'new_name' => $this->settings->new_full_path . 'assets/admin/css/' . $this->settings->new_file_name_prefix . '-admin-ver-1.css',
+			],
+			[
+				'old_name' => $this->settings->new_full_path . 'assets/admin/js/plugin-name-admin.js',
+				'new_name' => $this->settings->new_full_path . 'assets/admin/js/' . $this->settings->new_file_name_prefix . '-admin.js',
+			],
+			[
+				'old_name' => $this->settings->new_full_path . 'assets/admin/js/plugin-name-admin-ver-1.js',
+				'new_name' => $this->settings->new_full_path . 'assets/admin/js/' . $this->settings->new_file_name_prefix . '-admin-ver-1.js',
+			],
+			[
+				'old_name' => $this->settings->new_full_path . 'assets/css/plugin-name-public.css',
+				'new_name' => $this->settings->new_full_path . 'assets/css/' . $this->settings->new_file_name_prefix . '-public.css',
+			],
+			[
+				'old_name' => $this->settings->new_full_path . 'assets/css/plugin-name-public-ver-1.css',
+				'new_name' => $this->settings->new_full_path . 'assets/css/' . $this->settings->new_file_name_prefix . '-public-ver-1.css',
+			],
+			[
+				'old_name' => $this->settings->new_full_path . 'assets/js/plugin-name-public.js',
+				'new_name' => $this->settings->new_full_path . 'assets/js/' . $this->settings->new_file_name_prefix . '-public.js',
+			],
+			[
+				'old_name' => $this->settings->new_full_path . 'assets/js/plugin-name-public-ver-1.js',
+				'new_name' => $this->settings->new_full_path . 'assets/js/' . $this->settings->new_file_name_prefix . '-public-ver-1.js',
+			],
+			[
+				'old_name' => $this->settings->new_full_path . 'languages/plugin-name.pot',
+				'new_name' => $this->settings->new_full_path . 'languages/' . $this->settings->new_file_name_prefix . '.pot',
+			],
+		];
+		$results           = $this->file_process->files_bulk_rename( $rename_list_items );
+		$this->file_process->several_appends( $results, $this->settings->main_log_file );
 	}
 
 	/**

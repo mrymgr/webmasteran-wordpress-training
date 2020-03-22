@@ -1,0 +1,54 @@
+The directory for new plugin path was already existed.
+
+****************************
+
+The copy of directory from << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\plugin-name-dir/ >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/ >> was successful on: 2020-03-22  14:18:38.
+
+****************************
+
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/plugin-name.php >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/restaurant-booking.php >>  was successful at: 2020-03-22 14:18:38.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/restaurant-booking.php was successful at: 2020-03-22 14:18:38.
+
+****************************
+
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/admin/css/plugin-name-admin.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/admin/css/restaurant-booking-admin.css >>  was not successful at: 2020-03-22 14:32:34!!!
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/admin/css/plugin-name-admin-ver-1.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/admin/css/restaurant-booking-admin-ver-1.css >>  was not successful at: 2020-03-22 14:32:34!!!
+
+****************************
+
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/plugin-name-admin.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/restaurant-booking-admin.css >>  was successful at: 2020-03-22 14:33:48.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/plugin-name-admin-ver-1.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/restaurant-booking-admin-ver-1.css >>  was successful at: 2020-03-22 14:33:48.
+
+****************************
+
+The directory for for new plugin path was created succesfully at: 2020-03-22 14:49:09.
+
+****************************
+
+The copy of directory from << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\plugin-name-dir/ >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/ >> was successful on: 2020-03-22  14:49:10.
+
+****************************
+
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/plugin-name.php >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/restaurant-booking.php >>  was successful at: 2020-03-22 14:49:10.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/restaurant-booking.php was successful at: 2020-03-22 14:49:10.
+
+****************************
+
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/plugin-name-admin.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/restaurant-booking-admin.css >>  was successful at: 2020-03-22 14:49:10.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/plugin-name-admin-ver-1.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/restaurant-booking-admin-ver-1.css >>  was successful at: 2020-03-22 14:49:10.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/js/plugin-name-admin.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/js/restaurant-booking-admin.js >>  was successful at: 2020-03-22 14:49:10.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/js/plugin-name-admin-ver-1.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/js/restaurant-booking-admin-ver-1.js >>  was successful at: 2020-03-22 14:49:10.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/css/plugin-name-public.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/css/restaurant-booking-public.css >>  was successful at: 2020-03-22 14:49:10.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/css/plugin-name-public-ver-1.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/css/restaurant-booking-public-ver-1.css >>  was successful at: 2020-03-22 14:49:10.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/js/plugin-name-public.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/js/restaurant-booking-public.js >>  was successful at: 2020-03-22 14:49:10.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/js/plugin-name-public-ver-1.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/js/restaurant-booking-public-ver-1.js >>  was successful at: 2020-03-22 14:49:10.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/languages/plugin-name.pot >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/languages/restaurant-booking.pot >>  was successful at: 2020-03-22 14:49:10.
+
+****************************
+

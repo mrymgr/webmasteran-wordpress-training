@@ -61,6 +61,7 @@ use Boilerplate_Creator\Inc\Functions\Utility;
  * @property boolean $is_need_uninstall_hook
  * @property string  $main_log_file
  * @property string  $new_plugin_main_file_name
+ * @property string  $new_file_name_prefix
  *
  */
 class Setting {
@@ -106,6 +107,7 @@ class Setting {
 
 	protected $main_log_file;
 	protected $new_plugin_main_file_name;
+	protected $new_file_name_prefix;
 
 
 	public function __construct(
@@ -153,6 +155,7 @@ class Setting {
 		$this->main_log_file             = $this->script_path . 'logs/' . "{$this->new_plugin_name_method_prefix}-creation-log-file" . date( 'Ymd' )
 		                                   . '.log';
 		$this->new_plugin_main_file_name = $this->new_full_path . str_replace( '/', '', $this->new_path . '.php' );
+		$this->new_file_name_prefix      = str_replace( '/', '', $this->new_path );
 
 
 	}
