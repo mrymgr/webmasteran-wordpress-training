@@ -62,7 +62,8 @@ use Boilerplate_Creator\Inc\Functions\Utility;
  * @property string  $main_log_file
  * @property string  $new_plugin_main_file_name
  * @property string  $new_file_name_prefix
- * @property string  $new_abstract_file_full_path
+ * @property string  $new_abstract_files_full_path
+ * @property string  $new_interface_files_full_path
  *
  */
 class Setting {
@@ -109,7 +110,8 @@ class Setting {
 	protected $main_log_file;
 	protected $new_plugin_main_file_name;
 	protected $new_file_name_prefix;
-	protected $new_abstract_file_full_path;
+	protected $new_abstract_files_full_path;
+	protected $new_interface_files_full_path;
 
 
 	public function __construct(
@@ -158,7 +160,8 @@ class Setting {
 		                                     . '.log';
 		$this->new_plugin_main_file_name   = $this->new_full_path . str_replace( '/', '', $this->new_path . '.php' );
 		$this->new_file_name_prefix        = str_replace( '/', '', $this->new_path );
-		$this->new_abstract_file_full_path = $this->new_full_path . 'includes/abstracts/';
+		$this->new_abstract_files_full_path = $this->new_full_path . 'includes/abstracts/';
+		$this->new_interface_files_full_path = $this->new_full_path . 'includes/interfaces/';
 
 
 	}

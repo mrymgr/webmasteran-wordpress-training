@@ -74,12 +74,12 @@ class Core {
 	}
 
 	/**
-	 * Customize abstract classes in plugin
+	 * Customize abstract classes and interfaces in plugin
 	 */
 	public function customize_abstract_classes() {
 
 
-		$admin_menu_search_items       = [
+		$general_search_items          = [
 			[
 				'search'  => $this->settings->old_plugin_version,
 				'replace' => $this->settings->new_plugin_version,
@@ -112,9 +112,51 @@ class Core {
 		];
 		$search_and_replace_list_items = [
 			[
-				'file_name'    => $this->settings->new_abstract_file_full_path . 'class-admin-menu.php',
-				'search_items' => $admin_menu_search_items,
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-admin-menu.php',
+				'search_items' => $general_search_items,
 			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-admin-sub-menu.php',
+				'search_items' => $general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-admin-notice.php',
+				'search_items' => $general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-ajax.php',
+				'search_items' => $general_search_items, //TODO: it must be change in future
+			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-custom-post-type.php',
+				'search_items' => $general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-custom-taxonomy.php',
+				'search_items' => $general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-meta-box.php',
+				'search_items' => $general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-shortcode.php',
+				'search_items' => $general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_interface_files_full_path . 'class-action-hook-interface.php',
+				'search_items' => $general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_interface_files_full_path . 'class-filter-hook-interface.php',
+				'search_items' => $general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_interface_files_full_path . 'custom-admin-columns/class-manage-post-columns.php',
+				'search_items' => $general_search_items,
+			],
+
+
 		];
 		$results                       = $this->file_process->files_bulk_search_and_replace( $search_and_replace_list_items );
 		$this->file_process->several_appends( $results, $this->settings->main_log_file );
