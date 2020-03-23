@@ -51,13 +51,14 @@ class Core {
 		$this->set_time_zone( 'Asia/Tehran' );
 		$this->settings        = $settings;
 		$this->file_process    = $files_process;
-		$this->is_in_test_mode = false;
+		$this->is_in_test_mode = true;
 	}
 
 	public function init() {
 
 
 		if ( $this->is_in_test_mode ) {
+			$this->customize_database_classes();
 			var_dump( $this );
 		} else {
 			$this->create_new_project();
@@ -69,6 +70,7 @@ class Core {
 			$this->customize_abstract_classes();
 			$this->customize_admin_classes();
 			$this->customize_config_classes();
+			$this->customize_database_classes();
 			var_dump( $this );
 			//TODO:
 		}
@@ -425,72 +427,25 @@ class Core {
 	 * Customize database classes in new plugin
 	 */
 	public function customize_database_classes() {
-		$info_class_search_items       = [
+		$table_class_search_items = [
 			[
-				'search'  => 'plugin_name_prefix',
-				'replace' => $this->settings->new_plugin_name_method_prefix,
+				'search'  => 'your_table_name_in_mysql',
+				'replace' => 'new_plugin_table1',
+			],
+			[
+				'search'  => 'has_table_name',
+				'replace' => 'has_new_plugin_table1',
 			],
 		];
-		$info_class_search_items       = array_merge( $this->settings->general_search_items, $info_class_search_items );
-		$initial_values_search_items   = [
-			[
-				'search'  => $this->settings->old_plugin_name_const_prefix . '_TEXTDOMAIN',
-				'replace' => $this->settings->new_plugin_name_const_prefix . '_TEXTDOMAIN',
-			],
-			[
-				'search'  => 'msn-new-post-type',
-				'replace' => 'msn-new-post-type1',
-			],
-			[
-				'search'  => 'msn_plugin_boilerplate',
-				'replace' => $this->settings->new_plugin_name_method_prefix,
-			],
-			[
-				'search'  => 'msn_oop_boilerplate',
-				'replace' => $this->settings->new_plugin_name_method_prefix,
-			],
-			[
-				'search'  => 'msnshortcode1',
-				'replace' => 'msnnewshortcode1',
-			],
-			[
-				'search'  => 'msn_content_for_login_user',
-				'replace' => 'msn_new_content_for_login_user',
-			],
-			[
-				'search'  => 'msn_complete_shortcode',
-				'replace' => 'msn_new_complete_shortcode',
-			],
-			[
-				'search'  => 'name1',
-				'replace' => 'newname1',
-			],
-			[
-				'search'  => 'name1',
-				'replace' => 'newname1',
-			],
-			[
-				'search'  => 'sample-taxonomy1',
-				'replace' => 'sample-new-taxonomy1',
-			],
-			[
-				'search'  => $this->settings->old_small_name_with_dash,
-				'replace' => $this->settings->new_small_name_with_dash,
-			],
-		];
-		$initial_values_search_items   = array_merge( $this->settings->general_search_items, $initial_values_search_items );
+		$table_class_search_items = array_merge( $this->settings->general_search_items, $table_class_search_items );
+
 		$search_and_replace_list_items = [
 			[
-				'file_name'    => $this->settings->new_config_files_full_path . 'class-info.php',
-				'search_items' => $info_class_search_items,
-			],
-			[
-				'file_name'    => $this->settings->new_config_files_full_path . 'class-initial-value.php',
-				'search_items' => $initial_values_search_items,
+				'file_name'    => $this->settings->new_database_files_full_path . 'class-table.php',
+				'search_items' => $table_class_search_items,
 			],
 		];
 		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
-
 	}
 
 	/**
