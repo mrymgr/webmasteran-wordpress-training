@@ -58,6 +58,7 @@ class Core {
 
 
 		if ( $this->is_in_test_mode ) {
+			$this->customize_autoloader_class();
 			var_dump( $this );
 		} else {
 			$this->create_new_project();
@@ -76,6 +77,7 @@ class Core {
 			$this->customize_page_handlers_classes();
 			$this->customize_parts_classes();
 			$this->customize_uninstall_classes();
+			$this->customize_autoloader_class();
 			var_dump( $this );
 		}
 	}
@@ -665,6 +667,19 @@ class Core {
 
 		];
 		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
+	}
+
+	/**
+	 * Customize autoloader class in plugin
+	 */
+	public function customize_autoloader_class() {
+		$result = $this->file_process->do_search_and_replace(
+			$this->settings->new_includes_files_full_path . 'class-autoloader.php',
+			$this->settings->general_search_items
+		);
+
+		$this->file_process->append( $result ['message'], $this->settings->main_log_file );
+		$this->file_process->append_section_separator( $this->settings->main_log_file );
 	}
 
 	/**
