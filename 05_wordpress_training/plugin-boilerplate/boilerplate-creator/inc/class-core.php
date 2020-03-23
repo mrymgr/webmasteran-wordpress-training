@@ -74,6 +74,7 @@ class Core {
 			$this->customize_hooks_classes();
 			$this->customize_init_classes();
 			$this->customize_page_handlers_classes();
+			$this->customize_parts_classes();
 			var_dump( $this );
 		}
 	}
@@ -594,6 +595,46 @@ class Core {
 			],
 			[
 				'file_name'    => $this->settings->new_pagehandlers_files_full_path . 'class-second-page-handler.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+		];
+		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
+	}
+
+	/**
+	 * Customize parts classes in plugin
+	 */
+	public function customize_parts_classes() {
+		$complete_shortcode_search_items = [
+			[
+				'search'  => $this->settings->old_plugin_name_const_prefix . '_TEXTDOMAIN',
+				'replace' => $this->settings->new_plugin_name_const_prefix . '_TEXTDOMAIN',
+			],
+		];
+		$complete_shortcode_search_items = array_merge( $this->settings->general_search_items, $complete_shortcode_search_items );
+		$search_and_replace_list_items   = [
+			[
+				'file_name'    => $this->settings->new_parts_files_full_path . 'custom-posts/class-custom-post1.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_parts_files_full_path . 'custom-taxonomies/class-custom-taxonomy1.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_parts_files_full_path . 'other/class-remove-post-column.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_parts_files_full_path . 'shortcodes/class-complete-shortcode.php',
+				'search_items' => $complete_shortcode_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_parts_files_full_path . 'shortcodes/class-content-for-login-user-shortcode.php',
+				'search_items' => $complete_shortcode_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_parts_files_full_path . 'shortcodes/class-shortcode1.php',
 				'search_items' => $this->settings->general_search_items,
 			],
 		];
