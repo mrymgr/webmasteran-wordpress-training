@@ -1,108 +1,119 @@
-The directory for for new plugin path was created succesfully at: 2020-03-23 15:02:42.
+The directory for for new plugin path was created succesfully at: 2020-03-23 22:28:24.
 
 ****************************
 
-The copy of directory from << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\plugin-name-dir/ >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/ >> was successful on: 2020-03-23  15:02:43.
+The copy of directory from << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\plugin-name-dir/ >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/ >> was successful on: 2020-03-23  22:28:24.
 
 ****************************
 
-Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/plugin-name.php >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/restaurant-booking.php >>  was successful at: 2020-03-23 15:02:43.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/plugin-name.php >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/restaurant-booking.php >>  was successful at: 2020-03-23 22:28:24.
 
 ****************************
 
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/restaurant-booking.php was successful at: 2020-03-23 15:02:43.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/restaurant-booking.php was successful at: 2020-03-23 22:28:24.
 
 ****************************
 
-Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/plugin-name-admin.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/restaurant-booking-admin.css >>  was successful at: 2020-03-23 15:02:43.
-Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/plugin-name-admin-ver-1.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/restaurant-booking-admin-ver-1.css >>  was successful at: 2020-03-23 15:02:43.
-Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/js/plugin-name-admin.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/js/restaurant-booking-admin.js >>  was successful at: 2020-03-23 15:02:43.
-Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/js/plugin-name-admin-ver-1.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/js/restaurant-booking-admin-ver-1.js >>  was successful at: 2020-03-23 15:02:43.
-Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/css/plugin-name-public.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/css/restaurant-booking-public.css >>  was successful at: 2020-03-23 15:02:43.
-Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/css/plugin-name-public-ver-1.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/css/restaurant-booking-public-ver-1.css >>  was successful at: 2020-03-23 15:02:43.
-Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/js/plugin-name-public.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/js/restaurant-booking-public.js >>  was successful at: 2020-03-23 15:02:43.
-Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/js/plugin-name-public-ver-1.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/js/restaurant-booking-public-ver-1.js >>  was successful at: 2020-03-23 15:02:43.
-Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/languages/plugin-name.pot >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/languages/restaurant-booking.pot >>  was successful at: 2020-03-23 15:02:43.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/plugin-name-admin.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/restaurant-booking-admin.css >>  was successful at: 2020-03-23 22:28:24.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/plugin-name-admin-ver-1.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/css/restaurant-booking-admin-ver-1.css >>  was successful at: 2020-03-23 22:28:24.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/js/plugin-name-admin.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/js/restaurant-booking-admin.js >>  was successful at: 2020-03-23 22:28:24.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/js/plugin-name-admin-ver-1.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/admin/js/restaurant-booking-admin-ver-1.js >>  was successful at: 2020-03-23 22:28:24.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/css/plugin-name-public.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/css/restaurant-booking-public.css >>  was successful at: 2020-03-23 22:28:24.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/css/plugin-name-public-ver-1.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/css/restaurant-booking-public-ver-1.css >>  was successful at: 2020-03-23 22:28:24.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/js/plugin-name-public.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/js/restaurant-booking-public.js >>  was successful at: 2020-03-23 22:28:24.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/js/plugin-name-public-ver-1.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/assets/js/restaurant-booking-public-ver-1.js >>  was successful at: 2020-03-23 22:28:24.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/languages/plugin-name.pot >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/languages/restaurant-booking.pot >>  was successful at: 2020-03-23 22:28:24.
 
 ****************************
 
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-admin-menu.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-admin-sub-menu.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-admin-notice.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-ajax.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-custom-post-type.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-custom-taxonomy.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-meta-box.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-shortcode.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/interfaces/class-action-hook-interface.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/interfaces/class-filter-hook-interface.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/interfaces/custom-admin-columns/class-manage-post-columns.php was successful at: 2020-03-23 15:02:43.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-admin-menu.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-admin-sub-menu.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-admin-notice.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-ajax.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-custom-post-type.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-custom-taxonomy.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-meta-box.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/abstracts/class-shortcode.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/interfaces/class-action-hook-interface.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/interfaces/class-filter-hook-interface.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/interfaces/custom-admin-columns/class-manage-post-columns.php was successful at: 2020-03-23 22:28:24.
 
 ****************************
 
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/admin/class-admin-menu1.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/admin/class-admin-sub-menu1.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/admin/class-admin-sub-menu2.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/admin/class-meta-box3.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/admin/class-meta-box4.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/admin/notices/class-admin-notice1.php was successful at: 2020-03-23 15:02:43.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/admin/class-admin-menu1.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/admin/class-admin-sub-menu1.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/admin/class-admin-sub-menu2.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/admin/class-meta-box3.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/admin/class-meta-box4.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/admin/notices/class-admin-notice1.php was successful at: 2020-03-23 22:28:24.
 
 ****************************
 
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/config/class-info.php was successful at: 2020-03-23 15:02:43.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/config/class-initial-value.php was successful at: 2020-03-23 15:02:43.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/config/class-info.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/config/class-initial-value.php was successful at: 2020-03-23 22:28:24.
 
 ****************************
 
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/database/class-table.php was successful at: 2020-03-23 15:31:49.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/database/class-table.php was successful at: 2020-03-23 22:28:24.
 
 ****************************
 
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/functions/class-check-type.php was successful at: 2020-03-23 15:44:24.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/functions/class-date.php was successful at: 2020-03-23 15:44:24.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/functions/class-init-functions.php was successful at: 2020-03-23 15:44:24.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/functions/class-logger.php was successful at: 2020-03-23 15:44:24.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/functions/class-template-builder.php was successful at: 2020-03-23 15:44:24.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/functions/class-utility.php was successful at: 2020-03-23 15:44:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/functions/class-check-type.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/functions/class-date.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/functions/class-init-functions.php was successful at: 2020-03-23 22:28:24.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/functions/class-logger.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/functions/class-template-builder.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/functions/class-utility.php was successful at: 2020-03-23 22:28:25.
 
 ****************************
 
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/hooks/filters/class-custom-cron-schedule.php was successful at: 2020-03-23 15:51:05.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/hooks/filters/class-custom-cron-schedule.php was successful at: 2020-03-23 22:28:25.
 
 ****************************
 
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-activator.php was successful at: 2020-03-23 21:08:06.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-admin-hook.php was successful at: 2020-03-23 21:08:06.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-constant.php was successful at: 2020-03-23 21:08:06.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-core.php was successful at: 2020-03-23 21:08:06.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-i18n.php was successful at: 2020-03-23 21:08:06.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-loader.php was successful at: 2020-03-23 21:08:06.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-public-hook.php was successful at: 2020-03-23 21:08:06.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-router.php was successful at: 2020-03-23 21:08:06.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-activator.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-admin-hook.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-constant.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-core.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-i18n.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-loader.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-public-hook.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/init/class-router.php was successful at: 2020-03-23 22:28:25.
 
 ****************************
 
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/pagehandlers/contracts/class-page-handler.php was successful at: 2020-03-23 21:23:30.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/pagehandlers/class-first-page-handler.php was successful at: 2020-03-23 21:23:30.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/pagehandlers/class-second-page-handler.php was successful at: 2020-03-23 21:23:30.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/pagehandlers/contracts/class-page-handler.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/pagehandlers/class-first-page-handler.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/pagehandlers/class-second-page-handler.php was successful at: 2020-03-23 22:28:25.
 
 ****************************
 
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/parts/custom-posts/class-custom-post1.php was successful at: 2020-03-23 21:42:49.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/parts/custom-taxonomies/class-custom-taxonomy1.php was successful at: 2020-03-23 21:42:49.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/parts/other/class-remove-post-column.php was successful at: 2020-03-23 21:42:49.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/parts/shortcodes/class-complete-shortcode.php was successful at: 2020-03-23 21:42:49.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/parts/shortcodes/class-content-for-login-user-shortcode.php was successful at: 2020-03-23 21:42:49.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/parts/shortcodes/class-shortcode1.php was successful at: 2020-03-23 21:42:49.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/parts/custom-posts/class-custom-post1.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/parts/custom-taxonomies/class-custom-taxonomy1.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/parts/other/class-remove-post-column.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/parts/shortcodes/class-complete-shortcode.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/parts/shortcodes/class-content-for-login-user-shortcode.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/parts/shortcodes/class-shortcode1.php was successful at: 2020-03-23 22:28:25.
 
 ****************************
 
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/uninstall/class-deactivator.php was successful at: 2020-03-23 21:52:55.
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/uninstall/class-uninstall.php was successful at: 2020-03-23 21:52:55.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/uninstall/class-deactivator.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/uninstall/class-uninstall.php was successful at: 2020-03-23 22:28:25.
 
 ****************************
 
-Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/class-autoloader.php was successful at: 2020-03-23 22:00:51.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/includes/class-autoloader.php was successful at: 2020-03-23 22:28:25.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/templates/admin/first-page/primary-section.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/templates/front/footer/first-page-footer.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/templates/front/footer/footer.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/templates/front/header/first-page-head.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/templates/front/header/head.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/templates/front/header/menu.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/templates/front/first-page-sample.php was successful at: 2020-03-23 22:28:25.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\restaurant-booking/templates/front/second-page-sample.php was successful at: 2020-03-23 22:28:25.
 
 ****************************
 

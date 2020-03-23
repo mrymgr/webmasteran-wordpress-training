@@ -76,6 +76,7 @@ use Boilerplate_Creator\Inc\Functions\Utility;
  * @property string  $new_parts_files_full_path
  * @property string  $new_uninstall_files_full_path
  * @property string  $new_includes_files_full_path
+ * @property string  $new_templates_files_full_path
  * @property array   $general_search_items
  *
  */
@@ -137,6 +138,7 @@ class Setting {
 	protected $new_parts_files_full_path;
 	protected $new_uninstall_files_full_path;
 	protected $new_includes_files_full_path;
+	protected $new_templates_files_full_path ;
 
 	protected $general_search_items;
 
@@ -202,15 +204,12 @@ class Setting {
 		$this->new_parts_files_full_path        = $this->new_full_path . 'includes/parts/';
 		$this->new_uninstall_files_full_path    = $this->new_full_path . 'includes/uninstall/';
 		$this->new_includes_files_full_path     = $this->new_full_path . 'includes/';
+		$this->new_templates_files_full_path    = $this->new_full_path . 'templates/';
 
 		$this->general_search_items = [
 			[
 				'search'  => $this->old_plugin_version,
 				'replace' => $this->new_plugin_version,
-			],
-			[
-				'search'  => $this->old_namespace,
-				'replace' => $this->new_namespace,
 			],
 			[
 				'search'  => $this->old_namespace,

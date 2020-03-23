@@ -51,14 +51,13 @@ class Core {
 		$this->set_time_zone( 'Asia/Tehran' );
 		$this->settings        = $settings;
 		$this->file_process    = $files_process;
-		$this->is_in_test_mode = true;
+		$this->is_in_test_mode = false;
 	}
 
 	public function init() {
 
 
 		if ( $this->is_in_test_mode ) {
-			$this->customize_autoloader_class();
 			var_dump( $this );
 		} else {
 			$this->create_new_project();
@@ -78,6 +77,7 @@ class Core {
 			$this->customize_parts_classes();
 			$this->customize_uninstall_classes();
 			$this->customize_autoloader_class();
+			$this->customize_templates_classes();
 			var_dump( $this );
 		}
 	}
@@ -680,6 +680,75 @@ class Core {
 
 		$this->file_process->append( $result ['message'], $this->settings->main_log_file );
 		$this->file_process->append_section_separator( $this->settings->main_log_file );
+	}
+
+	/**
+	 * Customize templates classes in plugin
+	 */
+	public function customize_templates_classes() {
+		$footer_search_items = [
+			[
+				'search'  => $this->settings->old_plugin_name_main_name_const . '_JS',
+				'replace' => $this->settings->new_plugin_name_main_name_const . '_JS',
+			],
+		];
+
+		$header_search_items = [
+			[
+				'search'  => $this->settings->old_plugin_name_main_name_const . '_CSS',
+				'replace' => $this->settings->new_plugin_name_main_name_const . '_CSS',
+			],
+			[
+				'search'  => $this->settings->old_namespace,
+				'replace' => $this->settings->new_namespace,
+			],
+		];
+		$menu_search_items   = [
+			[
+				'search'  => 'pluginprefix',
+				'replace' => $this->settings->new_small_name_with_dash,
+			],
+		];
+
+		$first_page_search_items = array_merge( $this->settings->general_search_items, $menu_search_items );
+
+
+		$search_and_replace_list_items = [
+			[
+				'file_name'    => $this->settings->new_templates_files_full_path . 'admin/first-page/primary-section.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_templates_files_full_path . 'front/footer/first-page-footer.php',
+				'search_items' => $footer_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_templates_files_full_path . 'front/footer/footer.php',
+				'search_items' => $footer_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_templates_files_full_path . 'front/header/first-page-head.php',
+				'search_items' => $header_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_templates_files_full_path . 'front/header/head.php',
+				'search_items' => $header_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_templates_files_full_path . 'front/header/menu.php',
+				'search_items' => $menu_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_templates_files_full_path . 'front/first-page-sample.php',
+				'search_items' => $first_page_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_templates_files_full_path . 'front/second-page-sample.php',
+				'search_items' => $first_page_search_items,
+			],
+
+		];
+		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
 	}
 
 	/**
