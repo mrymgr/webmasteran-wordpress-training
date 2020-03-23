@@ -75,6 +75,7 @@ class Core {
 			$this->customize_init_classes();
 			$this->customize_page_handlers_classes();
 			$this->customize_parts_classes();
+			$this->customize_uninstall_classes();
 			var_dump( $this );
 		}
 	}
@@ -637,6 +638,31 @@ class Core {
 				'file_name'    => $this->settings->new_parts_files_full_path . 'shortcodes/class-shortcode1.php',
 				'search_items' => $this->settings->general_search_items,
 			],
+		];
+		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
+	}
+
+	/**
+	 * Customize uninstall classes in plugin
+	 */
+	public function customize_uninstall_classes() {
+		$deactivator_class_search_items = [
+			[
+				'search'  => 'plugin_name_prefix',
+				'replace' => $this->settings->new_plugin_name_method_prefix,
+			],
+		];
+		$deactivator_class_search_items = array_merge( $this->settings->general_search_items, $deactivator_class_search_items );
+		$search_and_replace_list_items  = [
+			[
+				'file_name'    => $this->settings->new_uninstall_files_full_path . 'class-deactivator.php',
+				'search_items' => $deactivator_class_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_uninstall_files_full_path . 'class-uninstall.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+
 		];
 		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
 	}
