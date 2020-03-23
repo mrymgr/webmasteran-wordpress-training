@@ -68,7 +68,14 @@ use Boilerplate_Creator\Inc\Functions\Utility;
  * @property string  $new_interface_files_full_path
  * @property string  $new_admin_files_full_path
  * @property string  $new_config_files_full_path
- * @property array  $general_search_items
+ * @property string  $new_database_files_full_path
+ * @property string  $new_functions_files_full_path
+ * @property string  $new_hooks_files_full_path
+ * @property string  $new_init_files_full_path
+ * @property string  $new_pagehandlers_files_full_path
+ * @property string  $new_parts_files_full_path
+ * @property string  $new_uninstall_files_full_path
+ * @property array   $general_search_items
  *
  */
 class Setting {
@@ -121,6 +128,13 @@ class Setting {
 	protected $new_interface_files_full_path;
 	protected $new_admin_files_full_path;
 	protected $new_config_files_full_path;
+	protected $new_database_files_full_path;
+	protected $new_functions_files_full_path;
+	protected $new_hooks_files_full_path;
+	protected $new_init_files_full_path;
+	protected $new_pagehandlers_files_full_path;
+	protected $new_parts_files_full_path;
+	protected $new_uninstall_files_full_path;
 
 	protected $general_search_items;
 
@@ -169,15 +183,22 @@ class Setting {
 		$this->is_need_deactivation_hook     = $initial_values['is_need_deactivation_hook'];
 		$this->is_need_uninstall_hook        = $initial_values['is_need_uninstall_hook'];
 
-		$this->main_log_file                 = $this->script_path . 'logs/' . "{$this->new_plugin_name_method_prefix}-creation-log-file"
-		                                       . date( 'Ymd' )
-		                                       . '.log';
-		$this->new_plugin_main_file_name     = $this->new_full_path . str_replace( '/', '', $this->new_path . '.php' );
-		$this->new_file_name_prefix          = str_replace( '/', '', $this->new_path );
-		$this->new_abstract_files_full_path  = $this->new_full_path . 'includes/abstracts/';
-		$this->new_interface_files_full_path = $this->new_full_path . 'includes/interfaces/';
-		$this->new_admin_files_full_path     = $this->new_full_path . 'includes/admin/';
-		$this->new_config_files_full_path     = $this->new_full_path . 'includes/config/';
+		$this->main_log_file                    = $this->script_path . 'logs/' . "{$this->new_plugin_name_method_prefix}-creation-log-file"
+		                                          . date( 'Ymd' )
+		                                          . '.log';
+		$this->new_plugin_main_file_name        = $this->new_full_path . str_replace( '/', '', $this->new_path . '.php' );
+		$this->new_file_name_prefix             = str_replace( '/', '', $this->new_path );
+		$this->new_abstract_files_full_path     = $this->new_full_path . 'includes/abstracts/';
+		$this->new_interface_files_full_path    = $this->new_full_path . 'includes/interfaces/';
+		$this->new_admin_files_full_path        = $this->new_full_path . 'includes/admin/';
+		$this->new_config_files_full_path       = $this->new_full_path . 'includes/config/';
+		$this->new_database_files_full_path     = $this->new_full_path . 'includes/database/';
+		$this->new_functions_files_full_path    = $this->new_full_path . 'includes/functions/';
+		$this->new_hooks_files_full_path        = $this->new_full_path . 'includes/hooks/';
+		$this->new_init_files_full_path         = $this->new_full_path . 'includes/init/';
+		$this->new_pagehandlers_files_full_path = $this->new_full_path . 'includes/pagehandlers/';
+		$this->new_parts_files_full_path        = $this->new_full_path . 'includes/parts/';
+		$this->new_uninstall_files_full_path    = $this->new_full_path . 'includes/uninstall/';
 
 		$this->general_search_items = [
 			[

@@ -422,6 +422,78 @@ class Core {
 	}
 
 	/**
+	 * Customize database classes in new plugin
+	 */
+	public function customize_database_classes() {
+		$info_class_search_items       = [
+			[
+				'search'  => 'plugin_name_prefix',
+				'replace' => $this->settings->new_plugin_name_method_prefix,
+			],
+		];
+		$info_class_search_items       = array_merge( $this->settings->general_search_items, $info_class_search_items );
+		$initial_values_search_items   = [
+			[
+				'search'  => $this->settings->old_plugin_name_const_prefix . '_TEXTDOMAIN',
+				'replace' => $this->settings->new_plugin_name_const_prefix . '_TEXTDOMAIN',
+			],
+			[
+				'search'  => 'msn-new-post-type',
+				'replace' => 'msn-new-post-type1',
+			],
+			[
+				'search'  => 'msn_plugin_boilerplate',
+				'replace' => $this->settings->new_plugin_name_method_prefix,
+			],
+			[
+				'search'  => 'msn_oop_boilerplate',
+				'replace' => $this->settings->new_plugin_name_method_prefix,
+			],
+			[
+				'search'  => 'msnshortcode1',
+				'replace' => 'msnnewshortcode1',
+			],
+			[
+				'search'  => 'msn_content_for_login_user',
+				'replace' => 'msn_new_content_for_login_user',
+			],
+			[
+				'search'  => 'msn_complete_shortcode',
+				'replace' => 'msn_new_complete_shortcode',
+			],
+			[
+				'search'  => 'name1',
+				'replace' => 'newname1',
+			],
+			[
+				'search'  => 'name1',
+				'replace' => 'newname1',
+			],
+			[
+				'search'  => 'sample-taxonomy1',
+				'replace' => 'sample-new-taxonomy1',
+			],
+			[
+				'search'  => $this->settings->old_small_name_with_dash,
+				'replace' => $this->settings->new_small_name_with_dash,
+			],
+		];
+		$initial_values_search_items   = array_merge( $this->settings->general_search_items, $initial_values_search_items );
+		$search_and_replace_list_items = [
+			[
+				'file_name'    => $this->settings->new_config_files_full_path . 'class-info.php',
+				'search_items' => $info_class_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_config_files_full_path . 'class-initial-value.php',
+				'search_items' => $initial_values_search_items,
+			],
+		];
+		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
+
+	}
+
+	/**
 	 * @param $property
 	 *
 	 * @return mixed
