@@ -58,7 +58,6 @@ class Core {
 
 
 		if ( $this->is_in_test_mode ) {
-			$this->customize_database_classes();
 			var_dump( $this );
 		} else {
 			$this->create_new_project();
@@ -71,6 +70,7 @@ class Core {
 			$this->customize_admin_classes();
 			$this->customize_config_classes();
 			$this->customize_database_classes();
+			$this->customize_functions_classes();
 			var_dump( $this );
 			//TODO:
 		}
@@ -286,9 +286,6 @@ class Core {
 
 		];
 		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
-		/*$results                       = $this->file_process->files_bulk_search_and_replace( $search_and_replace_list_items );
-		$this->file_process->several_appends( $results, $this->settings->main_log_file );*/
-
 	}
 
 	/**
@@ -346,9 +343,6 @@ class Core {
 			],
 		];
 		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
-		/*$results                       = $this->file_process->files_bulk_search_and_replace( $search_and_replace_list_items );
-		$this->file_process->several_appends( $results, $this->settings->main_log_file );*/
-
 	}
 
 	/**
@@ -443,6 +437,39 @@ class Core {
 			[
 				'file_name'    => $this->settings->new_database_files_full_path . 'class-table.php',
 				'search_items' => $table_class_search_items,
+			],
+		];
+		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
+	}
+
+	/**
+	 * Customize functions classes
+	 */
+	public function customize_functions_classes() {
+		$search_and_replace_list_items = [
+			[
+				'file_name'    => $this->settings->new_functions_files_full_path . 'class-check-type.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_functions_files_full_path . 'class-date.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_functions_files_full_path . 'class-init-functions.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_functions_files_full_path . 'class-logger.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_functions_files_full_path . 'class-template-builder.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_functions_files_full_path . 'class-utility.php',
+				'search_items' => $this->settings->general_search_items,
 			],
 		];
 		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
