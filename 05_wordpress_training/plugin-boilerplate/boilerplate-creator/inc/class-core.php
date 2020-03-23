@@ -531,6 +531,21 @@ class Core {
 			],
 		];
 		$admin_hook_search_items       = array_merge( $this->settings->general_search_items, $admin_hook_search_items );
+		$public_hook_search_items      = [
+			[
+				'search'  => 'PLUGIN_NAME_CSS',
+				'replace' => $this->settings->new_plugin_name_const_prefix . '_CSS',
+			],
+			[
+				'search'  => 'PLUGIN_NAME_JS',
+				'replace' => $this->settings->new_plugin_name_const_prefix . '_JS',
+			],
+			[
+				'search'  => 'plugin-name-',
+				'replace' => $this->settings->new_small_name_with_dash . '-',
+			],
+		];
+		$public_hook_search_items      = array_merge( $this->settings->general_search_items, $public_hook_search_items );
 		$constant_search_items         = [
 			[
 				'search'  => $this->settings->old_plugin_name_main_name_const,
@@ -580,7 +595,7 @@ class Core {
 			],
 			[
 				'file_name'    => $this->settings->new_init_files_full_path . 'class-public-hook.php',
-				'search_items' => $admin_hook_search_items,
+				'search_items' => $public_hook_search_items,
 			],
 			[
 				'file_name'    => $this->settings->new_init_files_full_path . 'class-router.php',
