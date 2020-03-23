@@ -72,6 +72,7 @@ class Core {
 			$this->customize_database_classes();
 			$this->customize_functions_classes();
 			$this->customize_hooks_classes();
+			$this->customize_init_classes();
 			var_dump( $this );
 			//TODO:
 		}
@@ -483,6 +484,95 @@ class Core {
 		$search_and_replace_list_items = [
 			[
 				'file_name'    => $this->settings->new_hooks_files_full_path . 'filters/class-custom-cron-schedule.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+		];
+		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
+	}
+
+	/**
+	 * Customize init classes in plugin
+	 */
+	public function customize_init_classes() {
+		$activator_search_items        = [
+			[
+				'search'  => 'PLUGIN_NAME_LOGS',
+				'replace' => $this->settings->new_plugin_name_const_prefix . '_LOGS',
+			],
+			[
+				'search'  => $this->settings->old_plugin_name_method_prefix,
+				'replace' => $this->settings->new_plugin_name_method_prefix,
+			],
+		];
+		$activator_search_items        = array_merge( $this->settings->general_search_items, $activator_search_items );
+		$admin_hook_search_items       = [
+			[
+				'search'  => 'PLUGIN_NAME_ADMIN_CSS',
+				'replace' => $this->settings->new_plugin_name_const_prefix . '_ADMIN_CSS',
+			],
+			[
+				'search'  => 'PLUGIN_NAME_ADMIN_JS',
+				'replace' => $this->settings->new_plugin_name_const_prefix . '_ADMIN_JS',
+			],
+			[
+				'search'  => 'plugin-name-',
+				'replace' => $this->settings->new_small_name_with_dash . '-',
+			],
+		];
+		$admin_hook_search_items       = array_merge( $this->settings->general_search_items, $admin_hook_search_items );
+		$constant_search_items         = [
+			[
+				'search'  => $this->settings->old_plugin_name_main_name_const,
+				'replace' => $this->settings->new_plugin_name_main_name_const,
+			],
+			[
+				'search'  => 'PLUGIN_NAME_',
+				'replace' => $this->settings->new_plugin_name_const_prefix . '_',
+			],
+			[
+				'search'  => 'plugin-name',
+				'replace' => $this->settings->new_small_name_with_dash,
+			],
+		];
+		$constant_search_items         = array_merge( $this->settings->general_search_items, $constant_search_items );
+		$i18n_search_items             = [
+			[
+				'search'  => $this->settings->old_plugin_name_const_prefix . '_TEXTDOMAIN',
+				'replace' => $this->settings->new_plugin_name_const_prefix . '_TEXTDOMAIN',
+			],
+		];
+		$i18n_search_items             = array_merge( $this->settings->general_search_items, $i18n_search_items );
+		$search_and_replace_list_items = [
+			[
+				'file_name'    => $this->settings->new_init_files_full_path . 'class-activator.php',
+				'search_items' => $activator_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_init_files_full_path . 'class-admin-hook.php',
+				'search_items' => $admin_hook_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_init_files_full_path . 'class-constant.php',
+				'search_items' => $constant_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_init_files_full_path . 'class-core.php',
+				'search_items' => $constant_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_init_files_full_path . 'class-i18n.php',
+				'search_items' => $i18n_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_init_files_full_path . 'class-loader.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_init_files_full_path . 'class-public-hook.php',
+				'search_items' => $admin_hook_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_init_files_full_path . 'class-router.php',
 				'search_items' => $this->settings->general_search_items,
 			],
 		];
