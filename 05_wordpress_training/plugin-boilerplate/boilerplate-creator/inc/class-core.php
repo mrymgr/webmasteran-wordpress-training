@@ -71,6 +71,7 @@ class Core {
 			$this->customize_config_classes();
 			$this->customize_database_classes();
 			$this->customize_functions_classes();
+			$this->customize_hooks_classes();
 			var_dump( $this );
 			//TODO:
 		}
@@ -469,6 +470,19 @@ class Core {
 			],
 			[
 				'file_name'    => $this->settings->new_functions_files_full_path . 'class-utility.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+		];
+		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
+	}
+
+	/**
+	 * Customize hooks classes
+	 */
+	public function customize_hooks_classes() {
+		$search_and_replace_list_items = [
+			[
+				'file_name'    => $this->settings->new_hooks_files_full_path . 'filters/class-custom-cron-schedule.php',
 				'search_items' => $this->settings->general_search_items,
 			],
 		];
