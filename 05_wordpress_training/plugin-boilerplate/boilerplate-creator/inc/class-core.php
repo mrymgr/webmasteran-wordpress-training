@@ -452,6 +452,13 @@ class Core {
 	 * Customize functions classes
 	 */
 	public function customize_functions_classes() {
+		$template_builder_search_items = [
+			[
+				'search'  => $this->settings->old_plugin_name_const_prefix,
+				'replace' => $this->settings->new_plugin_name_const_prefix,
+			],
+		];
+		$template_builder_search_items = array_merge( $this->settings->general_search_items, $template_builder_search_items );
 		$search_and_replace_list_items = [
 			[
 				'file_name'    => $this->settings->new_functions_files_full_path . 'class-check-type.php',
@@ -471,11 +478,11 @@ class Core {
 			],
 			[
 				'file_name'    => $this->settings->new_functions_files_full_path . 'class-template-builder.php',
-				'search_items' => $this->settings->general_search_items,
+				'search_items' => $template_builder_search_items,
 			],
 			[
 				'file_name'    => $this->settings->new_functions_files_full_path . 'class-utility.php',
-				'search_items' => $this->settings->general_search_items,
+				'search_items' => $template_builder_search_items,
 			],
 		];
 		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
