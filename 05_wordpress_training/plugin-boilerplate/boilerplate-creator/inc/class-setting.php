@@ -67,6 +67,7 @@ use Boilerplate_Creator\Inc\Functions\Utility;
  * @property string  $new_abstract_files_full_path
  * @property string  $new_interface_files_full_path
  * @property string  $new_admin_files_full_path
+ * @property string  $new_config_files_full_path
  * @property array  $general_search_items
  *
  */
@@ -119,6 +120,7 @@ class Setting {
 	protected $new_abstract_files_full_path;
 	protected $new_interface_files_full_path;
 	protected $new_admin_files_full_path;
+	protected $new_config_files_full_path;
 
 	protected $general_search_items;
 
@@ -175,6 +177,7 @@ class Setting {
 		$this->new_abstract_files_full_path  = $this->new_full_path . 'includes/abstracts/';
 		$this->new_interface_files_full_path = $this->new_full_path . 'includes/interfaces/';
 		$this->new_admin_files_full_path     = $this->new_full_path . 'includes/admin/';
+		$this->new_config_files_full_path     = $this->new_full_path . 'includes/config/';
 
 		$this->general_search_items = [
 			[
