@@ -73,8 +73,8 @@ class Core {
 			$this->customize_functions_classes();
 			$this->customize_hooks_classes();
 			$this->customize_init_classes();
+			$this->customize_page_handlers_classes();
 			var_dump( $this );
-			//TODO:
 		}
 	}
 
@@ -573,6 +573,27 @@ class Core {
 			],
 			[
 				'file_name'    => $this->settings->new_init_files_full_path . 'class-router.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+		];
+		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
+	}
+
+	/**
+	 * Customize pagehandlers classes in plugin
+	 */
+	public function customize_page_handlers_classes() {
+		$search_and_replace_list_items = [
+			[
+				'file_name'    => $this->settings->new_pagehandlers_files_full_path . 'contracts/class-page-handler.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_pagehandlers_files_full_path . 'class-first-page-handler.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_pagehandlers_files_full_path . 'class-second-page-handler.php',
 				'search_items' => $this->settings->general_search_items,
 			],
 		];
