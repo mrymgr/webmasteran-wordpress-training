@@ -1,6 +1,6 @@
 # Webmasteran WordPress Training (codes & subjects)
 
-* Contributors: [Mehdi Soltani](https://github.com/msn60)
+* Contributors: [Mehdi Soltani](https://wpwebmaster.ir/author/mehdi-soltani/)
 
 
 

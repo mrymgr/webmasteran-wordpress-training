@@ -466,7 +466,7 @@ class Core {
 			],
 			[
 				'file_name'    => $this->settings->new_functions_files_full_path . 'class-current-user.php',
-				'search_items' => $this->settings->general_search_items,
+				'search_items' => $template_builder_search_items,
 			],
 			[
 				'file_name'    => $this->settings->new_functions_files_full_path . 'class-date.php',
@@ -678,6 +678,10 @@ class Core {
 			[
 				'search'  => 'plugin_name_prefix',
 				'replace' => $this->settings->new_plugin_name_method_prefix,
+			],
+			[
+				'search'  => $this->settings->old_plugin_name_const_prefix,
+				'replace' => $this->settings->new_plugin_name_const_prefix,
 			],
 		];
 		$deactivator_class_search_items = array_merge( $this->settings->general_search_items, $deactivator_class_search_items );
