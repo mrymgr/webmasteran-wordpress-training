@@ -465,6 +465,10 @@ class Core {
 				'search_items' => $this->settings->general_search_items,
 			],
 			[
+				'file_name'    => $this->settings->new_functions_files_full_path . 'class-current-user.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
 				'file_name'    => $this->settings->new_functions_files_full_path . 'class-date.php',
 				'search_items' => $this->settings->general_search_items,
 			],
