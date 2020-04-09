@@ -459,10 +459,23 @@ class Core {
 			],
 		];
 		$template_builder_search_items = array_merge( $this->settings->general_search_items, $template_builder_search_items );
+
+		$woocommerce_check_search_items = [
+			[
+				'search'  => $this->settings->old_plugin_name_method_prefix,
+				'replace' => $this->settings->new_plugin_name_method_prefix,
+			],
+		];
+		$woocommerce_check_search_items = array_merge( $this->settings->general_search_items, $woocommerce_check_search_items );
+
 		$search_and_replace_list_items = [
 			[
 				'file_name'    => $this->settings->new_functions_files_full_path . 'class-check-type.php',
 				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_functions_files_full_path . 'class-check-woocommerce.php',
+				'search_items' => $woocommerce_check_search_items,
 			],
 			[
 				'file_name'    => $this->settings->new_functions_files_full_path . 'class-current-user.php',
