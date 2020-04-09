@@ -281,6 +281,10 @@ class Core {
 				'search_items' => $this->settings->general_search_items,
 			],
 			[
+				'file_name'    => $this->settings->new_interface_files_full_path . 'class-action-hook-with-args-interface.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
 				'file_name'    => $this->settings->new_interface_files_full_path . 'class-filter-hook-interface.php',
 				'search_items' => $this->settings->general_search_items,
 			],
@@ -491,6 +495,10 @@ class Core {
 			],
 			[
 				'file_name'    => $this->settings->new_functions_files_full_path . 'class-init-functions.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_functions_files_full_path . 'class-log-in-footer.php',
 				'search_items' => $this->settings->general_search_items,
 			],
 			[
