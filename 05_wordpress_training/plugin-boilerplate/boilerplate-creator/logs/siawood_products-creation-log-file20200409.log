@@ -360,3 +360,247 @@ Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_trainin
 
 ****************************
 
+The directory for for new plugin path was created succesfully at: 2020-04-09 15:50:04.
+
+****************************
+
+The copy of directory from << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\plugin-name-dir/ >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/ >> was successful on: 2020-04-09  15:50:04.
+
+****************************
+
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/plugin-name.php >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/siawood-products.php >>  was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/siawood-products.php was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/css/plugin-name-admin.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/css/siawood-products-admin.css >>  was successful at: 2020-04-09 15:50:04.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/css/plugin-name-admin-ver-1.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/css/siawood-products-admin-ver-1.css >>  was successful at: 2020-04-09 15:50:04.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/js/plugin-name-admin.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/js/siawood-products-admin.js >>  was successful at: 2020-04-09 15:50:04.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/js/plugin-name-admin-ver-1.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/js/siawood-products-admin-ver-1.js >>  was successful at: 2020-04-09 15:50:04.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/css/plugin-name-public.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/css/siawood-products-public.css >>  was successful at: 2020-04-09 15:50:04.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/css/plugin-name-public-ver-1.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/css/siawood-products-public-ver-1.css >>  was successful at: 2020-04-09 15:50:04.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/js/plugin-name-public.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/js/siawood-products-public.js >>  was successful at: 2020-04-09 15:50:04.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/js/plugin-name-public-ver-1.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/js/siawood-products-public-ver-1.js >>  was successful at: 2020-04-09 15:50:04.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/languages/plugin-name.pot >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/languages/siawood-products.pot >>  was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-admin-menu.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-admin-sub-menu.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-admin-notice.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-ajax.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-custom-post-type.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-custom-taxonomy.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-meta-box.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-shortcode.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/interfaces/class-action-hook-interface.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/interfaces/class-filter-hook-interface.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/interfaces/custom-admin-columns/class-manage-post-columns.php was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/admin/class-admin-menu1.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/admin/class-admin-sub-menu1.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/admin/class-admin-sub-menu2.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/admin/class-meta-box3.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/admin/class-meta-box4.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/admin/notices/class-admin-notice1.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/admin/notices/class-woocommerce-deactive-notice.php was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/config/class-info.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/config/class-initial-value.php was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/database/class-table.php was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-check-type.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-check-woocommerce.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-current-user.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-date.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-init-functions.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-logger.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-template-builder.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-utility.php was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/hooks/filters/class-custom-cron-schedule.php was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-activator.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-admin-hook.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-constant.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-core.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-i18n.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-loader.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-public-hook.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-router.php was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/pagehandlers/contracts/class-page-handler.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/pagehandlers/class-first-page-handler.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/pagehandlers/class-second-page-handler.php was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/parts/custom-posts/class-custom-post1.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/parts/custom-taxonomies/class-custom-taxonomy1.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/parts/other/class-remove-post-column.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/parts/shortcodes/class-complete-shortcode.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/parts/shortcodes/class-content-for-login-user-shortcode.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/parts/shortcodes/class-shortcode1.php was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/uninstall/class-deactivator.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/uninstall/class-uninstall.php was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/class-autoloader.php was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/admin/first-page/primary-section.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/front/footer/first-page-footer.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/front/footer/footer.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/front/header/first-page-head.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/front/header/head.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/front/header/menu.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/front/first-page-sample.php was successful at: 2020-04-09 15:50:04.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/front/second-page-sample.php was successful at: 2020-04-09 15:50:04.
+
+****************************
+
+The directory for for new plugin path was created succesfully at: 2020-04-09 15:52:19.
+
+****************************
+
+The copy of directory from << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\plugin-name-dir/ >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/ >> was successful on: 2020-04-09  15:52:19.
+
+****************************
+
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/plugin-name.php >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/siawood-products.php >>  was successful at: 2020-04-09 15:52:19.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/siawood-products.php was successful at: 2020-04-09 15:52:19.
+
+****************************
+
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/css/plugin-name-admin.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/css/siawood-products-admin.css >>  was successful at: 2020-04-09 15:52:19.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/css/plugin-name-admin-ver-1.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/css/siawood-products-admin-ver-1.css >>  was successful at: 2020-04-09 15:52:19.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/js/plugin-name-admin.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/js/siawood-products-admin.js >>  was successful at: 2020-04-09 15:52:19.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/js/plugin-name-admin-ver-1.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/admin/js/siawood-products-admin-ver-1.js >>  was successful at: 2020-04-09 15:52:19.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/css/plugin-name-public.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/css/siawood-products-public.css >>  was successful at: 2020-04-09 15:52:19.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/css/plugin-name-public-ver-1.css >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/css/siawood-products-public-ver-1.css >>  was successful at: 2020-04-09 15:52:19.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/js/plugin-name-public.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/js/siawood-products-public.js >>  was successful at: 2020-04-09 15:52:19.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/js/plugin-name-public-ver-1.js >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/assets/js/siawood-products-public-ver-1.js >>  was successful at: 2020-04-09 15:52:19.
+Changing name of << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/languages/plugin-name.pot >> to << C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/languages/siawood-products.pot >>  was successful at: 2020-04-09 15:52:19.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-admin-menu.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-admin-sub-menu.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-admin-notice.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-ajax.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-custom-post-type.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-custom-taxonomy.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-meta-box.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/abstracts/class-shortcode.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/interfaces/class-action-hook-interface.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/interfaces/class-filter-hook-interface.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/interfaces/custom-admin-columns/class-manage-post-columns.php was successful at: 2020-04-09 15:52:19.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/admin/class-admin-menu1.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/admin/class-admin-sub-menu1.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/admin/class-admin-sub-menu2.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/admin/class-meta-box3.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/admin/class-meta-box4.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/admin/notices/class-admin-notice1.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/admin/notices/class-woocommerce-deactive-notice.php was successful at: 2020-04-09 15:52:19.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/config/class-info.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/config/class-initial-value.php was successful at: 2020-04-09 15:52:19.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/database/class-table.php was successful at: 2020-04-09 15:52:19.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-check-type.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-check-woocommerce.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-current-user.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-date.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-init-functions.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-logger.php was successful at: 2020-04-09 15:52:19.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-template-builder.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/functions/class-utility.php was successful at: 2020-04-09 15:52:20.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/hooks/filters/class-custom-cron-schedule.php was successful at: 2020-04-09 15:52:20.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-activator.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-admin-hook.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-constant.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-core.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-i18n.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-loader.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-public-hook.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/init/class-router.php was successful at: 2020-04-09 15:52:20.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/pagehandlers/contracts/class-page-handler.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/pagehandlers/class-first-page-handler.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/pagehandlers/class-second-page-handler.php was successful at: 2020-04-09 15:52:20.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/parts/custom-posts/class-custom-post1.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/parts/custom-taxonomies/class-custom-taxonomy1.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/parts/other/class-remove-post-column.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/parts/shortcodes/class-complete-shortcode.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/parts/shortcodes/class-content-for-login-user-shortcode.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/parts/shortcodes/class-shortcode1.php was successful at: 2020-04-09 15:52:20.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/uninstall/class-deactivator.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/uninstall/class-uninstall.php was successful at: 2020-04-09 15:52:20.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/includes/class-autoloader.php was successful at: 2020-04-09 15:52:20.
+
+****************************
+
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/admin/first-page/primary-section.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/front/footer/first-page-footer.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/front/footer/footer.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/front/header/first-page-head.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/front/header/head.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/front/header/menu.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/front/first-page-sample.php was successful at: 2020-04-09 15:52:20.
+Doing Search and Replace in C:\xampp\htdocs\php\webmasteran\05_wordpress_training\plugin-boilerplate\siawood-products/templates/front/second-page-sample.php was successful at: 2020-04-09 15:52:20.
+
+****************************
+

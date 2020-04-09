@@ -347,6 +347,10 @@ class Core {
 				'file_name'    => $this->settings->new_admin_files_full_path . 'notices/class-admin-notice1.php',
 				'search_items' => $admin_notice_search_items,
 			],
+			[
+				'file_name'    => $this->settings->new_admin_files_full_path . 'notices/class-woocommerce-deactive-notice.php',
+				'search_items' => $meta_box_search_items,
+			],
 		];
 		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
 	}
