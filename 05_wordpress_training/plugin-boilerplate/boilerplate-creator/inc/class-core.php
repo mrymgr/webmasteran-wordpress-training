@@ -478,6 +478,10 @@ class Core {
 
 		$search_and_replace_list_items = [
 			[
+				'file_name'    => $this->settings->new_functions_files_full_path . 'class-activation-issue.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
 				'file_name'    => $this->settings->new_functions_files_full_path . 'class-check-type.php',
 				'search_items' => $this->settings->general_search_items,
 			],
