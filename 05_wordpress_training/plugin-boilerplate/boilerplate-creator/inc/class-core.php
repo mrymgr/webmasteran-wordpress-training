@@ -273,6 +273,10 @@ class Core {
 				'search_items' => $this->settings->general_search_items,
 			],
 			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-option-menu.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
 				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-shortcode.php',
 				'search_items' => $this->settings->general_search_items,
 			],
@@ -354,6 +358,10 @@ class Core {
 			[
 				'file_name'    => $this->settings->new_admin_files_full_path . 'notices/class-woocommerce-deactive-notice.php',
 				'search_items' => $meta_box_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_admin_files_full_path . 'class-option-menu1.php',
+				'search_items' => $this->settings->general_search_items,
 			],
 		];
 		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
@@ -775,6 +783,10 @@ class Core {
 		$search_and_replace_list_items = [
 			[
 				'file_name'    => $this->settings->new_templates_files_full_path . 'admin/first-page/primary-section.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_templates_files_full_path . 'admin/options-page/sample-option-page.php',
 				'search_items' => $this->settings->general_search_items,
 			],
 			[
