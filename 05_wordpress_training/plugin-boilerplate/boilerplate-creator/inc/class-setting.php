@@ -39,6 +39,7 @@ use Boilerplate_Creator\Inc\Functions\Utility;
  * @property string  $old_plugin_name_main_name_const
  * @property string  $old_plugin_name_const_prefix
  * @property string  $old_plugin_name_method_prefix
+ * @property string  $old_plugin_name_short_prefix
  * @property string  $new_path
  * @property string  $new_small_name_with_dash
  * @property string  $new_full_path
@@ -54,6 +55,7 @@ use Boilerplate_Creator\Inc\Functions\Utility;
  * @property string  $new_plugin_name_main_name_const
  * @property string  $new_plugin_name_const_prefix
  * @property string  $new_plugin_name_method_prefix
+ * @property string  $new_plugin_name_short_prefix
  * @property boolean $is_need_change_plugin_version
  * @property boolean $is_need_change_link
  * @property boolean $is_need_change_author_name
@@ -82,6 +84,7 @@ use Boilerplate_Creator\Inc\Functions\Utility;
  */
 class Setting {
 	use Utility;
+
 	protected $script_path;
 	protected $old_path;
 	protected $old_small_name_with_dash;
@@ -98,6 +101,7 @@ class Setting {
 	protected $old_plugin_name_main_name_const;
 	protected $old_plugin_name_const_prefix;
 	protected $old_plugin_name_method_prefix;
+	protected $old_plugin_name_short_prefix;
 
 	protected $new_path;
 	protected $new_small_name_with_dash;
@@ -114,6 +118,7 @@ class Setting {
 	protected $new_plugin_name_main_name_const;
 	protected $new_plugin_name_const_prefix;
 	protected $new_plugin_name_method_prefix;
+	protected $new_plugin_name_short_prefix;
 
 	protected $is_need_change_plugin_version;
 	protected $is_need_change_link;
@@ -138,7 +143,7 @@ class Setting {
 	protected $new_parts_files_full_path;
 	protected $new_uninstall_files_full_path;
 	protected $new_includes_files_full_path;
-	protected $new_templates_files_full_path ;
+	protected $new_templates_files_full_path;
 
 	protected $general_search_items;
 
@@ -162,6 +167,7 @@ class Setting {
 		$this->old_plugin_name_main_name_const = 'PLUGIN_NAME_MAIN_NAME';
 		$this->old_plugin_name_const_prefix    = 'PLUGIN_NAME';
 		$this->old_plugin_name_method_prefix   = 'plugin_name';
+		$this->old_plugin_name_short_prefix    = 'plugin_name_prefix_';
 
 		$this->new_path                        = $initial_values['new_path'];
 		$this->new_small_name_with_dash        = $initial_values['new_small_name_with_dash'];
@@ -178,6 +184,7 @@ class Setting {
 		$this->new_plugin_name_main_name_const = $initial_values['new_plugin_name_main_name_const'];
 		$this->new_plugin_name_const_prefix    = $initial_values['new_plugin_name_const_prefix'];
 		$this->new_plugin_name_method_prefix   = $initial_values['new_plugin_name_method_prefix'];
+		$this->new_plugin_name_short_prefix    = $initial_values['new_plugin_name_short_prefix'];
 
 		$this->is_need_change_plugin_version = $initial_values['is_need_change_plugin_version'];
 		$this->is_need_change_link           = $initial_values['is_need_change_link'];

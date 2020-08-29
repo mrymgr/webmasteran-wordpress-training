@@ -35,6 +35,7 @@ $initial_values = [
 	'new_plugin_name_main_name_const' => 'Restaurant_Booking_PLUGIN',
 	'new_plugin_name_const_prefix'    => 'RESTAURANT_BOOKING',
 	'new_plugin_name_method_prefix'   => 'restaurant_booking',
+	'new_plugin_name_short_prefix'    => 'msnrstb_',
 	'is_need_change_plugin_version'   => true,
 	'is_need_change_link'             => true,
 	'is_need_change_author_name'      => true,

@@ -243,6 +243,17 @@ class Core {
 	 * Customize abstract classes and interfaces in plugin
 	 */
 	public function customize_abstract_classes() {
+		$settings_page_search_items         = [
+			[
+				'search'  => $this->settings->old_plugin_name_const_prefix . '_TEXTDOMAIN',
+				'replace' => $this->settings->new_plugin_name_const_prefix . '_TEXTDOMAIN',
+			],
+			[
+				'search'  => $this->settings->old_plugin_name_short_prefix,
+				'replace' => $this->settings->new_plugin_name_short_prefix,
+			],
+		];
+		$settings_page_search_items         = array_merge( $this->settings->general_search_items, $settings_page_search_items );
 		$search_and_replace_list_items = [
 			[
 				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-admin-menu.php',
@@ -277,7 +288,15 @@ class Core {
 				'search_items' => $this->settings->general_search_items,
 			],
 			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-setting-page.php',
+				'search_items' => $settings_page_search_items,
+			],
+			[
 				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-shortcode.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_abstract_files_full_path . 'class-simple-setting-page.php',
 				'search_items' => $this->settings->general_search_items,
 			],
 			[
@@ -352,16 +371,32 @@ class Core {
 				'search_items' => $meta_box_search_items,
 			],
 			[
+				'file_name'    => $this->settings->new_admin_files_full_path . 'class-option-menu1.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_admin_files_full_path . 'class-option-menu2.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_admin_files_full_path . 'class-setting-page1.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_admin_files_full_path . 'class-simple-setting-in-reading-page1.php',
+				'search_items' => $meta_box_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_admin_files_full_path . 'class-simple-setting-page1.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
 				'file_name'    => $this->settings->new_admin_files_full_path . 'notices/class-admin-notice1.php',
 				'search_items' => $admin_notice_search_items,
 			],
 			[
 				'file_name'    => $this->settings->new_admin_files_full_path . 'notices/class-woocommerce-deactive-notice.php',
 				'search_items' => $meta_box_search_items,
-			],
-			[
-				'file_name'    => $this->settings->new_admin_files_full_path . 'class-option-menu1.php',
-				'search_items' => $this->settings->general_search_items,
 			],
 		];
 		$this->do_repeated_search_and_replace_items( $search_and_replace_list_items );
@@ -422,6 +457,10 @@ class Core {
 			[
 				'search'  => $this->settings->old_small_name_with_dash,
 				'replace' => $this->settings->new_small_name_with_dash,
+			],
+			[
+				'search'  => $this->settings->old_plugin_name_method_prefix ,
+				'replace' => $this->settings->new_plugin_name_method_prefix,
 			],
 		];
 		$initial_values_search_items   = array_merge( $this->settings->general_search_items, $initial_values_search_items );
@@ -779,14 +818,47 @@ class Core {
 
 		$first_page_search_items = array_merge( $this->settings->general_search_items, $menu_search_items );
 
+		$simple_option_page1_search_items = [
+			[
+				'search'  => $this->settings->old_plugin_name_method_prefix,
+				'replace' => $this->settings->new_plugin_name_method_prefix,
+			],
+			[
+				'search'  => $this->settings->old_small_name_with_dash,
+				'replace' => $this->settings->new_small_name_with_dash,
+			],
+		];
+
+		$simple_option_page1_search_items = array_merge($this->settings->general_search_items, $simple_option_page1_search_items);
+
 
 		$search_and_replace_list_items = [
 			[
-				'file_name'    => $this->settings->new_templates_files_full_path . 'admin/first-page/primary-section.php',
+				'file_name'    => $this->settings->new_templates_files_full_path . 'admin/options-page/option-page1.php',
 				'search_items' => $this->settings->general_search_items,
 			],
 			[
-				'file_name'    => $this->settings->new_templates_files_full_path . 'admin/options-page/sample-option-page.php',
+				'file_name'    => $this->settings->new_templates_files_full_path . 'admin/options-page/sample-option-page3.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_templates_files_full_path . 'admin/options-page/simple-option-page1.php',
+				'search_items' => $simple_option_page1_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_templates_files_full_path . 'admin/plugin-page/dashboard-widgets.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_templates_files_full_path . 'admin/plugin-page/primary-section.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_templates_files_full_path . 'admin/plugin-page/second-section.php',
+				'search_items' => $this->settings->general_search_items,
+			],
+			[
+				'file_name'    => $this->settings->new_templates_files_full_path . 'admin/plugin-page/welcome-panel.php',
 				'search_items' => $this->settings->general_search_items,
 			],
 			[
