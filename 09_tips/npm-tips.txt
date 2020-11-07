@@ -1,0 +1,86 @@
+To initialize npm in a project
+==============================
+npm init
+
+you must specify these things:
+- package name (public name)
+- version
+- description
+- entry point (first file going to launch)
+- test command
+- git repository
+- keywords (to have ability search in npm site)
+- author
+- license
+
+Globally vs locally installation
+================================
+You can use packages globally
+They are installed in these directories:
+
+Unix-based systems:
+/usr/local/lib/node_modules
+/usr/local/lib/node
+
+Windows:
+%AppData%\npm\node_modules
+
+Install a package locally
+=========================
+npm install express(name of package)
+
+- A dependency property will be added to package.json file
+- It is regular dependency installation
+
+npm install --save-dev babel-cli babel-preset-stage-0 babel-preset-es2015
+
+- install dependency only in development mode
+- it is not used when you build for production
+
+Install packages globally
+=========================
+npm install -g (nameOfYourPackage)
+
+- In some cases (in linux) you'll get permission error
+search for: how to prevent permission error (in npm)
+
+Install specific version of a package
+=====================================
+npm install eslint@7.9.0
+
+- You can install older version of a package with combining version to its name by @ sign
+- To check whom packages are outdated in your packages:
+  npm outdated
+  npm outdated -g
+
+- update npm to the latest version
+npm install npm@latest -g
+
+- Update specific package in a project
+  npm update eslint
+
+- Update all packages inside a project
+  npm update
+
+- Update all packages globally
+  npm update -g
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
