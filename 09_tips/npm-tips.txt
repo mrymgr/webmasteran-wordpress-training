@@ -47,25 +47,71 @@ search for: how to prevent permission error (in npm)
 Install specific version of a package
 =====================================
 npm install eslint@7.9.0
+npm install express@latest
 
 - You can install older version of a package with combining version to its name by @ sign
 - To check whom packages are outdated in your packages:
-  npm outdated
-  npm outdated -g
+npm outdated
+npm outdated -g
 
 - update npm to the latest version
 npm install npm@latest -g
 
 - Update specific package in a project
-  npm update eslint
+npm update eslint
 
 - Update all packages inside a project
-  npm update
+npm update
 
 - Update all packages globally
-  npm update -g
+npm update -g
 
+Remove packages
+===============
 
+- Remove a package from project
+npm uninstall babel-preset-es2015
+
+Semantic Versioning
+===================
+1.2.4
+- Major releases, Minor releases, Patch releases
+
+Caret: ^1.x.x (all minor and patches OK)
+Tilde: ~1.5.x (all patches only)
+
+package-lock.json
+=================
+
+Working with npm cache
+======================
+npm cache verify
+npm cache clean --force
+
+Audit npm
+=========
+Sometimes when you install a package, you'll get some issue on it (it has been showed after installation)
+So with audit command, you can see it and level of issue (Low or High)
+
+npm install socketio
+  found 10 vulnerabilities (9 low, 1 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
+
+npm audit
+- you can see issues in cmd with executing this command
+
+Scripting in packages
+=====================
+https://docs.npmjs.com/cli/v6/using-npm/scripts
+
+npm start
+npm run (nameOfYourScript)
+
+npx usage
+=========
+- Install temporary tools and then use the command for it (without installing it)
+npx -p @angular/cli ng new myapp
+npx cowsay hello!
 
 
 
