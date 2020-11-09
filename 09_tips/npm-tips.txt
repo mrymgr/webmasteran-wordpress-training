@@ -28,18 +28,22 @@ Windows:
 Install a package locally
 =========================
 npm install express(name of package)
+npm install --save (nameOfYourPackage)
+npm i -S (nameOfYourPackage)
 
 - A dependency property will be added to package.json file
 - It is regular dependency installation
 
 npm install --save-dev babel-cli babel-preset-stage-0 babel-preset-es2015
-
+npm i -D (nameOfYourPackage)
 - install dependency only in development mode
 - it is not used when you build for production
 
 Install packages globally
 =========================
 npm install -g (nameOfYourPackage)
+npm install --global (nameOfYourPackage)
+npm i -g (nameOfYourPackage)
 
 - In some cases (in linux) you'll get permission error
 search for: how to prevent permission error (in npm)
@@ -59,6 +63,7 @@ npm install npm@latest -g
 
 - Update specific package in a project
 npm update eslint
+npm update -S (nameOfYourPackage)
 
 - Update all packages inside a project
 npm update
@@ -71,6 +76,9 @@ Remove packages
 
 - Remove a package from project
 npm uninstall babel-preset-es2015
+npm uninstall -g (nameOfYourPackages)
+npm uninstall -S (nameOfYourPackages)
+npm uninstall -D (nameOfYourPackages)
 
 Semantic Versioning
 ===================
@@ -100,6 +108,9 @@ npm install socketio
 npm audit
 - you can see issues in cmd with executing this command
 
+npm audit fix
+- To fix issue, you can use this command
+
 Scripting in packages
 =====================
 https://docs.npmjs.com/cli/v6/using-npm/scripts
@@ -112,6 +123,11 @@ npx usage
 - Install temporary tools and then use the command for it (without installing it)
 npx -p @angular/cli ng new myapp
 npx cowsay hello!
+
+List all of packages
+====================
+npm list -g
+npm list -g --depth=0
 
 
 
