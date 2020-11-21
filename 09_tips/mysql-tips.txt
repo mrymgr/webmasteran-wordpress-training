@@ -1,0 +1,47 @@
+
+connect to mysql in command line:
+=================================
+mysql -u username -p
+
+commands for databases
+======================
+show databases;
+
+show schemas;
+
+create database YourDatabaseName;
+
+drop database YourDatabaseName;
+
+use YourDatabaseName;
+
+select database();
+//show database in use
+
+commands for tables
+===================
+show tables;
+
+create table actors ( ActorID int not null auto_increment,
+                      first_name varchar(100),
+                      last_name varchar(150),
+                      primary key (ActorID)
+                     );
+
+create table movies ( MovieID int not null auto_increment,
+                      title varchar(100),
+                      release_year date,
+                      rating int,
+                      primary key (MovieID)
+                     );
+
+drop table YourTableName;
+
+show columns in YourTableName;
+
+alter table YourTableName add column column_name columns_type NULL;
+
+alter table YourTableName drop column column_name;
+
+
+
