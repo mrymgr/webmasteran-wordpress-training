@@ -43,5 +43,25 @@ alter table YourTableName add column column_name columns_type NULL;
 
 alter table YourTableName drop column column_name;
 
+// Single insert
+insert into actors (first_name, last_name) values ('gholam' , 'gholaydoon');
+
+// Multiple inserts
+insert into actors (first_name, last_name)  values
+                    ('Taylor', 'swift'),
+                    ('Michael', 'jordan'),
+                    ('gordon' , 'james'),
+                    ('jesika' , 'gholami');
+// show all of rows in a table
+select * from actors;
+
+// change field name or its type
+ALTER TABLE student_info CHANGE roll_no roll_no VARCHAR(255);
+ALTER TABLE student_info MODIFY roll_no VARCHAR(255);
+ALTER TABLE student_info CHANGE roll_no identity_no VARCHAR(255);
+
+// retrieve data from database
+select title, (another field name) from movies;
+select release_year as RY from movies;
 
 
