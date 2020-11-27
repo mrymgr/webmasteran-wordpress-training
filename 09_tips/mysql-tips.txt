@@ -64,4 +64,15 @@ ALTER TABLE student_info CHANGE roll_no identity_no VARCHAR(255);
 select title, (another field name) from movies;
 select release_year as RY from movies;
 
+// concatenation
+select concat (last_name, ', ', first_name) as full_family from actors;
+
+//substring
+select concat(substring(first_name,1,1), '.', last_name) as name from actors;
+
+select concat (last_name, ', ', first_name) as "Actor's names" from actors;
+
+source test1.sql
+
+
 
