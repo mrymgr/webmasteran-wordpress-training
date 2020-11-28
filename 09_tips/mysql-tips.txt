@@ -24,6 +24,14 @@ show character set;
 //change character set of database
 ALTER DATABASE project2 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
+//set charset and collation
+https://mariadb.com/kb/en/setting-character-sets-and-collations/
+
+//to get help
+\help
+
+//to get server status
+\s
 
 
 
@@ -71,6 +79,9 @@ select * from actors;
 ALTER TABLE student_info CHANGE roll_no roll_no VARCHAR(255);
 ALTER TABLE student_info MODIFY roll_no VARCHAR(255);
 ALTER TABLE student_info CHANGE roll_no identity_no VARCHAR(255);
+
+// modify collection type
+alter table actors modify column first_name varchar(120) COLLATE  utf8mb4_general_ci
 
 // retrieve data from database
 select title, (another field name) from movies;
