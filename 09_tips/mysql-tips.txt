@@ -18,6 +18,15 @@ use YourDatabaseName;
 select database();
 //show database in use
 
+//show available charset
+show character set;
+
+//change character set of database
+ALTER DATABASE project2 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+
+
+
 commands for tables
 ===================
 show tables;
@@ -42,6 +51,9 @@ show columns in YourTableName;
 alter table YourTableName add column column_name columns_type NULL;
 
 alter table YourTableName drop column column_name;
+
+//change character set of tables
+ALTER TABLE tablename CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 // Single insert
 insert into actors (first_name, last_name) values ('gholam' , 'gholaydoon');
