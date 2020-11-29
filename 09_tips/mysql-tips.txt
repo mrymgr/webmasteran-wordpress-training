@@ -72,6 +72,7 @@ insert into actors (first_name, last_name)  values
                     ('Michael', 'jordan'),
                     ('gordon' , 'james'),
                     ('jesika' , 'gholami');
+                    ('اکبر' , 'محمدی');
 // show all of rows in a table
 select * from actors;
 
@@ -95,6 +96,25 @@ select concat(substring(first_name,1,1), '.', last_name) as name from actors;
 
 select concat (last_name, ', ', first_name) as "Actor's names" from actors;
 
+//limit
+select * from YourTableName limit 4;
+
+//order by based on second column values
+select * from YourTableName order by 2;
+
+select * from YourTableName order by FieldName;
+
+//Combination of order by & limit
+select * from YourTableName order by 2 limit 4; (with ASC & DESC)
+
+//Order by multiple column
+SELECT * FROM actors ORDER BY last_name ASC, first_name DESC;
+
+//distinct
+SELECT DISTINCT first_name FROM actors;
+
+
+// to execute sql file
 source test1.sql
 
 
