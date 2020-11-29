@@ -99,3 +99,15 @@ source test1.sql
 
 
 
+Some tips about GLOBAL and SESSION variables
+=========================================
+https://fromdual.com/mariadb-and-mysql-character-set-conversion
+https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_connection
+https://mariadb.com/kb/en/mysql-command-line-client/
+https://mariadb.com/kb/en/server-system-variables/
+https://mariadb.com/kb/en/show-variables/
+https://mariadb.com/kb/en/setting-character-sets-and-collations/
+https://mariadb.com/kb/en/mysql-client-utility-character-set/
+https://stackoverflow.com/questions/6787824/mysql-command-line-formatting-with-utf8
+http://localhost/phpmyadmin/server_variables.php
+
