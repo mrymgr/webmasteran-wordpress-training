@@ -113,6 +113,22 @@ SELECT * FROM actors ORDER BY last_name ASC, first_name DESC;
 //distinct
 SELECT DISTINCT first_name FROM actors;
 
+//count
+SELECT COUNT(*) as "Movies count" FROM movies;
+
+//group by
+SELECT rating, COUNT(*) as movies FROM movies GROUP BY rating
+
+//like
+SELECT * FROM `movies` WHERE title LIKE '%film%' ;
+
+SELECT COUNT(*) as film_movie FROM movies WHERE title LIKE '%film%';
+
+//min & max
+SELECT MAX(release_year) FROM movies;
+SELECT title, MIN(release_year), rating FROM movies;
+SELECT title, MAX(release_year), rating FROM movies GROUP BY title, rating;
+SELECT MIN(release_year), rating FROM movies GROUP BY rating
 
 // to execute sql file
 source test1.sql
