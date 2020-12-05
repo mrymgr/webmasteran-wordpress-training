@@ -130,6 +130,30 @@ SELECT title, MIN(release_year), rating FROM movies;
 SELECT title, MAX(release_year), rating FROM movies GROUP BY title, rating;
 SELECT MIN(release_year), rating FROM movies GROUP BY rating
 
+
+//sample of a little longer queries in tables
+SELECT CONCAT (first_name, ' ', last_name), SUM(game_score) as total , SUM(game_score)/count(*)
+as average from laylay_game_result GROUP BY first_name, last_name ORDER BY average DESC limit 3;
+
+SELECT CONCAT (first_name, ' ', last_name) as player_name , MAX(game_score) as best_score
+FROM laylay_game_result GROUP by first_name, last_name ORDER by best_score DESC;
+
+SELECT DISTINCT first_name, last_name FROM laylay_game_result;
+
+//condition
+SELECT * FROM `movies` WHERE rating='PG' AND title LIKE "%film%";
+SELECT * FROM `movies` WHERE rating='PG' AND title NOT LIKE "%film%";
+SELECT title, release_year FROM movies WHERE release_year >=2012;
+SELECT title, release_year FROM movies WHERE release_year >=2013 ;
+
+SELECT title, release_year FROM movies WHERE release_year >=2013 AND release_year<=2019;
+SELECT title, release_year FROM movies WHERE release_year BETWEEN 2013 and 2019
+SELECT title, release_year FROM movies WHERE release_year BETWEEN 2005 and 2020 and release_year <> 2019 AND release_year<> 2013;
+
+//exclude and include
+SELECT title, release_year FROM movies WHERE release_year IN (2013,2020,2019);
+SELECT title, release_year FROM movies WHERE release_year NOT IN (2013,2020,2019);
+
 // to execute sql file
 source test1.sql
 
