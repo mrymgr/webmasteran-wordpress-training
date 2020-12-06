@@ -146,13 +146,46 @@ SELECT * FROM `movies` WHERE rating='PG' AND title NOT LIKE "%film%";
 SELECT title, release_year FROM movies WHERE release_year >=2012;
 SELECT title, release_year FROM movies WHERE release_year >=2013 ;
 
+//comparision operator
+SELECT title, release_year FROM movies WHERE release_year >= 2013;
 SELECT title, release_year FROM movies WHERE release_year >=2013 AND release_year<=2019;
+SELECT title, release_year FROM movies WHERE release_year <> 2020;
+SELECT title, release_year FROM movies WHERE title <> 'film';
 SELECT title, release_year FROM movies WHERE release_year BETWEEN 2013 and 2019
 SELECT title, release_year FROM movies WHERE release_year BETWEEN 2005 and 2020 and release_year <> 2019 AND release_year<> 2013;
+
 
 //exclude and include
 SELECT title, release_year FROM movies WHERE release_year IN (2013,2020,2019);
 SELECT title, release_year FROM movies WHERE release_year NOT IN (2013,2020,2019);
+
+//or
+SELECT * FROM movies WHERE (rating = "PG") OR (title LIKE '%film%)';
+
+//null
+SELECT * FROM movies WHERE rating = "R" OR rating IS NULL;
+
+// case statement
+ SELECT title, rating, CASE
+ WHEN rating = 'PG' THEN 'bring the kids'
+ WHEN rating = 'PG-13' THEN 'older kids'
+ WHEN rating = 'PL-11' THEN 'not for kids'
+ ELSE 'no information'
+ END as audience
+ FROM movies;
+
+//date and time
+SELECT NOW(), CURRENT_DATE, CURDATE(), CURRENT_TIME, CURTIME(), CURRENT_TIMESTAMP, YEAR(NOW()), YEAR(CURRENT_DATE);
+SELECT  MONTH(NOW()),  MONTHNAME(CURRENT_DATE);
+SELECT  DAY(NOW()),  DAYNAME(CURRENT_DATE), DAYOFMONTH(NOW()),  DAYOFWEEK(CURRENT_DATE), DAYOFYEAR(NOW());
+
+//check and set time zone
+SELECT @@global.time_zone, @@session.time_zone;
+set time_zone = '+3:30';
+set GLOBAL time_zone: '+3:30';
+
+
+
 
 // to execute sql file
 source test1.sql
