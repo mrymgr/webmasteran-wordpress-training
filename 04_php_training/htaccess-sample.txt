@@ -1,0 +1,118 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ mvc/index.php [QSA,L]
+
+
+RewriteEngine on
+RewriteCond %{THE_REQUEST} !/public/* [NC]
+RewriteCond %{THE_REQUEST} /(application|system|view)/.+ [NC]
+RewriteRule ^ - [R=403,L]
+
+
+
+
+
+
+
+
+
+
+DirectoryIndex file.php file.htm //
+
+
+
+
+
+Options All -Indexes
+Options –Indexes
+
+
+
+
+
+
+deny from 1.2.3.4
+
+allow from all
+ or
+ deny from all
+
+allow from 1.2.3.4
+
+
+
+
+
+
+
+
+<files wp-config.php>
+
+order allow,deny
+
+deny from all
+
+</files>
+
+
+
+
+
+
+
+AddType application/octet-stream .pdf
+
+AddType application/octet-stream .zip
+
+AddType application/octet-stream .mov
+
+
+
+
+
+
+
+
+php_value upload_max_filesize 20M
+
+
+php_value memory_limit 128M
+
+
+
+
+
+
+http to https
+------------
+
+
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
+wwww redirect
+-------------
+
+RewriteEngine On
+
+
+RewriteCond %{HTTP_HOST} !^www.example.com$ [NC]
+RewriteRule ^(.*)$ http://www.example.com/$1 [L,R=301]
+
+
+
+
+
+
+
+
+
+ErrorDocument 401 /error_pages/401.html
+ErrorDocument 404 /error_pages/404.html
+ErrorDocument 500 /error_pages/500.html
