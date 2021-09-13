@@ -11,8 +11,10 @@ class Home extends Controller {
 	}
 
 	public function create() {
+
 		echo "<h1>This is gholam create method!</h1>";
 		$test_array = ['ghanbar' , 'gholam'];
 		$this->view('app.test', compact('test_array'));
+		//$this->redirect('home');
 	}
 }
