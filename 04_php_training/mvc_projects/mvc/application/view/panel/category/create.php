@@ -2,7 +2,7 @@
 
 $this->include( 'panel.layout.header' );
 ?>
-<form>
+<form method="post" action="#">
   <section class="form-group">
     <label for="name">Name</label>
     <input type="text" class="form-control" id="name" placeholder="name ...">

@@ -4,7 +4,7 @@ $this->include( 'panel.layout.header' );
 ?>
 <section class="mb-2 d-flex justify-content-between align-items-center">
   <h2 class="h4">Articles</h2>
-  <a href="create.html" class="btn btn-sm btn-success">Create</a>
+  <a href="<?php $this->url( 'article/create' ); ?>" class="btn btn-sm btn-success">Create</a>
 </section>
 
 <section class="table-responsive">
@@ -19,26 +19,18 @@ $this->include( 'panel.layout.header' );
     </tr>
     </thead>
     <tbody>
+    <?php foreach ( $articles as $article ) : ?>
     <tr>
-      <td>1</td>
-      <td>Sport vs Smoke</td>
-      <td>1</td>
-      <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+      <td><?php echo $article['id']; ?></td>
+      <td><?php echo $article['title']; ?></td>
+      <td><?php echo $article['cat_id']; ?></td>
+      <td><?php echo substr($article['body'], 0, 40) . '...'; ?></td>
       <td>
-        <a href="edit.html" class="btn btn-info btn-sm">Edit</a>
-        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+        <a href="<?php $this->url( 'article/edit/'. $article['id'] ); ?>" class="btn btn-info btn-sm">Edit</a>
+        <a href="<?php $this->url( 'article/destroy/'. $article['id'] ); ?>" class="btn btn-danger btn-sm">Delete</a>
       </td>
     </tr>
-    <tr>
-      <td>2</td>
-      <td>global warming</td>
-      <td>2</td>
-      <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
-      <td>
-        <a href="edit.html" class="btn btn-info btn-sm">Edit</a>
-        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-      </td>
-    </tr>
+    <?php endforeach; ?>
     </tbody>
   </table>
 </section>
