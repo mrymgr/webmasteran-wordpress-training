@@ -4,7 +4,7 @@ $this->include( 'panel.layout.header' );
 ?>
 <section class="mb-2 d-flex justify-content-between align-items-center">
   <h2 class="h4">Categories</h2>
-  <a href="create.html" class="btn btn-sm btn-success">Create</a>
+  <a href="<?php $this->url( 'category/create' ); ?>" class="btn btn-sm btn-success">Create</a>
 </section>
 
 <section class="table-responsive">
@@ -18,24 +18,17 @@ $this->include( 'panel.layout.header' );
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>1</td>
-      <td>Sport</td>
-      <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+    <?php foreach ($categories as $category) : ?>
+      <tr>
+      <td><?php echo $category['id']; ?></td>
+      <td><?php echo $category['name']; ?></td>
+      <td><?php echo $category['description']; ?></td>
       <td>
-        <a href="edit.html" class="btn btn-info btn-sm">Edit</a>
-        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+        <a href="<?php $this->url('category/edit/'. $category['id']) ?>" class="btn btn-info btn-sm">Edit</a>
+        <a href="<?php $this->url('category/destroy/'. $category['id']) ?>" class="btn btn-danger btn-sm">Delete</a>
       </td>
     </tr>
-    <tr>
-      <td>2</td>
-      <td>News</td>
-      <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
-      <td>
-        <a href="edit.html" class="btn btn-info btn-sm">Edit</a>
-        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-      </td>
-    </tr>
+    <?php endforeach; ?>
     </tbody>
   </table>
 </section>

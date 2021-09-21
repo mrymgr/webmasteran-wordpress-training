@@ -62,7 +62,7 @@ class Category extends Controller {
 
 	}
 
-	public function delete( $id ) {
+	public function destroy( $id ) {
 
 		$category = new CategoryModel();
 		$category->delete($id);
