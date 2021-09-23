@@ -32,7 +32,7 @@ class Category extends Model {
 
 	public function insert( $values ) {
 
-		$query = "INSERT INTO `categories` (`name`, `description`, `created_at`)  VALUES 
+		$query = "INSERT INTO `categories` (`name`, `description`, `updated_at`)  VALUES 
 							(?, ?, now());";
 		$this->execute( $query, array_values( $values ) );
 		$this->closeConnection();

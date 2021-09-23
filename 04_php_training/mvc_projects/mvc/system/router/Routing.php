@@ -4,6 +4,7 @@ namespace System\router;
 
 
 use ReflectionMethod;
+
 class Routing {
 
 	private $current_route;
@@ -14,6 +15,10 @@ class Routing {
 	}
 
 	public function run() {
+
+		if (strlen($this->current_route[0]) == 0 ) {
+			header("Location: " . 'https://' . $_SERVER['HTTP_HOST'] . '/php/webmasteran/04_php_training/mvc_projects/mvc/home');
+		}
 		$path = realpath(dirname(__FILE__)."/../../application/controllers" ).'/'. $this->current_route[0] . ".php";
 		if ( ! file_exists($path) ) {
 			echo "404 - class not exist!!!";

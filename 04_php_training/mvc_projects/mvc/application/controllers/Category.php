@@ -32,7 +32,7 @@ class Category extends Controller {
 		$category = new CategoryModel();
 		$category->insert($_POST);
 
-		return $this->redirect('article');
+		return $this->redirect('category');
 	}
 
 	public function show( $id ) {
