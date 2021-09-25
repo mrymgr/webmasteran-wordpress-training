@@ -15,7 +15,7 @@ class Article extends Model {
 
 	public function find( $id ) {
 
-		$query  = "SELECT * , (SELECT `name` FROM `categories` WHERE `categories`.`id` = `articles`.`cat_id` ) 
+		$query  = "SELECT * , (SELECT `name` FROM `categories` WHERE `categories`.`id` = `articles`.`cat_id` ) as `category_name`
 							FROM `articles` WHERE id = ? ;";
 		$result = $this->query( $query, [ $id ] )->fetch();
 		$this->closeConnection();
@@ -48,6 +48,13 @@ class Article extends Model {
 	}
 
 	public function category( $id ) {
+		$query = "SELECT `name` 
+							FROM `categories`
+							WHERE `id` = ?";
 
+		$result = $this->query( $query, [ $id ] )->fetch();
+		$this->closeConnection();
+
+		return $result;
 	}
 }

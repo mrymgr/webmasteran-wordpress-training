@@ -1,7 +1,6 @@
 <?php
 
 $this->include( 'panel.layout.header' );
-var_dump($category);
 ?>
 <form action="<?php $this->url('category/update/' . $category['id']) ?>" method="post">
   <section class="form-group">

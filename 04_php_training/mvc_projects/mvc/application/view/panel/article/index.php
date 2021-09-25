@@ -24,7 +24,7 @@ $this->include( 'panel.layout.header' );
       <td><?php echo $article['id']; ?></td>
       <td><?php echo $article['title']; ?></td>
       <td><?php echo $article['cat_id']; ?></td>
-      <td><?php echo substr($article['body'], 0, 40) . '...'; ?></td>
+      <td><?php echo mb_substr($article['body'], 0, 40) . '...'; ?></td>
       <td>
         <a href="<?php $this->url( 'article/edit/'. $article['id'] ); ?>" class="btn btn-info btn-sm">Edit</a>
         <a href="<?php $this->url( 'article/destroy/'. $article['id'] ); ?>" class="btn btn-danger btn-sm">Delete</a>
