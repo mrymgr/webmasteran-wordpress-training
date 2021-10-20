@@ -8,5 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'System\\Router\\Api\\Route' => $baseDir . '/system/Router/Api/Route.php',
+    'System\\Router\\Routing' => $baseDir . '/system/Router/Routing.php',
     'System\\Router\\Web\\Route' => $baseDir . '/system/Router/Web/Route.php',
 );

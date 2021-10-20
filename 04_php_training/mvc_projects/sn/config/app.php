@@ -5,6 +5,14 @@
 
 define('APP_TITLE', 'MVC project');
 define('BASE_URL', 'https://localhost:8000');
+/*
+ * Reserve 8000 port for this project
+ * ==================================
+ * php -S localhost:8000 -t path_of_your_project
+ *
+ * note: you can find path of your project with pwd command
+ *
+ * */
 //define('BASE_URL', 'https://localhost/php/webmasteran/04_php_training/mvc_projects/sn/');
 //define('MSN_BASE_URL', 'php/webmasteran/04_php_training/mvc_projects/sn/');
 define('BASE_DIR', realpath(__DIR__."/../"));

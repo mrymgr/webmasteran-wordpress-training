@@ -31,6 +31,7 @@ class ComposerStaticInit3e96a9cfdbe93d18fdfa748000e82066
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'System\\Router\\Api\\Route' => __DIR__ . '/../..' . '/system/Router/Api/Route.php',
+        'System\\Router\\Routing' => __DIR__ . '/../..' . '/system/Router/Routing.php',
         'System\\Router\\Web\\Route' => __DIR__ . '/../..' . '/system/Router/Web/Route.php',
     );
 
