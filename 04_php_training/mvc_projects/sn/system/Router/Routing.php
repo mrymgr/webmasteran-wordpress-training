@@ -2,6 +2,8 @@
 
 namespace System\Router;
 
+use ReflectionMethod;
+
 class Routing {
 
 	private $current_route;
@@ -23,7 +25,29 @@ class Routing {
 	}
 
 	public function run() {
+		$match = $this->match();
+		if ( empty( $match ) ) {
+			$this->error404();
+		}
 
+		$classPath = str_replace( '\\', '/', $match['class'] );
+		$path      = BASE_DIR . "App/Http/Controllers" . $classPath . '.php';
+		if ( ! file_exists( $path ) ) {
+			$this->error404();
+		}
+
+		$class = '\App\Http\Controllers\\' . $match['class'] ;
+		$object = new $class();
+		if ( method_exists($object, $match['method'])) {
+			$reflection = new ReflectionMethod($class, $match['method']);
+			$parameterCount = $reflection->getNumberOfParameters();
+
+			if ( $parameterCount <= count($this->values) ) {
+				call_user_func_array( array($object, $match['method']), $this->values);
+			}
+		} else {
+			$this->error404();
+		}
 	}
 
 	public function match() {
