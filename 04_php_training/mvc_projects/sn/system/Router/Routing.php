@@ -31,19 +31,19 @@ class Routing {
 		}
 
 		$classPath = str_replace( '\\', '/', $match['class'] );
-		$path      = BASE_DIR . "App/Http/Controllers" . $classPath . '.php';
+		$path      = BASE_DIR . DIRECTORY_SEPARATOR . "App/Http/Controllers" . DIRECTORY_SEPARATOR . $classPath . '.php';
 		if ( ! file_exists( $path ) ) {
 			$this->error404();
 		}
 
-		$class = '\App\Http\Controllers\\' . $match['class'] ;
+		$class  = '\App\Http\Controllers\\' . $match['class'];
 		$object = new $class();
-		if ( method_exists($object, $match['method'])) {
-			$reflection = new ReflectionMethod($class, $match['method']);
+		if ( method_exists( $object, $match['method'] ) ) {
+			$reflection     = new ReflectionMethod( $class, $match['method'] );
 			$parameterCount = $reflection->getNumberOfParameters();
 
-			if ( $parameterCount <= count($this->values) ) {
-				call_user_func_array( array($object, $match['method']), $this->values);
+			if ( $parameterCount <= count( $this->values ) ) {
+				call_user_func_array( array( $object, $match['method'] ), $this->values );
 			}
 		} else {
 			$this->error404();
