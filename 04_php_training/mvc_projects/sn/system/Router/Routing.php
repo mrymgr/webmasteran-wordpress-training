@@ -16,7 +16,6 @@ class Routing {
 	 */
 	public function __construct() {
 		$this->current_route = explode( '/', CURRENT_ROUTE );
-
 		$this->method_field = $this->methodField();
 
 		global $routes;
