@@ -14,5 +14,18 @@ abstract class Model {
 
 	use HasAttributes, HasCRUD, HasMethodCaller, HasQueryBuilder, HasRelation, HasSoftDelete;
 
+	protected $table;
+	protected $fillable = [];
+	protected $hidden = [];
+	protected $casts = [];
+	protected $primaryKey = 'id';
+	protected $createdAt = 'created_at';
+	protected $updatedAt = 'updated_at';
+	protected $deletedAt = null;
+	protected $collection = [];
+
+
+
+
 
 }

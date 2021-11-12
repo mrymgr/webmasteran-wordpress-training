@@ -12,7 +12,6 @@ trait HasQueryBuilder {
 	private $limit = [];
 	private $values = [];
 	private $bindValues = [];
-	protected $table;
 
 	protected function setSql( $query ) {
 		$this->sql = $query;
