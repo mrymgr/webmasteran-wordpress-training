@@ -22,7 +22,7 @@ abstract class Model {
 	protected $createdAt = 'created_at';
 	protected $updatedAt = 'updated_at';
 	protected $deletedAt = null;
-	protected $collection = [];
+	protected array $collection = [];
 
 
 
