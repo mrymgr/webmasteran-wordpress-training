@@ -3,8 +3,12 @@
 namespace System\Database\Traits;
 
 use System\Database\DBConnection\DBConnection;
+use System\Database\Traits\HasAttributes;
+use System\Database\Traits\HasQueryBuilder;
 
 trait HasCRUD {
+
+	use HasAttributes, HasQueryBuilder;
 
 	protected function saveMethod() {
 
@@ -14,11 +18,17 @@ trait HasCRUD {
 			$this->setSql( "INSERT INTO {$this->getTableName()} SET {$fillString} , {$this->getAttributeName($this->createdAt)} = NOW() " );
 		} else {
 			$this->setSql( "UPDATE  {$this->getTableName()} SET {$fillString} , {$this->getAttributeName($this->updatedAt)} = NOW() " );
-			$this->setWhere("AND", $this->getAttributeName($this->primaryKey) . " = ? ");
-			$this->addValue($this->primaryKey , $this->{$this->primaryKey});
+			$this->setWhere( "AND", $this->getAttributeName( $this->primaryKey ) . " = ? " );
+			$this->addValue( $this->primaryKey, $this->{$this->primaryKey} );
 		}
 
 		$this->executeQuery();
+		$this->resetQuery();
+
+		if ( ! isset( $this->{$this->primaryKey} ) ) {
+			$object      = $this->findMethod( DBConnection::newInsertId() );
+			$defaultVars = get_class_vars( get_called_class() );
+		}
 	}
 
 	protected function fill() {
@@ -40,6 +50,10 @@ trait HasCRUD {
 
 		return $fillString;
 
+	}
+
+	protected function findMethod( $id ) {
+		return '';
 	}
 
 }
