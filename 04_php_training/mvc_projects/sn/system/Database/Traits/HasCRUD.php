@@ -43,6 +43,128 @@ trait HasCRUD
     return $this;
   }
   
+  protected function whereMethod( $attribute, $firstValue, $secondValue = null )
+  {
+    
+    if ( null === $secondValue ) {
+      $condition = $this->getAttributeName( $attribute )." = ? ";
+      $this->addValue( $attribute, $firstValue );
+    } else {
+      $condition = $this->getAttributeName( $attribute )." {$firstValue} ? ";
+      $this->addValue( $attribute, $secondValue );
+    }
+    
+    $operator = 'AND';
+    $this->setWhere( $operator, $condition );
+    $this->setAllowMethods( [ 'where', 'whereOr', 'whereIn', 'whereNull', 'whereNotNull', 'limit', 'orderBy', 'get', 'paginate' ] );
+    
+    return $this;
+    
+  }
+  
+  protected function whereOrMethod( $attribute, $firstValue, $secondValue = null )
+  {
+    
+    if ( null === $secondValue ) {
+      $condition = $this->getAttributeName( $attribute )." = ? ";
+      $this->addValue( $attribute, $firstValue );
+    } else {
+      $condition = $this->getAttributeName( $attribute )." {$firstValue} ? ";
+      $this->addValue( $attribute, $secondValue );
+    }
+    
+    $operator = 'OR';
+    $this->setWhere( $operator, $condition );
+    $this->setAllowMethods( [ 'where', 'whereOr', 'whereIn', 'whereNull', 'whereNotNull', 'limit', 'orderBy', 'get', 'paginate' ] );
+    
+    return $this;
+    
+  }
+  
+  protected function whereNullMethod( $attribute )
+  {
+    
+    $condition = $this->getAttributeName( $attribute ).' IS NULL ';
+    $operator  = 'AND';
+    $this->setWhere( $operator, $condition );
+    $this->setAllowMethods( [ 'where', 'whereOr', 'whereIn', 'whereNull', 'whereNotNull', 'limit', 'orderBy', 'get', 'paginate' ] );
+    
+    return $this;
+    
+  }
+  
+  protected function whereNotNullMethod( $attribute )
+  {
+    
+    $condition = $this->getAttributeName( $attribute ).' IS NOT NULL ';
+    $operator  = 'AND';
+    $this->setWhere( $operator, $condition );
+    $this->setAllowMethods( [ 'where', 'whereOr', 'whereIn', 'whereNull', 'whereNotNull', 'limit', 'orderBy', 'get', 'paginate' ] );
+    
+    return $this;
+    
+  }
+  
+  protected function whereInMethod( $attribute, $values )
+  {
+    if ( is_array( $values ) ) {
+      $valuesArray = [];
+      foreach ( $values as $value ) {
+        $this->addValue( $attribute, $value );
+        array_push( $valuesArray, '?' );
+      }
+      $condition = $this->getAttributeName( $attribute ).' IN ('.implode( ' , ', $valuesArray ).')';
+      $operator  = 'AND';
+      $this->setWhere( $operator, $condition );
+      $this->setAllowMethods( [ 'where', 'whereOr', 'whereIn', 'whereNull', 'whereNotNull', 'limit', 'orderBy', 'get', 'paginate' ] );
+      
+      return $this;
+    }
+    
+    return null;
+  }
+  
+  protected function orderByMethod( $attribute, $expression )
+  {
+    $this->setOrderBy( $attribute, $expression );
+    $this->setAllowMethods( [ 'limit', 'orderBy', 'get', 'paginate' ] );
+    
+    return $this;
+  }
+  
+  protected function limitMethod( $from, $number )
+  {
+    $this->setLimit( $from, $number );
+    $this->setAllowMethods( [ 'limit', 'get', 'paginate' ] );
+    
+    return $this;
+  }
+  
+  protected function getMethod( $array = [] )
+  {
+    
+    if ( '' == $this->sql ) {
+      if ( empty( $array ) ) {
+        $fields = $this->getTableName().'.*';
+      } else {
+        foreach ( $array as $key => $field ) {
+          $array[ $key ] = $this->getAttributeName( $field );
+        }
+        $fields = implode( ', ', $array );
+      }
+      
+      $this->setSql( "SELECT $fields FROM  {$this->getTableName()} " );
+    }
+    $statement = $this->executeQuery();
+    $data = $statement->fetchAll();
+    if ( $data ) {
+      $this->arrayToObjects($data);
+      return $this->collection;
+    }
+    return [];
+    
+  }
+  
   protected function deleteMethod( $id = null )
   {
     $object = $this;
