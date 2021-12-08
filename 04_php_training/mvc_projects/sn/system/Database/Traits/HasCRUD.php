@@ -5,11 +5,12 @@ namespace System\Database\Traits;
 use System\Database\DBConnection\DBConnection;
 use System\Database\Traits\HasAttributes;
 use System\Database\Traits\HasQueryBuilder;
+use System\Database\Traits\HasMethodCaller;
 
 trait HasCRUD
 {
   
-  use HasAttributes, HasQueryBuilder;
+  use HasAttributes, HasQueryBuilder, HasMethodCaller;
   
   protected function createMethod($values)
   {
@@ -278,9 +279,6 @@ trait HasCRUD
     return null;
   }
   
-  protected function setAllowMethods(array $args)
-  {
   
-  }
   
 }
