@@ -12,7 +12,7 @@ use System\Database\Traits\HasSoftDelete;
 
 abstract class Model {
 
-	use HasAttributes, HasCRUD, HasMethodCaller, HasQueryBuilder, HasRelation, HasSoftDelete;
+	use HasAttributes, HasCRUD, HasMethodCaller, HasQueryBuilder, HasRelation /*, HasSoftDelete*/;
 
 	protected $table;
 	protected $fillable = [];
@@ -23,6 +23,12 @@ abstract class Model {
 	protected $updatedAt = 'updated_at';
 	protected $deletedAt = null;
 	protected array $collection = [];
+	
+	/*
+	 * solve collision issue with traits when they have same methods: HasCRUD & HasSoftDelete
+	 * https://stackoverflow.com/questions/25064470/collisions-with-other-trait-methods
+	 *
+	 * */
 
 
 
