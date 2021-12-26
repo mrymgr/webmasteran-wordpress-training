@@ -1,6 +1,6 @@
 <?php
 
 define('DBHOST', 'localhost');
-define('DBNAME', 'mvc_snproject');
+define('DBNAME', 'new_mvc');
 define('DBUSERNAME', 'mehdi');
 define('DBPASSWORD', 'mznx9182');

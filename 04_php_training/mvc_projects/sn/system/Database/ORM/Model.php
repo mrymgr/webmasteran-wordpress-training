@@ -14,7 +14,7 @@ abstract class Model {
 
 	use HasAttributes, HasCRUD, HasMethodCaller, HasQueryBuilder, HasRelation /*, HasSoftDelete*/;
 
-	protected $table;
+	protected string $table;
 	protected $fillable = [];
 	protected $hidden = [];
 	protected $casts = [];
