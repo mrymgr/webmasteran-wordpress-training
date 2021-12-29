@@ -5,16 +5,8 @@ namespace System\Database\Traits;
 trait HasMethodCaller
 {
   
-  private $allMethods
-    = [
-      'create', 'update', 'delete', 'find', 'all', 'save', 'where',
-      'whereOr', 'whereIn', 'whereNull', 'whereNotNull', 'limit', 'orderBy', 'get', 'paginate'
-    ];
-  private $allowedMethods
-    = [
-      'create', 'update', 'delete', 'find', 'all', 'save', 'where',
-      'whereOr', 'whereIn', 'whereNull', 'whereNotNull', 'limit', 'orderBy', 'get', 'paginate'
-    ];
+  private $allMethods = ['create', 'update', 'delete', 'find', 'all', 'save', 'where', 'whereOr', 'whereIn', 'whereNull', 'whereNotNull', 'limit', 'orderBy', 'get', 'paginate'];
+  private $allowedMethods = ['create', 'update', 'delete', 'find', 'all', 'save', 'where', 'whereOr', 'whereIn', 'whereNull', 'whereNotNull', 'limit', 'orderBy', 'get', 'paginate'];
   
   public function __call($method, $args)
   {
@@ -24,7 +16,8 @@ trait HasMethodCaller
   public static function __callStatic($method, $args)
   {
     $className = get_called_class();
-    $instance = new $className;
+    $instance  = new $className;
+    
     return $instance->methodCaller($instance, $method, $args);
   }
   
@@ -35,12 +28,10 @@ trait HasMethodCaller
     if (in_array($method, $this->allowedMethods)) {
       return call_user_func_array(array($object, $methodName), $args);
     }
-    
   }
   
-  protected function setAllowMethods($array)
+  protected function setAllowedMethods($array)
   {
     $this->allowedMethods = $array;
-    
   }
 }
