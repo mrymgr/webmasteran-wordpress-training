@@ -10,4 +10,9 @@ class Role extends Model
   protected $fillable = ['name'];
   protected $casts = [];
   
+  public function users()
+  {
+    return $this->belongsToMany('\App\User','user_role', 'id', 'role_id', 'user_id', 'id');
+  }
+  
 }

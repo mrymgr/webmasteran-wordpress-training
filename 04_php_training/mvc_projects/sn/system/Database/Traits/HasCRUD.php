@@ -42,7 +42,7 @@ trait HasCRUD
   protected function allMethod()
   {
     
-    $this->setSql("SELECT * FROM ".$this->getTableName());
+    $this->setSql("SELECT * FROM {$this->getTableName()} ");
     $statement = $this->executeQuery();
     $data      = $statement->fetchAll();
     if ($data) {
@@ -57,8 +57,8 @@ trait HasCRUD
   protected function findMethod($id)
   {
     
-    $this->setSql("SELECT * FROM ".$this->getTableName());
-    $this->setWhere("AND", $this->getAttributeName($this->primaryKey)." = ? ");
+    $this->setSql("SELECT * FROM {$this->getTableName()} ");
+    $this->setWhere("AND", "{$this->getAttributeName($this->primaryKey)} = ? ");
     $this->addValue($this->primaryKey, $id);
     $statement = $this->executeQuery();
     $data      = $statement->fetch();
@@ -196,7 +196,7 @@ trait HasCRUD
     $currentRow  = ($currentPage - 1) * $perPage;
     $this->setLimit($currentRow, $perPage);
     if ($this->sql == '') {
-      $this->setSql("SELECT ".$this->getTableName().".* FROM ".$this->getTableName());
+      $this->setSql("SELECT {$this->getTableName()}.* FROM {$this->getTableName()} ");
     }
     $statement = $this->executeQuery();
     $data      = $statement->fetchAll();

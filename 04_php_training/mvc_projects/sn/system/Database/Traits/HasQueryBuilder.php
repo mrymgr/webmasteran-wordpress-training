@@ -131,7 +131,7 @@ trait HasQueryBuilder
   {
     
     $query = '';
-    $query .= "SELECT COUNT(*) FROM ".$this->getTableName();
+    $query .= "SELECT COUNT(*) FROM {$this->getTableName()}";
     
     if ( ! empty($this->where)) {
       
