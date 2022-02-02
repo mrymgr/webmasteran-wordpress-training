@@ -1,0 +1,79 @@
+Update to the last version
+==============================
+composer selfupdate
+
+#return to previous version
+composer self-update --rollback to return to version 2.1.5
+
+Initial composer
+===================
+composer init
+
+Download a package from composer
+==================================
+composer require [vendor/package]
+
+#after installing, you can see it in "require" section in composer.json file in your project
+
+#Add required dev packages
+composer require --dev [vendor/package]
+
+Download packages when you don't have vendor directory
+======================================================
+composer install
+
+Version management
+==================
+1.2.3
+1 is Significant/major release (often breaking)
+2 is minor release (Rarely breaking)
+3 is incremental update (never breaking)
+
+Wildcard Version Range
+======================
+* : any version is accepted within the specific range
+0.3.* is equivalent to >= 0.3 < 0.4
+
+exact version constraint:
+0.3.2 : only the specified version is accepted
+
+Tilde version range
+~: marks the minimum version allowed
+   Enables updates until the next significant release
+~1.2 is equivalent to >= 1.2 < 2.0.0
+~1.2.3 is equivalent to >= 1.2.3 < 1.3.0
+
+Caret version range
+^: Same as the tilde version range, but always allows nonbreaking updates
+^1.2.3 is equivalent to >= 1.2.3 < 2.0.0
+
+See list of installed packages
+==============================
+composer show
+
+Check outdated packages
+=======================
+composer outdated
+#get list of outdated packages
+
+Update packages
+===============
+use ~ or ^ in require section in composer.json
+then use the following command with name of your package
+
+# To update a specific package:
+composer update [vendor/package]
+
+# To update all packages:
+composer update
+# This command will update all packages to the latest version
+# according to composer.json and update composer.lock to match
+
+Remove specific package
+=======================
+composer remove [vendor/package]
+
+
+
+
+
