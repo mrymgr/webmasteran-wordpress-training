@@ -83,4 +83,66 @@ console.log(`String length is:${email.trimRight().length} and trim right string 
 console.log(`String length is:${email.trimLeft().length} and trim left string is: '${email.trimLeft().replace(/\s/g,'*')}'`);
 console.log(`String length is:${email.trimStart().length} and trim start string is: '${email.trimStart().replace(/\s/g,'*')}'`);
 
+/*
+* Number methods
+* ==============
+* */
 
+let num = 12.797
+//fixed fraction
+console.log(num.toFixed(2));
+console.log(num.toFixed(5));
+
+//Some practical Math methods
+//round methods
+console.log(Math.round(num));
+console.log(Math.floor(num));
+console.log(Math.ceil(num));
+
+//random number between 0 and 1
+console.log(Math.random());
+
+//random number between 10 and 20
+let num1 = 10
+let num2 = 20
+console.log(Math.floor(Math.random()*(num2 - num1))  + num1);
+
+/*
+* Define constant
+* ===============
+* */
+const isUser = true
+const userData = {
+  id: 2
+}
+userData.id = 3
+
+/*
+* Array & related methods
+* =======================
+* */
+
+const tasks = ['Task1', 'Task2', 12, true]
+console.log(tasks.length);
+console.log(tasks[0]);
+
+const cartItems = ['Book1', 'Book2', "Book3"]
+let result = `You have ${cartItems.length} products in your cart`
+let firstCartItem = `First item in your cart is: ${cartItems[0]}`
+let lastCartItem = `Last item in your cart is: ${cartItems[cartItems.length -1]}`
+console.log(result);
+console.log(firstCartItem);
+console.log(lastCartItem);
+
+//add item in the end of array
+cartItems.push('Book4')
+console.log(cartItems);
+//remove item from end of array
+cartItems.pop()
+console.log(cartItems);
+//add item in the beginning of array
+cartItems.unshift('First Item')
+console.log(cartItems)
+//remove item from the beginning of array
+cartItems.shift()
+console.log(cartItems);
