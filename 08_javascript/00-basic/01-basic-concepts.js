@@ -33,7 +33,7 @@ let getUserInfo = function ( name , id) {
 }
 
 let showResult = getUserInfo('gholam', 'ghanbari')
-console.log(showResult);
+console.log(showResult)
 
 /*
 * Define object
@@ -73,15 +73,15 @@ console.log(fullName.length)
 
 //find a substring inside a string
 let password = 'gholam123'
-console.log(password.includes('gholam'));
+console.log(password.includes('gholam'))
 
 //remove space from left & right + replace in a string
 let email = '  gholam@gmail.com      '
-console.log(`String length is:${email.length} and original string is: '${email.replace(/\s/g,'*')}'`);
-console.log(`String length is:${email.trim().length} and trim string is: '${email.trim().replace(/\s/g,'*')}'`);
-console.log(`String length is:${email.trimRight().length} and trim right string is: '${email.trimRight().replace(/\s/g,'*')}'`);
-console.log(`String length is:${email.trimLeft().length} and trim left string is: '${email.trimLeft().replace(/\s/g,'*')}'`);
-console.log(`String length is:${email.trimStart().length} and trim start string is: '${email.trimStart().replace(/\s/g,'*')}'`);
+console.log(`String length is:${email.length} and original string is: '${email.replace(/\s/g,'*')}'`)
+console.log(`String length is:${email.trim().length} and trim string is: '${email.trim().replace(/\s/g,'*')}'`)
+console.log(`String length is:${email.trimRight().length} and trim right string is: '${email.trimRight().replace(/\s/g,'*')}'`)
+console.log(`String length is:${email.trimLeft().length} and trim left string is: '${email.trimLeft().replace(/\s/g,'*')}'`)
+console.log(`String length is:${email.trimStart().length} and trim start string is: '${email.trimStart().replace(/\s/g,'*')}'`)
 
 /*
 * Number methods
@@ -90,14 +90,14 @@ console.log(`String length is:${email.trimStart().length} and trim start string 
 
 let num = 12.797
 //fixed fraction
-console.log(num.toFixed(2));
-console.log(num.toFixed(5));
+console.log(num.toFixed(2))
+console.log(num.toFixed(5))
 
 //Some practical Math methods
 //round methods
-console.log(Math.round(num));
-console.log(Math.floor(num));
-console.log(Math.ceil(num));
+console.log(Math.round(num))
+console.log(Math.floor(num))
+console.log(Math.ceil(num))
 
 //random number between 0 and 1
 console.log(Math.random());
@@ -105,7 +105,7 @@ console.log(Math.random());
 //random number between 10 and 20
 let num1 = 10
 let num2 = 20
-console.log(Math.floor(Math.random()*(num2 - num1))  + num1);
+console.log(Math.floor(Math.random()*(num2 - num1))  + num1)
 
 /*
 * Define constant
@@ -123,26 +123,39 @@ userData.id = 3
 * */
 
 const tasks = ['Task1', 'Task2', 12, true]
-console.log(tasks.length);
-console.log(tasks[0]);
+console.log(tasks.length)
+console.log(tasks[0])
 
-const cartItems = ['Book1', 'Book2', "Book3"]
+const cartItems = ['Book1', 'Book2', 'Book3', 'Book4']
 let result = `You have ${cartItems.length} products in your cart`
 let firstCartItem = `First item in your cart is: ${cartItems[0]}`
 let lastCartItem = `Last item in your cart is: ${cartItems[cartItems.length -1]}`
-console.log(result);
-console.log(firstCartItem);
-console.log(lastCartItem);
+console.log(result)
+console.log(firstCartItem)
+console.log(lastCartItem)
 
 //add item in the end of array
-cartItems.push('Book4')
-console.log(cartItems);
+cartItems.push('Book5')
+console.log(cartItems)
 //remove item from end of array
 cartItems.pop()
-console.log(cartItems);
+console.log(cartItems)
 //add item in the beginning of array
 cartItems.unshift('First Item')
 console.log(cartItems)
 //remove item from the beginning of array
 cartItems.shift()
-console.log(cartItems);
+console.log(cartItems)
+
+//splice array from position with count
+console.log(cartItems.splice(0,2, 'New Item 1'))
+console.log(cartItems)
+cartItems[2] = 'New Item 2'
+console.log(cartItems)
+
+//foreach in array
+cartItems.forEach(function (item, index) {
+  console.log(`In index ${index} of cart items locates ${item}`)
+})
+
+
