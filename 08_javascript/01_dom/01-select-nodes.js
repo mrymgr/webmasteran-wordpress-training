@@ -24,7 +24,7 @@
 * scripts
 * head
 * body
-* links : array of links in a document
+* links : array of links in a document - the return is HTMLCollection
 * images
 * forms
 * children
@@ -52,7 +52,23 @@ let divs = document.getElementsByTagName('div'); //return an array
 let contentClass = document.querySelector('.content');
 let contentClasses = document.querySelectorAll('.content');
 //use all of these methods with other nodes not just document
-contact = document.getElementById( 'contact' );
-console.log( contact.querySelector( 'a' ) );
+contact = document.getElementById('contact');
+console.log(contact.querySelector('a'));
+
+/*
+* Note: loop on HTMLCollection
+* to loop on DOM list such HTMLCollection or nodeList, only use for/of iteration
+* */
+
+let list = document.getElementsByClassName("events")
+for (let item of list) {
+  console.log(item.id)
+}
+
+//another sample (get all of links in a document):
+let documentLinkList = document.links
+for (let item of documentLinkList) {
+  console.log(item.href)
+}
 
 
