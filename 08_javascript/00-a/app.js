@@ -1,6 +1,29 @@
+const cartItems1 = [
+  {
+    title: 'book 1',
+    price: 50
+  },
+  {
+    title: 'book 2',
+    price: 30
+  },
+  {
+    title: 'book 3',
+    price: 30
+  },
+  {
+    title: 'book 4',
+    price: 40
+  }
+]
 
-const cartItems = ['Book1', 'Book2', 'Book3', 'Book4']
+const findProducts = function (cartItems, productTitle) {
 
-cartItems.forEach(function (item, index) {
-  console.log(`In index ${index} of cart items locates ${item}`)
-})
+  const indexValue = cartItems.findIndex(function (item, index) {
+    return item.title.toLowerCase() === productTitle.toLowerCase()
+  })
+  return cartItems[indexValue]
+}
+
+const result1 = findProducts(cartItems1, 'BOok 4')
+console.log(result1)

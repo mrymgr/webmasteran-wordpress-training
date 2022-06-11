@@ -118,6 +118,15 @@ const userData = {
 userData.id = 3
 
 /*
+* for loop
+* =============
+* */
+
+for (let count = 3; count < 10; count++) {
+  console.log(count)
+}
+
+/*
 * Array & related methods
 * =======================
 * */
@@ -158,4 +167,50 @@ cartItems.forEach(function (item, index) {
   console.log(`In index ${index} of cart items locates ${item}`)
 })
 
+//use for loop for array
+for (let count = 0; count < cartItems.length; count++) {
+  const rowCount = count + 1
+  console.log(`${rowCount}- Product Name: ${cartItems[count]}`)
+}
+
+//Search in array with indexOf
+console.log(cartItems.indexOf('Book2'))
+//return -1 if it doesn't exist or return array index if it exists
+
+//using findIndex for customized search in array
+const cartItems1 = [
+  {
+    title: 'book 1',
+    price: 50
+  },
+  {
+    title: 'book 2',
+    price: 30
+  },
+  {
+    title: 'book 3',
+    price: 30
+  },
+  {
+    title: 'book 4',
+    price: 40
+  }
+]
+
+const indexValue = cartItems1.findIndex(function (item, index) {
+  return item.title === 'book 4'
+})
+console.log(indexValue)
+
+//or using like this in the following
+const findProducts = function (cartItems, productTitle) {
+
+  const indexValue = cartItems.findIndex(function (item, index) {
+    return item.title.toLowerCase() === productTitle.toLowerCase()
+  })
+  return cartItems[indexValue]
+}
+
+const result1 = findProducts(cartItems1, 'BOok 4')
+console.log(result1)
 
