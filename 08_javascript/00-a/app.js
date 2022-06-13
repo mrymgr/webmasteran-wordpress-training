@@ -1,29 +1,51 @@
-const cartItems1 = [
-  {
-    title: 'book 1',
-    price: 50
+const account = {
+  name: 'Mehdi',
+  outgo: [],
+  income: [],
+  addOutGo: function (type, value) {
+    this.outgo.push(
+      {
+        'type': type,
+        'value': value,
+      }
+    )
   },
-  {
-    title: 'book 2',
-    price: 30
+  addIncome: function (type, value) {
+    this.income.push(
+      {
+        'type': type,
+        'value': value,
+      }
+    )
   },
-  {
-    title: 'book 3',
-    price: 30
-  },
-  {
-    title: 'book 4',
-    price: 40
+  getAccountSummary: function (){
+    let outGoSummary = 0
+    let incomeSummary = 0
+    this.income.forEach(function (item, index) {
+      incomeSummary += item.value
+    })
+    this.outgo.forEach(function (item, index) {
+      outGoSummary += item.value
+    })
+    return incomeSummary - outGoSummary
   }
-]
-
-const findProducts = function (cartItems, productTitle) {
-
-  const indexValue = cartItems.findIndex(function (item, index) {
-    return item.title.toLowerCase() === productTitle.toLowerCase()
-  })
-  return cartItems[indexValue]
 }
 
-const result1 = findProducts(cartItems1, 'BOok 4')
-console.log(result1)
+account.addOutGo('cafe', 60)
+account.addOutGo('book', 50)
+account.addIncome('job', 100)
+account.addIncome('job', 200)
+
+
+console.log(`The summary of account is: ${account.getAccountSummary()}`)
+
+// let addOutGo = function (type, value){
+//   let newOutGo = [
+//     {
+//       'type': type,
+//       'value': value,
+//     }
+//   ]
+//   account.outgo.push()
+// }
+

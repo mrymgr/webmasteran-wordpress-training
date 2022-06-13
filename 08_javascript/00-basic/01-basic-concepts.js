@@ -177,7 +177,7 @@ for (let count = 0; count < cartItems.length; count++) {
 console.log(cartItems.indexOf('Book2'))
 //return -1 if it doesn't exist or return array index if it exists
 
-//using findIndex for customized search in array
+//using findIndex for customized search in array (return index of array when find searched item)
 const cartItems1 = [
   {
     title: 'book 1',
@@ -213,4 +213,141 @@ const findProducts = function (cartItems, productTitle) {
 
 const result1 = findProducts(cartItems1, 'BOok 4')
 console.log(result1)
+
+
+//find method: return item when find searched item
+
+const findResult = cartItems1.find(function (item, index) {
+  return item.title.toLowerCase() === 'book 3'
+})
+
+console.log(findResult)
+
+//or
+
+const findProducts1 = function (cartItems, productTitle) {
+
+  return  cartItems.find(function (item, index) {
+    return item.title.toLowerCase() === productTitle.toLowerCase()
+  })
+}
+
+const result2 = findProducts1(cartItems1, 'BOok 4')
+console.log(result)
+
+
+//remove an item in an array with findIndex
+const deleteProduct = function (cartItems, removeItem) {
+  const deleteIndex = cartItems.findIndex(function (item, index){
+    return item.title.toLowerCase() === removeItem.toLowerCase()
+  })
+  if ( deleteIndex !== -1 ) {
+
+    cartItems1.splice(deleteIndex,1)
+    return cartItems1
+  }
+  return cartItems1
+}
+
+const removedArrayResult = deleteProduct(cartItems1, 'book 2')
+console.log(removedArrayResult)
+
+
+//filter method
+const numbers1 = [20, 11, 9, 8, 33, 12, 5, 4]
+const numbersGreaterThan10 = numbers1.filter(function (item, index) {
+  return item >= 10
+})
+console.log(numbersGreaterThan10)
+
+//another sample for filter method: find products in a list that does not exist in cartItems2
+const cartItems2 = [
+  {
+    title: 'book 1',
+    exist: true
+  },
+  {
+    title: 'book 2',
+    exist: false
+  },
+  {
+    title: 'book 3',
+    exist: true
+  },
+  {
+    title: 'book 4',
+    exist: false
+  }
+]
+
+const productNotExist = function (products) {
+  return cartItems2.filter(function (item, index) {
+    //return item.exist === false
+    return !item.exist
+
+  })
+}
+
+console.log(productNotExist(cartItems2))
+
+//Sort in array
+//return exist products first
+const sortProduct = function (products) {
+  products.sort(function (a, b) {
+    if (a.exist === true && b.exist === false) {
+      return -1
+    } else if (b.exist === true && a.exist === false) {
+      return 1
+    } else {
+      return 0
+    }
+  })
+}
+
+sortProduct(cartItems2)
+console.log(cartItems2)
+
+
+//Example: summary of an account with income and outcome
+const account = {
+  name: 'Mehdi',
+  outgo: [],
+  income: [],
+  addOutGo: function (type, value) {
+    this.outgo.push(
+      {
+        'type': type,
+        'value': value,
+      }
+    )
+  },
+  addIncome: function (type, value) {
+    this.income.push(
+      {
+        'type': type,
+        'value': value,
+      }
+    )
+  },
+  getAccountSummary: function (){
+    let outGoSummary = 0
+    let incomeSummary = 0
+    this.income.forEach(function (item, index) {
+      incomeSummary += item.value
+    })
+    this.outgo.forEach(function (item, index) {
+      outGoSummary += item.value
+    })
+    return incomeSummary - outGoSummary
+  }
+}
+
+account.addOutGo('cafe', 60)
+account.addOutGo('book', 50)
+account.addIncome('job', 100)
+account.addIncome('job', 200)
+
+
+console.log(`The summary of account is: ${account.getAccountSummary()}`)
+
 
