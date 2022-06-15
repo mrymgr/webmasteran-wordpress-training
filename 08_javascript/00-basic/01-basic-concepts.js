@@ -351,3 +351,19 @@ account.addIncome('job', 200)
 console.log(`The summary of account is: ${account.getAccountSummary()}`)
 
 
+/*
+* Event listener
+* ==============
+* */
+
+//To access to element it's clicked, you can use e.target like in the following:
+document.querySelector('button').addEventListener('click', function (e) {
+  //console.log(e)
+  e.target.textContent = 'Add Samples'
+})
+
+
+
+
+
+
