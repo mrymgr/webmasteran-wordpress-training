@@ -1,5 +1,6 @@
 
-document.querySelector('button').addEventListener('click', function (e) {
-  //console.log(e)
-  e.target.textContent = 'Add Samples'
+document.getElementById('add-product-form').addEventListener('submit', function (e) {
+  e.preventDefault()
+  console.log(e.target.elements.productTitle.value)
+  e.target.elements.productTitle.value = ''
 })

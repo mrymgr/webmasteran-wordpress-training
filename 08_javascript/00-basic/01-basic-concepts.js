@@ -362,6 +362,69 @@ document.querySelector('button').addEventListener('click', function (e) {
   e.target.textContent = 'Add Samples'
 })
 
+//remove all element with product class in DOM
+document.getElementById('remove-all-product').addEventListener('click',function (e){
+  document.querySelectorAll('.product').forEach(function (item, index) {
+    item.remove()
+  })
+})
+
+
+//change event vs input event: for change, you must get out the input to see the events but in input, you can see
+// changes whenever you type something
+document.getElementById('search-products').addEventListener('change', function (e) {
+  console.log(e.target.value)
+})
+
+document.getElementById('search-products').addEventListener('input', function (e) {
+  console.log(e.target.value)
+})
+
+
+//Simple search in an array and show result in dom
+
+const products = [{
+  title: 'Gholam is the best js'
+}, {
+  title: 'You dont know js: this & object',
+}, {
+  title: 'Functional gholam programming'
+}, {
+  title: 'You dont know js: Async & Performance'
+}]
+
+const filters = {
+  searchItem: ''
+}
+const renderProducts = function (products, filters) {
+  const filterProducts = products.filter(function (item, index){
+    return item.title.toLowerCase().includes(filters.searchItem.toLowerCase())
+  })
+  document.querySelector('.product-list').innerHTML = ''
+  filterProducts.forEach(function (item, index) {
+    const pProductTag = document.createElement('p')
+    pProductTag.textContent = item.title
+    document.querySelector('.product-list').appendChild(pProductTag)
+  })
+}
+
+document.getElementById('search-products').addEventListener('input', function (e){
+  filters.searchItem = e.target.value
+  renderProducts(products, filters)
+})
+
+
+//Performance tradeoffs of querySelector & querySelectorAll & getElementById
+// https://dev.to/wlytle/performance-tradeoffs-of-queryselector-and-queryselectorall-1074
+// https://gomakethings.com/javascript-selector-performance/
+
+
+//sample of prevent default in form:
+document.getElementById('add-product-form').addEventListener('submit', function (e) {
+  e.preventDefault()
+  console.log(e.target.elements.productTitle.value)
+  e.target.elements.productTitle.value = ''
+})
 
 
 
