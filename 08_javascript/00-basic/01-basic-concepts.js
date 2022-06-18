@@ -426,7 +426,8 @@ document.getElementById('add-product-form').addEventListener('submit', function 
   e.target.elements.productTitle.value = ''
 })
 
-
-
+/*
+* sample: input box to add products on DOM & show search result on it
+* */
 
 
