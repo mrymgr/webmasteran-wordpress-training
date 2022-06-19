@@ -1,17 +1,16 @@
-// cd laragon/www/php/webmasteran/08_javascript/00-a
 
 const products = [{
   title: 'book 1',
-  exists: true
+  exist: true
 }, {
   title: 'book 2',
-  exists: false
+  exist: false
 }, {
   title: 'book 3',
-  exists: true
+  exist: true
 }, {
   title: 'book 4',
-  exists: false
+  exist: false
 }]
 
 const filters = {
@@ -41,7 +40,7 @@ document.querySelector('#add-product-form').addEventListener('submit', function 
   e.preventDefault()
   products.push({
     title: e.target.elements.productTitle.value,
-    exists: true
+    exist: true
   })
   renderProducts(products, filters)
   e.target.elements.productTitle.value = ''
@@ -52,7 +51,7 @@ document.querySelector('#add-product-form').addEventListener('submit', function 
 document.getElementById('checkExistProducts').addEventListener('change', function (e) {
   if (e.target.checked) {
     const filterExistProducts = products.filter(function (item){
-      return item.exists === true
+      return item.exist === true
     })
     renderProducts(filterExistProducts,filters)
   } else {

@@ -428,6 +428,21 @@ document.getElementById('add-product-form').addEventListener('submit', function 
 
 /*
 * sample: input box to add products on DOM & show search result on it
+* sample-01 & sample-02 in this directory
+*
 * */
 
+/*
+* using checkbox in JavaScript
+* */
+
+document.querySelector('#checkbox').addEventListener('change', function (e) {
+  if (e.target.checked) {
+    console.log('You have checked this checkbox')
+  }else {
+    console.log('You have unchecked this checkbox')
+  }
+})
+
+//Only show available products with checking a checkbox: sample-03
 
