@@ -1,4 +1,3 @@
-// cd laragon/www/php/webmasteran/08_javascript/00-a
 
 let products = []
 

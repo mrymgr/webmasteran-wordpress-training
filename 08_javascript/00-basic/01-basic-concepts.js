@@ -446,3 +446,26 @@ document.querySelector('#checkbox').addEventListener('change', function (e) {
 
 //Only show available products with checking a checkbox: sample-03
 
+/*
+* CRUD in local storage
+* ====================
+* You should use from localStorage object and related methods like:
+* setItem, getItem, removeItem, clear
+*
+* To save json data in local storage you must use JSON.stringify(key,value)
+* To get json data from local storage you must use JSON.parse(key)
+* */
+
+//Save data in localStorage
+jsonProduct = JSON.stringify(products)
+localStorage.setItem('products', jsonProduct)
+
+//Get data and work on it from localStorage
+const jsonProductsFromLocalStorage = localStorage.getItem('products')
+const tempProducts = JSON.parse(jsonProductsFromLocalStorage)
+tempProducts.forEach(function (item, index) {
+  console.log(`${index + 1}- Book title is: ${item.title} and it is ${item.exists === true ? "exists" : "not exists"}`)
+})
+
+//See sample 04: like sample 03 and save all products in localStorage
+
