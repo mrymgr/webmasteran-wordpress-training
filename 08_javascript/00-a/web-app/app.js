@@ -51,3 +51,5 @@ document.getElementById('checkExistProducts').addEventListener('change', functio
     renderProducts(products, filters)
   }
 })
+
+console.log(location)

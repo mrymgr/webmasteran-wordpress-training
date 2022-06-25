@@ -469,3 +469,23 @@ tempProducts.forEach(function (item, index) {
 
 //See sample 04: like sample 03 and save all products in localStorage
 
+/*
+* create random id
+* ==================
+* using: https://www.npmjs.com/package/uuid
+*        https://github.com/uuidjs/uuid
+* */
+
+/*
+* Get current url
+* ===============
+* using: location object
+* to get value after # in url: location.hash.substring(1)
+* another important attributes in location object:
+* host, hostname, href, origin, pathname, port, protocol, hash
+*
+* To redirect to specific url: location.assign(url)
+*
+* */
+
+
