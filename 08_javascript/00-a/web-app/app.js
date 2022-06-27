@@ -52,4 +52,5 @@ document.getElementById('checkExistProducts').addEventListener('change', functio
   }
 })
 
-console.log(location)
+let msnDate = new Date()
+console.log(msnDate)

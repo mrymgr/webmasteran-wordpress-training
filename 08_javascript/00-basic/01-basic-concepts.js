@@ -489,3 +489,48 @@ tempProducts.forEach(function (item, index) {
 * */
 
 
+/*
+* live update in all of tabs in browser window
+* ===========================================
+* To have live update on all of open tabs, you can use from window object.
+* There is simple sample about it in the following (in this example I used from localstorage:
+*
+* */
+
+window.addEventListener('storage', function (e) {
+  if (e.key === 'products') {
+    products2 = JSON.parse(e.newValue)
+    product = products2.find(function (item) {
+      return item.id === productId
+    })
+    if (product === undefined) {
+      location.assign('/index.html')
+    }
+
+    titleElement.value = product.title
+    priceElement.value = product.price
+  }
+})
+
+window.addEventListener('storage', function (e) {
+  if ( e.key === 'products') {
+    products1 = JSON.parse(e.newValue)
+    renderProducts(products1, filters)
+  }
+})
+
+
+/*
+* Date and time
+* =============
+* crate an object from Date class: new Date() //prepare full date
+* useful method in date object: getFullYear, getMonth, getDate, getHours, getMinutes, getSeconds
+*
+*
+* */
+//create a Date object from local machine time using 'now'
+const timestamp = now.getTime()
+const myDate = new Date(timestamp)
+
+
+
