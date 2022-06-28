@@ -526,11 +526,101 @@ window.addEventListener('storage', function (e) {
 * crate an object from Date class: new Date() //prepare full date
 * useful method in date object: getFullYear, getMonth, getDate, getHours, getMinutes, getSeconds
 *
+* One of the best library to handle date & time with persian support is momentjs.
+* you can go to its site and read the related documents to use it simply.
+* To use Jalali calendar, you must use from jalali-moment in github.
 *
 * */
 //create a Date object from local machine time using 'now'
 const timestamp = now.getTime()
 const myDate = new Date(timestamp)
+
+//using jalali date in momentjs
+const now = moment()
+now.locale('fa')
+console.log(now.format('MMMM DO YYYY, h:mm:ss a'))
+
+//have timestamp (with valueOf() in momentjs)
+const timestamp2 = moment().valueOf()
+dateElement.textContent = `Last Edit: ${moment(product.updated).locale('fa').fromNow()}`
+
+//sorting by e.g. edited date
+const sortProducts = function (products, sortBy) {
+  if (sortBy === 'byEdited') {
+    return products.sort(function (a, b) {
+      if (a.updated > b.updated) {
+        return -1
+      } else if (a.updated < b.updated) {
+        return 1
+      } else {
+        return 0
+      }
+    })
+  } else if (sortBy === 'byCreated') {
+    return products.sort(function (a, b) {
+      if (a.created > b.created) {
+        return -1
+      } else if (a.created < b.created) {
+        return 1
+      } else {
+        return 0
+      }
+    })
+  } else {
+    return products
+  }
+}
+
+/*
+* Arrow function
+* ==============
+* */
+const productName = (title) => {
+  return title
+}
+
+//another sample:
+const filteredProducts = products.filter((item) => {
+  return  item.exists = true
+})
+
+//single line return with arrow functions for above examples
+const productName1 = title => title
+const filteredProducts1 = products.filter(item => item.exists === true)
+
+//Arrow function can not use with this. So you must define object with ES5 syntax
+
+/*
+* Error handling
+* =============
+* We have 2 option to handle errors in JS. First is sending throw exception in your code.
+* Second is using try/catch block
+* */
+
+//using throw Error object
+const getPrice = (amount) => {
+  if (typeof amount === 'number') {
+    return amount
+  } else {
+    throw Error('Amount must be number!')
+  }
+}
+
+//using try/catch block
+
+const getSaveProducts = () => {
+  const productJSON =localStorage.getItem('products')
+  //now you must parse (with JSON.parse) it and maybe you can not parse it
+  try {
+    return productJSON !== null ? JSON.parse(productJSON): []
+  } catch (e) {
+    return []
+  }
+}
+
+
+
+
 
 
 
