@@ -618,9 +618,127 @@ const getSaveProducts = () => {
   }
 }
 
+/*
+* OOP
+* ====
+* Old methods vs new method with class keyword
+* */
 
+//Old way to have several objects
+const User1 = function (email, id) {
+  this.email = email
+  this.id = id
+}
 
+User1.prototype.userInfo = function () {
+  return `ID: ${this.id} - Email: ${this.email}`
+}
 
+const userName = new User1('gholam@gmail.com', 2)
+console.log(userName.userInfo())
+
+//New way to define class
+class User {
+  constructor(id, email) {
+    this.id = id
+    this.email = email
+  }
+
+  userInfo() {
+    return `ID: ${this.id} - Email: ${this.email}`
+  }
+}
+
+const userName1 = new User('gholam1@gmail.com', 2)
+console.log(userName1.userInfo())
+
+//sub class & inheritance
+class Job extends User {
+  constructor(id, email, jobTitle) {
+    super(id, email)
+    this.jobTitle = jobTitle
+  }
+}
+
+//getter & setter in objects
+const product3 = {
+  title: 'book 1',
+  price: 79,
+  get productInfo() {
+    return `Title: ${this.title} - Price: ${this.price}`
+  },
+  set productInfo(value) {
+    const parts = value.split(' ')
+    this.title = parts[0]
+    this.price = parts[1]
+  }
+
+}
+
+product3.productInfo = 'Book5 59'
+console.log(product3.productInfo)
+
+// getter & setter in a class
+class User2 {
+  constructor(id, email) {
+    this.id = id
+    this.email = email
+  }
+
+  get userInfo() {
+    return `ID: ${this.id} - Email: ${this.email}`
+  }
+  set userInfo(value) {
+    const parts = value.split(' ')
+    this.id = parts[0]
+    this.email = parts[1]
+  }
+}
+
+const userName3 = new User2(2, 'gholam1@gmail.com')
+userName3.userInfo = '3 gholameh@gmail.com'
+console.log(userName3)
+
+/*
+* Asynchronous in JavaScript
+* ==========================
+* To do asynchronous in JS, you have 3 ways: callback function (old way), promise & async
+*
+* */
+
+//Example with callback
+
+const products3 = [{
+  title: 'book 1',
+  price: 30
+}, {
+  title: 'book 2',
+  price: 40
+}, {
+  title: 'book 3',
+  price: 50
+}]
+
+getProducts = () => {
+  setTimeout(() => {
+    const fetchProducts = products3.map((item) => {
+      return `Product title: ${item.title} - Product price: ${item.price}`
+    })
+    console.log(fetchProducts)
+  }, 2000)
+}
+
+createProduct = (callback) => {
+  setTimeout(() => {
+    products3.push({
+      title: 'book 4',
+      price: 90
+    })
+    callback()
+  }, 3000)
+}
+
+createProduct(getProducts)
 
 
 
