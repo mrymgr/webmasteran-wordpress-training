@@ -233,7 +233,7 @@ const findProducts1 = function (cartItems, productTitle) {
 }
 
 const result2 = findProducts1(cartItems1, 'BOok 4')
-console.log(result)
+console.log(result2)
 
 
 //remove an item in an array with findIndex
