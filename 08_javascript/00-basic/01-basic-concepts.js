@@ -740,5 +740,43 @@ createProduct = (callback) => {
 
 createProduct(getProducts)
 
+//Using promises to have asynchronous execution
+
+createProduct1 = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      products3.push({
+        title: 'book 4',
+        price: 90
+      })
+      const error = false
+      if (!error) {
+        resolve()
+      } else {
+        reject('Error')
+      }
+    }, 3000)
+  })
+
+}
+
+createProduct1()
+  .then(getProducts)
+  .catch(err => {
+    console.log(err)
+  })
+
+//Using async-await: only need to use await function
+async function getData1() {
+  await  createProduct1()
+  getProducts()
+}
+
+getData1()
+
+/*
+* Ajax
+* =====
+* */
 
 

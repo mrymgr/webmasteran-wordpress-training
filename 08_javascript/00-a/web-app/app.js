@@ -20,14 +20,28 @@ getProducts = () => {
   }, 2000)
 }
 
-createProduct = (callback) => {
-  setTimeout(() => {
-    products3.push({
-      title: 'book 4',
-      price: 90
-    })
-    callback()
-  }, 3000)
+createProduct1 = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      products3.push({
+        title: 'book 4',
+        price: 90
+      })
+      const error = false
+      if (!error) {
+        resolve()
+      } else {
+        reject('Error')
+      }
+    }, 3000)
+  })
+
 }
 
-createProduct(getProducts)
+async function getData1() {
+  await  createProduct1()
+  getProducts()
+}
+
+getData1()
+
