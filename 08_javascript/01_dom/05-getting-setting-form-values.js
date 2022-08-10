@@ -3,13 +3,13 @@
  * ======================
  *
  * document.forms
- * not common - return is HTMLCollection - if you have several forms on a page, it will be appicable
+ * not common - return is HTMLCollection - if you have several forms on a page, it will be applicable
  *
  * document.getElementById() --> not common
  *
  * document.getElementsByName()
  * The return is a Nodelist. So it's like an array.
- * if you want to use, you must uuse from its index
+ * if you want to use, you must use from its index
  *
  *
  *******************************/
