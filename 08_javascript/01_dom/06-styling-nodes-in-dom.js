@@ -1,6 +1,6 @@
 /********************************
  * Styling node in the DOM
- * use from window ojbect
+ * use from window object
  *
  * Window object
  * ==============
@@ -33,7 +33,7 @@ console.log(window.getComputedStyle(content).borderColor);
 
 /********************************
  * getComputedStyle properties
- * for psuedo element
+ * for pseudo element
  *
  *******************************/
 
