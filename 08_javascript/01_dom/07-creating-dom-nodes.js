@@ -3,7 +3,7 @@
  *
  * Creating a Text Node
  * ===================
- * document.document.createTextNode( 'value' )
+ * document.createTextNode( 'value' )
  *
  * Creating an Element Node
  * ========================
