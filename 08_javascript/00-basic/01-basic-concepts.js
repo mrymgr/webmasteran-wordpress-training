@@ -371,13 +371,13 @@ const products = [
     title: "Gholam is the best js",
   },
   {
-    title: "You dont know js: this & object",
+    title: "You don't know js: this & object",
   },
   {
     title: "Functional gholam programming",
   },
   {
-    title: "You dont know js: Async & Performance",
+    title: "You don't know js: Async & Performance",
   },
 ];
 
