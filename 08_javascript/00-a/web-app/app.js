@@ -1,47 +1,35 @@
 // cd laragon/www/php/webmasteran/08_javascript/00-a
 
-const products3 = [{
-  title: 'book 1',
-  price: 30
-}, {
-  title: 'book 2',
-  price: 40
-}, {
-  title: 'book 3',
-  price: 50
-}]
+const getBtn = document.getElementById("get-btn")
+const postBtn = document.getElementById("post-btn")
 
-getProducts = () => {
-  setTimeout(() => {
-    const fetchProducts = products3.map((item) => {
-      return `Product title: ${item.title} - Product price: ${item.price}`
-    })
-    console.log(fetchProducts)
-  }, 2000)
-}
-
-createProduct1 = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      products3.push({
-        title: 'book 4',
-        price: 90
-      })
-      const error = false
-      if (!error) {
-        resolve()
-      } else {
-        reject('Error')
-      }
-    }, 3000)
+const sendHttpRequest = (method, url) => {
+  const promise = new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest()
+    xhr.open(method, url)
+    xhr.responseType = "json"
+    xhr.onload = () => {
+      resolve(xhr.response)
+    }
+    xhr.onerror = () => {
+      reject("Error")
+    }
+    xhr.send()
   })
-
+  return promise
 }
 
-async function getData1() {
-  await  createProduct1()
-  getProducts()
+const getData = () => {
+  sendHttpRequest("GET", "https://jsonplaceholder.typicode.com/posts/1")
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
 
-getData1()
+const postData = () => {}
 
+getBtn.addEventListener("click", getData)
+postBtn.addEventListener("click", postData)

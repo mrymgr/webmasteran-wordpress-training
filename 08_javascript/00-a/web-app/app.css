@@ -1,0 +1,14 @@
+.main {
+    margin: 30px auto;
+    text-align: center;
+  }
+
+  .main button {
+    background-color: #2868e6;
+    color: white;
+    padding: 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    margin: 0 20px;
+  }
