@@ -826,3 +826,73 @@ const getData2 = () => {
 
 getBtn.addEventListener("click", getData2)
 
+//using async await for ajax
+const sendHttpRequest1 = (method, url, data) => {
+  const promise = new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest()
+    xhr.open(method, url)
+    xhr.responseType = "json"
+    if (data) {
+      xhr.setRequestHeader("Content-Type", "application/json")
+    }
+    xhr.onload = () => {
+      resolve(xhr.response)
+    }
+    xhr.onerror = () => {
+      reject("Error")
+    }
+    xhr.send(JSON.stringify(data))
+  })
+  return promise
+}
+
+const postData = () => {
+  sendHttpRequest1("POST", "https://jsonplaceholder.typicode.com/posts", {
+    userId: 5,
+    id: 5,
+    title: "Test title",
+    body: "Test body",
+  })
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+}
+
+//send ajax request with fetch api
+
+const getData1 = () => {
+  fetch('https://jsonplaceholder.typicode.com/posts/1')
+    .then(res => {
+      return res.json()
+    })
+    .then(responseData => {
+      console.log(responseData)
+    })
+}
+
+//send post and get with fetch api
+const sendHttpRequest3 = (method, url, data) => {
+  return fetch(url)
+    .then((res) => {
+      return res.json()
+    })
+    .catch((err) => {
+      return console.log(err)
+    })
+}
+
+const getData1 = () => {
+  sendHttpRequest3("GET", "https://jsonplaceholder.typicode.com/posts/1").then((responseData) => {
+    console.log(responseData)
+  })
+}
+
+
+getBtn.addEventListener("click", getData1)
+postBtn.addEventListener("click", postData1)
+
+
+
