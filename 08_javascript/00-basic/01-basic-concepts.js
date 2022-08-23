@@ -873,7 +873,7 @@ const getData1 = () => {
     })
 }
 
-//send post and get with fetch api
+//send get with fetch api
 const sendHttpRequest3 = (method, url, data) => {
   return fetch(url)
     .then((res) => {
@@ -893,6 +893,103 @@ const getData1 = () => {
 
 getBtn.addEventListener("click", getData1)
 postBtn.addEventListener("click", postData1)
+
+//send post request with fetch api
+
+const sendHttpRequest4 = (method, url, data) => {
+  return fetch(url, {
+    method: method,
+    body: JSON.stringify(data),
+    headers: data ? { "Content-Type": "application/json" } : {},
+  })
+    .then((res) => {
+      return res.json()
+    })
+    .catch((err) => {
+      return console.log(err)
+    })
+}
+
+const postData2 = () => {
+  sendHttpRequest4("POST", "https://jsonplaceholder.typicode.com/posts", {
+    userId: 3,
+    id: 3,
+    title: "Gholam title",
+    body: "This is gholam body",
+  }).then((responseData) => {
+    console.log(responseData)
+  })
+}
+
+postBtn.addEventListener("click", postData2)
+
+// using axios to send http request in front
+// You need to add axios to your project by adding it in head tag: <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+// or instal via npm for react or vue
+
+const getData3 = () => {
+  axios.get("https://jsonplaceholder.typicode.com/posts/1").then((res) => {
+    console.log(res)
+  })
+}
+
+const postData3 = () => {
+  axios
+    .post("https://jsonplaceholder.typicode.com/posts", {
+      userId: 5,
+      id: 5,
+      title: "Post title 5",
+      body: "Post body 5",
+    })
+    .then((res) => {
+      console.log(res)
+    })
+}
+
+getBtn.addEventListener("click", getData3)
+postBtn.addEventListener("click", postData3)
+
+/** 
+ * Rest parameters & spread
+ * ========================
+ * see: https://javascript.info/rest-parameters-spread
+ * 
+ */
+
+ const checkSum = (...price) => {
+  let sum = 0
+  price.forEach(item => sum += item)
+  return sum
+}
+
+console.log(checkSum(10,20,30))
+
+//another example to show rest parameter functionality
+const cartDetails = (userName, totalPrice, ...products) => {
+  console.log(`Username: ${userName}`)
+  console.log(`Total price: ${totalPrice}`)
+  console.log(`Products: ${products.join(", ")}`)
+}
+
+cartDetails("Mehdi Soltani", 255, "Gholam 1", "Gholam 2", "Gholam 3")
+
+//example of spread:
+let products2 = ["Book 1", "Book 2", "Book 3"]
+products2 = [...products2, "Book 4"]
+
+//destructing in object
+const product4 = {
+  title: 'Book 1',
+  price: 100
+}
+
+const { title, price, exist = true } = product4
+console.log(title)
+console.log(price)
+console.log(exist)
+
+ 
+
 
 
 
