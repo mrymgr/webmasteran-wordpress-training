@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build": "babel app.js -d lib"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.13"
+  }
+}

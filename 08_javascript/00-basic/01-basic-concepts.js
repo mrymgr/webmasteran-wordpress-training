@@ -977,6 +977,17 @@ cartDetails("Mehdi Soltani", 255, "Gholam 1", "Gholam 2", "Gholam 3")
 let products2 = ["Book 1", "Book 2", "Book 3"]
 products2 = [...products2, "Book 4"]
 
+/**
+ * Destructing Assignment
+ * ======================
+ * 
+ * https://javascript.info/destructuring-assignment
+ * 
+ * useful point for smart function parameters:
+ * https://javascript.info/destructuring-assignment#smart-function-parameters
+ * 
+ */
+
 //destructing in object
 const product4 = {
   title: 'Book 1',
@@ -987,6 +998,52 @@ const { title, price, exist = true } = product4
 console.log(title)
 console.log(price)
 console.log(exist)
+
+
+//smart function parameters with destructing:
+
+let options = {
+  title: "My menu",
+  items: ["Item1", "Item2"]
+};
+
+function showMenu({
+  title = "Untitled",
+  width: w = 100,  // width goes to w
+  height: h = 200, // height goes to h
+  items: [item1, item2] // items first element goes to item1, second to item2
+}) {
+  alert( `${title} ${w} ${h}` ); // My Menu 100 200
+  alert( item1 ); // Item1
+  alert( item2 ); // Item2
+}
+
+showMenu(options);
+
+/**
+ * Babel
+ * ======
+ * 
+ * for installation:
+ * @see https://babeljs.io/setup#installation  -> cli section
+ * 
+ * While you can install Babel CLI globally on your machine, it's much better to install it locally project by project.
+ * npm install --save-dev @babel/core @babel/cli
+ * 
+ * Instead of running Babel directly from the command line we're going to put our commands in npm scripts which will use our local version.
+ * see sample-05 in package.json file in script key
+ * now you can run babel with this command:
+ * npm run build
+ * 
+ * or you can use it with this line of code:
+ * ./node_modules/.bin/babel pathOfSourceFile --out-dir lib
+ * @see https://babeljs.io/docs/en/usage/
+ * 
+ * 
+ */
+
+
+
 
  
 

@@ -16,3 +16,4 @@
 /game/git/section-2/
 package-lock.json
  /.vscode/
+/08_javascript/00-basic/sample-05/node_modules
