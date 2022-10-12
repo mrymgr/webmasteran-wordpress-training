@@ -1,4 +1,17 @@
 // cd laragon/www/php/webmasteran/08_javascript/00-a
+const product = 'book'
+console.log(product)
+
+class User {
+  userInfo() {
+    return 'Gholam Gholami'
+  }
+}
+
+const user = new User()
+console.log(user.userInfo)
+
+// cd laragon/www/php/webmasteran/08_javascript/00-a
 const getBtn = document.getElementById("get-btn");
 const postBtn = document.getElementById("post-btn");
 

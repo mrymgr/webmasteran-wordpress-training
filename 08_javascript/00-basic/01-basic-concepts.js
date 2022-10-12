@@ -1039,6 +1039,17 @@ showMenu(options);
  * ./node_modules/.bin/babel pathOfSourceFile --out-dir lib
  * @see https://babeljs.io/docs/en/usage/
  * 
+ * If you want to use babel command, you must install it globally:
+ * npm install -g babel-cli
+ * Now you can use babel command directly in cmd
+ * 
+ * Project structure
+ * =================
+ * We have a structure in many of projects like sample-05
+ * In most of times, you change your index.js file in src directory and want to see changes instantly.
+ * So you can use --watch in your script and run it with "npm run nameOfYourScript"
+ * Now with combination of live-server and npm run, you can see your changes instantly after each saving in IDE.
+ * See bundle script in package.json file inside sample-05 project
  * 
  */
 

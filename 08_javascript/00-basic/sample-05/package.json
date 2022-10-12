@@ -1,9 +1,14 @@
 {
   "scripts": {
-    "build": "babel app.js -d lib"
+    "build": "babel src/index.js -d public/scripts",
+    "bundle" : "babel src/index.js -o public/scripts/bundle.js --watch"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
     "@babel/core": "^7.18.13"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "npm": "^8.19.2"
   }
 }
