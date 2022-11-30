@@ -687,6 +687,10 @@ console.log(userName3)
  * ==========================
  * To do asynchronous in JS, you have 3 ways: callback function (old way), promise & async
  *
+ * How asynchronous works in JavaScript
+ * ====================================
+ * Call stack -> Task queue (+ Microtask queue) -> Event loop
+ *
  * */
 
 //Example with callback
@@ -726,6 +730,9 @@ createProduct = (callback) => {
 }
 
 createProduct(getProducts)
+
+//Another example: Sample-06: index-callback-sample.html
+
 
 //Using promises to have asynchronous execution
 
@@ -864,11 +871,11 @@ const postData = () => {
 //send ajax request with fetch api
 
 const getData1 = () => {
-  fetch('https://jsonplaceholder.typicode.com/posts/1')
-    .then(res => {
+  fetch("https://jsonplaceholder.typicode.com/posts/1")
+    .then((res) => {
       return res.json()
     })
-    .then(responseData => {
+    .then((responseData) => {
       console.log(responseData)
     })
 }
@@ -889,7 +896,6 @@ const getData1 = () => {
     console.log(responseData)
   })
 }
-
 
 getBtn.addEventListener("click", getData1)
 postBtn.addEventListener("click", postData1)
@@ -949,20 +955,20 @@ const postData3 = () => {
 getBtn.addEventListener("click", getData3)
 postBtn.addEventListener("click", postData3)
 
-/** 
+/**
  * Rest parameters & spread
  * ========================
  * see: https://javascript.info/rest-parameters-spread
- * 
+ *
  */
 
- const checkSum = (...price) => {
+const checkSum = (...price) => {
   let sum = 0
-  price.forEach(item => sum += item)
+  price.forEach((item) => (sum += item))
   return sum
 }
 
-console.log(checkSum(10,20,30))
+console.log(checkSum(10, 20, 30))
 
 //another example to show rest parameter functionality
 const cartDetails = (userName, totalPrice, ...products) => {
@@ -980,18 +986,18 @@ products2 = [...products2, "Book 4"]
 /**
  * Destructing Assignment
  * ======================
- * 
+ *
  * https://javascript.info/destructuring-assignment
- * 
+ *
  * useful point for smart function parameters:
  * https://javascript.info/destructuring-assignment#smart-function-parameters
- * 
+ *
  */
 
 //destructing in object
 const product4 = {
-  title: 'Book 1',
-  price: 100
+  title: "Book 1",
+  price: 100,
 }
 
 const { title, price, exist = true } = product4
@@ -999,50 +1005,49 @@ console.log(title)
 console.log(price)
 console.log(exist)
 
-
 //smart function parameters with destructing:
 
 let options = {
   title: "My menu",
-  items: ["Item1", "Item2"]
-};
+  items: ["Item1", "Item2"],
+}
 
 function showMenu({
   title = "Untitled",
-  width: w = 100,  // width goes to w
+  width: w = 100, // width goes to w
   height: h = 200, // height goes to h
-  items: [item1, item2] // items first element goes to item1, second to item2
+  items: [item1, item2], // items first element goes to item1, second to item2
 }) {
-  alert( `${title} ${w} ${h}` ); // My Menu 100 200
-  alert( item1 ); // Item1
-  alert( item2 ); // Item2
+  alert(`${title} ${w} ${h}`) // My Menu 100 200
+  alert(item1) // Item1
+  alert(item2) // Item2
 }
 
-showMenu(options);
+showMenu(options)
 
 /**
  * Babel
  * ======
- * 
+ *
  * for installation:
  * @see https://babeljs.io/setup#installation  -> cli section
- * 
+ *
  * While you can install Babel CLI globally on your machine, it's much better to install it locally project by project.
  * npm install --save-dev @babel/core @babel/cli
- * 
+ *
  * Instead of running Babel directly from the command line we're going to put our commands in npm scripts which will use our local version.
  * see sample-05 in package.json file in script key
  * now you can run babel with this command:
  * npm run build
- * 
+ *
  * or you can use it with this line of code:
  * ./node_modules/.bin/babel pathOfSourceFile --out-dir lib
  * @see https://babeljs.io/docs/en/usage/
- * 
+ *
  * If you want to use babel command, you must install it globally:
  * npm install -g babel-cli
  * Now you can use babel command directly in cmd
- * 
+ *
  * Project structure
  * =================
  * We have a structure in many of projects like sample-05
@@ -1050,14 +1055,5 @@ showMenu(options);
  * So you can use --watch in your script and run it with "npm run nameOfYourScript"
  * Now with combination of live-server and npm run, you can see your changes instantly after each saving in IDE.
  * See bundle script in package.json file inside sample-05 project
- * 
+ *
  */
-
-
-
-
- 
-
-
-
-
