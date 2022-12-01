@@ -14,6 +14,39 @@ let variableName = "value"
 var variableName2 = 20
 
 /*
+Check type of variable
+=====================
+*/
+let a = typeof variableName
+
+/*
+Type conversion
+=====================
+String conversion: using "String()" method
+
+Numeric conversion: using "Number()" method
+note: for converting to number you can add only a plus sign before it
+
+Boolean conversion: using "Boolean()" method
+
+note:
+You will get NaN (not a number) if you can not convert string to number with Number method. 
+
+note:
+Check if NaN: isNaN() method
+
+*/
+
+let str = "123";
+alert(typeof str); // string
+let number1 = Number(str); // becomes a number 123
+//another way to convert to number type
+let number2 = +str
+alert(typeof number1); // number
+
+let number3 = isNaN(str) ? 0 : +str
+
+/*
  * define function
  * ===============
  * */

@@ -1,0 +1,27 @@
+
+#create html template
+=====================
+! + enter
+
+#Setting search
+===============
+ctrl + shift + p
+
+#toggle terminal window
+=======================
+ctrl + `
+
+#format document with pretier
+============================
+alt + shift + f
+
+#Comment
+==============
+1 line comment: ctrl + /  or (ctrl + k + c /  ctrl + k + u)
+block comment: shift + alt + a
+
+
+#duplicate line
+===============
+shift + alt + down arrow key
+shift + alt + up arrow key
