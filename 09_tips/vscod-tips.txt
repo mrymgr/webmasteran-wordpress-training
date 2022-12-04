@@ -11,7 +11,7 @@ ctrl + shift + p
 =======================
 ctrl + `
 
-#format document with pretier
+#format document with prettier
 ============================
 alt + shift + f
 
