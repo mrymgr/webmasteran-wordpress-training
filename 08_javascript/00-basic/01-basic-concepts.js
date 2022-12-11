@@ -37,12 +37,12 @@ Check if NaN: isNaN() method
 
 */
 
-let str = "123";
-alert(typeof str); // string
-let number1 = Number(str); // becomes a number 123
+let str = "123"
+alert(typeof str) // string
+let number1 = Number(str) // becomes a number 123
 //another way to convert to number type
 let number2 = +str
-alert(typeof number1); // number
+alert(typeof number1) // number
 
 let number3 = isNaN(str) ? 0 : +str
 
@@ -51,9 +51,49 @@ let number3 = isNaN(str) ? 0 : +str
  * ===============
  * */
 
+//function expression
 let functionName = function (arg1 = value, arg2 = null) {
   //code block
 }
+
+/**
+ * Some string methods & related notes
+ * ===================================
+ */
+let msnSampleString = "     I love to learn Javascript     "
+console.log(msnSampleString.charAt(2)) //it's the same with: msnSampleString[2]
+console.log(msnSampleString.concat(" and React.")) //it's the same with: msnSampleString + ' and React.'
+console.log(msnSampleString.trim())
+console.log(msnSampleString.trimStart())
+console.log(msnSampleString.trimEnd())
+console.log(msnSampleString.toUpperCase())
+console.log(msnSampleString.toLowerCase())
+
+// single quotes vs double quotes: Generally, there is no difference between using double or single quotes, as both of them represent a string in the end.
+// There is only one difference in the usage of single and double quotes, and it comes down to what quote character you need to escape using the backslash character (\): \’ or \”
+// "double quotes ( \" ) should escape a double quote"
+// 'single quotes ( \' ) should escape a single quote'
+let html1 = '<div id="someDiv"></div>'
+let html2 = '<div id="someDiv"></div>'
+const value = `<div class="className"> 
+              <h1> Loading...</h1> 
+                  ${html2}
+                  ${html1}
+              </div>`
+
+msnSampleString.search('love')  //return index of search in the string
+msnSampleString.indexOf('love') //return index of search in the string
+msnSampleString.includes('love') //return a boolean value: true or false           
+// indexOf vs search: If your situation requires the use of a regular expression, use the search() method, otherwise; the indexOf() method is more performant.
+// see this links: https://stackoverflow.com/questions/354110/what-is-the-difference-between-indexof-and-search
+
+// Some slicing methods in strings
+console.log(msnString.slice(4,9))      // (start, end)
+console.log(msnString.slice(2))        
+console.log(msnString.substr(4,9))     // (start, length) deprecated
+console.log(msnString.substring(4,9))  // (start, end)
+// slice vs substr vs substring: https://stackoverflow.com/questions/2243824/what-is-the-difference-between-string-slice-and-string-substring
+
 
 /*
  * Template string
@@ -765,7 +805,6 @@ createProduct = (callback) => {
 createProduct(getProducts)
 
 //Another example: Sample-06: index-callback-sample.html
-
 
 //Using promises to have asynchronous execution
 
