@@ -25,3 +25,16 @@ block comment: shift + alt + a
 ===============
 shift + alt + down arrow key
 shift + alt + up arrow key
+
+#path of setting.json in windows
+================================
+C:\Users\MSN-PC\AppData\Roaming\Code\User\settings.json
+# to change shortcuts:
+C:\Users\MSN-PC\AppData\Roaming\Code\User\keybindings.json
+#shortcuts
+ctrl+u ctrl+s
+#with Ctrl+Shift+P
+You can open the settings.json file with the Preferences: Open Settings (JSON) command in the Command Palette (Ctrl+Shift+P).
+
+
+

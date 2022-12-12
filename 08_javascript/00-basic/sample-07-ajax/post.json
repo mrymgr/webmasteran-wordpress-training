@@ -1,17 +1,5 @@
-[
-  {
-    "id" : 1,
-    "title": "Post one",
-    "body": "This is body for post one"
-  },
-  {
-    "id" : 2,
-    "title": "Post two",
-    "body": "This is body for post two"
-  },
-  {
-    "id" : 3,
-    "title": "Post three",
-    "body": "This is body for post three"
-  }
-]
+{
+  "id": 1,
+  "title": "Post one",
+  "body": "This is body for post one"
+}

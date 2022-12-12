@@ -1,6 +1,6 @@
 let loadData = () => {
   const xhr = new XMLHttpRequest()
-  xhr.open('GET', 'post.json');
+  xhr.open('GET', 'posts.json');
   xhr.onload = () => {
 
     if(xhr.status === 200) {
