@@ -1,5 +1,12 @@
 let getPost = () => {
-  fetch("post.json")
+  let postNumber = Number(document.getElementById("post-number").value)
+  if (!(postNumber > 0 || postNumber < 101)) {
+    postNumber = 1
+  }
+  postNumber = !(postNumber > 0 || postNumber < 101) ? 1 : postNumber
+  postNumber = postNumber == 0 ? 1 : postNumber
+
+  fetch(`https://jsonplaceholder.typicode.com/posts/${postNumber}`)
     .then((res) => {
       //console.log(res)
       if (res.ok) {
@@ -26,7 +33,7 @@ let getPost = () => {
 }
 
 let getPosts = () => {
-  fetch("posts.json")
+  fetch("https://jsonplaceholder.typicode.com/posts")
     .then((res) => {
       //console.log(res)
       if (res.ok) {
