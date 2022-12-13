@@ -1027,6 +1027,13 @@ getBtn.addEventListener("click", getData3)
 postBtn.addEventListener("click", postData3)
 
 /**
+ * Using Ajax with fetch api & async await
+ * =======================================
+ * You can find all samples about it in: sample-07-ajax directory
+ * 
+ */
+
+/**
  * Rest parameters & spread
  * ========================
  * see: https://javascript.info/rest-parameters-spread
