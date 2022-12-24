@@ -8,7 +8,7 @@ let sendPost = () => {
   fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
     method: 'PUT',
     body: JSON.stringify({
-      userId: 2,
+      id: postId,
       title: postTitle,
       body: postBody
     }),
