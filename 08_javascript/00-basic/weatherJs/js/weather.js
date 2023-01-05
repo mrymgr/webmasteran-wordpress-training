@@ -1,12 +1,12 @@
 class Weather {
   constructor(city, state) {
-    this.apiKey = "66817dcee63fbfe359c02b62dbf4a849"
+    this.apiKey = apiKey
     this.city = city
     this.state = state
   }
 
   async getWeather() {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.state}&appid=${this.apiKey}`)
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.state}&appid=${this.apiKey}&units=metric`)
     if (response.ok) {
       const responseData = await response.json()
       return responseData
@@ -20,5 +20,9 @@ class Weather {
   changeLocation(city, state) {
     this.city = city
     this.state = state
+  }
+
+  getLocation() {
+    return `استان: ${this.state} و شهر: ${this.city}`
   }
 }
