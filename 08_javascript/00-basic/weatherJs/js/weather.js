@@ -22,7 +22,7 @@ class Weather {
     this.state = state
   }
 
-  getLocation() {
+  get Location() {
     return `استان: ${this.state} و شهر: ${this.city}`
   }
 }
