@@ -21,3 +21,7 @@
   src: url("../fonts/Times-new-roman-italic.ttf") format("truetype");
   font-display: swap;
 }
+
+/*
+rem vs em: https://webdesign.tutsplus.com/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984
+*/

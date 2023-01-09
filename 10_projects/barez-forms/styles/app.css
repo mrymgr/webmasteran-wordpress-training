@@ -38,15 +38,18 @@ h1,h2,h3,h4,h5, h6 {
 
 h1 {
   font-size: 1.7rem !important;
-  line-height: 2.8rem !important;
+  line-height: 1.6em !important;
+  margin: .4em .3em;
 }
 
 h2 {
   font-size: 1.5rem !important;
-  line-height: 2.6rem !important;
+  line-height: 1.6em !important;
+  margin: .4em .3em;
 }
 
 p {
   font-size: 1.1rem !important;
-  line-height: 1.9rem !important;
+  line-height: 1.6em !important;
+  margin: .4em .3em;
 }
