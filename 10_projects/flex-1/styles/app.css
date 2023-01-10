@@ -24,4 +24,131 @@
 
 /*
 rem vs em: https://webdesign.tutsplus.com/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984
+You can use em for: margin, padding, width, height and line-height
+Do not use em for font size
+You can use rem for: font-size + Any sizing that doesn’t need em units for the reasons described above, and that should scale depending on browser font size settings. 
+This accounts for almost everything in a standard design including most heights, most widths, 
+most padding, most margins, border widths, most font sizes, shadows, basically almost every part of your layout.
+
+Always Use rem Media Queries
+
+Don’t Use em or rem For: Multi Column Layout Widths
+Column widths in a layout should typically be % based so they can fluidly fit unpredictably sized viewports.
+However single columns should still generally incorporate rem values via a max-width setting
+
+.container {
+    width: 100%;
+    max-width: 75rem;
+}
+
 */
+
+html {
+  box-sizing: border-box;
+  font-family: TTNorms;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none!important;
+  color: inherit;
+}
+
+
+.msn-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+/* 
+BEM CSS naming standard
+=======================
+https://getbem.com/introduction/
+https://9elements.com/bem-cheat-sheet/
+https://sparkbox.com/foundry/bem_by_example
+
+
+*/
+
+.msn-header {
+
+}
+.msn-header-top {
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.msn-nav {
+  display: flex;
+  align-items: center;
+}
+.msn-nav-logo {
+  margin-right: 2em;
+}
+.msn-nav-logo__img {
+
+}
+.msn-menu {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+}
+.msn-menu__item {
+
+}
+
+.msn-menu__link {
+  color: rgb(40, 40, 147) !important;
+  padding: 0 1rem;
+  font-size: 1rem;
+}
+
+.msn-header__link {
+  background-color: #0050C8;
+  color: white;
+  padding: .8rem 1.2rem;
+  border-radius: .5rem;
+  font-size: 1.1rem;
+}
+
+/* max-width: 1200px */
+@media only screen and (max-width: 75rem) { 
+  .msn-container {
+    max-width: 60rem;
+  }
+  
+}
+
+/* max-width: 992px */
+@media only screen and (max-width: 62rem) {
+  .msn-container {
+    max-width: 45rem;
+  }
+  
+}
+
+/* max-width: 768px */
+@media only screen and (max-width: 48rem) {
+  .msn-container {
+    max-width: 34rem;
+  }
+  
+}
+
+/* max-width: 576px */
+@media only screen and (max-width: 36rem) {
+  .msn-container {
+    max-width: 100%;
+  }
+  
+}

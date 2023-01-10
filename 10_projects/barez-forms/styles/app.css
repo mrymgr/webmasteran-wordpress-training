@@ -1,8 +1,8 @@
 @font-face {
   font-family: Anjoman;
   font-style: normal;
-  src: url("../fonts/Anjoman-FaNum-ExtraLight.woff2") format("woff2"),
-    url("../fonts/Anjoman-FaNum-ExtraLight.woff") format("woff");
+  src: url("../fonts/Anjoman-FaNum-Regular.woff2") format("woff2"),
+    url("../fonts/Anjoman-FaNum-Regular.woff") format("woff");
   font-display: swap;
 }
 
@@ -28,28 +28,139 @@ section {
 }
 
 html {
+  box-sizing: border-box;
   scroll-behavior: smooth;
   font-family: Anjoman !important;
 }
 
-h1,h2,h3,h4,h5, h6 {
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: AnjomanBold !important;
 }
 
 h1 {
-  font-size: 1.7rem !important;
+  font-size: 1.4rem !important;
   line-height: 1.6em !important;
   margin: .4em .3em;
 }
 
 h2 {
-  font-size: 1.5rem !important;
+  font-size: 1.3rem !important;
   line-height: 1.6em !important;
   margin: .4em .3em;
 }
 
 p {
-  font-size: 1.1rem !important;
+  font-size: 1rem !important;
   line-height: 1.6em !important;
   margin: .4em .3em;
+}
+
+.msnb-pr-1 {
+  padding-right: .25em;
+}
+
+.msnb-pr-2 {
+  padding-right: .5em;
+}
+
+.msnb-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.msnb-header {
+  margin: 1em 0.5em;
+}
+
+.msnb-nav {
+  border: 2px solid rgb(123, 123, 123);
+  border-radius: 7px;
+  -webkit-box-shadow: -5px 6px 4px 1px #dcdcdc;
+  box-shadow: -5px 6px 4px 1px #dcdcdc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.msnb-nav__right {
+  margin: 1rem;
+}
+
+.msnb-nav__logo {
+  text-align: center;
+}
+
+.msnb-nav__logo-image {
+  max-width: 15rem;
+}
+
+.msnb-nav__right-item {
+  font-size: .7rem;
+  color: #898989;
+}
+
+.msnb-nav__left {
+  width: 15em;
+}
+
+.msnb-nav__left-item {
+  padding: .4em .5em;
+}
+
+.msnb-nav__left-item span:first-child {
+  color: #ffbc50;
+  font-family: 'AnjomanBold';
+  font-size: .9rem;
+}
+
+.msn-nav__contract-form-item {}
+
+/* max-width: 1200px */
+@media only screen and (max-width: 75rem) {
+  .msnb-container {
+    max-width: 60rem;
+  }
+
+}
+
+/* max-width: 992px */
+@media only screen and (max-width: 62rem) {
+  .msnb-container {
+    max-width: 45rem;
+  }
+
+}
+
+/* max-width: 768px */
+@media only screen and (max-width: 48rem) {
+  .msnb-container {
+    max-width: 34rem;
+  }
+
+}
+
+/* max-width: 576px */
+@media only screen and (max-width: 36rem) {
+  .msnb-container {
+    max-width: 96%;
+  }
+
 }
