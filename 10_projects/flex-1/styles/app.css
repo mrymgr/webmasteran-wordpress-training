@@ -67,6 +67,14 @@ a {
   padding-left: 1em;
 }
 
+.msn-mr-1 {
+  margin-right: .25rem;
+}
+
+.msn-mr-2 {
+  margin-right: .5rem;
+}
+
 /* 
 BEM CSS naming standard
 =======================
@@ -77,9 +85,6 @@ https://sparkbox.com/foundry/bem_by_example
 
 */
 
-.msn-header {
-
-}
 .msn-header-top {
   padding: 2rem 0;
   display: flex;
@@ -94,17 +99,12 @@ https://sparkbox.com/foundry/bem_by_example
 .msn-nav-logo {
   margin-right: 2em;
 }
-.msn-nav-logo__img {
 
-}
 .msn-menu {
   list-style-type: none;
   padding-left: 0;
   margin: 0;
   display: flex;
-}
-.msn-menu__item {
-
 }
 
 .msn-menu__link {
@@ -113,13 +113,65 @@ https://sparkbox.com/foundry/bem_by_example
   font-size: 1rem;
 }
 
-.msn-header__link {
+.msn-header__link--blue {
   background-color: #0050C8;
   color: white;
-  padding: .8rem 1.2rem;
+  padding: 0.6rem 1.6rem;
   border-radius: .5rem;
   font-size: 1.1rem;
 }
+
+.msn-header__link--green {
+  background-color: #0e9f30;
+  color: white;
+  padding: 0.6rem 1.6rem;
+  border-radius: .5rem;
+  font-size: 1.1rem;
+}
+
+.msn-header-content {
+  display: flex;
+  align-items: center;
+}
+
+.header-content__left {
+  flex-basis: 50%;
+}
+
+.header-content__right {
+  flex-basis: 50%;
+}
+
+.msn-header-content-wrapper {
+  max-width: 28rem;
+}
+
+.msn-header-content__title {
+  color: #081D43;
+  font-family: "TTNorms Medium" !important;
+}
+
+.msn-header-content__text {
+  color: #6C7890;
+  font-family: "TTNorms Light";
+  line-height: 2rem;
+}
+
+.msn-header-content__links {
+  display: flex;
+}
+
+.msn-header-content__link {
+  display: block;
+  width: 10rem;
+  text-align: center;
+}
+
+
+.msn-header-content__images {
+  width: 100%;
+}
+
 
 /* max-width: 1200px */
 @media only screen and (max-width: 75rem) { 
