@@ -75,6 +75,18 @@ a {
   margin-right: .5rem;
 }
 
+.msn-mt-1 {
+  margin-top: .25rem;
+}
+
+.msn-mt-2 {
+  margin-top: .5rem;
+}
+
+.msn-text-align-center {
+  text-align: center;
+}
+
 /* 
 BEM CSS naming standard
 =======================

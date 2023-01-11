@@ -8,8 +8,8 @@
 
 @font-face {
   font-family: AnjomanBold;
-  src: url("../fonts/Anjoman-FaNum-SemiBold.woff2") format("woff2"),
-    url("../fonts/Anjoman-FaNum-SemiBold.woff") format("woff");
+  src: url("../fonts/Anjoman-FaNum-Bold.woff2") format("woff2"),
+    url("../fonts/Anjoman-FaNum-Bold.woff") format("woff");
   font-display: swap;
 }
 
@@ -54,29 +54,63 @@ h6 {
 }
 
 h1 {
-  font-size: 1.4rem !important;
+  font-size: 1.3rem !important;
   line-height: 1.6em !important;
   margin: .4em .3em;
 }
 
 h2 {
-  font-size: 1.3rem !important;
+  font-size: 1.2rem !important;
+  line-height: 1.6em !important;
+  margin: .4em .3em;
+}
+
+h3 {
+  font-size: 1.1rem !important;
   line-height: 1.6em !important;
   margin: .4em .3em;
 }
 
 p {
   font-size: 1rem !important;
-  line-height: 1.6em !important;
+  line-height: 1.8em !important;
   margin: .4em .3em;
 }
 
 .msnb-pr-1 {
-  padding-right: .25em;
+  padding-right: .25em !important;
 }
 
 .msnb-pr-2 {
-  padding-right: .5em;
+  padding-right: .5em !important;
+}
+
+.msnb-mr-2 {
+  margin-right: .5rem;
+}
+
+.msnb-mr-3 {
+  margin-right: 1rem;
+}
+
+.msnb-mt-2 {
+  margin-top: .5rem !important;
+}
+
+.msnb-mt-3 {
+  margin-top: 1rem !important;
+}
+
+.msnb-mt-4 {
+  margin-top: 2rem !important;
+}
+
+.msnb-mt-5 {
+  margin-top: 3rem !important;
+}
+
+.msnb-text-align-center {
+  text-align: center !important;
 }
 
 .msnb-container {
@@ -131,7 +165,48 @@ p {
   font-size: .9rem;
 }
 
-.msn-nav__contract-form-item {}
+.msnb-main-top__h1 {
+  background-color: #ffbc50;
+  padding: 0.4rem 0;
+  border-radius: 10px 10px 0 0;
+}
+
+.msnb-main-top__star {
+  font-size: 1.9rem;
+  position: relative;
+  top: 0.8rem;
+  color: #ffbc50;
+  margin-left: 0.5rem;
+}
+
+.msnb-main-customer-detail__heading {
+  display: flex;
+  align-items: center;
+}
+
+.msnb-main-customer-detail__heading h2, .msnb-main-customer-detail__heading h3 {
+  margin: 0 !important;
+  padding: .4rem;
+}
+
+.msnb-main-customer-detail__heading h2 {
+  background-color: #ffbc50;
+  border-radius: 10px 10px 0 0;
+  flex-grow: 1;
+  text-align: center;
+  padding-bottom: 2px !important;
+}
+
+.msnb-main-customer-detail__heading h3 {
+  flex-grow: 3;
+  text-align: center;
+  padding-bottom: 2px !important;
+}
+
+.msnb-main-customer-detail__bottom-separator {
+  height: 0.4rem;
+  background-color: #ffbc50;
+}
 
 /* max-width: 1200px */
 @media only screen and (max-width: 75rem) {
