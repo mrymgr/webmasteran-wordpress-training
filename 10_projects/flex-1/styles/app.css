@@ -59,7 +59,7 @@ a {
   color: inherit;
 }
 
-
+/* General styles for msn */
 .msn-container {
   max-width: 80rem;
   margin: 0 auto;
@@ -83,6 +83,10 @@ a {
   margin-top: .5rem;
 }
 
+.msn-m-0-auto {
+  margin: 0 auto;
+}
+
 .msn-text-align-center {
   text-align: center;
 }
@@ -96,6 +100,8 @@ https://sparkbox.com/foundry/bem_by_example
 
 
 */
+
+/* Header section styles */
 
 .msn-header-top {
   padding: 2rem 0;
@@ -184,6 +190,103 @@ https://sparkbox.com/foundry/bem_by_example
   width: 100%;
 }
 
+/* Works section styles */
+
+.msn-works {
+  text-align: center;
+  margin-top: 6rem;
+}
+.msn-works__text {
+  color: #6C7890;
+}
+.msn-works__title {
+  color: #081D43;
+  margin-top: .8rem;
+  font-family: 'TTNorms Medium';
+}
+.msn-works-content {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.msn-works-content__title {
+  color: #081D43;
+}
+.msn-works-content__text {
+  color: #6C7890;
+  max-width: 16rem;
+  line-height: 2rem;
+}
+
+.msn-works-image {
+  max-width: 31rem;
+  margin: 2rem auto;
+}
+.msn-works-image__img {
+  width: 100%;
+}
+
+/* Person comments styles */
+.msn-person-comments {
+  background-color: #2F5BEA;
+  color: white;
+}
+
+.msn-person-comments__header-wrapper {
+  max-width: 28rem;
+}
+
+.msn-person-comments__title {
+  text-align: center;
+  padding-top: 3rem;
+  font-family: 'TTNorms Medium';
+  font-weight: normal;
+}
+
+.msn-person-comments__text {
+  text-align: center !important;
+  padding-bottom: 2rem;
+  font-family: 'TTNorms Light';
+  line-height: 2rem;
+}
+.msn-comment-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.msn-comments-items__content {
+  background-color: white;
+  flex-basis: 18rem;
+  margin: 2rem;
+  text-align: left;
+  border-radius: .5rem;
+  min-height: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+.msn-comments-items__body {
+  font-family: 'Times Roman Italic';
+  color: #7E8085;
+  line-height: 1.6rem;
+  padding: .7rem;
+  margin-top: 0;
+}
+.msn-comments-items__info {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #E8EBEF;
+  padding: .7rem;
+}
+.msn-comments-items__img {
+  display: block;
+  margin-right: .7rem;
+}
+.msn-comments-items__person {
+  color: #081D43;
+}
 
 /* max-width: 1200px */
 @media only screen and (max-width: 75rem) { 
