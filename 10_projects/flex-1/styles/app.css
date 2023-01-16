@@ -87,6 +87,15 @@ a {
   margin: 0 auto;
 }
 
+.msn-pt-4 {
+  padding-top: 2rem;
+}
+
+.msn-pb-4 {
+  padding-bottom: 2rem;
+}
+
+
 .msn-text-align-center {
   text-align: center;
 }
@@ -192,18 +201,21 @@ https://sparkbox.com/foundry/bem_by_example
 
 /* Works section styles */
 
-.msn-works {
+.msn-title-section {
   text-align: center;
-  margin-top: 6rem;
+  margin-top: 4rem;
 }
-.msn-works__text {
+
+.msn-title-section__text {
   color: #6C7890;
 }
-.msn-works__title {
+
+.msn-title-section__title {
   color: #081D43;
   margin-top: .8rem;
   font-family: 'TTNorms Medium';
 }
+
 .msn-works-content {
   margin-top: 4rem;
   display: flex;
@@ -246,14 +258,15 @@ https://sparkbox.com/foundry/bem_by_example
 
 .msn-person-comments__text {
   text-align: center !important;
-  padding-bottom: 2rem;
   font-family: 'TTNorms Light';
   line-height: 2rem;
 }
-.msn-comment-items {
+.msn-comment-items, .msn-companies {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 70rem;
+  margin: 0 auto;
 }
 .msn-comments-items__content {
   background-color: white;
@@ -286,6 +299,13 @@ https://sparkbox.com/foundry/bem_by_example
 }
 .msn-comments-items__person {
   color: #081D43;
+}
+.msn-companies {
+  justify-content: space-evenly !important;
+}
+.msn-companies__image {
+  display: block;
+  margin: 2rem;
 }
 
 /* max-width: 1200px */
