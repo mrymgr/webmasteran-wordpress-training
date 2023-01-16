@@ -83,12 +83,60 @@ a {
   margin-top: .5rem;
 }
 
+.msn-mt-3 {
+  margin-top: 1rem;
+}
+
+.msn-mt-4 {
+  margin-top: 2rem;
+}
+
+.msn-mt-5 {
+  margin-top: 3rem;
+}
+
+
+.msn-mb-1 {
+  margin-bottom: .25rem;
+}
+
+.msn-mb-2 {
+  margin-bottom: .5rem;
+}
+
+.msn-mb-3 {
+  margin-bottom: 1rem;
+}
+
+.msn-mb-4 {
+  margin-bottom: 2rem;
+}
+
+.msn-mb-5 {
+  margin-bottom: 3rem;
+}
+
+
+
+
 .msn-m-0-auto {
   margin: 0 auto;
 }
 
 .msn-pt-4 {
   padding-top: 2rem;
+}
+
+.msn-pb-1 {
+  padding-bottom: .25rem;
+}
+
+.msn-pb-2 {
+  padding-bottom: .5rem;
+}
+
+.msn-pb-3 {
+  padding-bottom: 1rem;
 }
 
 .msn-pb-4 {
@@ -307,6 +355,23 @@ https://sparkbox.com/foundry/bem_by_example
   display: block;
   margin: 2rem;
 }
+
+/* Portfolio section styles */
+.msn-portfolio-items{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.msn-portfolio__item{
+  flex-basis: 23rem;
+}
+
+.msn-portfolio__image{
+  width: 100%;
+  border-radius: 1.3rem;
+}
+
 
 /* max-width: 1200px */
 @media only screen and (max-width: 75rem) { 
