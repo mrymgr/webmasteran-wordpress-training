@@ -12,5 +12,9 @@
         "viewports",
         "webmasteran"
     ],
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    }
 }

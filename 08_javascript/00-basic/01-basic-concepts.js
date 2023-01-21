@@ -56,8 +56,6 @@ let functionName = function (arg1 = value, arg2 = null) {
   //code block
 }
 
-
-
 /*
  * Template string
  * ===============
@@ -118,41 +116,39 @@ console.log(`String length is:${email.trimRight().length} and trim right string 
 console.log(`String length is:${email.trimLeft().length} and trim left string is: '${email.trimLeft().replace(/\s/g, "*")}'`)
 console.log(`String length is:${email.trimStart().length} and trim start string is: '${email.trimStart().replace(/\s/g, "*")}'`)
 
+let msnSampleString = "     I love to learn Javascript     "
+console.log(msnSampleString.charAt(2)) //it's the same with: msnSampleString[2]
+console.log(msnSampleString.concat(" and React.")) //it's the same with: msnSampleString + ' and React.'
+console.log(msnSampleString.trim())
+console.log(msnSampleString.trimStart())
+console.log(msnSampleString.trimEnd())
+console.log(msnSampleString.toUpperCase())
+console.log(msnSampleString.toLowerCase())
 
- let msnSampleString = "     I love to learn Javascript     "
- console.log(msnSampleString.charAt(2)) //it's the same with: msnSampleString[2]
- console.log(msnSampleString.concat(" and React.")) //it's the same with: msnSampleString + ' and React.'
- console.log(msnSampleString.trim())
- console.log(msnSampleString.trimStart())
- console.log(msnSampleString.trimEnd())
- console.log(msnSampleString.toUpperCase())
- console.log(msnSampleString.toLowerCase())
- 
- // single quotes vs double quotes: Generally, there is no difference between using double or single quotes, as both of them represent a string in the end.
- // There is only one difference in the usage of single and double quotes, and it comes down to what quote character you need to escape using the backslash character (\): \’ or \”
- // "double quotes ( \" ) should escape a double quote"
- // 'single quotes ( \' ) should escape a single quote'
- let html1 = '<div id="someDiv"></div>'
- let html2 = '<div id="someDiv"></div>'
- const value = `<div class="className"> 
+// single quotes vs double quotes: Generally, there is no difference between using double or single quotes, as both of them represent a string in the end.
+// There is only one difference in the usage of single and double quotes, and it comes down to what quote character you need to escape using the backslash character (\): \’ or \”
+// "double quotes ( \" ) should escape a double quote"
+// 'single quotes ( \' ) should escape a single quote'
+let html1 = '<div id="someDiv"></div>'
+let html2 = '<div id="someDiv"></div>'
+const value = `<div class="className"> 
                <h1> Loading...</h1> 
                    ${html2}
                    ${html1}
                </div>`
- 
- msnSampleString.search('love')  //return index of search in the string
- msnSampleString.indexOf('love') //return index of search in the string
- msnSampleString.includes('love') //return a boolean value: true or false           
- // indexOf vs search: If your situation requires the use of a regular expression, use the search() method, otherwise; the indexOf() method is more performant.
- // see this links: https://stackoverflow.com/questions/354110/what-is-the-difference-between-indexof-and-search
- 
- // Some slicing methods in strings
- console.log(msnString.slice(4,9))      // (start, end)
- console.log(msnString.slice(2))        
- console.log(msnString.substr(4,9))     // (start, length) deprecated
- console.log(msnString.substring(4,9))  // (start, end)
- // slice vs substr vs substring: https://stackoverflow.com/questions/2243824/what-is-the-difference-between-string-slice-and-string-substring
- 
+
+msnSampleString.search("love") //return index of search in the string
+msnSampleString.indexOf("love") //return index of search in the string
+msnSampleString.includes("love") //return a boolean value: true or false
+// indexOf vs search: If your situation requires the use of a regular expression, use the search() method, otherwise; the indexOf() method is more performant.
+// see this links: https://stackoverflow.com/questions/354110/what-is-the-difference-between-indexof-and-search
+
+// Some slicing methods in strings
+console.log(msnString.slice(4, 9)) // (start, end)
+console.log(msnString.slice(2))
+console.log(msnString.substr(4, 9)) // (start, length) deprecated
+console.log(msnString.substring(4, 9)) // (start, end)
+// slice vs substr vs substring: https://stackoverflow.com/questions/2243824/what-is-the-difference-between-string-slice-and-string-substring
 
 /*
  * Number methods
@@ -1030,7 +1026,7 @@ postBtn.addEventListener("click", postData3)
  * Using Ajax with fetch api & async await
  * =======================================
  * You can find all samples about it in: sample-07-ajax directory
- * 
+ *
  */
 
 /**
@@ -1133,5 +1129,14 @@ showMenu(options)
  * So you can use --watch in your script and run it with "npm run nameOfYourScript"
  * Now with combination of live-server and npm run, you can see your changes instantly after each saving in IDE.
  * See bundle script in package.json file inside sample-05 project
+ *
+ */
+
+/**
+ * problem about trailing slashes in prettier formatter extension
+ * ========================
+ * https://stackoverflow.com/questions/64691612/vscode-is-adding-space-and-slash-in-ending-tag-of-html-code-how-can-i-disable-i
+ * https://stackoverflow.com/questions/50261161/how-do-i-stop-prettier-from-formatting-html-files/66646608#66646608
+ *
  *
  */
