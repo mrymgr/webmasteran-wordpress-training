@@ -216,6 +216,12 @@ https://sparkbox.com/foundry/bem_by_example
   font-size: 1.1rem;
 }
 
+.msn-header__icon {
+  display: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
 .msn-header__link--green {
   background-color: #0e9f30;
   color: white;
@@ -472,12 +478,36 @@ https://sparkbox.com/foundry/bem_by_example
     max-width: 45rem;
   }
 
+  .msn-header__link--blue {
+    display: none;
+  }
+
+  .msn-header__icon {
+    display: block;
+  }
+
 }
 
 /* max-width: 768px */
 @media only screen and (max-width: 48rem) {
   .msn-container {
     max-width: 34rem;
+  }
+
+  .msn-menu {
+    position: fixed;
+    top: 0;
+    left: -256px;
+    bottom: 0;
+    background-color: #fafafa;
+    flex-direction: column;
+    z-index: 99;
+    padding: 1.5rem;
+    transition: .3s all;
+  }
+
+  .msn-menu__item {
+    padding: .5rem;
   }
 
 }
