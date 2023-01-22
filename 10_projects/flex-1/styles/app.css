@@ -294,6 +294,7 @@ https://sparkbox.com/foundry/bem_by_example
   margin-top: 4rem;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .msn-works-content__title {
@@ -385,7 +386,7 @@ https://sparkbox.com/foundry/bem_by_example
 }
 
 .msn-companies {
-  justify-content: space-evenly !important;
+  justify-content: space-evenly;
 }
 
 .msn-companies__image {
@@ -470,6 +471,10 @@ https://sparkbox.com/foundry/bem_by_example
     max-width: 60rem;
   }
 
+  .msn-portfolio-items {
+    justify-content: space-around;
+  }
+
 }
 
 /* max-width: 992px */
@@ -478,7 +483,7 @@ https://sparkbox.com/foundry/bem_by_example
     max-width: 45rem;
   }
 
-  .msn-header__link--blue {
+  .msn-header__contact-us-btn {
     display: none;
   }
 
@@ -486,10 +491,15 @@ https://sparkbox.com/foundry/bem_by_example
     display: block;
   }
 
+  .msn-portfolio__item {
+    flex-basis: 21rem;
+  }
+
 }
 
 /* max-width: 768px */
 @media only screen and (max-width: 48rem) {
+
   .msn-container {
     max-width: 34rem;
   }
@@ -510,12 +520,53 @@ https://sparkbox.com/foundry/bem_by_example
     padding: .5rem;
   }
 
+  .msn-header-content {
+    flex-direction: column-reverse;
+  }
+
+  .header-content__left {
+    padding: 1rem;
+    flex-basis: initial;
+  }
+
+  .header-content__right {
+    flex-basis: initial;
+  }
+
+  .msn-title-section {
+    margin-top: 1rem;
+  }
+
+  .msn-header-content__links {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .msn-header-content__link {
+    margin-bottom: 1rem;
+  }
+
+  .msn-portfolio__item {
+    flex-basis: initial;
+  }
+
 }
 
 /* max-width: 576px */
 @media only screen and (max-width: 36rem) {
+
   .msn-container {
     max-width: 100%;
+  }
+
+  .msn-comments-items__content {
+    margin: 2rem 0.3rem;
+  }
+
+  .msn-companies.msn-comment-items {
+    padding-top: 0;
+    flex-direction: column;
   }
 
 }
