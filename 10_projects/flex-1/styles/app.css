@@ -569,4 +569,30 @@ https://sparkbox.com/foundry/bem_by_example
     flex-direction: column;
   }
 
+  .msn-newsletter__wrapper {
+    flex-direction: column;
+  }
+
+  .msn-newsletter__text {
+    padding-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .msn-newsletter__email {
+    flex-basis: initial;
+  }
+
+  .msn-bottom-footer__wrapper {
+    flex-direction: column;
+  }
+
+  .msn-bottom-footer__left {
+    padding-bottom: .7rem;
+  }
+
+  .msn-bottom-footer__left,
+  .msn-bottom-footer__right {
+    text-align: center;
+  }
+
 }
