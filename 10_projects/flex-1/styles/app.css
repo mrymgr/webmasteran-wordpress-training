@@ -582,6 +582,10 @@ https://sparkbox.com/foundry/bem_by_example
     flex-basis: initial;
   }
 
+  .msn-newsletter__txt {
+    width: 100%;
+  }
+
   .msn-bottom-footer__wrapper {
     flex-direction: column;
   }
